@@ -4,6 +4,7 @@
     # inputs.nix-colors.homeManagerModule
 
     ./firefox.nix
+    ./flameshot.nix
     ./git.nix
     ./vscode.nix
   ];
