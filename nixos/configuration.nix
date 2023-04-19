@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.hostName = "potato";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Dubai";
