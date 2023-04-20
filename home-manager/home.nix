@@ -6,6 +6,7 @@
     ./firefox.nix
     ./flameshot.nix
     ./git.nix
+    ./tealdeer.nix
     ./vscode.nix
   ];
 
