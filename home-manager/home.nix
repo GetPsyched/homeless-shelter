@@ -10,6 +10,7 @@
     ./tealdeer.nix
     ./theme.nix
     ./vscode.nix
+    ./zoyride.nix
   ];
 
   nixpkgs = {
@@ -42,6 +43,12 @@
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;
+  programs.feh.enable = true;
+  home.packages = with pkgs; [
+    dconf
+    dtrx
+    peek
+  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
