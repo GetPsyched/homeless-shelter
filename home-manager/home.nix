@@ -8,6 +8,7 @@
     ./git.nix
     ./konsole.nix
     ./tealdeer.nix
+    ./theme.nix
     ./vscode.nix
   ];
 
