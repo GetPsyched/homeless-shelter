@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/994cd5d1-62c2-4150-b3e2-5ebce6a33fcf";
@@ -21,6 +22,12 @@
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/34D4-7046";
       fsType = "vfat";
+    };
+
+  fileSystems."/run/media/getpsyched/Acer" =
+    { device = "/dev/nvme0n1p3";
+      fsType = "ntfs3"; 
+      options = [ "rw" "uid=1000"];
     };
 
   swapDevices = [ ];
