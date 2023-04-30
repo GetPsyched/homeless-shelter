@@ -24,9 +24,9 @@
       fsType = "vfat";
     };
 
-  fileSystems."/run/media/getpsyched/Acer" =
+  fileSystems."/mnt/poopos" =
     { device = "/dev/nvme0n1p3";
-      fsType = "ntfs3"; 
+      fsType = "ntfs"; 
       options = [ "rw" "uid=1000"];
     };
 
