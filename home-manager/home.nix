@@ -10,7 +10,6 @@
     ./tealdeer.nix
     ./theme.nix
     ./vscode.nix
-    ./zoyride.nix
   ];
 
   nixpkgs = {
