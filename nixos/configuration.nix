@@ -83,6 +83,18 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  environment.shellAliases = {
+    l="ls -alh";
+    ll="ls -l";
+    ls="ls --color=tty";
+
+    gen-test="sudo nixos-rebuild test --flake .#nixos";
+    gen-boot="sudo nixos-rebuild boot --flake .#nixos";
+    gen-switch="sudo nixos-rebuild switch --flake .#nixos";
+    ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    yoink="sudo nix-collect-garbage -d";
+  };
+
   nixpkgs = {
     overlays = [
       # If you want to use overlays exported from other flakes:
