@@ -83,6 +83,13 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  # Adding steam here because it is buggy with Home Manager
+  programs.steam = {    
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   environment.shellAliases = {
     l="ls -alh";
     ll="ls -l";
