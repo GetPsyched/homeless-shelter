@@ -5,6 +5,7 @@
 
     ./firefox.nix
     ./flameshot.nix
+    ./games.nix
     ./git.nix
     ./konsole.nix
     ./tealdeer.nix
