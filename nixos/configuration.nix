@@ -10,21 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-    grub = {
-      efiSupport = true;
-      device = "nodev";
-    };
-  };
-
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Asia/Dubai";
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -95,10 +80,11 @@
     ll="ls -l";
     ls="ls --color=tty";
 
-    gen-test="sudo nixos-rebuild test --flake .#nixos";
-    gen-boot="sudo nixos-rebuild boot --flake .#nixos";
-    gen-switch="sudo nixos-rebuild switch --flake .#nixos";
+    gen-test="sudo nixos-rebuild test --flake .#potato";
+    gen-boot="sudo nixos-rebuild boot --flake .#potato";
+    gen-switch="sudo nixos-rebuild switch --flake .#potato";
     ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    oops="sudo nixos-rebuild switch --rollback";
     yoink="sudo nix-collect-garbage -d";
   };
 
