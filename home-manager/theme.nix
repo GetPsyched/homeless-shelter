@@ -15,9 +15,6 @@
   };
 
   home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-
     name = "Banana";
     package = (pkgs.callPackage ../packages/banana-cursor.nix { });
     size = 48;
