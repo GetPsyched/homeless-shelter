@@ -9,6 +9,7 @@
     ./games.nix
     ./git.nix
     ./konsole.nix
+    ./sway
     ./tealdeer.nix
     ./theme.nix
     ./vscode.nix

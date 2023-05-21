@@ -1,0 +1,93 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Roboto Mono", "RobotoMono Nerd Font";
+    /* min-height: 20px; */
+    font-size: 10px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin-right: 8px;
+    border-radius: 5px;
+    transition: none;
+    background: #383c4a;
+}
+
+#workspaces button {
+    transition: none;
+    color: #7c818c;
+    background: transparent;
+    padding: 0px;
+    /* margin-top: -2px; */
+    /* margin-bottom: -4px; */
+}
+
+#workspaces button.persistent {
+    color: #7c818c;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#workspaces button.focused {
+    color: white;
+}
+
+#mode, #clock, #pulseaudio, #backlight, #battery, #tray {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 5px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+    /* margin-bottom: -2px; */
+}
+
+#pulseaudio, #backlight, #battery {
+    margin-right: 8px;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #ffbe61;
+    color: black;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
