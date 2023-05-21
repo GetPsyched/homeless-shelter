@@ -8,15 +8,7 @@
         tap = "enabled";
         tap_button_map = "lmr";
       };
-      output."eDP-1" = {
-        scale = "2";
-      };
-      fonts = {
-        names = [ "monospace" ];
-        size = 2.0;
-      };
       terminal = "${pkgs.alacritty}/bin/alacritty";
-      startup = [{ command = "${pkgs.keepassxc}/bin/keepassxc"; }];
       window.border = 0;
       bars = [{ id = "bar-0"; mode = "hide"; command = "waybar"; }];
       workspaceLayout = "tabbed";
