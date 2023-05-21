@@ -9,6 +9,14 @@
     hostId = "4bd4bef1";
     hostName = "potato";
     networkmanager.enable = true;
+
+    # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+    # (the default) this is the recommended approach. When using systemd-networkd it's
+    # still possible to use this option, but it's recommended to use it in conjunction
+    # with explicit per-interface declarations with `interfaces.<interface>.useDHCP`.
+    useDHCP = lib.mkDefault true;
+    # interfaces.enp44s0.useDHCP = lib.mkDefault true;
+    # interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   };
 
   boot = {
@@ -20,11 +28,11 @@
     };
 
     initrd = {
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usbhid" ];
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ ];
       luks.devices.crypted = {
-        header = "/dev/nvme0n1p5";
-        device = "/dev/nvme0n1p6";
+        header = "/dev/nvme0n1p6";
+        device = "/dev/nvme0n1p5";
         bypassWorkqueues = true;
       };
       systemd.enable = true;
@@ -45,18 +53,21 @@
         options = [ "defaults" "size=4G" "mode=0755" ];
       };
       esp = device: { inherit device; fsType = "vfat"; };
-      zfs = dataset: { device = dataset; fsType = "zfs"; };
-      forBoot = { neededForBoot = true; };
+      btrfs = subvol: {
+        device = "/dev/mapper/crypted";
+        fsType = "btrfs";
+        options = [ "subvol=${subvol}" ];
+      };
     in
     {
-      "/" = zfs "rpool/root" // forBoot;
-      "/nix" = zfs "rpool/nix" // forBoot;
-      "/boot" = esp "/dev/nvme0n1p7";
-      "/var/cache" = zfs "rpool/cache";
-      "/data/system" = zfs "rpool/data/system";
-      "data/getpsyched" = zfs "rpool/data/getpsyched";
-      "state/system" = zfs "rpool/state/system" // forBoot;
-      "state/getpsyched" = zfs "rpool/state/getpsyched";
+      "/" = btrfs "root";
+      "/nix" = btrfs "nix";
+      "/boot" = esp "/dev/disk/by-uuid/EB44-F831";
+      "/var/cache" = btrfs "cache";
+      "/data/system" = btrfs "data/system";
+      "data/getpsyched" = btrfs "data/getpsyched";
+      "state/system" = btrfs "state/system";
+      "state/getpsyched" = btrfs "state/getpsyched";
 
       "/mnt/poopos" = {
         device = "/dev/nvme0n1p3";
@@ -67,16 +78,7 @@
 
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp44s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-
