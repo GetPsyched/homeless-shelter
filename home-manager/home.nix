@@ -38,6 +38,7 @@
   home = {
     username = "getpsyched";
     homeDirectory = "/home/getpsyched";
+    activation.dconfSettings.enable = false;
   };
 
   programs.feh.enable = true;
