@@ -15,6 +15,19 @@
 
   environment = {
     persistence = {
+      "/data/system" = {
+        directories = [
+          "/etc/nixos"
+          "/etc/NetworkManager"
+          "/var/log/libvirt"
+          "/var/log/private"
+          "/var/log/dnscrypt-proxy"
+          "/var/log/btmp"
+          "/var/log/wtmp"
+          "/var/lib"
+        ];
+      };
+
       "/data/getpsyched" = {
         directories = [
           "/home/getpsyched/git"
