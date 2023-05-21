@@ -21,24 +21,21 @@
           "/etc/NetworkManager"
           "/var/log/libvirt"
           "/var/log/private"
-          "/var/log/dnscrypt-proxy"
-          "/var/log/btmp"
-          "/var/log/wtmp"
           "/var/lib"
         ];
       };
 
       "/data/getpsyched" = {
         directories = [
-          "/home/getpsyched/git"
+          # "/home/getpsyched/git"
         ];
         files = [];
       };
 
       "/data/getpsyched/dotfiles" = {
         directories = [
-          "/home/getpsyched/.cache"
-          "/home/getpsyched/.config"
+          # "/home/getpsyched/.cache"
+          # "/home/getpsyched/.config"
         ];
         files = [];
       };

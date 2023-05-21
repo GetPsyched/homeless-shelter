@@ -6,12 +6,12 @@
     ./dev.nix
     ./firefox.nix
     ./flameshot.nix
-    ./games.nix
+    # ./games.nix
     ./git.nix
     ./konsole.nix
     ./sway
     ./tealdeer.nix
-    ./theme.nix
+    # ./theme.nix
     ./vscode.nix
   ];
 
@@ -38,7 +38,6 @@
   home = {
     username = "getpsyched";
     homeDirectory = "/home/getpsyched";
-    activation.dconfSettings.enable = false;
   };
 
   programs.feh.enable = true;
