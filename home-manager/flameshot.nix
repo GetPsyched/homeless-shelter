@@ -5,7 +5,7 @@
     settings = {
       General = {
         disabledTrayIcon = true;
-        showDesktopNotification=false;
+        showDesktopNotification = false;
         showStartupLaunchMessage = false;
       };
     };
