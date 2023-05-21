@@ -34,6 +34,14 @@
         ];
         files = [];
       };
+
+      "/data/getpsyched/dotfiles" = {
+        directories = [
+          "/home/getpsyched/.cache"
+          "/home/getpsyched/.config"
+        ];
+        files = [];
+      };
     };
 
     shellAliases = {
