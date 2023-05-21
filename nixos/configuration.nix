@@ -8,7 +8,34 @@
     # inputs.hardware.nixosModules.common-ssd
 
     ./hardware-configuration.nix
+
+    # Impermanence
+    inputs.impermanence.nixosModules.impermanence
   ];
+
+  environment = {
+    persistence = {
+      "/data/getpsyched" = {
+        directories = [
+          "/home/getpsyched/git"
+        ];
+        files = [];
+      };
+    };
+
+    shellAliases = {
+      l="ls -alh";
+      ll="ls -l";
+      ls="ls --color=tty";
+
+      gen-test="sudo nixos-rebuild test --flake .#potato";
+      gen-boot="sudo nixos-rebuild boot --flake .#potato";
+      gen-switch="sudo nixos-rebuild switch --flake .#potato";
+      ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      oops="sudo nixos-rebuild switch --rollback";
+      yoink="sudo nix-collect-garbage -d";
+    };
+  };
 
   time.timeZone = "Asia/Dubai";
 
@@ -73,19 +100,6 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-  };
-
-  environment.shellAliases = {
-    l="ls -alh";
-    ll="ls -l";
-    ls="ls --color=tty";
-
-    gen-test="sudo nixos-rebuild test --flake .#potato";
-    gen-boot="sudo nixos-rebuild boot --flake .#potato";
-    gen-switch="sudo nixos-rebuild switch --flake .#potato";
-    ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-    oops="sudo nixos-rebuild switch --rollback";
-    yoink="sudo nix-collect-garbage -d";
   };
 
   nixpkgs = {
