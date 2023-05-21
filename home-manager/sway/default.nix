@@ -71,8 +71,8 @@
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
-    package = pkgs.nordzy-cursor-theme;
-    name = "Nordzy-cursors";
+    name = "Banana";
+    package = (pkgs.callPackage ../../packages/banana-cursor.nix { });
     size = 48;
   };
   services.dunst = {

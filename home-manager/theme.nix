@@ -14,9 +14,9 @@
     };
   };
 
-  home.pointerCursor = {
-    name = "Banana";
-    package = (pkgs.callPackage ../packages/banana-cursor.nix { });
-    size = 48;
-  };
+  # home.pointerCursor = {
+  #   name = "Banana";
+  #   package = (pkgs.callPackage ../packages/banana-cursor.nix { });
+  #   size = 48;
+  # };
 }
