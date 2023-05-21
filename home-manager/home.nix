@@ -40,10 +40,9 @@
     homeDirectory = "/home/getpsyched";
   };
 
-  programs.home-manager.enable = true;
   programs.feh.enable = true;
+  programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    dconf
     dtrx
     peek
   ];
