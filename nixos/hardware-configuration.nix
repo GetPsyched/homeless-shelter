@@ -48,7 +48,7 @@
   fileSystems =
     let
       tmpfs = {
-        device = "/dev/disk/by-uuid/994cd5d1-62c2-4150-b3e2-5ebce6a33fcf";
+        device = "none";
         fsType = "tmpfs";
         options = [ "defaults" "size=4G" "mode=0755" ];
       };
@@ -58,16 +58,17 @@
         fsType = "btrfs";
         options = [ "subvol=${subvol}" ];
       };
+      forBoot = { neededForBoot = true; };
     in
     {
-      "/" = btrfs "root";
-      "/nix" = btrfs "nix";
-      "/boot" = esp "/dev/disk/by-uuid/EB44-F831";
-      "/var/cache" = btrfs "cache";
-      "/data/system" = btrfs "data/system";
-      "data/getpsyched" = btrfs "data/getpsyched";
-      "state/system" = btrfs "state/system";
-      "state/getpsyched" = btrfs "state/getpsyched";
+      "/" = tmpfs // forBoot;
+      "/nix" = btrfs "nix" // forBoot;
+      "/boot" = esp "/dev/disk/by-uuid/EB44-F831" // forBoot;
+      "/var/cache" = btrfs "cache" // forBoot;
+      "/data/system" = btrfs "data/system" // forBoot;
+      "data/getpsyched" = btrfs "data/getpsyched" // forBoot;
+      "state/system" = btrfs "state/system" // forBoot;
+      "state/getpsyched" = btrfs "state/getpsyched" // forBoot;
 
       "/mnt/poopos" = {
         device = "/dev/nvme0n1p3";
