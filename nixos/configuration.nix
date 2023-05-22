@@ -50,8 +50,8 @@
       gen-boot="sudo nixos-rebuild boot --flake .#potato";
       gen-switch="sudo nixos-rebuild switch --flake .#potato";
       ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      epic-fail="sudo nixos-rebuild switch --rollback";
-      disastrous-fail="sudo nixos-rebuild boot --rollback";
+      epic-fail="sudo nixos-rebuild switch --flake .#potato --rollback";
+      disastrous-fail="sudo nixos-rebuild boot --flake .#potato --rollback";
       yoink="sudo nix-collect-garbage -d";
     };
   };
