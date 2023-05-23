@@ -97,8 +97,9 @@ in
   ];
 
   settings = {
+    "browser.toolbars.bookmarks.visibility" = "always";
+    "browser.startup.page" = 3; # restore
     "distribution.searchplugins.defaultLocale" = "en-GB";
     "general.useragent.locale" = "en-GB";
-    "browser.bookmarks.showMobileBookmarks" = true;
   };
 }
