@@ -37,6 +37,12 @@
         ];
         files = [];
       };
+
+      "/var/cache" = {
+        directories = [
+          "/home/getpsyched/.cache/tealdeer"
+        ];
+      };
     };
 
     shellAliases = {
