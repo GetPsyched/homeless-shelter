@@ -4,7 +4,7 @@
     # inputs.nix-colors.homeManagerModule
 
     ./dev.nix
-    ./firefox.nix
+    ../getpsyched/firefox
     ./flameshot.nix
     # ./games.nix
     ./git.nix
