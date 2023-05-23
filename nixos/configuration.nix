@@ -103,7 +103,7 @@
   # services.xserver.libinput.enable = true;
 
   users.users.getpsyched = {
-    initialPassword = "9819";
+    initialPassword = "test";
     isNormalUser = true;
     description = "Priyanshu";
     extraGroups = [ "networkmanager" "wheel" ];
