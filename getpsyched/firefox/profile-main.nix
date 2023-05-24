@@ -119,7 +119,11 @@ in
   ];
 
   settings = {
-    "browser.toolbars.bookmarks.visibility" = "always";
+    # Dark mode
+    "browser.theme.content-theme" = 0;
+    "browser.theme.toolbar-theme" = 0;
+    "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+
     "browser.startup.page" = 3; # restore
     "distribution.searchplugins.defaultLocale" = "en-GB";
     "general.useragent.locale" = "en-GB";
