@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = [ github-cli ];
+  home.packages = [ pkgs.github-cli ];
 
   programs.git = {
     enable = true;
