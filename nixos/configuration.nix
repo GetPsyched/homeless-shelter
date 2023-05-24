@@ -53,7 +53,7 @@
       ls="ls --color=tty";
 
       gen-test="sudo nixos-rebuild test --flake .#potato";
-      gen-boot="sudo nixos-rebuild boot --flake .#potato";
+      gen-boot="sudo nixos-rebuild boot --flake .#potato && reboot";
       gen-switch="sudo nixos-rebuild switch --flake .#potato";
       ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       epic-fail="sudo nixos-rebuild switch --flake .#potato --rollback";
