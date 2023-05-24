@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  home.packages = [ github-cli ];
+
   programs.git = {
     enable = true;
     userName = "GetPsyched";
