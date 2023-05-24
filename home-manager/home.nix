@@ -3,16 +3,13 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
 
-    ./dev.nix
     ../getpsyched/browser
+    ../getpsyched/dev
     ./flameshot.nix
     # ./games.nix
-    ./git.nix
     ./konsole.nix
     ./sway
-    ./tealdeer.nix
     # ./theme.nix
-    ./vscode.nix
   ];
 
   nixpkgs = {
