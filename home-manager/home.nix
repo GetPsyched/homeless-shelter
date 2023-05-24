@@ -40,6 +40,10 @@
     homeDirectory = "/home/getpsyched";
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.feh.enable = true;
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
