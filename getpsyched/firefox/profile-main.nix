@@ -14,6 +14,10 @@ in
   search = {
     default = "DuckDuckGo";
     engines = {
+      "Bing".metaData.hidden = true;
+      "Google".metaData.alias = "@g";
+      "DuckDuckGo".metaData.alias = "@ddg";
+
       "Nix Packages" = {
         urls = [{
           template = "https://search.nixos.org/packages";
@@ -33,15 +37,11 @@ in
         updateInterval = 24 * 60 * 60 * 1000; # every day
         definedAliases = [ "@nw" ];
       };
-
-      "Google".metaData.alias = "@g";
-      "DuckDuckGo".metaData.alias = "@ddg";
     };
     force = true;
     order = [
       "DuckDuckGo"
       "Google"
-      "Nix Packages"
     ];
   };
 
