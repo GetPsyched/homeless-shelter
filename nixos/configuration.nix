@@ -33,6 +33,7 @@
       "/state/getpsyched" = {
         directories = [
           "/home/getpsyched/.mozilla"
+          "/home/getpsyched/.steam"
           "/home/getpsyched/.vscode"
           "/home/getpsyched/.config/Code"
         ];
