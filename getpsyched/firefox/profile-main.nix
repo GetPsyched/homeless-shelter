@@ -38,6 +38,17 @@ in
         updateInterval = 24 * 60 * 60 * 1000; # every day
         definedAliases = [ "@nw" ];
       };
+
+      "Source Graph" = {
+        urls = [{
+          template = "https://sourcegraph.com/search";
+          params = [
+            { name = "q"; value = "context:@maan2003/nix {searchTerms}"; }
+            { name = "groupBy"; value = "repo"; }
+          ];
+        }];
+        definedAliases = [ "@sg" ];
+      };
     };
     force = true;
     order = [
