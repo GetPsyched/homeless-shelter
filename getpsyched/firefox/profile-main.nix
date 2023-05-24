@@ -126,6 +126,7 @@ in
 
     "browser.startup.page" = 3; # restore
     "distribution.searchplugins.defaultLocale" = "en-GB";
+    "drm" = true;
     "general.useragent.locale" = "en-GB";
   };
 }
