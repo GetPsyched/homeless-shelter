@@ -34,6 +34,7 @@
         directories = [
           "/home/getpsyched/.mozilla"
           "/home/getpsyched/.vscode"
+          "/home/getpsyched/.config/Code"
         ];
         files = [];
       };
