@@ -18,6 +18,16 @@ in
       "Google".metaData.alias = "@g";
       "DuckDuckGo".metaData.alias = "@ddg";
 
+      "Library Genesis" = {
+        urls = [
+          { template = "https://libgen.rs/search.php?req={searchTerms}"; } # non-fiction
+          { template = "https://libgen.rs/fiction/?q={searchTerms}"; } # fiction
+          { template = "https://libgen.rs/scimag/?q={searchTerms}"; } # scientific articles
+          { template = "https://magzdb.org/makelist?t={searchTerms}"; } # magazines
+        ];
+        definedAliases = [ "@libgen" ];
+      };
+
       "Nix Packages" = {
         urls = [{
           template = "https://search.nixos.org/packages";
