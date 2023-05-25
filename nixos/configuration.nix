@@ -12,32 +12,42 @@
 
   environment = {
     persistence = {
-      "/data/system" = {
+      "/persist/data" = {
+        users.getpsyched = {
+          directories = [
+            "git"
+            ".ssh"
+          ];
+        };
+      };
+
+      "/persist/data/system" = {
         directories = [
           "/etc/nixos"
-          "/etc/NetworkManager"
           "/var/log/libvirt"
           "/var/log/private"
           "/var/lib"
         ];
       };
 
-      "/data/getpsyched" = {
-        directories = [
-          "/home/getpsyched/git"
-          "/home/getpsyched/.ssh"
-        ];
-        files = [];
+      "/persist/state" = {
+        users.getpsyched = {
+          directories = [
+            ".mozilla"
+            ".steam"
+            ".vscode"
+            ".config/Code"
+          ];
+          files = [
+            ".local/share/nix/trusted-settings.json"
+          ];
+        };
       };
 
-      "/state/getpsyched" = {
+      "/persist/state/system" = {
         directories = [
-          "/home/getpsyched/.mozilla"
-          "/home/getpsyched/.steam"
-          "/home/getpsyched/.vscode"
-          "/home/getpsyched/.config/Code"
+          "/etc/NetworkManager"
         ];
-        files = [];
       };
 
       "/var/cache" = {
@@ -111,7 +121,7 @@
   # services.xserver.libinput.enable = true;
 
   users.users.getpsyched = {
-    initialPassword = "test";
+    initialPassword = "9819";
     isNormalUser = true;
     description = "Priyanshu";
     extraGroups = [ "networkmanager" "wheel" ];
