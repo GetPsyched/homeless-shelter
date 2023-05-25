@@ -66,9 +66,9 @@
       "/boot" = esp "/dev/disk/by-uuid/EB44-F831" // forBoot;
       "/var/cache" = btrfs "cache" // forBoot;
       "/persist/data/system" = btrfs "data/system" // forBoot;
-      "/persist/data/home/getpsyched" = btrfs "data/getpsyched" // forBoot;
+      "/persist/data" = btrfs "data/getpsyched" // forBoot;
       "/persist/state/system" = btrfs "state/system" // forBoot;
-      "/persist/state/home/getpsyched" = btrfs "state/getpsyched" // forBoot;
+      "/persist/state" = btrfs "state/getpsyched" // forBoot;
 
       "/mnt/poopos" = {
         device = "/dev/nvme0n1p3";
