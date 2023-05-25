@@ -24,8 +24,6 @@
       "/persist/data/system" = {
         directories = [
           "/etc/nixos"
-          "/var/log/libvirt"
-          "/var/log/private"
           "/var/lib"
         ];
       };
@@ -121,7 +119,7 @@
   # services.xserver.libinput.enable = true;
 
   users.users.getpsyched = {
-    initialPassword = "9819";
+    initialPassword = "test";
     isNormalUser = true;
     description = "Priyanshu";
     extraGroups = [ "networkmanager" "wheel" ];
