@@ -8,8 +8,6 @@
 
     aliases = {
       amend = "commit --amend --no-edit";
-      # TODO: convert `upstream` and `master` to variables
-      catch-up = "git fetch upstream && git rebase upstream/master && git push";
       epic-fail = "reset HEAD~1";
     };
 
