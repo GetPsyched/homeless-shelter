@@ -31,10 +31,11 @@
       "/persist/state" = {
         users.getpsyched = {
           directories = [
+            ".config/Code"
+            ".local/share/direnv/allow"
             ".mozilla"
             ".steam"
             ".vscode"
-            ".config/Code"
           ];
           files = [
             ".local/share/nix/trusted-settings.json"

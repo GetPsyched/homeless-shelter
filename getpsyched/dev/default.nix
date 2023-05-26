@@ -2,6 +2,7 @@
 {
   imports = [
     ./git.nix
+    ./shell.nix
     ./tealdeer.nix
     ./vscode.nix
   ];
