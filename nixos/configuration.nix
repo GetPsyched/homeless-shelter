@@ -15,8 +15,8 @@
       "/persist/data" = {
         users.getpsyched = {
           directories = [
-            "git"
             ".ssh"
+            "git"
           ];
         };
       };
