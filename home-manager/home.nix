@@ -4,11 +4,7 @@
     # inputs.nix-colors.homeManagerModule
 
     ../getpsyched
-    ./flameshot.nix
     # ./games.nix
-    ./konsole.nix
-    ./sway
-    # ./theme.nix
   ];
 
   nixpkgs = {

@@ -3,5 +3,6 @@
   imports = [
     ./browser
     ./dev
+    ./gui
   ];
 }

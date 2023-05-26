@@ -64,7 +64,7 @@
     x11.enable = true;
     gtk.enable = true;
     name = "Banana";
-    package = (pkgs.callPackage ../../packages/banana-cursor.nix { });
+    package = (pkgs.callPackage ../../../packages/banana-cursor.nix { });
     size = 48;
   };
   services.dunst = {
