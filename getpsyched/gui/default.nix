@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./flameshot.nix
+    ./screen-capture.nix
     ./konsole.nix
     ./sway
     # ./theme.nix

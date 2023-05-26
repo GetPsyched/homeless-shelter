@@ -40,7 +40,6 @@
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     dtrx
-    peek
   ];
 
   systemd.user.services.flameshot.Unit.After = [

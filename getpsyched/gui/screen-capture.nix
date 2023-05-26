@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  home.packages = [ pkgs.peek ];
+
   services.flameshot = {
     enable = true;
 
