@@ -4,5 +4,7 @@
     ./browser
     ./dev
     ./gui
+
+    ./games.nix
   ];
 }
