@@ -21,6 +21,14 @@
         };
       };
 
+      "/persist/data/bigdata" = {
+        users.getpsyched = {
+          directories = [
+            ".local/share/Steam"
+          ];
+        };
+      };
+
       "/persist/data/system" = {
         directories = [
           "/etc/nixos"
