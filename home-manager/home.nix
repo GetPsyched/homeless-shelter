@@ -34,9 +34,6 @@
 
   programs.feh.enable = true;
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [
-    dtrx
-  ];
 
   systemd.user.services.flameshot.Unit.After = [
     "graphical-session-pre.target"
