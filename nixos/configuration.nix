@@ -43,6 +43,7 @@
           directories = [
             ".config/Code"
             ".local/share/direnv/allow"
+            ".minecraft"
             ".mozilla"
             ".steam"
             ".vscode"
