@@ -60,7 +60,7 @@
 
       "/var/cache" = {
         directories = [
-          "/home/getpsyched/.cache/tealdeer"
+          "/home/getpsyched/.cache"
         ];
       };
     };
