@@ -27,6 +27,7 @@
           directories = [
             ".local/share/Steam"
             ".osu"
+            "Games"
           ];
         };
       };
