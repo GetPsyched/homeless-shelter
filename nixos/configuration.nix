@@ -25,6 +25,7 @@
         users.getpsyched = {
           directories = [
             ".local/share/Steam"
+            ".osu"
           ];
         };
       };
