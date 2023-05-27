@@ -16,6 +16,7 @@
         users.getpsyched = {
           directories = [
             ".ssh"
+            "backgrounds"
             "git"
           ];
         };
