@@ -28,6 +28,7 @@
             ".local/share/Steam"
             ".osu"
             "Games"
+            "My Games"
           ];
         };
       };
@@ -43,6 +44,7 @@
         users.getpsyched = {
           directories = [
             ".config/Code"
+            ".config/legendary"
             ".local/share/direnv/allow"
             ".minecraft"
             ".mozilla"
