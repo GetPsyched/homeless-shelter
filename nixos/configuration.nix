@@ -5,6 +5,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     ./hardware-configuration.nix
+    ../system/nvidia.nix
 
     # Impermanence
     inputs.impermanence.nixosModules.impermanence
