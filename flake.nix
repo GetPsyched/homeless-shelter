@@ -11,6 +11,7 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
