@@ -19,10 +19,6 @@
 
   programs.home-manager.enable = true;
 
-  systemd.user.services.flameshot.Unit.After = [
-    "graphical-session-pre.target"
-  ];
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 }
