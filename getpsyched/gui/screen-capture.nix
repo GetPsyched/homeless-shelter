@@ -12,8 +12,4 @@
       };
     };
   };
-
-  systemd.user.services.flameshot.Unit.After = [
-    "graphical-session-pre.target"
-  ];
 }
