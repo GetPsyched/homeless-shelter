@@ -23,7 +23,7 @@
           home-manager.extraSpecialArgs = { inherit inputs; };
           # home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.getpsyched.imports = [ ./home-manager/home.nix ];
+          home-manager.users.getpsyched.imports = [ ./getpsyched ];
         }
       ];
     };
