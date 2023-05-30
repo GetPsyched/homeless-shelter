@@ -1,6 +1,6 @@
-# dry-run this config
+# list all the available recipes
 default:
-    sudo nixos-rebuild dry-activate --flake .#potato
+    @just --list --unsorted
 
 # format all nix files
 format:
