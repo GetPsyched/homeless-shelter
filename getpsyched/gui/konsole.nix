@@ -10,7 +10,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    (runCommand "utterly-sweet-theme" {} ''
+    (runCommand "utterly-sweet-theme" { } ''
       mkdir -p $out/share/konsole
       cp ${utterly-sweet-theme}/Utterly-Sweet-Konsole.colorscheme $out/share/konsole/Utterly-Sweet.colorscheme
     '')

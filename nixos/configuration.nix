@@ -72,17 +72,17 @@
     };
 
     shellAliases = {
-      l="ls -alh";
-      ll="ls -l";
-      ls="ls --color=tty";
+      l = "ls -alh";
+      ll = "ls -l";
+      ls = "ls --color=tty";
 
-      gen-test="sudo nixos-rebuild test --flake .#potato";
-      gen-boot="sudo nixos-rebuild boot --flake .#potato && reboot";
-      gen-switch="sudo nixos-rebuild switch --flake .#potato";
-      ls-gen="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      epic-fail="sudo nixos-rebuild switch --flake .#potato --rollback";
-      disastrous-fail="sudo nixos-rebuild boot --flake .#potato --rollback";
-      yoink="sudo nix-collect-garbage -d";
+      gen-test = "sudo nixos-rebuild test --flake .#potato";
+      gen-boot = "sudo nixos-rebuild boot --flake .#potato && reboot";
+      gen-switch = "sudo nixos-rebuild switch --flake .#potato";
+      ls-gen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      epic-fail = "sudo nixos-rebuild switch --flake .#potato --rollback";
+      disastrous-fail = "sudo nixos-rebuild boot --flake .#potato --rollback";
+      yoink = "sudo nix-collect-garbage -d";
     };
   };
 
@@ -190,8 +190,8 @@
       auto-optimise-store = true;
 
       # Setup Cachix to avoid building packages (useful for wine)
-      substituters = ["https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+      substituters = [ "https://nix-gaming.cachix.org" ];
+      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
     };
   };
 
