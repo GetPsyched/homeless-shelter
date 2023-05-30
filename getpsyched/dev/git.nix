@@ -11,6 +11,8 @@
       epic-fail = "reset HEAD~1";
     };
 
+    ignores = [ ".direnv" ];
+
     extraConfig = {
       commit.gpgsign = true;
       gpg.format = "ssh";
