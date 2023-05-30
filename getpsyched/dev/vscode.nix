@@ -9,6 +9,7 @@
       github.copilot
       matklad.rust-analyzer
       ms-pyright.pyright
+      ms-python.python
     ];
   };
 }

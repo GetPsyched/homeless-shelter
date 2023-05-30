@@ -11,6 +11,7 @@
     gcc
     nodejs
     postman
+    python3
     rustup
     sqlitebrowser
   ];
