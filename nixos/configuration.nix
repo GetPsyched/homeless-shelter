@@ -184,10 +184,9 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
       auto-optimise-store = true;
+      experimental-features = "nix-command flakes";
+      warn-dirty = false;
 
       # Setup Cachix to avoid building packages (useful for wine)
       substituters = [ "https://nix-gaming.cachix.org" ];
