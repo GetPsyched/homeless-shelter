@@ -62,7 +62,7 @@
       forBoot = { neededForBoot = true; };
     in
     {
-      "/" = tmpfs // forBoot;
+      "/" = tmpfs;
       "/nix" = btrfs "nix" // forBoot;
       "/boot" = esp "/dev/disk/by-uuid/EB44-F831" // forBoot;
       "/var/cache" = btrfs "cache" // forBoot;
