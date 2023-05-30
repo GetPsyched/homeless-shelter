@@ -18,6 +18,13 @@ in
       "Google".metaData.alias = "@g";
       "DuckDuckGo".metaData.alias = "@ddg";
 
+      "discord.py" = let version = "latest"; in {
+        urls = [{
+          template = "https://discordpy.readthedocs.io/en/${version}/search.html?q={searchTerms}";
+        }];
+        definedAliases = [ "@dpy" ];
+      };
+
       "Library Genesis" = {
         urls = [
           { template = "https://libgen.rs/search.php?req={searchTerms}"; } # non-fiction
