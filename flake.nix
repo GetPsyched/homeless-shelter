@@ -34,7 +34,7 @@
         ];
       };
       devShell.${system} = with pkgs; mkShell {
-        buildInputs = [ nixpkgs-fmt ];
+        buildInputs = [ nixpkgs-fmt just ];
       };
     };
 }
