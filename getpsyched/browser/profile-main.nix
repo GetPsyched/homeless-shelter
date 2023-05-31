@@ -131,6 +131,7 @@
     "browser.theme.content-theme" = 0;
     "browser.theme.toolbar-theme" = 0;
     "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+    "layout.css.prefers-color-scheme.content-override" = 0;
 
     "browser.startup.page" = 3; # restore
     "distribution.searchplugins.defaultLocale" = "en-GB";
