@@ -1,14 +1,4 @@
 { pkgs, ff-addons }:
-let
-  nksss-gh-url = "https://github.com/NIT-KKR-Student-Support-System";
-  dpy-docs-url = "https://discordpy.readthedocs.io/en/latest";
-  # https://nixos.org/guides/nix-pills/functions-and-imports.html
-  # nksss-gh = { name, project }: {
-  #   name = name;
-  #   url = "${nksss-gh-url}/${project}";
-  #   toolbar = true;
-  # };
-in
 {
   isDefault = true;
   search = {
@@ -86,33 +76,44 @@ in
     }
     {
       name = "nksss";
-      bookmarks = [
-        # nksss-gh { name = "gh-main"; project = ""; }
-        # nksss-gh "gh-main" "atlas"
-        # nksss-gh "gh-main" "breadboard"
-        # nksss-gh "gh-main" "project-hyperlink"
-        # nksss-gh "gh-main" "website"
-        { name = "gh-main"; url = "${nksss-gh-url}"; }
-        { name = "gh-atlas"; url = "${nksss-gh-url}/atlas"; }
-        { name = "gh-breadboard"; url = "${nksss-gh-url}/breadboard"; }
-        { name = "gh-project-hyperlink"; url = "${nksss-gh-url}/project-hyperlink"; }
-        { name = "gh-website"; url = "${nksss-gh-url}/website"; }
-        { }
-        { name = "nkss-drive"; url = "https://drive.google.com/drive/folders/1U2taK5kEhOiUJi70ZkU2aBWY83uVuMmD"; }
-        { name = "railway"; url = "https://railway.app/project/69531a0b-78b7-4a71-9df4-3a8db9703b69"; }
-        { name = "design"; url = "https://www.figma.com/file/RbT3UiwKwbN71GwU8Zz5HS/NKSSS?node-id=321%3A154"; }
-      ];
+      bookmarks =
+        let
+          base-url = "https://github.com/NIT-KKR-Student-Support-System";
+          github = name: project: {
+            inherit name;
+            url = "${base-url}/${project}";
+          };
+        in
+        [
+          (github "gh-main" "")
+          (github "gh-atlas" "atlas")
+          (github "gh-breadboard" "breadboard")
+          (github "gh-project-hyperlink" "project-hyperlink")
+          (github "gh-website" "website")
+          { name = "nkss-drive"; url = "https://drive.google.com/drive/folders/1U2taK5kEhOiUJi70ZkU2aBWY83uVuMmD"; }
+          { name = "railway"; url = "https://railway.app/project/69531a0b-78b7-4a71-9df4-3a8db9703b69"; }
+          { name = "design"; url = "https://www.figma.com/file/RbT3UiwKwbN71GwU8Zz5HS/NKSSS?node-id=321%3A154"; }
+        ];
+      toolbar = true;
     }
     {
       name = "discord.py";
       bookmarks = [
-        { name = "main"; url = "${dpy-docs-url}/api.html"; }
-        { name = "interactions"; url = "${dpy-docs-url}/interactions/api.html"; }
-        { name = "ext/commands"; url = "${dpy-docs-url}/ext/commands/api.html"; }
-        { name = "ext/tasks"; url = "${dpy-docs-url}/ext/tasks/index.html"; }
-        { }
         { name = "repo"; url = "https://github.com/Rapptz/discord.py"; }
         { name = "bot"; url = "https://github.com/Rapptz/RoboDanny"; }
+        {
+          name = "docs";
+          bookmarks =
+            let
+              base-url = "https://discordpy.readthedocs.io/en/latest";
+            in
+            [
+              { name = "main"; url = "${base-url}/api.html"; }
+              { name = "interactions"; url = "${base-url}/interactions/api.html"; }
+              { name = "ext/commands"; url = "${base-url}/ext/commands/api.html"; }
+              { name = "ext/tasks"; url = "${base-url}/ext/tasks/index.html"; }
+            ];
+        }
       ];
     }
     {
