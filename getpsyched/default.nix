@@ -6,6 +6,7 @@
     ./gui
 
     ./games.nix
+    ./thunderbird.nix
   ];
 
   home = {
