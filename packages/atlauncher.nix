@@ -28,9 +28,7 @@ stdenv.mkDerivation rec {
       makeWrapper ${jre}/bin/java $out/bin/atlauncher \
         --add-flags "-jar $src --working-dir=\$HOME/.atlauncher" \
         --suffix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}" ${
-            if withSteamRun
-            then ''--run "${steamrun} \\"''
-            else ""
+            lib.strings.optionalString withSteamRun ''--run "${steamrun} \\"''
           }
       runHook postInstall
     '';
