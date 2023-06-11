@@ -1,4 +1,4 @@
-{ fetchurl, jre, lib, makeWrapper, stdenv }:
+{ copyDesktopItems, fetchurl, jre, lib, makeDesktopItem, makeWrapper, stdenv }:
 
 stdenv.mkDerivation rec {
   pname = "atlauncher";
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [ copyDesktopItems makeWrapper ];
 
   installPhase = ''
     runHook preInstall
@@ -20,6 +20,16 @@ stdenv.mkDerivation rec {
       --add-flags "-jar $src --working-dir=\$HOME/.atlauncher"
     runHook postInstall
   '';
+
+  desktopItems = [
+    (makeDesktopItem {
+      name = pname;
+      exec = pname;
+      icon = pname;
+      desktopName = "ATLauncher";
+      categories = [ "Game" ];
+    })
+  ];
 
   meta = with lib; {
     description = "A simple and easy to use Minecraft launcher which contains many different modpacks for you to choose from and play";
