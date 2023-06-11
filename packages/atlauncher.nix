@@ -1,4 +1,4 @@
-{ copyDesktopItems, fetchurl, jre, lib, makeDesktopItem, makeWrapper, stdenv }:
+{ copyDesktopItems, fetchurl, jre, lib, makeDesktopItem, makeWrapper, stdenv, steam-run, withSteamRun ? true, writeShellScript }:
 
 stdenv.mkDerivation rec {
   pname = "atlauncher";
@@ -11,15 +11,29 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
 
+  buildInputs = [ ];
   nativeBuildInputs = [ copyDesktopItems makeWrapper ];
 
-  installPhase = ''
-    runHook preInstall
-    mkdir -p $out/bin
-    makeWrapper ${jre}/bin/java $out/bin/atlauncher \
-      --add-flags "-jar $src --working-dir=\$HOME/.atlauncher"
-    runHook postInstall
-  '';
+  installPhase =
+    let
+      # hack to use steam-run along with the exec
+      steamrun = writeShellScript "steamrun" ''
+        shift
+        exec ${steam-run}/bin/steam-run "''$@"
+      '';
+    in
+    ''
+      runHook preInstall
+      mkdir -p $out/bin
+      makeWrapper ${jre}/bin/java $out/bin/atlauncher \
+        --add-flags "-jar $src --working-dir=\$HOME/.atlauncher" \
+        --suffix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}" ${
+            if withSteamRun
+            then ''--run "${steamrun} \\"''
+            else ""
+          }
+      runHook postInstall
+    '';
 
   desktopItems = [
     (makeDesktopItem {
