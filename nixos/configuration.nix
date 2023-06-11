@@ -26,6 +26,7 @@
       "/persist/data/bigdata" = {
         users.getpsyched = {
           directories = [
+            ".atlauncher"
             ".local/share/Steam"
             ".osu"
             "Games"
@@ -128,7 +129,7 @@
   };
 
   # Adding steam here because it is buggy with Home Manager
-  programs.steam = {    
+  programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;

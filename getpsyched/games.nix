@@ -1,7 +1,7 @@
 { pkgs, config, inputs, ... }: {
   home.packages = [
     pkgs.gamemode
-    pkgs.minecraft
+    (pkgs.callPackage ../packages/atlauncher.nix { })
 
     # Can also use pkgs.osu-lazer-bin
     inputs.nix-gaming.packages.${pkgs.system}.osu-stable
