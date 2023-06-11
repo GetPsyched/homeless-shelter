@@ -1,11 +1,8 @@
 { fetchurl, jre, lib, makeWrapper, stdenv }:
 
-let
-  version = "3.4.28.1";
-in
 stdenv.mkDerivation rec {
   pname = "atlauncher";
-  inherit version;
+  version = "3.4.28.1";
 
   src = fetchurl {
     url = "https://github.com/ATLauncher/ATLauncher/releases/download/v${version}/ATLauncher-${version}.jar";
