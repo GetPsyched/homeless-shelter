@@ -25,7 +25,10 @@ stdenv.mkDerivation rec {
     (makeDesktopItem {
       name = pname;
       exec = pname;
-      icon = pname;
+      icon = fetchurl {
+        url = "https://avatars.githubusercontent.com/u/7068667";
+        sha256 = "sha256-YmEkxf4rZxN3jhiib0UtdUDDcn9lw7IMbiEucBL7b9o=";
+      };
       desktopName = "ATLauncher";
       categories = [ "Game" ];
     })
