@@ -14,9 +14,11 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/bin
     makeWrapper ${jre}/bin/java $out/bin/atlauncher \
       --add-flags "-jar $src --working-dir=\$HOME/.atlauncher"
+    runHook postInstall
   '';
 
   meta = with lib; {
