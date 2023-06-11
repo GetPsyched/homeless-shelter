@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
     downloadPage = "https://atlauncher.com/downloads";
     homepage = "https://atlauncher.com/";
     license = licenses.gpl3;
-    platforms = platforms.all;
     maintainers = [ maintainers.getpsyched ];
+    platforms = platforms.all;
   };
 }
