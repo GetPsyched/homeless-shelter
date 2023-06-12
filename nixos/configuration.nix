@@ -50,6 +50,7 @@
             ".local/share/direnv/allow"
             ".minecraft"
             ".mozilla"
+            ".railway"
             ".steam"
             ".vscode"
           ];

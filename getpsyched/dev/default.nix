@@ -12,6 +12,7 @@
     nodejs
     postman
     python3
+    railway
     rustup
     sqlitebrowser
   ];
