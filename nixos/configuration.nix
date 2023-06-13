@@ -51,6 +51,7 @@
             ".minecraft"
             ".mozilla"
             ".railway"
+            ".rustup"
             ".steam"
             ".vscode"
           ];
