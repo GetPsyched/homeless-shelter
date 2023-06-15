@@ -4,6 +4,7 @@
     ./git.nix
     ./shell.nix
     ./tealdeer.nix
+    ./terminal.nix
     ./vscode.nix
   ];
 
