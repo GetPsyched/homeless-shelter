@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   imports = [
+    ./editor.nix
     ./git.nix
     ./shell.nix
     ./tealdeer.nix
     ./terminal.nix
-    ./vscode.nix
   ];
 
   home.packages = with pkgs; [
