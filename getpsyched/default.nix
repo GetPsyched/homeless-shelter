@@ -7,6 +7,7 @@
 
     ./games.nix
     ./thunderbird.nix
+    ./wine.nix
   ];
 
   home = {
