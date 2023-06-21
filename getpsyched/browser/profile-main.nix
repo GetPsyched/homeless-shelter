@@ -7,6 +7,7 @@
     sidebery
     sponsorblock
     stylus
+    tampermonkey
     temporary-containers
     ublock-origin
   ];
