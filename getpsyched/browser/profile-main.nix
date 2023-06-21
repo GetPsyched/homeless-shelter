@@ -148,6 +148,8 @@
     "general.useragent.locale" = "en-GB";
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+    "browser.uidensity" = 1;
+
     # sidebery
     "sidebar.position_start" = false; # sidebar on right side
   };
