@@ -1,6 +1,13 @@
 { pkgs, ff-addons }:
 {
   isDefault = true;
+  extensions = with ff-addons; [
+    darkreader
+    sponsorblock
+    stylus
+    temporary-containers
+    ublock-origin
+  ];
   search = {
     default = "DuckDuckGo";
     engines = {

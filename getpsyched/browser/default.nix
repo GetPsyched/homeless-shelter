@@ -1,12 +1,8 @@
 { pkgs, inputs, ... }:
 let
-  # system = "x86_64-linux";
-  # ff-addons = inputs.ff-addons.packages.${system};
+  ff-addons = inputs.ff-addons.packages.${pkgs.system};
   profiles = {
-    main = import ./profile-main.nix {
-      inherit pkgs;
-      ff-addons = inputs.ff-addons.packages.${pkgs.system};
-    };
+    main = import ./profile-main.nix { inherit pkgs; inherit ff-addons; };
   };
 in
 {

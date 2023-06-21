@@ -8,6 +8,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    ff-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    ff-addons.inputs.nixpkgs.follows = "nixpkgs";
+
     hardware.url = "github:nixos/nixos-hardware";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
