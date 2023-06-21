@@ -3,6 +3,7 @@
   isDefault = true;
   extensions = with ff-addons; [
     darkreader
+    sidebery
     sponsorblock
     stylus
     temporary-containers
@@ -144,5 +145,9 @@
     "distribution.searchplugins.defaultLocale" = "en-GB";
     "drm" = true;
     "general.useragent.locale" = "en-GB";
+    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+    # sidebery
+    "sidebar.position_start" = false; # sidebar on right side
   };
 }
