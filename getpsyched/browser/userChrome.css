@@ -1,0 +1,60 @@
+/* no tabs, we have vertical tabs */
+#TabsToolbar{ visibility: collapse !important }
+
+/* no sidebar extra ui */
+#sidebar-header, #sidebar-splitter { display: none }
+
+/* hide sidebar when full screen */
+#main-window[sizemode="fullscreen"] #sidebar-box{ --uc-sidebar-width: 1px; }
+
+/* somehow related to expansion */
+#sidebar-box[positionend]{ direction: rtl }
+#sidebar-box[positionend] > *{ direction: ltr }
+
+#sidebar-box{
+  --uc-sidebar-width: 32px;
+  --uc-sidebar-hover-width: 300px;
+  position: relative;
+  min-width: var(--uc-sidebar-width) !important;
+  max-width: var(--uc-sidebar-width) !important;
+}
+
+#sidebar{
+  transition: min-width 200ms linear !important;
+  transition-delay: 100ms !important; /* 100ms before hide */
+  min-width: var(--uc-sidebar-width) !important;
+  will-change: min-width;
+}
+
+/* sidebar box hover or selected by vimfx */
+#sidebar-box:hover > #sidebar, #sidebar-box.sidebar-selected > #sidebar { 
+  min-width: var(--uc-sidebar-hover-width) !important; 
+  transition-delay: 200ms !important; /* 200ms before show */
+}
+
+#navigator-toolbox{
+  display: block;
+  transition: 200ms margin-top linear !important;
+  transition-delay: 0 !important;
+  margin-top: -33px; /* hide by default */
+}
+
+/* extend nav-bar to full size */
+#nav-bar {
+  min-width: 100% !important;;
+}
+/* show when focused or hover or vim enabled */
+#navigator-toolbox:focus-within,
+#navigator-toolbox:hover,
+#navigator-toolbox[vim_visible] {
+  margin-top: 0;
+}
+#navigator-toolbox:hover:not(:focus-within) {
+  transition-delay: 400ms !important;
+}
+
+/* my font */
+* {
+    font-family: monospace;
+    font-size: 14px;
+}

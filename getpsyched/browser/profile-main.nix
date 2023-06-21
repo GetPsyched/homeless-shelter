@@ -1,6 +1,7 @@
 { pkgs, ff-addons }:
 {
   isDefault = true;
+  userChrome = builtins.readFile ./userChrome.css;
   extensions = with ff-addons; [
     darkreader
     sidebery
