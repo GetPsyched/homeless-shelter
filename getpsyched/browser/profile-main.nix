@@ -35,6 +35,12 @@
         definedAliases = [ "@libgen" ];
       };
 
+      "Nix" = {
+        urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
+        iconUpdateURL = "https://mynixos.com/favicon.ico";
+        definedAliases = [ "@nix" ];
+      };
+
       "Nix Packages" = {
         urls = [{
           template = "https://search.nixos.org/packages";
