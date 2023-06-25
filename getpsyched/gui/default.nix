@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    ./screen-capture.nix
+    ./i3.nix
     ./konsole.nix
+    ./screen-capture.nix
     # ./theme.nix
   ];
 
