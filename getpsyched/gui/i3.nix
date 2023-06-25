@@ -8,6 +8,7 @@ let mod = "Mod4"; in
 
       terminal = "kitty";
       window.border = 0;
+      window.titlebar = false;
       workspaceLayout = "tabbed";
 
       keybindings = lib.mkOptionDefault {
