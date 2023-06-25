@@ -3,7 +3,6 @@
   imports = [
     ./i3.nix
     ./screen-capture.nix
-    # ./theme.nix
   ];
 
   home.pointerCursor = {
