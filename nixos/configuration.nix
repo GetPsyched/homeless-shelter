@@ -5,6 +5,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     ./hardware-configuration.nix
+    ../system/xserver.nix
     ../system/nvidia.nix
 
     # Impermanence
@@ -91,15 +92,6 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -119,9 +111,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   users.users.getpsyched = {
     initialPassword = "test";
