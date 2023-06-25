@@ -2,7 +2,6 @@
 {
   imports = [
     ./i3.nix
-    ./konsole.nix
     ./screen-capture.nix
     # ./theme.nix
   ];
