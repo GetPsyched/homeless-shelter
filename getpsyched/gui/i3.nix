@@ -17,6 +17,8 @@ let mod = "Mod4"; in
           brctl = "${pkgs.brightnessctl}/bin/brightnessctl";
         in
         lib.mkOptionDefault {
+          "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+
           # Audio
           "XF86AudioRaiseVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ +10%";
           "XF86AudioLowerVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ -10%";
