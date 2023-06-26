@@ -4,6 +4,7 @@
     ./browser
     ./dev
     ./gui
+    ./window-manager
 
     ./games.nix
     ./thunderbird.nix
