@@ -112,10 +112,12 @@
     #media-session.enable = true;
   };
 
+  users.mutableUsers = false;
   users.users.getpsyched = {
     isNormalUser = true;
     description = "Priyanshu";
     extraGroups = [ "networkmanager" "wheel" ];
+    hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
   };
 
   # Adding steam here because it is buggy with Home Manager
