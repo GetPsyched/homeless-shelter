@@ -6,12 +6,7 @@ let mod = "Mod4"; in
     config = {
       modifier = mod;
 
-      terminal = "kitty";
-      window.border = 0;
-      window.titlebar = false;
-      workspaceLayout = "tabbed";
-
-      keybindings = 
+      keybindings =
         let
           pactl = "${pkgs.pulseaudio}/bin/pactl";
           brctl = "${pkgs.brightnessctl}/bin/brightnessctl";
@@ -29,7 +24,14 @@ let mod = "Mod4"; in
           "Print" = "exec flameshot gui";
           "XF86MonBrightnessDown" = "exec ${brctl} set 5%-";
           "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
-      };
+        };
+
+      terminal = "kitty";
+
+      window.hideEdgeBorders = "both";
+      window.titlebar = false;
+
+      workspaceLayout = "tabbed";
     };
   };
 }
