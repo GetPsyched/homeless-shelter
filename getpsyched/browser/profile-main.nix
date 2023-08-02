@@ -4,11 +4,11 @@
   userChrome = builtins.readFile ./userChrome.css;
   extensions = with ff-addons; [
     darkreader
+    multi-account-containers
     sidebery
     sponsorblock
     stylus
     tampermonkey
-    temporary-containers
     ublock-origin
   ];
   search = {
