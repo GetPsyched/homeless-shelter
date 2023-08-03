@@ -20,6 +20,7 @@
             ".ssh"
             "backgrounds"
             "git"
+            "obsidian-vault"
           ];
         };
       };
@@ -48,6 +49,7 @@
           directories = [
             ".config/Code"
             ".config/legendary"
+            ".config/obsidian"
             ".config/spotify"
             ".local/share/direnv/allow"
             ".minecraft"
