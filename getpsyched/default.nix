@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./browser
@@ -15,6 +15,10 @@
     username = "getpsyched";
     homeDirectory = "/home/getpsyched";
     stateVersion = "22.11";
+
+    packages = with pkgs; [
+      spotify
+    ];
   };
 
   programs.home-manager.enable = true;

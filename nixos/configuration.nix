@@ -48,6 +48,7 @@
           directories = [
             ".config/Code"
             ".config/legendary"
+            ".config/spotify"
             ".local/share/direnv/allow"
             ".minecraft"
             ".mozilla"
