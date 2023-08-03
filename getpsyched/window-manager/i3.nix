@@ -10,9 +10,16 @@ let mod = "Mod4"; in
         let
           pactl = "${pkgs.pulseaudio}/bin/pactl";
           brctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+
+          # rofi
+          shutdown = "";
+          reboot = "";
+          rofi = ''exec ${pkgs.rofi}/bin/rofi -show'';
+          uptime = "`uptime -p | sed -e 's/up //g'`";
         in
         lib.mkOptionDefault {
-          "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+          "${mod}+d" = "${rofi} drun";
+          "${mod}+q" = ''${rofi} power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 
           # Audio
           "XF86AudioRaiseVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ +10%";
