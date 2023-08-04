@@ -6,6 +6,16 @@ let mod = "Mod4"; in
     config = {
       modifier = mod;
 
+      bars = [
+        {
+          id = "bar-0";
+          command = "polybar";
+          mode = "hide";
+          hiddenState = "hide";
+          # activeWorkspace = { background = ""; border = ""; text = ""; };
+        }
+      ];
+
       keybindings =
         let
           pactl = "${pkgs.pulseaudio}/bin/pactl";
@@ -32,6 +42,10 @@ let mod = "Mod4"; in
           "XF86MonBrightnessDown" = "exec ${brctl} set 5%-";
           "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
         };
+
+      startup = [
+        { command = "systemctl --user restart polybar"; always = true; notification = false; }
+      ];
 
       terminal = "kitty";
 
