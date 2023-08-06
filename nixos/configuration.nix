@@ -79,7 +79,7 @@
     };
   };
 
-  time.timeZone = "Asia/Dubai";
+  time.timeZone = "Asia/Calcutta";
 
   i18n.defaultLocale = "en_GB.UTF-8";
 
