@@ -5,8 +5,9 @@
     # inputs.hardware.nixosModules.common-ssd
 
     ./hardware-configuration.nix
-    ../system/xserver.nix
     ../system/nvidia.nix
+    ../system/warp.nix
+    ../system/xserver.nix
 
     # Impermanence
     inputs.impermanence.nixosModules.impermanence
