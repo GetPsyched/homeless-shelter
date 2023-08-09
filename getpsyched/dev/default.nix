@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     gcc
     nodejs
+    postgresql
     postman
     python3
     railway
