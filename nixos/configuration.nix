@@ -120,7 +120,7 @@
   users.users.getpsyched = {
     isNormalUser = true;
     description = "Priyanshu Tripathi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
   };
 
