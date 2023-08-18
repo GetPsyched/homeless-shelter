@@ -20,6 +20,8 @@
       microsoft-edge
       obsidian
       spotify
+
+      (pkgs.python311Packages.callPackage ../packages/nexus.nix { })
     ];
   };
 
