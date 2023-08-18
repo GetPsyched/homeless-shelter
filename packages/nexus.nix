@@ -11,6 +11,7 @@
 , flake8
 , pytest
 , pytest-cov
+, xvfb-run
 }:
 
 python311.pkgs.buildPythonApplication rec {
@@ -35,15 +36,13 @@ python311.pkgs.buildPythonApplication rec {
     flake8
     pytest
     pytest-cov
+    xvfb-run
   ];
-
-  # FIXME: this patches a display error. needs xwayland
-  doCheck = false;
 
   checkPhase = ''
     runHook preCheck
 
-    pytest
+    xvfb-run pytest
 
     runHook postCheck
   '';
