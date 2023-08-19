@@ -62,6 +62,11 @@
         definedAliases = [ "@nw" ];
       };
 
+      "Nix PR Tracker" = {
+        urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
+        definedAliases = [ "@pr" ];
+      };
+
       "Source Graph" = {
         urls = [{
           template = "https://sourcegraph.com/search";
