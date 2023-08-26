@@ -26,5 +26,10 @@
         nix_shell.format = "[$symbol](blue)";
       };
     };
+
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
+    };
   };
 }

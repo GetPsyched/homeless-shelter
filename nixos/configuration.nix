@@ -53,6 +53,7 @@
             ".config/obsidian"
             ".config/spotify"
             ".local/share/direnv/allow"
+            ".local/share/zoxide"
             ".minecraft"
             ".mozilla"
             ".railway"
