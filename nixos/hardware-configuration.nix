@@ -40,10 +40,6 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
-    kernelParams = [ "elevator=none" ];
-    supportedFilesystems = [ "zfs" ];
-    zfs.devNodes = "/dev/mapper/crypted";
   };
 
   fileSystems =
