@@ -23,7 +23,7 @@
       # ProtectSystem = "full";
       RestrictNamespaces = true;
       RestrictRealtime = true;
-      CapabilityBoundingSet="~CAP_SYS_PTRACE";
+      CapabilityBoundingSet = "~CAP_SYS_PTRACE";
       # ProcSubset = "pid";
       # InaccessiblePaths = "/data";
     };
