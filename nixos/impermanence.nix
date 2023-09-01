@@ -7,12 +7,12 @@
   programs.fuse.userAllowOther = true;
 
   environment.persistence = {
-    "/persist/data/system" = {
+    "/persist/sysdata" = {
       directories = [
       ];
     };
 
-    "/persist/state/system" = {
+    "/persist/sysstate" = {
       directories = [
         "/etc/NetworkManager"
         "/var/lib/cloudflare-warp"
