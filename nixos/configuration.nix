@@ -1,85 +1,12 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+{
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
     ./hardware-configuration.nix
+    ./impermanence.nix
     ../system/nvidia.nix
     ../system/warp.nix
     ../system/xserver.nix
-
-    # Impermanence
-    inputs.impermanence.nixosModules.impermanence
   ];
-
-  environment = {
-    persistence = {
-      "/persist/data" = {
-        users.getpsyched = {
-          directories = [
-            ".ssh"
-            "backgrounds"
-            "git"
-            "obsidian-vault"
-          ];
-        };
-      };
-
-      "/persist/data/bigdata" = {
-        users.getpsyched = {
-          directories = [
-            ".atlauncher"
-            ".local/share/Steam"
-            ".osu"
-            "Games"
-            "My Games"
-          ];
-        };
-      };
-
-      "/persist/data/system" = {
-        directories = [
-          "/etc/nixos"
-          "/var/lib"
-        ];
-      };
-
-      "/persist/state" = {
-        users.getpsyched = {
-          directories = [
-            ".config/Code"
-            ".config/legendary"
-            ".config/obsidian"
-            ".config/spotify"
-            ".local/share/direnv/allow"
-            ".local/share/zoxide"
-            ".minecraft"
-            ".mozilla"
-            ".railway"
-            ".rustup"
-            ".steam"
-            ".vscode"
-          ];
-          files = [
-            ".local/share/nix/trusted-settings.json"
-          ];
-        };
-      };
-
-      "/persist/state/system" = {
-        directories = [
-          "/etc/NetworkManager"
-        ];
-      };
-
-      "/var/cache" = {
-        directories = [
-          "/home/getpsyched/.cache"
-        ];
-      };
-    };
-  };
 
   time.timeZone = "Asia/Kolkata";
 

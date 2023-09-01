@@ -7,6 +7,7 @@
     ./window-manager
 
     ./games.nix
+    ./impermanence.nix
     ./thunderbird.nix
     ./wine.nix
   ];
