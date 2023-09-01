@@ -17,7 +17,6 @@
     stateVersion = "22.11";
 
     packages = with pkgs; [
-      libreoffice
       microsoft-edge
       obsidian
       spotify
