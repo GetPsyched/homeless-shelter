@@ -31,9 +31,9 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ ];
-      luks.devices.crypted = {
-        header = "/dev/nvme0n1p6";
-        device = "/dev/nvme0n1p5";
+      luks.devices.cryptroot = {
+        header = "/dev/nvme0n1p2";
+        device = "/dev/nvme0n1p3";
         bypassWorkqueues = true;
       };
       systemd.enable = true;
@@ -50,8 +50,13 @@
         options = [ "defaults" "size=4G" "mode=0755" ];
       };
       esp = device: { inherit device; fsType = "vfat"; };
-      btrfs = subvol: {
-        device = "/dev/mapper/crypted";
+      btrfsdata = subvol: {
+        device = "/dev/mapper/cryptroot";
+        fsType = "btrfs";
+        options = [ "subvol=${subvol}" ];
+      };
+      btrfsos = subvol: {
+        device = "/dev/nvme0n1p4";
         fsType = "btrfs";
         options = [ "subvol=${subvol}" ];
       };
@@ -59,13 +64,14 @@
     in
     {
       "/" = tmpfs;
-      "/nix" = btrfs "nix" // forBoot;
-      "/boot" = esp "/dev/disk/by-uuid/EB44-F831" // forBoot;
-      "/var/cache" = btrfs "cache" // forBoot;
-      "/persist/data/system" = btrfs "data/system" // forBoot;
-      "/persist/data" = btrfs "data/getpsyched" // forBoot;
-      "/persist/state/system" = btrfs "state/system" // forBoot;
-      "/persist/state" = btrfs "state/getpsyched" // forBoot;
+      "/nix" = btrfsos "nix" // forBoot;
+      "/boot" = esp "/dev/disk/by-uuid/8167-168A" // forBoot;
+      "/var/cache" = btrfsos "cache" // forBoot;
+      "/persist/data" = btrfsdata "data" // forBoot;
+      "/persist/sysdata" = btrfsdata "sysdata" // forBoot;
+      "/persist/bigdata" = btrfsos "bigdata" // forBoot;
+      "/persist/state" = btrfsdata "state" // forBoot;
+      "/persist/sysstate" = btrfsdata "sysstate" // forBoot;
     };
 
   swapDevices = [ ];
