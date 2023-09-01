@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./browser
@@ -12,9 +12,9 @@
   ];
 
   home = {
-    username = "getpsyched";
-    homeDirectory = "/home/getpsyched";
-    stateVersion = "22.11";
+    username = lib.mkDefault "getpsyched";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = lib.mkDefault "22.11";
 
     packages = with pkgs; [
       microsoft-edge
