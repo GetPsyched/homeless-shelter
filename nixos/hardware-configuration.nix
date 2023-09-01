@@ -42,7 +42,7 @@
     kernelModules = [ "kvm-intel" ];
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     kernelParams = [ "elevator=none" ];
-    supportedFilesystems = [ "ntfs" "zfs" ];
+    supportedFilesystems = [ "zfs" ];
     zfs.devNodes = "/dev/mapper/crypted";
   };
 
@@ -70,12 +70,6 @@
       "/persist/data" = btrfs "data/getpsyched" // forBoot;
       "/persist/state/system" = btrfs "state/system" // forBoot;
       "/persist/state" = btrfs "state/getpsyched" // forBoot;
-
-      "/mnt/poopos" = {
-        device = "/dev/nvme0n1p3";
-        fsType = "ntfs";
-        options = [ "rw" "uid=1000" ];
-      };
     };
 
   swapDevices = [ ];
