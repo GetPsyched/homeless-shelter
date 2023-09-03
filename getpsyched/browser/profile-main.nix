@@ -77,6 +77,18 @@
         }];
         definedAliases = [ "@sg" ];
       };
+
+      "Steam DB" = {
+        urls = [{
+          template = "https://steamdb.info/search";
+          params = [
+            { name = "a"; value = "app"; }
+            { name = "type"; value = "1"; }
+            { name = "q"; value = "{searchTerms}"; }
+          ];
+        }];
+        definedAliases = [ "@sdb" ];
+      };
     };
     force = true;
     order = [
