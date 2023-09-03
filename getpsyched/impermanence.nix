@@ -39,6 +39,16 @@
       allowOther = true;
     };
 
+    "/persist/bigdata/home/getpsyched" = {
+      directories = [
+        {
+          directory = ".local/share/Steam";
+          method = "symlink";
+        }
+      ];
+      allowOther = true;
+    };
+
     "/var/cache/home/getpsyched" = {
       directories = [
         ".cache"
