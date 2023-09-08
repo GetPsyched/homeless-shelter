@@ -1,8 +1,8 @@
 {
   imports = [
-    ./i3.nix
     ./notificationd.nix
-    ./polybar.nix
+    ./sway.nix
+    ./waybar.nix
   ];
 
   home.file.".config/rofi/config.rasi".source = ./menu.rasi;

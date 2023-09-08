@@ -1,9 +1,10 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, inputs, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
+      inputs.hardware.nixosModules.common-gpu-intel
     ];
 
   networking = {
@@ -40,6 +41,7 @@
     };
 
     kernelModules = [ "kvm-intel" ];
+    kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 
   fileSystems =

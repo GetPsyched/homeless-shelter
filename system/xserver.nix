@@ -7,9 +7,7 @@
       autoLogin.enable = true;
       autoLogin.user = "getpsyched";
 
-      lightdm.enable = true;
-      defaultSession = "none+i3";
+      lightdm.enable = false;
     };
-    windowManager.i3.enable = true;
   };
 }

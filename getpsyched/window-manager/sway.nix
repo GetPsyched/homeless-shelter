@@ -1,20 +1,12 @@
 { lib, pkgs, ... }:
 let mod = "Mod4"; in
 {
-  xsession.windowManager.i3 = {
+  wayland.windowManager.sway = {
     enable = true;
     config = {
       modifier = mod;
 
-      bars = [
-        {
-          id = "bar-0";
-          command = "polybar";
-          mode = "hide";
-          hiddenState = "hide";
-          # activeWorkspace = { background = ""; border = ""; text = ""; };
-        }
-      ];
+      bars = [{ id = "bar-0"; mode = "hide"; command = "waybar"; }];
 
       keybindings =
         let
@@ -43,9 +35,7 @@ let mod = "Mod4"; in
           "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
         };
 
-      startup = [
-        { command = "systemctl --user restart polybar"; always = true; notification = false; }
-      ];
+      input."type:touchpad".natural_scroll = "enabled";
 
       terminal = "kitty";
 
@@ -54,5 +44,10 @@ let mod = "Mod4"; in
 
       workspaceLayout = "tabbed";
     };
+
+    extraConfig = ''
+      titlebar_padding 1
+    '';
+    xwayland = true;
   };
 }
