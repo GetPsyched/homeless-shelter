@@ -22,7 +22,7 @@
     "/persist/state/home/getpsyched" = {
       directories = [
         ".config/Code"
-        ".config/legendary"
+        ".config/heroic"
         ".config/obsidian"
         ".config/spotify"
         ".local/share/direnv/allow"
@@ -41,10 +41,9 @@
 
     "/persist/bigdata/home/getpsyched" = {
       directories = [
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
+        ".local/share/Steam"
+        ".heroic"
+        "My Games"
       ];
       allowOther = true;
     };

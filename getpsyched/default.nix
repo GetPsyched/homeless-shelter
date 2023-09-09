@@ -24,6 +24,10 @@
 
       (pkgs.python311Packages.callPackage ../packages/nexus.nix { })
     ];
+
+    shellAliases = {
+      heroic = "nix shell github:aidalgol/nixpkgs/heroic-white-screen-fix#heroic -c heroic";
+    };
   };
 
   programs.home-manager.enable = true;
