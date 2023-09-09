@@ -99,10 +99,6 @@
       auto-optimise-store = true;
       experimental-features = "nix-command flakes";
       warn-dirty = false;
-
-      # Setup Cachix to avoid building packages (useful for wine)
-      substituters = [ "https://nix-gaming.cachix.org" ];
-      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
     };
   };
 
