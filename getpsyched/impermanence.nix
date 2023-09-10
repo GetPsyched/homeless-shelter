@@ -4,10 +4,6 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
-  # environment.etc."fuse.conf".text = ''
-  #   user_allow_other
-  # '';
-
   home.persistence = {
     "/persist/data/home/getpsyched" = {
       directories = [
@@ -25,6 +21,7 @@
         ".config/heroic"
         ".config/obsidian"
         ".config/spotify"
+        ".local/share/applications"
         ".local/share/direnv/allow"
         ".minecraft"
         ".mozilla/firefox/main"
