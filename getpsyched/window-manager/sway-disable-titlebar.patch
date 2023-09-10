@@ -1,0 +1,17 @@
+diff --git a/sway/tree/view.c b/sway/tree/view.c
+index ec54fed8..3d431f6a 100644
+--- a/sway/tree/view.c
++++ b/sway/tree/view.c
+@@ -299,9 +299,9 @@ void view_autoconfigure(struct sway_view *view) {
+ 		// title area. We have to offset the surface y by the height of the title,
+ 		// bar, and disable any top border because we'll always have the title bar.
+ 		list_t *siblings = container_get_siblings(con);
+-		bool show_titlebar = (siblings && siblings->length > 1)
+-			|| !config->hide_lone_tab;
+-		if (show_titlebar) {
++		// bool show_titlebar = (siblings && siblings->length > 1)
++		// 	|| !config->hide_lone_tab;
++		if (false) {
+ 			enum sway_container_layout layout = container_parent_layout(con);
+ 			if (layout == L_TABBED) {
+ 				y_offset = container_titlebar_height();

@@ -3,6 +3,12 @@ let mod = "Mod4"; in
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.sway.override {
+      sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (prev: {
+        patches = prev.patches ++ [ ./sway-disable-titlebar.patch ];
+      });
+    };
+
     config = {
       modifier = mod;
 
