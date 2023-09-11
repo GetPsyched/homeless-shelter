@@ -104,13 +104,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1694464092,
+        "narHash": "sha256-ossUlifjNbVZSw3mqvqJab/sMOlOF3UlLVsV7agMGf4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "785dec289d16a6906f564430039b34f117975aee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ff-addons": "ff-addons",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master"
       }
     }
   },
