@@ -12,6 +12,7 @@
       enable = true;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
+      package = pkgs.vscodium;
 
       extensions = with pkgs.vscode-extensions; [
         b4dm4n.vscode-nixpkgs-fmt

@@ -17,10 +17,10 @@
 
     "/persist/state/home/getpsyched" = {
       directories = [
-        ".config/Code"
         ".config/heroic"
         ".config/obsidian"
         ".config/spotify"
+        ".config/VSCodium"
         ".local/share/applications"
         ".local/share/direnv/allow"
         ".minecraft"
