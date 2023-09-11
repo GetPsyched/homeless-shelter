@@ -14,6 +14,7 @@
       enableUpdateCheck = false;
 
       extensions = with pkgs.vscode-extensions; [
+        b4dm4n.vscode-nixpkgs-fmt
         bbenoist.nix
         bungcip.better-toml
         esbenp.prettier-vscode
@@ -31,6 +32,7 @@
         "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
         "[nix]"."editor.tabSize" = 2;
+        "[nix]"."editor.defaultFormatter" = "b4dm4n.nixpkgs-fmt";
       };
     };
   };
