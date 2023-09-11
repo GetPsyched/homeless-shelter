@@ -25,6 +25,7 @@
 
       userSettings = {
         "diffEditor.renderSideBySide" = false;
+        "editor.formatOnSave" = true;
         "editor.inlineSuggest.enabled" = true;
         "window.menuBarVisibility" = "toggle";
 
