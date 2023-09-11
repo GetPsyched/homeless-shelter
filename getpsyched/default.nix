@@ -8,6 +8,7 @@
 
     ./games.nix
     ./impermanence.nix
+    ./libreoffice.nix
     ./thunderbird.nix
     ./wine.nix
   ];
