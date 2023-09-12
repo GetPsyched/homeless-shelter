@@ -51,6 +51,10 @@ let mod = "Mod4"; in
 
       input."type:touchpad".natural_scroll = "enabled";
 
+      startup = [
+        { command = "firefox"; }
+      ];
+
       terminal = "kitty";
 
       window.hideEdgeBorders = "both";
