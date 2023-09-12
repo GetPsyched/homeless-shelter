@@ -44,7 +44,7 @@ let mod = "Mod4"; in
           "XF86AudioMicMute" = "exec ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle";
 
           # Display
-          "Print" = "exec flameshot gui";
+          "Print" = "exec ${pkgs.gscreenshot}/bin/gscreenshot --clip --selection";
           "XF86MonBrightnessDown" = "exec ${brctl} set 5%-";
           "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
         };
