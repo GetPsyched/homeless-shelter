@@ -1,6 +1,14 @@
 { lib, pkgs, ... }:
 let mod = "Mod4"; in
 {
+  programs.bash = {
+    initExtra = ''
+      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+        exec sway --unsupported-gpu
+      fi
+    '';
+  };
+
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.sway.override {
