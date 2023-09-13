@@ -10,6 +10,7 @@
         ".ssh"
         "backgrounds"
         "git"
+        "iso"
         "obsidian-vault"
       ];
       allowOther = true;
