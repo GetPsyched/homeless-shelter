@@ -28,6 +28,7 @@
         "diffEditor.renderSideBySide" = false;
         "editor.formatOnSave" = true;
         "editor.inlineSuggest.enabled" = true;
+        "explorer.confirmDragAndDrop" = false;
         "window.menuBarVisibility" = "toggle";
 
         "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
