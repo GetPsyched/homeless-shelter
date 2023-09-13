@@ -1,11 +1,10 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
+    ../system
+
     ./hardware-configuration.nix
     ./impermanence.nix
-    ../system/nvidia.nix
-    ../system/warp.nix
-    ../system/xserver.nix
   ];
 
   time.timeZone = "Asia/Kolkata";
