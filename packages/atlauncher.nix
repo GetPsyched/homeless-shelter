@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "atlauncher";
-  version = "3.4.28.1";
+  version = "3.4.33.1";
 
   src = fetchurl {
     url = "https://github.com/ATLauncher/ATLauncher/releases/download/v${finalAttrs.version}/ATLauncher-${finalAttrs.version}.jar";
-    hash = "sha256-IIwDMazxUMQ7nGQk/4VEZicgCmCR4oR8UYtO36pCEq4=";
+    hash = "sha256-YfTo3Vp4ACQPQJWCujpAv8J0i2FuG5MLaIjNdBPN1Ns=";
   };
 
   dontUnpack = true;
@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
   desktopItems = [
     (makeDesktopItem {
       name = finalAttrs.pname;
-      exec = finalAttrs.pname;
+      exec = "${finalAttrs.pname} --no-launcher-update true";
       icon = fetchurl {
         url = "https://avatars.githubusercontent.com/u/7068667";
         hash = "sha256-YmEkxf4rZxN3jhiib0UtdUDDcn9lw7IMbiEucBL7b9o=";
