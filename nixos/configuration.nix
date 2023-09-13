@@ -49,6 +49,7 @@
     description = "Priyanshu Tripathi";
     extraGroups = [
       "dialout"
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];

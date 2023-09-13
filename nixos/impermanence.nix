@@ -9,6 +9,7 @@
   environment.persistence = {
     "/persist/sysdata" = {
       directories = [
+        "/var/lib/libvirt"
       ];
     };
 
