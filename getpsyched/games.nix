@@ -3,10 +3,9 @@
   home.packages = with pkgs; [
     atlauncher
     gamemode
+    heroic
     mangohud
     osu-lazer-bin
-
-    inputs.nixpkgs-master.legacyPackages.x86_64-linux.heroic
   ];
 
   xdg.desktopEntries = {
