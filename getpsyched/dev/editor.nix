@@ -25,6 +25,7 @@
       ];
 
       userSettings = {
+        "breadcrumbs.enabled" = false;
         "diffEditor.renderSideBySide" = false;
         "editor.formatOnSave" = true;
         "editor.inlineSuggest.enabled" = true;
