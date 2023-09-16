@@ -29,7 +29,6 @@
         ".railway"
         ".rustup"
         ".steam"
-        ".vscode"
       ];
       files = [
         ".local/share/nix/trusted-settings.json"
