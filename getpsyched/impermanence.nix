@@ -31,6 +31,7 @@
         ".steam"
       ];
       files = [
+        ".config/gh/hosts.yml"
         ".local/share/nix/trusted-settings.json"
       ];
       allowOther = true;
