@@ -8,6 +8,10 @@
       amend = "commit --amend --no-edit";
       co = "checkout";
       epic-fail = "reset HEAD~1";
+
+      # delete branch
+      bye = "branch -d";
+      nuke = "push origin -d";
     };
 
     ignores = [ ".direnv" ];
