@@ -6,6 +6,9 @@
     nixpkgs-master.url = "github:nixos/nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-env.url = "https://flakehub.com/f/GetPsyched/nix-env/0.x.x.tar.gz";
+    nix-env.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -15,7 +18,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, nix-env, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -35,7 +38,11 @@
         ];
       };
       devShell.${system} = with pkgs; mkShell {
-        buildInputs = [ just nixpkgs-fmt ];
+        buildInputs = [
+          nix-env.outputs.packages.${system}.default
+          nix-env.outputs.packages.${system}.vscode
+          just
+        ];
       };
     };
 }

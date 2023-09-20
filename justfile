@@ -2,10 +2,6 @@
 default:
     @just --list --unsorted
 
-# format all nix files
-format:
-    @nixpkgs-fmt **/*.nix **/**/*.nix **/**/**/*.nix
-
 # list all exisiting generations
 list:
     @sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
