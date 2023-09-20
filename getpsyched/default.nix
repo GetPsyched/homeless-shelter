@@ -20,6 +20,7 @@
 
     packages = with pkgs; [
       microsoft-edge
+      digikam
       fh
       obsidian
       spotify
