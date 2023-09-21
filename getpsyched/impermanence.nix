@@ -33,6 +33,7 @@
       files = [
         ".config/gh/hosts.yml"
         ".local/share/nix/trusted-settings.json"
+        ".local/share/zoxide/db.zo"
       ];
       allowOther = true;
     };
