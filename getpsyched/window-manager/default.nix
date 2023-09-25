@@ -1,6 +1,6 @@
 {
   imports = [
-    ./sway
+    ./i3
 
     ./notificationd.nix
   ];
