@@ -56,6 +56,8 @@
     hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
   };
 
+  environment.systemPackages = [ pkgs.gparted ];
+
   # Adding steam here because it is buggy with Home Manager
   programs.steam = {
     enable = true;
