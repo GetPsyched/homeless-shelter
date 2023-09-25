@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "atlauncher";
-  version = "3.4.33.1";
+  version = "3.4.34.0";
 
   src = fetchurl {
     url = "https://github.com/ATLauncher/ATLauncher/releases/download/v${finalAttrs.version}/ATLauncher-${finalAttrs.version}.jar";
-    hash = "sha256-YfTo3Vp4ACQPQJWCujpAv8J0i2FuG5MLaIjNdBPN1Ns=";
+    hash = "sha256-gHUYZaxADchikoCmAfqFjVbMYhhiwg2BZKctmww1Mlw=";
   };
 
   dontUnpack = true;
