@@ -15,8 +15,6 @@
       package = pkgs.vscodium;
 
       extensions = with pkgs.vscode-extensions; [
-        b4dm4n.vscode-nixpkgs-fmt
-        bbenoist.nix
         bungcip.better-toml
         esbenp.prettier-vscode
         matklad.rust-analyzer
