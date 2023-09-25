@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 let mod = "Mod4"; in
 {
+  imports = [ ./waybar.nix ];
+
   programs.bash = {
     initExtra = ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
