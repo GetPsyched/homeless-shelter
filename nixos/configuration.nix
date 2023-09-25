@@ -68,6 +68,8 @@
 
   nixpkgs = {
     overlays = [
+      (import ../overlays/i3.nix)
+
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
