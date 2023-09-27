@@ -9,9 +9,9 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-gHUYZaxADchikoCmAfqFjVbMYhhiwg2BZKctmww1Mlw=";
   };
 
-  icon = fetchurl {
-    url = "https://avatars.githubusercontent.com/u/7068667";
-    hash = "sha256-YmEkxf4rZxN3jhiib0UtdUDDcn9lw7IMbiEucBL7b9o=";
+  env.ICON = fetchurl {
+    url = "https://atlauncher.com/assets/images/logo.svg";
+    hash = "sha256-XoqpsgLmkpa2SdjZvPkgg6BUJulIBIeu6mBsJJCixfo=";
   };
 
   dontUnpack = true;
@@ -28,18 +28,19 @@ stdenv.mkDerivation (finalAttrs: {
       '';
     in
     ''
-      runHook preInstall
+    runHook preInstall
       mkdir -p $out/bin
-      makeWrapper ${jre}/bin/java $out/bin/atlauncher \
+    makeWrapper ${jre}/bin/java $out/bin/atlauncher \
         --add-flags "-jar $src --working-dir=\$HOME/.atlauncher" \
         --suffix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}" ${
             lib.strings.optionalString withSteamRun ''--run "${steamrun} \\"''
           }
 
-      mkdir -p $out/share/icons/hicolor/128x128/apps
-      cp ${finalAttrs.icon} $out/share/icons/hicolor/128x128/apps/${finalAttrs.pname}.png
-      runHook postInstall
-    '';
+    mkdir -p $out/share/icons/hicolor/scalable/apps
+    cp $ICON $out/share/icons/hicolor/scalable/apps/${finalAttrs.pname}.svg
+
+    runHook postInstall
+  '';
 
   desktopItems = [
     (makeDesktopItem {
