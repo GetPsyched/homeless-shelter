@@ -1,11 +1,12 @@
 { pkgs, config, inputs, ... }:
 {
   home.packages = with pkgs; [
-    atlauncher
     gamemode
     heroic
     mangohud
     osu-lazer-bin
+
+    (pkgs.callPackage ../packages/atlauncher.nix { })
   ];
 
   xdg.desktopEntries = {
