@@ -1,4 +1,4 @@
-{ copyDesktopItems, fetchurl, jre, lib, makeDesktopItem, makeWrapper, stdenv, steam-run, withSteamRun ? true, writeShellScript }:
+{ copyDesktopItems, fetchurl, jre, lib, makeDesktopItem, makeWrapper, stdenv, udev, xorg }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "atlauncher";
@@ -19,22 +19,17 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [ ];
   nativeBuildInputs = [ copyDesktopItems makeWrapper ];
 
-  installPhase =
-    let
-      # hack to use steam-run along with the exec
-      steamrun = writeShellScript "steamrun" ''
-        shift
-        exec ${steam-run}/bin/steam-run "''$@"
-      '';
-    in
-    ''
+  installPhase = ''
     runHook preInstall
-      mkdir -p $out/bin
+
+    mkdir -p $out/bin $out/share/java
+    cp $src $out/share/java/ATLauncher.jar
+
     makeWrapper ${jre}/bin/java $out/bin/atlauncher \
-        --add-flags "-jar $src --working-dir=\$HOME/.atlauncher" \
-        --suffix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}" ${
-            lib.strings.optionalString withSteamRun ''--run "${steamrun} \\"''
-          }
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ xorg.libXxf86vm udev ]}" \
+      --add-flags "-jar $out/share/java/ATLauncher.jar" \
+      --add-flags "--working-dir \''${XDG_DATA_HOME:-\$HOME/.local/share}/ATLauncher" \
+      --add-flags "--no-launcher-update"
 
     mkdir -p $out/share/icons/hicolor/scalable/apps
     cp $ICON $out/share/icons/hicolor/scalable/apps/${finalAttrs.pname}.svg
@@ -45,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   desktopItems = [
     (makeDesktopItem {
       name = finalAttrs.pname;
-      exec = "${finalAttrs.pname} --no-launcher-update true";
+      exec = finalAttrs.pname;
       icon = finalAttrs.pname;
       desktopName = "ATLauncher";
       categories = [ "Game" ];
