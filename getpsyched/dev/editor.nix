@@ -18,8 +18,6 @@
         bungcip.better-toml
         esbenp.prettier-vscode
         matklad.rust-analyzer
-        ms-pyright.pyright
-        ms-python.python
       ];
 
       userSettings = {
