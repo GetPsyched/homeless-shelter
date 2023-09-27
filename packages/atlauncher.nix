@@ -29,7 +29,10 @@ stdenv.mkDerivation (finalAttrs: {
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ xorg.libXxf86vm udev ]}" \
       --add-flags "-jar $out/share/java/ATLauncher.jar" \
       --add-flags "--working-dir \''${XDG_DATA_HOME:-\$HOME/.local/share}/ATLauncher" \
-      --add-flags "--no-launcher-update"
+      --add-flags "--no-launcher-update" \
+      --add-flags "--no-console" \
+      --add-flags "--close-launcher" \
+      --add-flags "--skip-tray-integration"
 
     mkdir -p $out/share/icons/hicolor/scalable/apps
     cp $ICON $out/share/icons/hicolor/scalable/apps/${finalAttrs.pname}.svg
