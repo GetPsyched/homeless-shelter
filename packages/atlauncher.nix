@@ -25,10 +25,10 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/bin $out/share/java
     cp $src $out/share/java/ATLauncher.jar
 
-    makeWrapper ${jre}/bin/java $out/bin/atlauncher \
+    makeWrapper ${jre}/bin/java $out/bin/${finalAttrs.pname} \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ xorg.libXxf86vm udev ]}" \
       --add-flags "-jar $out/share/java/ATLauncher.jar" \
-      --add-flags "--working-dir \''${XDG_DATA_HOME:-\$HOME/.local/share}/ATLauncher" \
+      --add-flags "--working-dir \"\''${XDG_DATA_HOME:-\$HOME/.local/share}/ATLauncher\"" \
       --add-flags "--no-launcher-update" \
       --add-flags "--no-console" \
       --add-flags "--close-launcher" \
