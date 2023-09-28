@@ -111,7 +111,7 @@
       name = "nksss";
       bookmarks =
         let
-          base-url = "https://github.com/NIT-KKR-Student-Support-System";
+          base-url = "https://github.com/nkss-dev";
           github = name: project: {
             inherit name;
             url = "${base-url}/${project}";
@@ -121,8 +121,9 @@
           (github "gh-main" "")
           (github "gh-atlas" "atlas")
           (github "gh-breadboard" "breadboard")
+          (github "gh-lighthouse" "lighthouse")
           (github "gh-project-hyperlink" "project-hyperlink")
-          (github "gh-website" "website")
+          (github "gh-node-modules" "node-modules")
           { name = "nkss-drive"; url = "https://drive.google.com/drive/folders/1U2taK5kEhOiUJi70ZkU2aBWY83uVuMmD"; }
           { name = "railway"; url = "https://railway.app/project/69531a0b-78b7-4a71-9df4-3a8db9703b69"; }
           { name = "design"; url = "https://www.figma.com/file/RbT3UiwKwbN71GwU8Zz5HS/NKSSS?node-id=321%3A154"; }
