@@ -24,6 +24,7 @@
         ".config/VSCodium"
         ".local/share/applications"
         ".local/share/direnv/allow"
+        ".local/share/zoxide"
         ".minecraft"
         ".mozilla/firefox/main"
         ".railway"
@@ -33,7 +34,6 @@
       files = [
         ".config/gh/hosts.yml"
         ".local/share/nix/trusted-settings.json"
-        ".local/share/zoxide/db.zo"
       ];
       allowOther = true;
     };
