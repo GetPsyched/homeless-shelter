@@ -35,6 +35,13 @@
         definedAliases = [ "@libgen" ];
       };
 
+      "MDN HTML" = {
+        urls = [{ template = "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{searchTerms}"; }];
+        iconUpdateURL = "https://developer.mozilla.org/favicon-48x48.cbbd161b.png";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "@mdn" ];
+      };
+
       "Nix" = {
         urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
         iconUpdateURL = "https://mynixos.com/favicon.ico";
@@ -88,6 +95,13 @@
           ];
         }];
         definedAliases = [ "@sdb" ];
+      };
+
+      "TailwindCSS" = {
+        urls = [{ template = "https://tailwindcss.com/docs/{searchTerms}"; }];
+        iconUpdateURL = "https://tailwindcss.com/favicons/favicon-16x16.png";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "@tw" ];
       };
     };
     force = true;
