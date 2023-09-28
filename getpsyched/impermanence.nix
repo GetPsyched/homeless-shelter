@@ -23,6 +23,7 @@
         ".config/spotify"
         ".config/VSCodium"
         ".local/share/applications"
+        ".local/share/digikam"
         ".local/share/direnv/allow"
         ".local/share/zoxide"
         ".minecraft"
@@ -32,6 +33,7 @@
         ".steam"
       ];
       files = [
+        ".config/digikamrc"
         ".config/gh/hosts.yml"
         ".local/share/nix/trusted-settings.json"
       ];
