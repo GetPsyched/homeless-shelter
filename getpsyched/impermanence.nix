@@ -40,6 +40,7 @@
 
     "/persist/bigdata/home/getpsyched" = {
       directories = [
+        ".local/share/ATLauncher"
         ".local/share/Steam"
         ".heroic"
         "My Games"
