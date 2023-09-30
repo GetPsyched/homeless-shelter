@@ -32,6 +32,7 @@
         "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[nix]"."editor.tabSize" = 2;
         "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
         "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
