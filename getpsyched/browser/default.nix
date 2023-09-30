@@ -13,4 +13,13 @@ in
     enable = true;
     profiles = profiles;
   };
+
+  xdg.desktopEntries.chromium = {
+    categories = [ "Application" ];
+    name = "Chromium";
+    exec = "${pkgs.ungoogled-chromium}/bin/chromium";
+    genericName = "Browser";
+    icon = "${pkgs.ungoogled-chromium}/share/icons/hicolor/48x48/apps/chromium.png";
+    terminal = false;
+  };
 }
