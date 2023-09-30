@@ -11,6 +11,9 @@
       directories = [
         "/var/lib/libvirt"
       ];
+      files = [
+        "/var/lib/prince/license.dat"
+      ];
     };
 
     "/persist/sysstate" = {
