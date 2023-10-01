@@ -14,5 +14,18 @@
       ];
       terminal = false;
     };
+    libreoffice-calc = {
+      categories = [ "Application" ];
+      name = "LibreOffice Calc";
+      exec = "${pkgs.libreoffice}/bin/libreoffice --calc";
+      genericName = "Text Editor";
+      icon = "${pkgs.libreoffice}/share/icons/hicolor/scalable/apps/calc.svg";
+      mimeType = [
+        "application/vnd.oasis.opendocument.spreadsheet"
+        "application/vnd.ms-excel"
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ];
+      terminal = false;
+    };
   };
 }
