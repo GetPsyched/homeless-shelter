@@ -1,4 +1,5 @@
 { lib
+, pkgs
 , python311
 , fetchFromGitHub
 
@@ -14,6 +15,10 @@
 , xvfb-run
 }:
 
+let
+  pyside2 = pkgs.python310Packages.pyside2;
+  pyside2-tools = pkgs.python310Packages.pyside2-tools;
+in
 python311.pkgs.buildPythonApplication rec {
   pname = "nexus";
   version = "0.2.3";
@@ -22,9 +27,14 @@ python311.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "CharaChorder";
     repo = "nexus";
-    rev = "v${version}";
-    sha256 = "sha256-2Itr9Jb7yL9aL5iAt6fS+1aUQ83V00OVKgVqXan9XbI=";
+    rev = "2fb3c1c";
+    sha256 = "sha256-QDe7fMtcMluxyfQiCa7HnuyDlHkuDSvctlQJ8pj+L7U=";
   };
+
+  nativeBuildInputs = [
+    pyside2
+    pyside2-tools
+  ];
 
   propagatedBuildInputs = [
     pynput
@@ -38,6 +48,24 @@ python311.pkgs.buildPythonApplication rec {
     pytest-cov
     xvfb-run
   ];
+
+  preBuild = ''
+    ${pyside2-tools}/bin/pyside2-uic ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
+    ${pyside2-tools}/bin/pyside2-uic ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
+    ${pyside2-tools}/bin/pyside2-uic ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
+
+    ${pyside2-tools}/bin/pyside2-lupdate \
+      ui/MainWindow.ui \
+      ui/BanlistDialog.ui \
+      ui/BanwordDialog.ui \
+      src/nexus/GUI.py \
+      -ts translations/i18n_en.ts
+  '';
+
+  postInstall = ''
+    ls $out/lib/python3.11/site-packages
+    mv -v src/nexus/ui $out/lib/python3.11/site-packages/${pname}
+  '';
 
   checkPhase = ''
     runHook preCheck
