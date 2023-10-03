@@ -10,7 +10,6 @@
 
   home.packages = with pkgs; [
     postgresql
-    postman
     sqlitebrowser
     virt-manager
   ];
