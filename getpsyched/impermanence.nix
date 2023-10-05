@@ -31,6 +31,7 @@
         ".railway"
         ".rustup"
         ".steam"
+        ".thunderbird/main"
       ];
       files = [
         ".config/digikamrc"
