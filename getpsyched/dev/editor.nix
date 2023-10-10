@@ -14,12 +14,6 @@
       enableUpdateCheck = false;
       package = pkgs.vscodium;
 
-      extensions = with pkgs.vscode-extensions; [
-        bungcip.better-toml
-        esbenp.prettier-vscode
-        matklad.rust-analyzer
-      ];
-
       userSettings = {
         "breadcrumbs.enabled" = false;
         "diffEditor.renderSideBySide" = false;
