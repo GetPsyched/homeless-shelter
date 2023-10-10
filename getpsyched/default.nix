@@ -24,6 +24,7 @@
       obsidian
       spotify
 
+      (pkgs.callPackage ../packages/neuron.nix { })
       (pkgs.python311Packages.callPackage ../packages/nexus.nix { })
     ];
   };
