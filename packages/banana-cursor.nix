@@ -26,6 +26,6 @@ stdenvNoCC.mkDerivation rec {
     homepage = "https://github.com/ful1e5/banana-cursor";
     license = licenses.gpl3;
     platforms = platforms.all;
-    maintainers = [ maintainers.ful1e5 ];
+    maintainers = [ maintainers.getpsyched ];
   };
 }
