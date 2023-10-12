@@ -27,6 +27,16 @@
       (pkgs.callPackage ../packages/neuron.nix { })
       (pkgs.python311Packages.callPackage ../packages/nexus.nix { })
     ];
+
+    shellAliases = {
+      nixpkgs = let git = "${pkgs.git}/bin/git"; gh = "${pkgs.gh}/bin/gh"; in ''
+        ${git} clone --depth 1 https://github.com/GetPsyched/nixpkgs.git
+        cd nixpkgs
+        ${git} remote set-branches origin '*'
+        ${git} fetch -v --depth=1
+        ${gh} repo sync GetPsyched/nixpkgs --source NixOS/nixpkgs --branch master
+      '';
+    };
   };
 
   # Workaround for https://github.com/nix-community/home-manager/issues/2942
