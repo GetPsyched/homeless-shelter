@@ -51,6 +51,9 @@ python311.pkgs.buildPythonApplication rec {
       ui/BanwordDialog.ui \
       src/nexus/GUI.py \
       -ts translations/i18n_en.ts
+
+    ${pyside6-essentials}/bin/pyside6-lrelease translations/i18n_en.ts -qm src/nexus/translations/i18n_en.qm
+    ${pyside6-essentials}/bin/pyside6-lrelease translations/i18n_ro.ts -qm src/nexus/translations/i18n_ro.qm
   '';
 
   postInstall = ''
