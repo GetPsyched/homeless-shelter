@@ -5,7 +5,7 @@
 
   # dependencies
 , pynput
-, pyside6
+, pyside6-essentials
 , setuptools
 
   # tests
@@ -38,7 +38,7 @@ python311.pkgs.buildPythonApplication rec {
 
   propagatedBuildInputs = [
     pynput
-    pyside6
+    pyside6-essentials
     setuptools
   ];
 
@@ -50,11 +50,11 @@ python311.pkgs.buildPythonApplication rec {
   ];
 
   preBuild = ''
-    ${pyside2-tools}/bin/pyside2-uic ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
-    ${pyside2-tools}/bin/pyside2-uic ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
-    ${pyside2-tools}/bin/pyside2-uic ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
+    ${pyside6-essentials}/bin/pyside6-uic ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
+    ${pyside6-essentials}/bin/pyside6-uic ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
+    ${pyside6-essentials}/bin/pyside6-uic ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
 
-    ${pyside2-tools}/bin/pyside2-lupdate \
+    ${pyside6-essentials}/bin/pyside6-lupdate \
       ui/MainWindow.ui \
       ui/BanlistDialog.ui \
       ui/BanwordDialog.ui \

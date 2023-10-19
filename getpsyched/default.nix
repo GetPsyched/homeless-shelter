@@ -25,7 +25,9 @@
       spotify
 
       (pkgs.callPackage ../packages/neuron.nix { })
-      (pkgs.python311Packages.callPackage ../packages/nexus.nix { })
+      (pkgs.python311Packages.callPackage ../packages/nexus.nix {
+        pyside6-essentials = (pkgs.python311Packages.callPackage ../packages/pyside6-essentials.nix { });
+      })
     ];
 
     shellAliases = {
