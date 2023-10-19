@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "GetPsyched";
-    userEmail = "priyanshutr@proton.me";
+    userEmail = "priyanshu@getpsyched.dev";
 
     aliases = {
       amend = "commit --amend --no-edit";
