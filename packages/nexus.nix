@@ -15,10 +15,6 @@
 , xvfb-run
 }:
 
-let
-  pyside2 = pkgs.python310Packages.pyside2;
-  pyside2-tools = pkgs.python310Packages.pyside2-tools;
-in
 python311.pkgs.buildPythonApplication rec {
   pname = "nexus";
   version = "0.2.3";
@@ -30,11 +26,6 @@ python311.pkgs.buildPythonApplication rec {
     rev = "2fb3c1c";
     sha256 = "sha256-QDe7fMtcMluxyfQiCa7HnuyDlHkuDSvctlQJ8pj+L7U=";
   };
-
-  nativeBuildInputs = [
-    pyside2
-    pyside2-tools
-  ];
 
   propagatedBuildInputs = [
     pynput
