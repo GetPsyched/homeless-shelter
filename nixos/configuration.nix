@@ -82,10 +82,6 @@
       #   });
       # })
     ];
-
-    config = {
-      allowUnfree = true;
-    };
   };
 
   nix = {
