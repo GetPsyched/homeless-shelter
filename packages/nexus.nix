@@ -2,6 +2,7 @@
 , pkgs
 , python311
 , fetchFromGitHub
+, steam-run
 
   # dependencies
 , pynput
@@ -40,20 +41,21 @@ python311.pkgs.buildPythonApplication rec {
     xvfb-run
   ];
 
-  preBuild = ''
-    ${pyside6-essentials}/bin/pyside6-uic ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
-    ${pyside6-essentials}/bin/pyside6-uic ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
-    ${pyside6-essentials}/bin/pyside6-uic ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
+  preBuild =
+    let
+      pyside6-uic = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-uic";
+      pyside6-lupdate = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-lupdate";
+      pyside6-lrelease = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-lrelease";
+    in
+    ''
+      ${pyside6-uic} ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
+      ${pyside6-uic} ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
+      ${pyside6-uic} ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
 
-    ${pyside6-essentials}/bin/pyside6-lupdate \
-      ui/MainWindow.ui \
-      ui/BanlistDialog.ui \
-      ui/BanwordDialog.ui \
-      src/nexus/GUI.py \
-      -ts translations/i18n_en.ts
+      ${pyside6-lupdate} ui/*.ui src/nexus/GUI.py -ts translations/i18n_en.ts
 
-    ${pyside6-essentials}/bin/pyside6-lrelease translations/i18n_en.ts -qm src/nexus/translations/i18n_en.qm
-    ${pyside6-essentials}/bin/pyside6-lrelease translations/i18n_ro.ts -qm src/nexus/translations/i18n_ro.qm
+      ${pyside6-lrelease} translations/i18n_en.ts -qm src/nexus/translations/i18n_en.qm
+      ${pyside6-lrelease} translations/i18n_ro.ts -qm src/nexus/translations/i18n_ro.qm
   '';
 
   postInstall = ''
