@@ -22,6 +22,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      nix-env-pkgs = nix-env.outputs.packages.${system};
     in
     {
       nixosConfigurations.potato = nixpkgs.lib.nixosSystem {
@@ -39,8 +40,18 @@
       };
       devShell.${system} = with pkgs; mkShell {
         buildInputs = [
-          nix-env.outputs.packages.${system}.default
-          nix-env.outputs.packages.${system}.vscode
+          nix-env-pkgs.default
+          (nix-env-pkgs.vscode.override {
+            extensions = with vscode-extensions; [
+            ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+              {
+                name = "rasi";
+                publisher = "dlasagno";
+                version = "1.0.0";
+                sha256 = "sha256-s60alej3cNAbSJxsRlIRE2Qha6oAsmcOBbWoqp+w6fk=";
+              }
+            ];
+          })
           just
         ];
       };
