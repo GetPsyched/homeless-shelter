@@ -1,3 +1,5 @@
+(include "./powermenu.yuck")
+
 (defwindow bar
   :geometry (
     geometry
@@ -39,4 +41,4 @@
     :spacing 5
     :valign "end"
     (bottom)
-  "End"))
+    (power)))
