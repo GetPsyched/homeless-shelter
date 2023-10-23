@@ -10,4 +10,33 @@
   :monitor 0
   :windowtype "toolbar"
   :wm-ignore false
-"Hello, world!")
+  (bar))
+
+(defwidget bar []
+  (box
+    :class "bar"
+    :orientation "v"
+    (top)
+    (end)))
+
+(defwidget top []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+  "Top"))
+
+(defwidget bottom []
+  (box
+    :orientation "v"
+    :space-evenly false
+  "Bottom"))
+
+(defwidget end []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 5
+    :valign "end"
+    (bottom)
+  "End"))

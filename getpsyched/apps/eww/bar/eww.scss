@@ -1,0 +1,11 @@
+* {
+    all: unset;
+}
+
+$background: #1A1B26;
+$foreground: #A9B1D6;
+
+.bar {
+    background-color: $background;
+    padding: .3rem;
+}
