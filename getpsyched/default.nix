@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ./apps
     ./browser
     ./dev
     ./gui

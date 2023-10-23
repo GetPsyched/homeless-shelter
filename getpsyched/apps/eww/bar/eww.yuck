@@ -1,0 +1,13 @@
+(defwindow bar
+  :geometry (
+    geometry
+    :x "25px"
+    :y "0"
+    :width "47px"
+    :height "95%"
+    :anchor "center left"
+  )
+  :monitor 0
+  :windowtype "toolbar"
+  :wm-ignore false
+"Hello, world!")

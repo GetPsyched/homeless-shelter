@@ -28,6 +28,7 @@ let mod = "Mod4"; in
         let
           pactl = "${pkgs.pulseaudio}/bin/pactl";
           brctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+          eww = "exec ${pkgs.eww}/bin/eww";
 
           # rofi
           shutdown = "";
@@ -37,6 +38,7 @@ let mod = "Mod4"; in
         in
         lib.mkOptionDefault {
           "${mod}+d" = "${rofi} drun";
+          "${mod}+e" = "${eww} open bar --toggle --config ~/.config/eww/bar";
           "${mod}+q" = ''${rofi} power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 
           # Audio
