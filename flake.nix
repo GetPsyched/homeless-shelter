@@ -6,7 +6,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
 
-    nix-env.url = "https://flakehub.com/f/GetPsyched/nix-env/0.x.x.tar.gz";
+    nix-env.url = "github:GetPsyched/nix-starter-flakes?dir=nix";
     nix-env.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";

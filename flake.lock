@@ -95,15 +95,19 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-z+fKP3kuAD/k+wMoJEo1xA6tGGKwCjGS0sFPIfKBIiU=",
-        "rev": "0233fee5fd77709aa8efd2366b9b614b4d9bb6ec",
-        "revCount": 22,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/GetPsyched/nix-env/0.2.1/018aa30e-892d-77a6-b0ae-40aa73f3299c/source.tar.gz"
+        "dir": "nix",
+        "lastModified": 1697705467,
+        "narHash": "sha256-SQ1xpSju8q+pzNb7ak1pwilPqeA6lsM/XAPC0wPiQOo=",
+        "owner": "GetPsyched",
+        "repo": "nix-starter-flakes",
+        "rev": "a8be9bafe3a00cf5e215ee3994af0be116fa4f50",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/GetPsyched/nix-env/0.x.x.tar.gz"
+        "dir": "nix",
+        "owner": "GetPsyched",
+        "repo": "nix-starter-flakes",
+        "type": "github"
       }
     },
     "nixpkgs": {
