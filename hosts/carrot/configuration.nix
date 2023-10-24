@@ -1,7 +1,7 @@
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, ... }:
 {
   imports = [
-    ../system
+    ../../system
 
     ./hardware-configuration.nix
     ./impermanence.nix
@@ -78,7 +78,7 @@
 
   nixpkgs = {
     overlays = [
-      (import ../overlays/i3.nix)
+      (import ../../overlays/i3.nix)
 
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default

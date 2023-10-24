@@ -8,19 +8,19 @@ list:
 
 # build the configuration and make it the default boot option, but don't activate it until the next reboot
 boot:
-    @sudo nixos-rebuild boot --flake .#potato && reboot
+    @sudo nixos-rebuild boot --flake .#carrot && reboot
 
 # build the configuration and activate it, and make it the default boot option
 switch:
-    @sudo nixos-rebuild switch --flake .#potato
+    @sudo nixos-rebuild switch --flake .#carrot
 
 # build the configuration and activate it, but don't add it to the bootloader menu
 test:
-    @sudo nixos-rebuild test --flake .#potato
+    @sudo nixos-rebuild test --flake .#carrot
 
 # don't build the new configuration, but use the previous generation instead
 rollback:
-    @sudo nixos-rebuild boot --flake .#potato --rollback
+    @sudo nixos-rebuild boot --flake .#carrot --rollback
 
 # garbage collect all older generations
 yoink:

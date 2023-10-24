@@ -1,5 +1,4 @@
 { config, inputs, lib, pkgs, modulesPath, ... }:
-
 {
   imports =
     [
@@ -9,7 +8,7 @@
 
   networking = {
     hostId = "4bd4bef1";
-    hostName = "potato";
+    hostName = "carrot";
     networkmanager.enable = true;
 
     # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -81,4 +80,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.bluetooth.enable = true;
 }

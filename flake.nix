@@ -25,11 +25,11 @@
       nix-env-pkgs = nix-env.outputs.packages.${system};
     in
     {
-      nixosConfigurations.potato = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.carrot = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./modules/unfree.nix
-          ./nixos/configuration.nix
+          ./hosts/carrot/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
