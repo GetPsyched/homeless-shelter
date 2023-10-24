@@ -10,8 +10,11 @@ let
   '';
 in
 {
-  # NVIDIA drivers are unfree.
-  nixpkgs.config.allowUnfree = true;
+  allowUnfreePackages = [
+    "nvidia-settings"
+    "nvidia-settings-535.113.01"
+    "nvidia-x11"
+  ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;

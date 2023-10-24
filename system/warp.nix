@@ -28,4 +28,6 @@
       # InaccessiblePaths = "/data";
     };
   };
+
+  allowUnfreePackages = [ "cloudflare-warp" ];
 }

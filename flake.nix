@@ -28,6 +28,7 @@
       nixosConfigurations.potato = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          ./modules/unfree.nix
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
