@@ -43,6 +43,7 @@
           nix-env-pkgs.default
           (nix-env-pkgs.vscode.override {
             extensions = with vscode-extensions; [
+              foxundermoon.shell-format
             ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
               {
                 name = "rasi";
