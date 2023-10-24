@@ -32,10 +32,12 @@
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.getpsyched.imports = [ ./getpsyched ];
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.getpsyched = import ./getpsyched;
+            };
           }
         ];
       };
