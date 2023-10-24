@@ -40,7 +40,6 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 
   fileSystems =
