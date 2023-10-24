@@ -56,8 +56,6 @@
     hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
   };
 
-  environment.systemPackages = [ pkgs.gparted ];
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
