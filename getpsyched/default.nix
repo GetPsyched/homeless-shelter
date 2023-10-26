@@ -4,7 +4,6 @@
     ./apps
     ./browser
     ./dev
-    ./gui
     ./window-manager
 
     ./games.nix
