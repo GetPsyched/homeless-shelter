@@ -7,7 +7,6 @@
 
     ./games.nix
     ./impermanence.nix
-    ./wine.nix
   ];
 
   home = {
@@ -20,6 +19,11 @@
       fh
       obsidian
       spotify
+
+      # Wine
+      bottles
+      winePackages.stagingFull
+      winetricks
 
       (pkgs.callPackage ../packages/neuron.nix { })
       (pkgs.python311Packages.callPackage ../packages/nexus.nix {
