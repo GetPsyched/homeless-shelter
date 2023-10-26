@@ -14,6 +14,7 @@
       ];
       terminal = false;
     };
+
     libreoffice-calc = {
       categories = [ "Application" ];
       name = "LibreOffice Calc";
@@ -24,6 +25,20 @@
         "application/vnd.oasis.opendocument.spreadsheet"
         "application/vnd.ms-excel"
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ];
+      terminal = false;
+    };
+
+    libreoffice-impress = {
+      categories = [ "Application" ];
+      name = "LibreOffice Impress";
+      exec = "${pkgs.libreoffice}/bin/libreoffice --impress";
+      genericName = "Text Editor";
+      icon = "${pkgs.libreoffice}/share/icons/hicolor/scalable/apps/impress.svg";
+      mimeType = [
+        "application/vnd.oasis.opendocument.presentation"
+        "application/vnd.ms-powerpoint"
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation"
       ];
       terminal = false;
     };
