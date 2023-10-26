@@ -6,7 +6,7 @@
     mangohud
     osu-lazer-bin
 
-    (pkgs.callPackage ../packages/atlauncher.nix { })
+    (pkgs.callPackage ../../../packages/atlauncher.nix { })
   ];
 
   xdg.desktopEntries = {
