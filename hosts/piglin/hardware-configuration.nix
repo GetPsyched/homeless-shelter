@@ -8,7 +8,7 @@
 
   networking = {
     hostId = "4bd4bef1";
-    hostName = "carrot";
+    hostName = "piglin";
     networkmanager.enable = true;
 
     useDHCP = lib.mkDefault true;
