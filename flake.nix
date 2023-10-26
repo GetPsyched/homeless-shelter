@@ -31,16 +31,18 @@
         modules = [
           ./modules/unfree.nix
           ./hosts/${hostName}/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.getpsyched = import ./hosts/${hostName}/home.nix;
-            };
-          }
-        ];
+        ] ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostName}/home.nix)
+          [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.getpsyched = import ./hosts/${hostName}/home.nix;
+              };
+            }
+          ];
       };
     in
     {
