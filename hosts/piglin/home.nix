@@ -1,7 +1,12 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ./impermanence.nix
+    ./applications
+    ./desktop-environment
+    ./development
+    ./tools
+
+    ./impermanence-home.nix
   ];
 
   home = {
@@ -20,16 +25,16 @@
       winePackages.stagingFull
       winetricks
 
-      (pkgs.callPackage ../packages/neuron.nix { })
-      (pkgs.python311Packages.callPackage ../packages/nexus.nix {
-        pyside6-essentials = (pkgs.python311Packages.callPackage ../packages/pyside6-essentials.nix { });
+      (pkgs.callPackage ../../packages/neuron.nix { })
+      (pkgs.python311Packages.callPackage ../../packages/nexus.nix {
+        pyside6-essentials = (pkgs.python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
       })
     ];
 
     pointerCursor = {
       name = "Banana";
       size = 48;
-      package = (pkgs.callPackage ../packages/banana-cursor.nix { });
+      package = (pkgs.callPackage ../../packages/banana-cursor.nix { });
       x11.enable = true;
       gtk.enable = true;
     };

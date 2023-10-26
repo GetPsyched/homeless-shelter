@@ -36,7 +36,7 @@
               extraSpecialArgs = { inherit inputs; };
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.getpsyched = import ./getpsyched;
+              users.getpsyched = import ./hosts/piglin/home.nix;
             };
           }
         ];
