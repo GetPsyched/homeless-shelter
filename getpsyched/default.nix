@@ -3,7 +3,6 @@
   imports = [
     ./apps
     ./browser
-    ./dev
     ./window-manager
 
     ./games.nix
