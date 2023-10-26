@@ -27,3 +27,7 @@ rollback HOST:
 # say goodbye to all your older generations
 yoink:
     @sudo nix-collect-garbage -d
+
+# build a configuration into an ISO image
+flash HOST:
+    nix build .#nixosConfigurations.{{HOST}}.config.system.build.isoImage
