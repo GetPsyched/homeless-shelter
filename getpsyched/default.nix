@@ -31,6 +31,14 @@
       })
     ];
 
+    pointerCursor = {
+      name = "Banana";
+      size = 48;
+      package = (pkgs.callPackage ../packages/banana-cursor.nix { });
+      x11.enable = true;
+      gtk.enable = true;
+    };
+
     shellAliases = {
       nixpkgs = let git = "${pkgs.git}/bin/git"; gh = "${pkgs.gh}/bin/gh"; in ''
         ${gh} repo sync GetPsyched/nixpkgs --source NixOS/nixpkgs --branch master
