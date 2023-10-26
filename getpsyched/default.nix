@@ -2,7 +2,6 @@
 {
   imports = [
     ./apps
-    ./window-manager
 
     ./impermanence.nix
   ];
