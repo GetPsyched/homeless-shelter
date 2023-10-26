@@ -2,7 +2,6 @@
 {
   imports = [
     ./apps
-    ./browser
     ./window-manager
 
     ./games.nix
