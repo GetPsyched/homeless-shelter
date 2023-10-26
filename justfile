@@ -8,7 +8,9 @@ list:
 
 # build the configuration and make it the default boot option, but don't activate it until the next reboot
 boot HOST:
-    @sudo nixos-rebuild boot --flake .#{{HOST}} && reboot
+    #!/bin/sh -e
+    sudo nixos-rebuild boot --flake .#{{HOST}}
+    reboot
 
 # build the configuration and activate it, and make it the default boot option
 switch HOST:
