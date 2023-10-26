@@ -23,24 +23,31 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       nix-env-pkgs = nix-env.outputs.packages.${system};
-    in
-    {
-      nixosConfigurations.piglin = nixpkgs.lib.nixosSystem {
+
+      mkHost = hostName: system: nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = { inherit inputs; };
+
         modules = [
           ./modules/unfree.nix
-          ./hosts/piglin/configuration.nix
+          ./hosts/${hostName}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               extraSpecialArgs = { inherit inputs; };
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.getpsyched = import ./hosts/piglin/home.nix;
+              users.getpsyched = import ./hosts/${hostName}/home.nix;
             };
           }
         ];
       };
+    in
+    {
+      nixosConfigurations = {
+        piglin = mkHost "piglin" "x86_64-linux";
+      };
+
       devShell.${system} = with pkgs; mkShell {
         buildInputs = [
           nix-env-pkgs.default
