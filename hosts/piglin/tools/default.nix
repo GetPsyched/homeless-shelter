@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  impports = [ ./eww ];
+  imports = [ ./eww ];
 
   home.packages = with pkgs; [ feh peek ];
 
