@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ./apps
-
     ./impermanence.nix
   ];
 

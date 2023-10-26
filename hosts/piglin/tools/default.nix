@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  impports = [ ./eww ];
+
   home.packages = with pkgs; [ feh peek ];
 
   services = {
