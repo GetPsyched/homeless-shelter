@@ -59,7 +59,7 @@ buildPythonApplication rec {
       ${pyside6-uic} ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
       ${pyside6-uic} ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
 
-      ${pyside6-rcc} ui/resources.qrc -o resources_rc.py
+      ${pyside6-rcc} ui/resources.qrc -o src/nexus/resources_rc.py
 
       ${pyside6-lupdate} ui/*.ui src/nexus/GUI.py -ts translations/i18n_en.ts
 
