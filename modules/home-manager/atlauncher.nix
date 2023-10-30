@@ -42,22 +42,20 @@ in
         "One Dark"
       ];
       default = "ATLauncher Dark";
-      example = literalExpression "One Dark";
+      example = "One Dark";
       description = "The ATLauncher theme to use.";
     };
 
     settings = mkOption {
       type = jsonFormat.type;
       default = { };
-      example = literalExpression ''
-        {
-          enableAnalytics = true;
-          enableConsole = false;
-          enableFeralGamemode = true;
-          enableTrayMenu = false;
-          keepLauncherOpen = false;
-        };
-      '';
+      example = {
+        enableAnalytics = true;
+        enableConsole = false;
+        enableFeralGamemode = true;
+        enableTrayMenu = false;
+        keepLauncherOpen = false;
+      };
       description = ''
         Configuration written to
         {file}`$XDG_DATA_HOME/ATLauncher/configs/ATLauncher.json`.
