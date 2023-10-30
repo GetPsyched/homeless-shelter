@@ -17,6 +17,7 @@
       mutableExtensionsDir = false;
 
       userSettings = {
+        accessibility.dimUnfocused.enabled = true;
         breadcrumbs.enabled = false;
         diffEditor.renderSideBySide = false;
         editor = {
