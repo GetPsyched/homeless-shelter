@@ -3,7 +3,6 @@
 , fetchFromGitHub
 , lib
 , makeDesktopItem
-, pkgs
 , pythonOlder
 , steam-run
 
@@ -73,7 +72,6 @@ buildPythonApplication rec {
     mkdir -p $out/share/icons/hicolor/scalable/apps
     cp ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
 
-    ls $out/lib/python3.11/site-packages
     mv -v src/nexus/ui $out/lib/python3.11/site-packages/${pname}
   '';
 
