@@ -10,9 +10,12 @@
 
       settings = {
         General = {
+          checkForUpdates = false;
           disabledTrayIcon = true;
+          saveLastRegion = true;
           showDesktopNotification = false;
           showStartupLaunchMessage = false;
+          uploadWithoutConfirmation = true;
         };
       };
     };
