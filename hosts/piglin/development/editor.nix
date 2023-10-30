@@ -23,6 +23,8 @@
         "explorer.confirmDragAndDrop" = false;
         "search.useGlobalIgnoreFiles" = true;
         "security.workspace.trust.enabled" = false;
+        "terminal.integrated.enableMultiLinePasteWarning" = false;
+        "terminal.integrated.enablePersistentSessions" = false;
         "window.menuBarVisibility" = "toggle";
         "workbench.startupEditor" = "none";
 
