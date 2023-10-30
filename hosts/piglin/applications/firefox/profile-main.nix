@@ -25,6 +25,15 @@
         definedAliases = [ "@dpy" ];
       };
 
+      "HM Config" = let version = "latest"; in {
+        urls = [{
+          template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
+        }];
+        iconUpdateURL = "https://github.com/mipmip/home-manager-option-search/blob/main/images/favicon.png";
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = [ "@hm" ];
+      };
+
       "Library Genesis" = {
         urls = [
           { template = "https://libgen.rs/search.php?req={searchTerms}"; } # non-fiction
