@@ -19,10 +19,13 @@
         "breadcrumbs.enabled" = false;
         "diffEditor.renderSideBySide" = false;
         "editor.formatOnSave" = true;
+        "editor.cursorBlinking" = "expand";
         "editor.inlineSuggest.enabled" = true;
         "explorer.confirmDragAndDrop" = false;
         "search.useGlobalIgnoreFiles" = true;
         "security.workspace.trust.enabled" = false;
+        "terminal.integrated.cursorBlinking" = true;
+        "terminal.integrated.cursorStyle" = "line";
         "terminal.integrated.enableMultiLinePasteWarning" = false;
         "terminal.integrated.enablePersistentSessions" = false;
         "window.menuBarVisibility" = "toggle";
