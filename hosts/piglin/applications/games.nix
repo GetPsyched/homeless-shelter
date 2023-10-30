@@ -5,9 +5,18 @@
     heroic
     mangohud
     osu-lazer-bin
-
-    (pkgs.callPackage ../../../packages/atlauncher.nix { })
   ];
+
+  programs.atlauncher = {
+    enable = true;
+    package = (pkgs.callPackage ../../../packages/atlauncher.nix { });
+
+    settings = {
+      enableConsole = false;
+      enableTrayMenu = false;
+      keepLauncherOpen = false;
+    };
+  };
 
   xdg.desktopEntries = {
     rocket-league = {

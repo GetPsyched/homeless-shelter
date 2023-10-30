@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ../../modules/home-manager
+
     ./applications
     ./desktop-environment
     ./development
