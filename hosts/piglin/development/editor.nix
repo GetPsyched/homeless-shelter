@@ -26,7 +26,10 @@
           inlineSuggest.enabled = true;
         };
         explorer.confirmDragAndDrop = false;
-        search.useGlobalIgnoreFiles = true;
+        search = {
+          smartCase = true;
+          useGlobalIgnoreFiles = true;
+        };
         security.workspace.trust.enabled = false;
         terminal.integrated = {
           cursorBlinking = true;
