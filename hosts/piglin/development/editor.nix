@@ -21,6 +21,7 @@
         "editor.formatOnSave" = true;
         "editor.inlineSuggest.enabled" = true;
         "explorer.confirmDragAndDrop" = false;
+        "search.useGlobalIgnoreFiles" = true;
         "window.menuBarVisibility" = "toggle";
 
         "[css]"."editor.defaultFormatter" = "vscode.css-language-features";
