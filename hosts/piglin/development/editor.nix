@@ -31,6 +31,7 @@
           autoCheckUpdates = false;
           closeExtensionDetailsOnViewChange = true;
         };
+        files.trimTrailingWhitespace = true;
         search = {
           smartCase = true;
           useGlobalIgnoreFiles = true;
