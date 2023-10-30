@@ -7,7 +7,6 @@ let
   jsonFormat = pkgs.formats.json { };
 
   mergedSettings = cfg.settings
-    // optionalAttrs (cfg.theme == "ATLauncher Dark") { "theme" = "com.atlauncher.themes.Dark"; }
     // optionalAttrs (cfg.theme == "ATLauncher Light") { "theme" = "com.atlauncher.themes.Light"; }
     // optionalAttrs (cfg.theme == "Monokai Pro") { "theme" = "com.atlauncher.themes.MonokaiPro"; }
     // optionalAttrs (cfg.theme == "Dracula Contrast") { "theme" = "com.atlauncher.themes.DraculaContrast"; }
