@@ -22,7 +22,9 @@
         "editor.inlineSuggest.enabled" = true;
         "explorer.confirmDragAndDrop" = false;
         "search.useGlobalIgnoreFiles" = true;
+        "security.workspace.trust.enabled" = false;
         "window.menuBarVisibility" = "toggle";
+        "workbench.startupEditor" = "none";
 
         "[css]"."editor.defaultFormatter" = "vscode.css-language-features";
         "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";

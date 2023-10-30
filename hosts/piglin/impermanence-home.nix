@@ -21,7 +21,6 @@
         ".config/heroic"
         ".config/obsidian"
         ".config/spotify"
-        ".config/VSCodium"
         ".local/share/applications"
         ".local/share/digikam"
         ".local/share/direnv/allow"
