@@ -1,9 +1,10 @@
-{ copyDesktopItems
+{ buildPythonApplication
+, copyDesktopItems
 , fetchFromGitHub
 , lib
 , makeDesktopItem
 , pkgs
-, python311
+, pythonOlder
 , steam-run
 
   # dependencies
@@ -18,7 +19,7 @@
 , xvfb-run
 }:
 
-python311.pkgs.buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "nexus";
   version = "0.2.3";
   format = "pyproject";
@@ -29,6 +30,8 @@ python311.pkgs.buildPythonApplication rec {
     rev = "88a5982";
     sha256 = "sha256-dGMpOl4QQBmEYuAKa3ywdn9NHM2MEW1QAHYCSXmcy1k=";
   };
+
+  disabled = pythonOlder "3.11";
 
   nativeBuildInputs = [ copyDesktopItems ];
 
