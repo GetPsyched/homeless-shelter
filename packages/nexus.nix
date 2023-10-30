@@ -1,7 +1,9 @@
-{ lib
+{ copyDesktopItems
+, fetchFromGitHub
+, lib
+, makeDesktopItem
 , pkgs
 , python311
-, fetchFromGitHub
 , steam-run
 
   # dependencies
@@ -27,6 +29,8 @@ python311.pkgs.buildPythonApplication rec {
     rev = "88a5982";
     sha256 = "sha256-dGMpOl4QQBmEYuAKa3ywdn9NHM2MEW1QAHYCSXmcy1k=";
   };
+
+  nativeBuildInputs = [ copyDesktopItems ];
 
   propagatedBuildInputs = [
     pynput
@@ -63,6 +67,9 @@ python311.pkgs.buildPythonApplication rec {
     '';
 
   postInstall = ''
+    mkdir -p $out/share/icons/hicolor/scalable/apps
+    cp ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
+
     ls $out/lib/python3.11/site-packages
     mv -v src/nexus/ui $out/lib/python3.11/site-packages/${pname}
   '';
@@ -74,6 +81,20 @@ python311.pkgs.buildPythonApplication rec {
 
     runHook postCheck
   '';
+
+  desktopItems = [
+    (makeDesktopItem {
+      comment = "CharaChorder's all-in-one desktop app";
+      desktopName = "Nexus";
+      exec = pname;
+      icon = pname;
+      name = pname;
+      startupNotify = true;
+      startupWMClass = pname;
+      terminal = false;
+      type = "Application";
+    })
+  ];
 
   meta = with lib; {
     description = "CharaChorder's all-in-one desktop app";
