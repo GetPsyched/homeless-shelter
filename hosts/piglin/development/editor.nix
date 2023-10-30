@@ -26,6 +26,7 @@
         "terminal.integrated.enableMultiLinePasteWarning" = false;
         "terminal.integrated.enablePersistentSessions" = false;
         "window.menuBarVisibility" = "toggle";
+        "workbench.panel.opensMaximized" = "always";
         "workbench.startupEditor" = "none";
 
         "[css]"."editor.defaultFormatter" = "vscode.css-language-features";
