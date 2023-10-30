@@ -51,8 +51,8 @@ in
       example = {
         enableAnalytics = true;
         enableConsole = false;
-        enableFeralGamemode = true;
         enableTrayMenu = false;
+        firstTimeRun = false;
         keepLauncherOpen = false;
       };
       description = ''
