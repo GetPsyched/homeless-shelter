@@ -13,7 +13,6 @@
       enable = true;
       package = pkgs.vscodium;
 
-      enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
 
@@ -22,10 +21,15 @@
         diffEditor.renderSideBySide = false;
         editor = {
           cursorBlinking = "expand";
+          cursorSmoothCaretAnimation = "on";
           formatOnSave = true;
           inlineSuggest.enabled = true;
         };
         explorer.confirmDragAndDrop = false;
+        extensions = {
+          autoCheckUpdates = false;
+          closeExtensionDetailsOnViewChange = true;
+        };
         search = {
           smartCase = true;
           useGlobalIgnoreFiles = true;
@@ -36,8 +40,13 @@
           cursorStyle = "line";
           enableMultiLinePasteWarning = false;
           enablePersistentSessions = false;
+          showExitAlert = false;
         };
-        window.menuBarVisibility = "toggle";
+        window = {
+          autoDetectColorScheme = true;
+          closeWhenEmpty = true;
+          menuBarVisibility = "toggle";
+        };
         workbench = {
           panel.opensMaximized = "always";
           startupEditor = "none";
