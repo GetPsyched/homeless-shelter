@@ -11,9 +11,11 @@
 
     vscode = {
       enable = true;
+      package = pkgs.vscodium;
+
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      package = pkgs.vscodium;
+      mutableExtensionsDir = false;
 
       userSettings = {
         breadcrumbs.enabled = false;
