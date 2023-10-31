@@ -28,6 +28,7 @@
         };
         explorer.confirmDragAndDrop = false;
         extensions = {
+          autoUpdate = false;
           autoCheckUpdates = false;
           closeExtensionDetailsOnViewChange = true;
         };
