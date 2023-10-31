@@ -16,6 +16,7 @@
     settings = {
       enableConsole = false;
       enableTrayMenu = false;
+      firstTimeRun = false;
       keepLauncherOpen = false;
     };
   };
