@@ -26,6 +26,22 @@ in
 
     package = mkPackageOption pkgs "atlauncher" { };
 
+    settings = mkOption {
+      type = jsonFormat.type;
+      default = { };
+      example = {
+        enableAnalytics = true;
+        enableConsole = false;
+        enableTrayMenu = false;
+        firstTimeRun = false;
+        keepLauncherOpen = false;
+      };
+      description = ''
+        Configuration written to
+        {file}`$XDG_DATA_HOME/ATLauncher/configs/ATLauncher.json`.
+      '';
+    };
+
     theme = mkOption {
       type = types.enum [
         "ATLauncher Dark"
@@ -43,22 +59,6 @@ in
       default = "ATLauncher Dark";
       example = "One Dark";
       description = "The ATLauncher theme to use.";
-    };
-
-    settings = mkOption {
-      type = jsonFormat.type;
-      default = { };
-      example = {
-        enableAnalytics = true;
-        enableConsole = false;
-        enableTrayMenu = false;
-        firstTimeRun = false;
-        keepLauncherOpen = false;
-      };
-      description = ''
-        Configuration written to
-        {file}`$XDG_DATA_HOME/ATLauncher/configs/ATLauncher.json`.
-      '';
     };
   };
 
