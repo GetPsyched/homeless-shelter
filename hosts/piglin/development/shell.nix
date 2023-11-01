@@ -34,6 +34,14 @@
       };
     };
 
+    tealdeer = {
+      enable = true;
+
+      settings = {
+        updates.auto_update = true;
+      };
+    };
+
     zoxide = {
       enable = true;
       options = [ "--cmd cd" ];

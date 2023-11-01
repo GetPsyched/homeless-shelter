@@ -4,7 +4,6 @@
     ./editor.nix
     ./git.nix
     ./shell.nix
-    ./tealdeer.nix
     ./terminal.nix
   ];
 
