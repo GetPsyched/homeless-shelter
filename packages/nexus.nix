@@ -9,6 +9,7 @@
   # dependencies
 , pynput
 , pyside6-essentials
+, pyserial
 , setuptools
 
   # tests
@@ -20,14 +21,14 @@
 
 buildPythonApplication rec {
   pname = "nexus";
-  version = "0.2.3";
+  version = "0.4.0";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "CharaChorder";
     repo = "nexus";
-    rev = "88a5982";
-    sha256 = "sha256-dGMpOl4QQBmEYuAKa3ywdn9NHM2MEW1QAHYCSXmcy1k=";
+    rev = "v${version}";
+    sha256 = "sha256-cgRp4j/wlJUhyjsGU1LQwueQUgEmyO9++lZnz87oS54=";
   };
 
   disabled = pythonOlder "3.11";
@@ -37,6 +38,7 @@ buildPythonApplication rec {
   propagatedBuildInputs = [
     pynput
     pyside6-essentials
+    pyserial
     setuptools
   ];
 
