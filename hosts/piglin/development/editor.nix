@@ -33,6 +33,11 @@
           closeExtensionDetailsOnViewChange = true;
         };
         files.trimTrailingWhitespace = true;
+        git = {
+          openRepositoryInParentFolders = "always";
+          inputValidation = "off";
+          mergeEditor = true;
+        };
         search = {
           smartCase = true;
           useGlobalIgnoreFiles = true;
