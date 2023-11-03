@@ -41,6 +41,10 @@ in
       description = ''
         Configuration written to
         {file}`$XDG_DATA_HOME/ATLauncher/configs/ATLauncher.json`.
+
+        Rummage through
+        <link xlink:href="https://github.com/ATLauncher/ATLauncher/blob/master/src/main/java/com/atlauncher/data/Settings.java"/>
+        for supported values.
       '';
     };
 
