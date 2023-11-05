@@ -22,6 +22,8 @@
         urls = [{
           template = "https://discordpy.readthedocs.io/en/${version}/search.html?q={searchTerms}";
         }];
+        iconUpdateURL = "https://discordpy.readthedocs.io/en/stable/_static/discord_py_logo.ico";
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@dpy" ];
       };
 
@@ -41,12 +43,14 @@
           { template = "https://libgen.rs/scimag/?q={searchTerms}"; } # scientific articles
           { template = "https://magzdb.org/makelist?t={searchTerms}"; } # magazines
         ];
+        iconUpdateURL = "https://libgen.rs/favicon.ico";
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@libgen" ];
       };
 
       "MDN HTML" = {
         urls = [{ template = "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{searchTerms}"; }];
-        iconUpdateURL = "https://developer.mozilla.org/favicon-48x48.cbbd161b.png";
+        iconUpdateURL = "https://developer.mozilla.org/favicon-48x48.png";
         updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@mdn" ];
       };
@@ -54,6 +58,7 @@
       "Nix" = {
         urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
         iconUpdateURL = "https://mynixos.com/favicon.ico";
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@nix" ];
       };
 
@@ -91,6 +96,8 @@
             { name = "groupBy"; value = "repo"; }
           ];
         }];
+        iconUpdateURL = "https://sourcegraph.com/favicon.ico";
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@sg" ];
       };
 
