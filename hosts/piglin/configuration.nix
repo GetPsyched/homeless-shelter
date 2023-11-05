@@ -71,6 +71,10 @@
   programs.dconf.enable = true;
 
   nixpkgs = {
+    config.permittedInsecurePackages = [
+      "electron-24.8.6" # FIXME: Remove this once 23.11 rolls around
+    ];
+
     overlays = [
       (import ../../overlays/i3.nix)
     ];
