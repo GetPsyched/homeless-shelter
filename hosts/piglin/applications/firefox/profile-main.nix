@@ -66,8 +66,8 @@
             { name = "type"; value = "packages"; }
           ];
         }];
-
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        iconUpdateURL = "https://nixos.org/favicon.ico";
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@np" ];
       };
 
