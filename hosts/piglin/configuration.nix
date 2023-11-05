@@ -63,7 +63,7 @@
 
     # Home Manager packages
     "obsidian"
-    "osu-lazer-bin-*"
+    "osu-lazer-bin-2023.1026.0"
     "spotify"
   ];
 
