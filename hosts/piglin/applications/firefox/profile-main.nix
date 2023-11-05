@@ -30,7 +30,7 @@
           template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
         }];
         iconUpdateURL = "https://github.com/mipmip/home-manager-option-search/blob/main/images/favicon.png";
-        updateInterval = 24 * 60 * 60 * 1000; # every day
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@hm" ];
       };
 
@@ -47,7 +47,7 @@
       "MDN HTML" = {
         urls = [{ template = "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{searchTerms}"; }];
         iconUpdateURL = "https://developer.mozilla.org/favicon-48x48.cbbd161b.png";
-        updateInterval = 24 * 60 * 60 * 1000; # every day
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@mdn" ];
       };
 
@@ -74,7 +74,7 @@
       "NixOS Wiki" = {
         urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
         iconUpdateURL = "https://nixos.wiki/favicon.png";
-        updateInterval = 24 * 60 * 60 * 1000; # every day
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@nw" ];
       };
 
@@ -109,7 +109,7 @@
       "TailwindCSS" = {
         urls = [{ template = "https://tailwindcss.com/docs/{searchTerms}"; }];
         iconUpdateURL = "https://tailwindcss.com/favicons/favicon-16x16.png";
-        updateInterval = 24 * 60 * 60 * 1000; # every day
+        updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
         definedAliases = [ "@tw" ];
       };
     };
