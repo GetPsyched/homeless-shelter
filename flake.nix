@@ -15,8 +15,8 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    nix-env.url = "github:GetPsyched/nix-starter-flakes?dir=nix";
-    nix-env.inputs.nixpkgs.follows = "nixpkgs";
+    flakey-devShells.url = "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz";
+    flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { home-manager, nixpkgs, ... }@inputs:
@@ -53,13 +53,13 @@
       devShell.${system} = with pkgs; mkShell {
         nativeBuildInputs =
           let
-            nix-env-pkgs = inputs.nix-env.outputs.packages.${system};
+            flakey-devShell-pkgs = inputs.flakey-devShells.outputs.packages.${system};
           in
           [
             just
 
-            nix-env-pkgs.default
-            (nix-env-pkgs.vscode.override {
+            flakey-devShell-pkgs.default
+            (flakey-devShell-pkgs.vscodium.override {
               extensions = with vscode-extensions; [
                 foxundermoon.shell-format
               ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

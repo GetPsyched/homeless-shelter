@@ -38,6 +38,25 @@
         "type": "github"
       }
     },
+    "flakey-devShells": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1699386167,
+        "narHash": "sha256-NS4Uxl8T4px96JeBXKisxXkyhDwqVO58c+TzYqNjLpU=",
+        "rev": "9a5b427a7206c99c818466f062f6a557d628fe0a",
+        "revCount": 71,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/GetPsyched/not-so-flakey-devshells/0.2.1/018bab53-eb46-7b57-a888-807bc541a8aa/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz"
+      }
+    },
     "hardware": {
       "locked": {
         "lastModified": 1699159446,
@@ -88,28 +107,6 @@
         "type": "github"
       }
     },
-    "nix-env": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "dir": "nix",
-        "lastModified": 1698660848,
-        "narHash": "sha256-RomqCZlVr9TM80joawczSLzVgcie8CDbyozevC1Mx7Q=",
-        "owner": "GetPsyched",
-        "repo": "nix-starter-flakes",
-        "rev": "618eb19a455d067ca2590d0b819f3b877df32309",
-        "type": "github"
-      },
-      "original": {
-        "dir": "nix",
-        "owner": "GetPsyched",
-        "repo": "nix-starter-flakes",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1698924604,
@@ -144,10 +141,10 @@
     "root": {
       "inputs": {
         "ff-addons": "ff-addons",
+        "flakey-devShells": "flakey-devShells",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "nix-env": "nix-env",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master"
       }
