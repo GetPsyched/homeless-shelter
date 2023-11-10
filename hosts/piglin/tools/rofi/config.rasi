@@ -91,7 +91,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     5px;
     margin:                      0px;
     padding:                     0px;
@@ -111,6 +111,7 @@ scrollbar {
 
 element {
     enabled:                     true;
+    highlight:                   none;
     spacing:                     15px;
     margin:                      0px;
     padding:                     20px 10px;
