@@ -16,6 +16,11 @@ let
     icon = pname;
     name = pname;
   };
+
+  icon = fetchurl {
+    url = "https://raw.githubusercontent.com/hoppscotch/hoppscotch/de725337d628d037e8597c02ef51be466bec3680/packages/hoppscotch-common/public/logo.svg";
+    hash = "sha256-Njbc+RTKSOziXo0H2Mv7RyNI5CLZNkJLUr/PatyrK9E=";
+  };
 in
 appimageTools.wrapType1 {
   inherit name version;
@@ -28,6 +33,9 @@ appimageTools.wrapType1 {
 
   extraInstallCommands = ''
     mv $out/bin/${name} $out/bin/${pname}
+
+    mkdir -p $out/share/icons/hicolor/scalable/apps
+    cp ${icon} $out/share/icons/hicolor/scalable/apps/${pname}.svg
 
     mkdir -p $out/share/applications
     cp -r ${desktopItem} $out/share/applications/${pname}.desktop
