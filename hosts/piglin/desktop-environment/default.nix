@@ -1,7 +1,3 @@
 {
-  imports = [
-    ./i3
-
-    ./notificationd.nix
-  ];
+  imports = [ ./i3 ];
 }
