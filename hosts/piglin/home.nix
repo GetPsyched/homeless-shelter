@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../../modules/home-manager
@@ -12,9 +12,9 @@
   ];
 
   home = {
-    username = lib.mkDefault "getpsyched";
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.11";
+    username = "getpsyched";
+    homeDirectory = "/home/${config.home.username}";
+    stateVersion = "22.11";
 
     packages = with pkgs; [
       digikam
