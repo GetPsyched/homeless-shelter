@@ -57,6 +57,7 @@
           in
           [
             just
+            nixopsUnstable
 
             flakey-devShell-pkgs.default
             (flakey-devShell-pkgs.vscodium.override {
