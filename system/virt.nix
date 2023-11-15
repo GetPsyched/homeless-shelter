@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
-  # Enable virtualization
   virtualisation.libvirtd.enable = true;
+  users.users.getpsyched.extraGroups = [ "libvirtd" ];
+  networking.firewall.checkReversePath = false;
+
   # Enable IPv4 forwarding so networking works right in NATted VMs
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   # Enable podman
