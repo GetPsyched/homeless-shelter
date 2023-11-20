@@ -11,13 +11,13 @@
 
 stdenv.mkDerivation rec {
   pname = "atlauncher";
-  version = "3.4.34.2";
+  version = "3.4.34.3";
 
   src = fetchFromGitHub {
     owner = "ATLauncher";
     repo = "ATLauncher";
     rev = "v${version}";
-    sha256 = "sha256-bq0nDluHq5UB0f/emRejtmf6luVTDJL3uCGfAgfsYtU=";
+    sha256 = "sha256-2080rVGBBM3YZmmBVBfMhnCErLzxuRDDi4zmCniJYFY=";
   };
 
   env.ICON = fetchurl {
