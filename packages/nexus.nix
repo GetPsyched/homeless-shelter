@@ -105,6 +105,8 @@ buildPythonApplication rec {
     homepage = "https://github.com/CharaChorder/nexus/";
     license = licenses.agpl3Only;
     maintainers = [ maintainers.getpsyched ];
-    platforms = platforms.all;
+    mainProgram = pname;
+    platforms = platforms.linux;
+    sourceProvenance = [ sourceTypes.fromSource ];
   };
 }
