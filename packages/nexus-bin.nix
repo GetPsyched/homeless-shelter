@@ -1,8 +1,12 @@
-{ copyDesktopItems
+{ autoPatchelfHook
+, copyDesktopItems
 , fetchurl
 , lib
 , makeDesktopItem
 , stdenv
+
+  # libraries
+, libz
 }:
 
 stdenv.mkDerivation rec {
@@ -21,7 +25,10 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
 
-  nativeBuildInputs = [ copyDesktopItems ];
+  buildInputs = [
+    libz # libz.so.1
+  ];
+  nativeBuildInputs = [ autoPatchelfHook copyDesktopItems ];
 
   installPhase = ''
     runHook preInstall
