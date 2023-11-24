@@ -138,6 +138,22 @@
         "type": "github"
       }
     },
+    "pyside6": {
+      "locked": {
+        "lastModified": 1700589976,
+        "narHash": "sha256-IzgXH3q7uzanzRjl7fGKrQIdsUinNEEGQaxhuawh4No=",
+        "owner": "lilyinstarlight",
+        "repo": "nixpkgs",
+        "rev": "4ce70c656bc846b0f405b9fbd7a51681d250bf70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lilyinstarlight",
+        "ref": "upd/pyside6",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ff-addons": "ff-addons",
@@ -146,7 +162,8 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-master": "nixpkgs-master"
+        "nixpkgs-master": "nixpkgs-master",
+        "pyside6": "pyside6"
       }
     }
   },
