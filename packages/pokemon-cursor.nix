@@ -19,10 +19,10 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "The Pokemon cursor.";
+    description = "The Pokemon cursor";
     homepage = "https://github.com/ful1e5/pokemon-cursor";
     license = licenses.gpl3;
-    platforms = platforms.all;
+    platforms = platforms.linux;
     maintainers = [ maintainers.getpsyched ];
   };
 }

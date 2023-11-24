@@ -4,11 +4,11 @@
 }:
 
 stdenvNoCC.mkDerivation rec {
-  pname = "banana-cursor-theme";
+  pname = "banana-cursor";
   version = "1.0.0";
 
   tar = fetchurl {
-    url = "https://github.com/ful1e5/banana-cursor/releases/download/v1.0.0/Banana.tar.gz";
+    url = "https://github.com/ful1e5/${pname}/releases/download/v${version}/Banana.tar.gz";
     sha256 = "5gGuWUbVwrOT6JCARUWzjExIYYj4ejP9rb50nnI7GT0=";
   };
 
@@ -22,10 +22,10 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "The banana cursor.";
+    description = "The banana cursor";
     homepage = "https://github.com/ful1e5/banana-cursor";
     license = licenses.gpl3;
-    platforms = platforms.all;
+    platforms = platforms.linux;
     maintainers = [ maintainers.getpsyched ];
   };
 }
