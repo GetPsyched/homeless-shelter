@@ -21,14 +21,14 @@
 
 buildPythonApplication rec {
   pname = "nexus";
-  version = "0.4.0";
+  version = "0.4.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "CharaChorder";
     repo = "nexus";
     rev = "v${version}";
-    sha256 = "sha256-cgRp4j/wlJUhyjsGU1LQwueQUgEmyO9++lZnz87oS54=";
+    sha256 = "sha256-p0qc+FxhBISVyMHrfTXgrojkZA38EQR2RRsaAltgmvc=";
   };
 
   disabled = pythonOlder "3.11";

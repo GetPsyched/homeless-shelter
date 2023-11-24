@@ -11,11 +11,11 @@
 
 stdenv.mkDerivation rec {
   pname = "nexus";
-  version = "0.4.0";
+  version = "0.4.1";
 
   src = fetchurl {
     url = "https://github.com/CharaChorder/nexus/releases/download/v${version}/nexus";
-    hash = "sha256-5vVMyK6b957PywPVvLoGg0iKixoNnXw23KQEn0hOsaU=";
+    hash = "sha256-n9UYlY2GqHKK+9X1+f5aH3BIucQ7vHzw1prZT031ulQ=";
   };
 
   env.ICON = fetchurl {
