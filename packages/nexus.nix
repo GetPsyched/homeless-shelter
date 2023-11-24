@@ -72,8 +72,6 @@ buildPythonApplication rec {
   postInstall = ''
     mkdir -p $out/share/icons/hicolor/scalable/apps
     cp ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
-
-    mv -v src/nexus/ui $out/lib/python3.11/site-packages/${pname}
   '';
 
   checkPhase = ''
