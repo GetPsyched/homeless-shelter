@@ -1,4 +1,17 @@
-{ buildPythonPackage, fetchurl, lib, shiboken6 }:
+{ autoPatchelfHook
+, buildPythonPackage
+, fetchurl
+, lib
+, shiboken6
+
+  # libraries
+, gtk3
+, libxkbcommon
+, mysql80
+, postgresql
+, qt6
+, unixODBC
+}:
 
 buildPythonPackage rec {
   pname = "pyside6-essentials";
@@ -13,6 +26,21 @@ buildPythonPackage rec {
   propagatedBuildInputs = [
     shiboken6
   ];
+
+  nativeBuildInputs = [
+    autoPatchelfHook
+  ];
+
+  buildInputs = [
+    gtk3 # libgtk-3.so.0 and more
+    libxkbcommon # libxkbcommon.so.0
+    mysql80 # libmysqlclient.so.21
+    postgresql.lib # libpq.so.5
+    qt6.full # libGL.so.1, and more
+    unixODBC # libodbc.so.2
+  ];
+
+  autoPatchelfIgnoreMissingDeps = [ "libmimerapi.so" ]; # not in nixpkgs yet
 
   meta = with lib; {
     description = "This is a minimal wheel for PySide6, it includes only the essentials Qt modules";

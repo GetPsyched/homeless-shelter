@@ -4,7 +4,6 @@
 , lib
 , makeDesktopItem
 , pythonOlder
-, steam-run
 
   # dependencies
 , pynput
@@ -51,10 +50,10 @@ buildPythonApplication rec {
 
   preBuild =
     let
-      pyside6-uic = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-uic";
-      pyside6-rcc = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-rcc";
-      pyside6-lupdate = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-lupdate";
-      pyside6-lrelease = "${steam-run}/bin/steam-run ${pyside6-essentials}/bin/pyside6-lrelease";
+      pyside6-uic = "${pyside6-essentials}/bin/pyside6-uic";
+      pyside6-rcc = "${pyside6-essentials}/bin/pyside6-rcc";
+      pyside6-lupdate = "${pyside6-essentials}/bin/pyside6-lupdate";
+      pyside6-lrelease = "${pyside6-essentials}/bin/pyside6-lrelease";
     in
     ''
       ${pyside6-uic} ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
