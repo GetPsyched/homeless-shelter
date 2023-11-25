@@ -34,5 +34,5 @@ flash HOST DISK:
     nix build .#nixosConfigurations.{{HOST}}.config.system.build.isoImage
 
     echo "Copying the ISO to the disk..."
-    cp result/iso/{{HOST}}.iso {{DISK}}
+    sudo cp result/iso/{{HOST}}.iso {{DISK}}
     rm result
