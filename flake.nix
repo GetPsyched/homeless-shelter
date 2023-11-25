@@ -48,6 +48,7 @@
     in
     {
       nixosConfigurations = {
+        goldfish = mkHost "goldfish" "x86_64-linux";
         piglin = mkHost "piglin" "x86_64-linux";
       };
 
