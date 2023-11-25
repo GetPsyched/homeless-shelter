@@ -28,6 +28,11 @@ rollback HOST:
 yoink:
     @sudo nix-collect-garbage -d
 
-# build a configuration into an ISO image
-flash HOST:
+# build and flash a configuration ISO into a storage media
+flash HOST DISK:
+    #!/bin/sh -e
     nix build .#nixosConfigurations.{{HOST}}.config.system.build.isoImage
+
+    echo "Copying the ISO to the disk..."
+    cp result/iso/{{HOST}}.iso {{DISK}}
+    rm result
