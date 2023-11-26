@@ -2,6 +2,9 @@
 , fetchFromGitHub
 , lib
 , pythonOlder
+
+  # dependencies
+, pyserial
 }:
 
 buildPythonPackage rec {
@@ -12,11 +15,11 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "GetPsyched";
     repo = "charachorder.py";
-    rev = "v${version}";
-    sha256 = "sha256-espkzhfI4IJhN6Hdva5pgcXHVHiIK9swCuut11IdV7E=";
+    rev = "8660b57";
+    sha256 = "sha256-9mDkqKlla68LuV2xlAr8CPIy1jQ9XygVpfFS0tmbp2c=";
   };
 
-  disabled = pythonOlder "3.8";
+  nativeBuildInputs = [ pyserial ];
 
   meta = with lib; {
     description = "A wrapper for CharaChorder's Serial API written in Python";
