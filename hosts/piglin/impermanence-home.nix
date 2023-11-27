@@ -45,6 +45,7 @@
         ".local/share/ATLauncher"
         ".local/share/Steam"
         ".heroic"
+        ".steam-games"
         "My Games"
       ];
       allowOther = true;
