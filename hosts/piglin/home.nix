@@ -19,6 +19,7 @@
     packages = with pkgs; [
       digikam
       fh
+      kalker
       obsidian
       spotify
 
