@@ -11,6 +11,22 @@ in
     sha256 = "sha256-PMviRwMd1PzD2b2ECHLtOOmENylwn5KAPCNAQQcFiKc=";
   };
 
+  hoppscotch = buildFirefoxXpiAddon rec {
+    pname = "hoppscotch";
+    version = "0.25";
+    addonId = "postwoman-firefox@postwoman.io";
+    url = "https://addons.mozilla.org/firefox/downloads/file/3991522/${pname}-${version}.xpi";
+    sha256 = "sha256-v4sHGR9zoHhfcmtt73EPFK2dTJd1D6EYiYS1M2dxG2Y=";
+  };
+
+  keepa = buildFirefoxXpiAddon rec {
+    pname = "keepa";
+    version = "4.10";
+    addonId = "amptra@keepa.com";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4041807/${pname}-${version}.xpi";
+    sha256 = "sha256-RzoedFBl0FTlkAmaHLgib8Rm2ePtpZYnEbzvvPOOeyQ=";
+  };
+
   multi-account-containers = buildFirefoxXpiAddon rec {
     pname = "multi-account-containers";
     version = "8.1.3";

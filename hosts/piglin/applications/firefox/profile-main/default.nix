@@ -5,6 +5,8 @@
   bookmarks = import ./bookmarks.nix;
   extensions = with ff-addons; [
     darkreader
+    hoppscotch
+    keepa
     multi-account-containers
     sidebery
     sponsorblock
