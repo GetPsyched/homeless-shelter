@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
-    pyside6.url = "github:lilyinstarlight/nixpkgs/upd/pyside6";
 
     impermanence.url = "github:nix-community/impermanence";
 

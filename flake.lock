@@ -9,11 +9,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1699070557,
-        "narHash": "sha256-PXP+kzgKCnn6h5S8HP1rsDmfZLW8sxR3SSa1bPlz63A=",
+        "lastModified": 1701510986,
+        "narHash": "sha256-TmMW39JLeSuOx3nNpFUpoBxoULpNCwxOocZjUes25Is=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "1cc05065f3f2d2dbf7b099a232da4c7cfc77ee76",
+        "rev": "7c3c6c2fed714ebdaa2ca3820a5ac0345e30baa8",
         "type": "gitlab"
       },
       "original": {
@@ -45,12 +45,12 @@
         ]
       },
       "locked": {
-        "lastModified": 1699386167,
-        "narHash": "sha256-NS4Uxl8T4px96JeBXKisxXkyhDwqVO58c+TzYqNjLpU=",
-        "rev": "9a5b427a7206c99c818466f062f6a557d628fe0a",
-        "revCount": 71,
+        "lastModified": 1701507594,
+        "narHash": "sha256-cXfJRZ+r6hHCf3y9+OZfTYfll6alKYVbrtTtM8bNeRM=",
+        "rev": "cb5943b5904169a3602c0264c84749379008ec27",
+        "revCount": 87,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/GetPsyched/not-so-flakey-devshells/0.2.1/018bab53-eb46-7b57-a888-807bc541a8aa/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/GetPsyched/not-so-flakey-devshells/0.2.6/018c29c2-2ae3-7766-ab1a-0fdd9f94b124/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -59,11 +59,11 @@
     },
     "hardware": {
       "locked": {
-        "lastModified": 1699159446,
-        "narHash": "sha256-cL63IjsbPl2otS7R4kdXbVOJOXYMpGw5KGZoWgdCuCM=",
+        "lastModified": 1701250978,
+        "narHash": "sha256-ohu3cz4edjpGxs2qUTgbs0WrnewOX4crnUJNEB6Jox4=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "627bc9b88256379578885a7028c9e791c29fb581",
+        "rev": "8772491ed75f150f02552c60694e1beff9f46013",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699025595,
-        "narHash": "sha256-e+o4PoSu2Z6Ww8y/AVUmMU200rNZoRK+p2opQ7Db8Rg=",
+        "lastModified": 1701433070,
+        "narHash": "sha256-Gf9JStfENaUQ7YWFz3V7x/srIwr4nlnVteqaAxtwpgM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8765d4e38aa0be53cdeee26f7386173e6c65618d",
+        "rev": "4a8545f5e737a6338814a4676dc8e18c7f43fc57",
         "type": "github"
       },
       "original": {
@@ -109,11 +109,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1698924604,
-        "narHash": "sha256-GCFbkl2tj8fEZBZCw3Tc0AkGo0v+YrQlohhEGJ/X4s0=",
+        "lastModified": 1701253981,
+        "narHash": "sha256-ztaDIyZ7HrTAfEEUt9AtTDNoCYxUdSd6NrRHaYOIxtk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fa804edfb7869c9fb230e174182a8a1a7e512c40",
+        "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
         "type": "github"
       },
       "original": {
@@ -125,31 +125,15 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1699159415,
-        "narHash": "sha256-SioecMJseTpLf+lpg7x1DUEUHg72xLCNynJT/5bJIKc=",
+        "lastModified": 1701510794,
+        "narHash": "sha256-8kkWDLWtym4b2UlZovzitU/iE1j/U2TsNBRsqyq+/1k=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4af510c7ae4a528a54312ee10355ae3e521e38e9",
+        "rev": "31e91b9113902f7e0b6d4112d64cf64fcc38abf7",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "pyside6": {
-      "locked": {
-        "lastModified": 1700589976,
-        "narHash": "sha256-IzgXH3q7uzanzRjl7fGKrQIdsUinNEEGQaxhuawh4No=",
-        "owner": "lilyinstarlight",
-        "repo": "nixpkgs",
-        "rev": "4ce70c656bc846b0f405b9fbd7a51681d250bf70",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lilyinstarlight",
-        "ref": "upd/pyside6",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -162,8 +146,7 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-master": "nixpkgs-master",
-        "pyside6": "pyside6"
+        "nixpkgs-master": "nixpkgs-master"
       }
     }
   },

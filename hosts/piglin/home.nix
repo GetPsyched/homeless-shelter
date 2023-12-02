@@ -30,9 +30,7 @@
 
       (pkgs.callPackage ../../packages/neuron.nix { })
       (pkgs.python311Packages.callPackage ../../packages/nexus.nix {
-        pyside6-essentials = (pkgs.python311Packages.callPackage ../../packages/pyside6-essentials.nix {
-          shiboken6 = inputs.pyside6.legacyPackages.x86_64-linux.python311Packages.shiboken6;
-        });
+        pyside6-essentials = (pkgs.python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
       })
     ];
 
