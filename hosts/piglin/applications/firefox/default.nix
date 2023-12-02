@@ -1,12 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
-  ff-addons = import ./addons.nix {
-    ff-addons = inputs.ff-addons.packages.${pkgs.system};
-    inherit (inputs.ff-addons.lib.${pkgs.system}) buildFirefoxXpiAddon;
-  };
-  profiles = {
-    main = import ./profile-main { inherit ff-addons pkgs; };
-  };
+  ff-addons = import ./addons.nix { inherit pkgs; };
+  profiles.main = import ./profile-main { inherit ff-addons pkgs; };
 in
 {
   programs.firefox = {
