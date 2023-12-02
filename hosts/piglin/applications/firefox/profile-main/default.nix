@@ -16,6 +16,8 @@
   ];
   search = import ./search.nix;
   settings = {
+    "extensions.update.autoUpdateDefault" = false;
+
     # Dark mode
     "browser.theme.content-theme" = 0;
     "browser.theme.toolbar-theme" = 0;
