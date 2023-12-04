@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 let
   hostName = "goldfish";
 in
@@ -15,6 +15,13 @@ in
   networking.hostName = hostName;
   networking.networkmanager.enable = true;
   networking.wireless.enable = lib.mkForce false;
+
+  environment.systemPackages = with pkgs; [
+    git
+    gparted
+    kitty
+    vscodium
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = "23.11";
