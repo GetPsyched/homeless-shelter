@@ -6,6 +6,7 @@
 , pythonOlder
 
   # dependencies
+, cryptography
 , pynput
 , pyside6-essentials
 , pyserial
@@ -20,14 +21,14 @@
 
 buildPythonApplication rec {
   pname = "nexus";
-  version = "0.4.1";
+  version = "0.5.0";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "CharaChorder";
     repo = "nexus";
     rev = "v${version}";
-    sha256 = "sha256-p0qc+FxhBISVyMHrfTXgrojkZA38EQR2RRsaAltgmvc=";
+    sha256 = "sha256-12+YotcD/f9THqarraaeYLUih7csN2R+h6A5iDRNDNg=";
   };
 
   disabled = pythonOlder "3.11";
@@ -35,6 +36,7 @@ buildPythonApplication rec {
   nativeBuildInputs = [ copyDesktopItems ];
 
   propagatedBuildInputs = [
+    cryptography
     pynput
     pyside6-essentials
     pyserial
