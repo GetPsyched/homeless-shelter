@@ -56,9 +56,10 @@ buildPythonApplication rec {
       pyside6-lrelease = "${pyside6-essentials}/bin/pyside6-lrelease";
     in
     ''
-      ${pyside6-uic} ui/MainWindow.ui -o src/nexus/ui/MainWindow.py
-      ${pyside6-uic} ui/BanlistDialog.ui -o src/nexus/ui/BanlistDialog.py
-      ${pyside6-uic} ui/BanwordDialog.ui -o src/nexus/ui/BanwordDialog.py
+      for file in ui/*.ui; do
+        NEW_NAME=$(echo $file | cut --delimiter="." --fields=1).py
+        ${pyside6-uic} $file -o src/nexus/$NEW_NAME
+      done
 
       ${pyside6-rcc} ui/resources.qrc -o src/resources_rc.py
 
