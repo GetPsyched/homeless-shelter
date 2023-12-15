@@ -28,7 +28,6 @@
         ".local/share/direnv/allow"
         ".local/share/Steam"
         ".local/share/zoxide"
-        ".minecraft"
         ".mozilla/firefox/main"
         ".railway"
         ".rustup"
