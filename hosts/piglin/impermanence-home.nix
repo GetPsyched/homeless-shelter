@@ -26,6 +26,7 @@
         ".local/share/applications"
         ".local/share/digikam"
         ".local/share/direnv/allow"
+        ".local/share/Steam"
         ".local/share/zoxide"
         ".minecraft"
         ".mozilla/firefox/main"
@@ -45,7 +46,6 @@
     "/persist/bigdata/home/getpsyched" = {
       directories = [
         ".local/share/ATLauncher"
-        ".local/share/Steam"
         ".heroic"
         ".steam-games"
         "My Games"
