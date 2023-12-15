@@ -70,6 +70,8 @@
   programs.dconf.enable = true;
 
   nixpkgs = {
+    # TODO: Remove this on next update
+    config.permittedInsecurePackages = [ "electron-25.9.0" ];
     overlays = [
       (import ../../overlays/i3.nix)
     ];
