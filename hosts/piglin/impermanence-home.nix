@@ -26,12 +26,12 @@
         ".local/share/applications"
         ".local/share/digikam"
         ".local/share/direnv/allow"
-        ".local/share/Steam"
+        # ".local/share/Steam"
         ".local/share/zoxide"
         ".mozilla/firefox/main"
         ".railway"
         ".rustup"
-        ".steam"
+        # ".steam"
         ".thunderbird/main"
       ];
       files = [
