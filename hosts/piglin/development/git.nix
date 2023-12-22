@@ -1,4 +1,7 @@
+{ pkgs, ... }:
 {
+  home.packages = [ pkgs.github-cli ];
+
   programs.git = {
     enable = true;
     userName = "GetPsyched";
@@ -25,19 +28,6 @@
       init.defaultBranch = "master";
       pull.rebase = true;
       push.autoSetupRemote = true;
-    };
-  };
-
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper.hosts = [ "https://github.com" ];
-
-    settings = {
-      git_protocol = "ssh";
-      aliases = {
-        co = "pr checkout";
-        pv = "pr view";
-      };
     };
   };
 }
