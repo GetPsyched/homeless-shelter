@@ -9,14 +9,14 @@
 
 buildPythonPackage rec {
   pname = "charachorder";
-  version = "0.1.0";
+  version = "0.1.1";
   format = "setuptools";
 
   src = fetchFromGitHub {
     owner = "GetPsyched";
     repo = "charachorder.py";
-    rev = "8660b57";
-    sha256 = "sha256-9mDkqKlla68LuV2xlAr8CPIy1jQ9XygVpfFS0tmbp2c=";
+    rev = "v${version}";
+    sha256 = "sha256-LQ1Nyd3LYnQ6J1HLGP2L0+GEcuezKqm7hVVDDBSP43g=";
   };
 
   nativeBuildInputs = [ pyserial ];
