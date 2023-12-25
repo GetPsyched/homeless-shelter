@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , lib
 , makeDesktopItem
+, python
 , pythonOlder
 
   # dependencies
@@ -79,10 +80,9 @@ buildPythonApplication rec {
     cp ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
 
     # hacks ahead, do not touch
-    mv -v src/nexus/translations $out/lib/python3.11/site-packages/${pname}
-    mv -v src/nexus/ui $out/lib/python3.11/site-packages/${pname}
-    mkdir $out/lib/python3.11/site-packages/resources_rc
-    mv -v src/resources_rc.py $out/lib/python3.11/site-packages/resources_rc/__main__.py
+    mv -v src/nexus/{translations,ui} $out/${python.sitePackages}/${pname}
+    mkdir $out/${python.sitePackages}/resources_rc
+    mv -v src/resources_rc.py $out/${python.sitePackages}/resources_rc/__init__.py
   '';
 
   checkPhase = ''
