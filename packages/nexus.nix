@@ -11,6 +11,7 @@
 , pynput
 , pyside6-essentials
 , pyserial
+, requests
 , setuptools
 
   # tests
@@ -22,14 +23,14 @@
 
 buildPythonApplication rec {
   pname = "nexus";
-  version = "0.5.0";
+  version = "0.5.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "CharaChorder";
     repo = "nexus";
     rev = "v${version}";
-    sha256 = "sha256-12+YotcD/f9THqarraaeYLUih7csN2R+h6A5iDRNDNg=";
+    sha256 = "sha256-Db9XNFRlJ7HgAt57dn2Yhy4HByw9nuQW41oj+4aOPQ0=";
   };
 
   disabled = pythonOlder "3.11";
@@ -41,6 +42,7 @@ buildPythonApplication rec {
     pynput
     pyside6-essentials
     pyserial
+    requests
     setuptools
   ];
 
@@ -72,8 +74,7 @@ buildPythonApplication rec {
       mkdir ${sitePackages}/resources_rc
       ${pyside6-rcc} ui/resources.qrc -o ${sitePackages}/resources_rc/__init__.py
 
-      ${pyside6-lupdate} ui/*.ui src/nexus/GUI.py -ts translations/i18n_en.ts
-
+      ${pyside6-lupdate} ui/*.ui nexus/GUI.py -ts translations/i18n_en.ts
       for file in translations/*.ts; do
         NEW_NAME=$(echo $file | cut --delimiter="." --fields=1).qm
         ${pyside6-lrelease} $file -qm ${packageDir}/$NEW_NAME
@@ -87,6 +88,12 @@ buildPythonApplication rec {
 
   checkPhase = ''
     runHook preCheck
+
+    # The following line tries to access the filesystem:
+    # https://github.com/CharaChorder/nexus/blob/v0.5.1/nexus/Freqlog/Definitions.py#L41
+    # Imported here:
+    # https://github.com/CharaChorder/nexus/blob/v0.5.1/tests/Freqlog/backends/SQLite/test_SQLiteBackend.py#L6
+    export HOME=$TMPDIR
 
     xvfb-run pytest
 
