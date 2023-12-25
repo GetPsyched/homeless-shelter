@@ -68,8 +68,10 @@ buildPythonApplication rec {
       ${pyside6-lupdate} ui/*.ui src/nexus/GUI.py -ts translations/i18n_en.ts
 
       mkdir -p src/nexus/translations
-      ${pyside6-lrelease} translations/i18n_en.ts -qm src/nexus/translations/i18n_en.qm
-      ${pyside6-lrelease} translations/i18n_ro.ts -qm src/nexus/translations/i18n_ro.qm
+      for file in translations/*.ts; do
+        NEW_NAME=$(echo $file | cut --delimiter="." --fields=1).qm
+        ${pyside6-lrelease} $file -qm src/nexus/$NEW_NAME
+      done
     '';
 
   postInstall = ''
