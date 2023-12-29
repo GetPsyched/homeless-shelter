@@ -1,4 +1,4 @@
-{ fetchFromGitHub, stdenv }:
+{ fetchFromGitHub, lib, stdenv }:
 
 stdenv.mkDerivation rec {
   pname = "mgitstatus";
