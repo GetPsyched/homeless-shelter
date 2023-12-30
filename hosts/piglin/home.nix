@@ -20,6 +20,7 @@
       digikam
       fh
       kalker
+      nixpkgs-review
       obsidian
       spotify
 
