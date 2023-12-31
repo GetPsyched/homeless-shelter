@@ -30,4 +30,5 @@
   };
 
   allowUnfreePackages = [ "cloudflare-warp" ];
+  persist.stateDirs = [ "/var/lib/cloudflare-warp" ];
 }

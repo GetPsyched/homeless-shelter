@@ -13,6 +13,7 @@
 
     useDHCP = lib.mkDefault true;
   };
+  persist.stateDirs = [ "/etc/NetworkManager" ];
 
   boot = {
     extraModulePackages = [ ];
