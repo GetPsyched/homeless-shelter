@@ -7,6 +7,8 @@
     osu-lazer-bin
   ];
 
+  persist.stateDirs = [ ".config/heroic" ".local/share/applications" ];
+
   programs.atlauncher = {
     enable = true;
     package = (pkgs.callPackage ../../../packages/atlauncher-bin.nix { });

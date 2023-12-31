@@ -1,5 +1,7 @@
 { lib, ... }:
 {
+  persist.stateDirs = [ ".local/share/direnv/allow" ".local/share/zoxide" ];
+
   programs = {
     bash.enable = true;
 

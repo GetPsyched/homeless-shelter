@@ -3,6 +3,7 @@
   home.packages = [ pkgs.github-cli ];
 
   persist.dataDirs = [ ".ssh" "git" ];
+  persist.stateFiles = [ ".config/gh/hosts.yml" ];
 
   programs.git = {
     enable = true;

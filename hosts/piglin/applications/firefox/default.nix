@@ -4,6 +4,8 @@ let
   profiles.main = import ./profile-main { inherit ff-addons pkgs; };
 in
 {
+  persist.stateDirs = [ ".mozilla/firefox/main" ];
+
   programs.firefox = {
     enable = true;
     profiles = profiles;

@@ -12,6 +12,9 @@
     virt-manager
   ];
 
+  persist.stateDirs = [ ".rustup" ];
+  persist.stateFiles = [ ".railway/config.json" ];
+
   # For virt-manager
   dconf = {
     enable = true;

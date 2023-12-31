@@ -7,30 +7,6 @@
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 
   home.persistence = {
-    "/persist/state/home/getpsyched" = {
-      directories = [
-        ".config/heroic"
-        ".config/obsidian"
-        ".config/spotify"
-        ".local/share/applications"
-        ".local/share/digikam"
-        ".local/share/direnv/allow"
-        # ".local/share/Steam"
-        ".local/share/zoxide"
-        ".mozilla/firefox/main"
-        ".railway"
-        ".rustup"
-        # ".steam"
-        ".thunderbird/main"
-      ];
-      files = [
-        ".config/digikamrc"
-        ".config/gh/hosts.yml"
-        ".local/share/nix/trusted-settings.json"
-      ];
-      allowOther = true;
-    };
-
     "/persist/bigdata/home/getpsyched" = {
       directories = [
         ".local/share/ATLauncher"

@@ -46,6 +46,8 @@
   };
 
   persist.dataDirs = [ "backgrounds" "iso" "obsidian-vault" ];
+  persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ];
+  persist.stateFiles = [ ".config/digikamrc" ];
 
   programs.home-manager.enable = true;
 
