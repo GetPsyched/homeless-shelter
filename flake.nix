@@ -23,6 +23,7 @@
         specialArgs = { inherit inputs; };
 
         modules = [
+          ./modules/persist.nix
           ./modules/unfree.nix
           ./hosts/${hostName}/configuration.nix
         ] ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostName}/home.nix)
