@@ -45,6 +45,8 @@
     };
   };
 
+  persist.dataDirs = [ "backgrounds" "iso" "obsidian-vault" ];
+
   programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs

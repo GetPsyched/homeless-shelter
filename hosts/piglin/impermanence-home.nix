@@ -7,17 +7,6 @@
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 
   home.persistence = {
-    "/persist/data/home/getpsyched" = {
-      directories = [
-        ".ssh"
-        "backgrounds"
-        "git"
-        "iso"
-        "obsidian-vault"
-      ];
-      allowOther = true;
-    };
-
     "/persist/state/home/getpsyched" = {
       directories = [
         ".config/heroic"

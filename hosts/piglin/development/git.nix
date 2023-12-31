@@ -2,6 +2,8 @@
 {
   home.packages = [ pkgs.github-cli ];
 
+  persist.dataDirs = [ ".ssh" "git" ];
+
   programs.git = {
     enable = true;
     userName = "GetPsyched";
