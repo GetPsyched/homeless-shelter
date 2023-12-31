@@ -1,9 +1,13 @@
-{ config, lib, ... }:
+{ config, inputs, lib, ... }:
 
 with lib;
 
 let cfg = config.persist; in
 {
+  imports = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+  ];
+
   options.persist = {
     cacheDirs = mkOption { type = with types; listOf str; default = [ ]; };
     cacheFiles = mkOption { type = with types; listOf str; default = [ ]; };
