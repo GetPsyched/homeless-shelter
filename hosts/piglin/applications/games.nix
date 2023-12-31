@@ -7,6 +7,12 @@
     osu-lazer-bin
   ];
 
+  persist.gameDirs = [
+    ".local/share/ATLauncher"
+    ".heroic"
+    ".steam-games"
+    "My Games"
+  ];
   persist.stateDirs = [ ".config/heroic" ".local/share/applications" ];
 
   programs.atlauncher = {
