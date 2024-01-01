@@ -9,17 +9,17 @@ let cfg = config.persist; in
   ];
 
   options.persist = {
-    dataDirs = mkOption { type = with types; listOf str; default = [ ]; };
-    dataFiles = mkOption { type = with types; listOf str; default = [ ]; };
+    sysDataDirs = mkOption { type = with types; listOf str; default = [ ]; };
+    sysDataFiles = mkOption { type = with types; listOf str; default = [ ]; };
 
-    stateDirs = mkOption { type = with types; listOf str; default = [ ]; };
-    stateFiles = mkOption { type = with types; listOf str; default = [ ]; };
+    sysStateDirs = mkOption { type = with types; listOf str; default = [ ]; };
+    sysStateFiles = mkOption { type = with types; listOf str; default = [ ]; };
   };
 
   config = {
     environment.persistence = {
-      "/persist/sysdata" = { directories = cfg.dataDirs; files = cfg.dataFiles; };
-      "/persist/sysstate" = { directories = cfg.stateDirs; files = cfg.stateFiles; };
+      "/persist/sysdata" = { directories = cfg.sysDataDirs; files = cfg.sysDataFiles; };
+      "/persist/sysstate" = { directories = cfg.sysStateDirs; files = cfg.sysStateFiles; };
     };
 
     # Allow HM module for persistence to use `allowOther`

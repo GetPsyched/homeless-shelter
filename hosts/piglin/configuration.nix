@@ -54,8 +54,8 @@
     dedicatedServer.openFirewall = true;
   };
 
-  persist.dataDirs = [ "/var/lib/libvirt" ];
-  persist.dataFiles = [ "/var/lib/prince/license.dat" ];
+  persist.sysDataDirs = [ "/var/lib/libvirt" ];
+  persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
 
   allowUnfreePackages = [
     "steam"
