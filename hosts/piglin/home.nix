@@ -7,8 +7,6 @@
     ./desktop-environment
     ./development
     ./tools
-
-    ./impermanence-home.nix
   ];
 
   home = {
@@ -49,6 +47,7 @@
   persist.dataDirs = [ "backgrounds" "iso" "obsidian-vault" ];
   persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ];
   persist.stateFiles = [ ".config/digikamrc" ];
+  xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 
   programs.home-manager.enable = true;
 
