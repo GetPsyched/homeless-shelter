@@ -4,9 +4,7 @@ with lib;
 
 let cfg = config.persist; in
 {
-  imports = [
-    inputs.impermanence.nixosModules.impermanence
-  ];
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   options.persist = {
     sysDataDirs = mkOption { type = with types; listOf str; default = [ ]; };

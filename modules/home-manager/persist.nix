@@ -2,11 +2,12 @@
 
 with lib;
 
-let cfg = config.persist; in
+let
+  cfg = config.persist;
+  homeDir = config.home.homeDirectory;
+in
 {
-  imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
-  ];
+  imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
 
   options.persist = {
     cacheDirs = mkOption { type = with types; listOf str; default = [ ]; };
@@ -21,15 +22,15 @@ let cfg = config.persist; in
     stateFiles = mkOption { type = with types; listOf str; default = [ ]; };
   };
 
-  config = let home = config.home.homeDirectory; in {
+  config = {
     home.persistence = {
-      "/var/cache${home}" = { directories = cfg.cacheDirs; files = cfg.cacheFiles; allowOther = true; };
+      "/var/cache${homeDir}" = { directories = cfg.cacheDirs; files = cfg.cacheFiles; allowOther = true; };
 
-      "/persist/data${home}" = { directories = cfg.dataDirs; files = cfg.dataFiles; allowOther = true; };
+      "/persist/data${homeDir}" = { directories = cfg.dataDirs; files = cfg.dataFiles; allowOther = true; };
 
-      "/persist/bigdata${home}" = { directories = cfg.gameDirs; allowOther = true; };
+      "/persist/bigdata${homeDir}" = { directories = cfg.gameDirs; allowOther = true; };
 
-      "/persist/state${home}" = { directories = cfg.stateDirs; files = cfg.stateFiles; allowOther = true; };
+      "/persist/state${homeDir}" = { directories = cfg.stateDirs; files = cfg.stateFiles; allowOther = true; };
     };
   };
 
