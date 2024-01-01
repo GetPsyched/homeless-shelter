@@ -1,6 +1,4 @@
 {
-  description = "GetPsyched's nix config";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
@@ -16,7 +14,7 @@
     flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { home-manager, nixpkgs, ... }@inputs:
+  outputs = inputs@{ home-manager, nixpkgs, ... }:
     let
       mkHost = hostName: system: nixpkgs.lib.nixosSystem {
         inherit system;
