@@ -21,6 +21,9 @@ let cfg = config.persist; in
       "/persist/sysdata" = { directories = cfg.dataDirs; files = cfg.dataFiles; };
       "/persist/sysstate" = { directories = cfg.stateDirs; files = cfg.stateFiles; };
     };
+
+    # Allow HM module for persistence to use `allowOther`
+    programs.fuse.userAllowOther = true;
   };
 
   meta.maintainers = [ maintainers.getpsyched ];

@@ -4,7 +4,6 @@
     ../../system
 
     ./hardware-configuration.nix
-    ./impermanence.nix
   ];
 
   time.timeZone = "Asia/Kolkata";
