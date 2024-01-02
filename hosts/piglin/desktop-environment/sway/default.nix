@@ -37,7 +37,7 @@ let mod = "Mod4"; in
           uptime = "`uptime -p | sed -e 's/up //g'`";
         in
         lib.mkOptionDefault {
-          "${mod}+d" = "${rofi} drun";
+          "${mod}+d" = "${rofi} drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
           "${mod}+e" = "${eww} open bar --toggle --config ~/.config/eww/bar";
           "${mod}+q" = ''${rofi} power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 
