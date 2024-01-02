@@ -16,7 +16,6 @@
 
     packages = with pkgs; [
       digikam
-      fh
       nixpkgs-review
       obsidian
       spotify
