@@ -31,8 +31,8 @@ let mod = "Mod4"; in
 
           # Display
           "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
-          "XF86MonBrightnessDown" = "exec ${brctl} set 5%-";
-          "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
+          "XF86MonBrightnessDown" = "exec ${brctl} --min-value=2 -e set 5%-";
+          "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
         };
 
       startup = [

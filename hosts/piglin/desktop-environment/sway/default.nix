@@ -49,8 +49,8 @@ let mod = "Mod4"; in
 
           # Display
           "Print" = "exec ${pkgs.gscreenshot}/bin/gscreenshot --clip --selection";
-          "XF86MonBrightnessDown" = "exec ${brctl} set 5%-";
-          "XF86MonBrightnessUp" = "exec ${brctl} set +5%";
+          "XF86MonBrightnessDown" = "exec ${brctl} --min-value=2 -e set 5%-";
+          "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
         };
 
       input."type:touchpad".natural_scroll = "enabled";
