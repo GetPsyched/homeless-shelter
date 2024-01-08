@@ -25,6 +25,7 @@
       winePackages.stagingFull
       winetricks
 
+      (callPackage ../../packages/hoppscotch-bin.nix { })
       (callPackage ../../packages/mgitstatus.nix { })
       (callPackage ../../packages/neuron.nix { })
       (python311Packages.callPackage ../../packages/nexus.nix {
