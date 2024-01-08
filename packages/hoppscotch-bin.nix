@@ -54,8 +54,8 @@ appimageTools.wrapType1 {
     changelog = "https://hoppscotch.com/changelog";
     license = licenses.mit;
     maintainers = with maintainers; [ getpsyched ];
-    mainProgram = pname;
-    platforms = platforms.all;
+    mainProgram = "hoppscotch";
+    platforms = platforms.linux;
     sourceProvenance = [ sourceTypes.binaryNativeCode ];
   };
 }
