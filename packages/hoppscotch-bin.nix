@@ -5,20 +5,19 @@
 }:
 
 let
-  pname = "hoppscotch";
-  version = "23.8.3";
-  name = "${pname}-${version}";
+  name = "hoppscotch";
+  version = "23.12.1";
 
   desktopItem = makeDesktopItem {
     categories = [ "Development" ];
     desktopName = "Hoppscotch";
-    exec = pname;
-    icon = pname;
-    name = pname;
+    exec = "hoppscotch";
+    icon = name;
+    name = name;
   };
 
   icon = fetchurl {
-    url = "https://raw.githubusercontent.com/hoppscotch/hoppscotch/de725337d628d037e8597c02ef51be466bec3680/packages/hoppscotch-common/public/logo.svg";
+    url = "https://raw.githubusercontent.com/hoppscotch/hoppscotch/20${version}/packages/hoppscotch-common/public/logo.svg";
     hash = "sha256-Njbc+RTKSOziXo0H2Mv7RyNI5CLZNkJLUr/PatyrK9E=";
   };
 in
@@ -27,18 +26,14 @@ appimageTools.wrapType1 {
 
   src = fetchurl {
     url = "https://github.com/hoppscotch/releases/releases/download/v${version}-1/Hoppscotch_linux_x64.AppImage";
-    hash = "sha256-YqvGYn3TrR4dvx3nKkGRfV7srTllDR4Q+dxttucklUM=";
+    hash = "sha256-lIfBmdyFRb+akkQkomfAyVLZnN10YoZXw/NJpNgk1/I=";
   };
-  extraPkgs = pkgs: with pkgs; [ libthai ];
 
   extraInstallCommands = ''
-    mv $out/bin/${name} $out/bin/${pname}
-
-    mkdir -p $out/share/icons/hicolor/scalable/apps
-    cp ${icon} $out/share/icons/hicolor/scalable/apps/${pname}.svg
+    install -D ${icon} $out/share/icons/hicolor/scalable/apps/${name}.svg
 
     mkdir -p $out/share/applications
-    cp -r ${desktopItem} $out/share/applications/${pname}.desktop
+    cp -r ${desktopItem} $out/share/applications/${name}.desktop
   '';
 
   meta = with lib; {
