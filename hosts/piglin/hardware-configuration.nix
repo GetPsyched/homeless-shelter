@@ -49,7 +49,7 @@
       btrfsdata = subvol: {
         device = "/dev/mapper/cryptroot";
         fsType = "btrfs";
-        options = [ "subvol=${subvol}" ];
+        options = [ "subvol=${subvol},compress=zstd,noatime" ];
       };
       btrfsos = subvol: {
         device = "/dev/nvme0n1p4";
