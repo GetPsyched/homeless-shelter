@@ -1,5 +1,6 @@
 {
   imports = [
+    ./battery.nix
     ./nvidia.nix
     ./virt.nix
     ./warp.nix
