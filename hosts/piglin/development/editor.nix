@@ -63,8 +63,8 @@
         "[css]".editor.defaultFormatter = "vscode.css-language-features";
         "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[javascript]".editor.defaultFormatter = "esbenp.prettier-vscode";
-        "[json]".editor.defaultFormatter = "vscode.json-language-features";
-        "[jsonc]".editor.defaultFormatter = "vscode.json-language-features";
+        "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
+        "[jsonc]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[nix]".editor = {
           tabSize = 2;
           defaultFormatter = "jnoortheen.nix-ide";
