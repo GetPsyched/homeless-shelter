@@ -19,7 +19,10 @@
       userSettings = {
         accessibility.dimUnfocused.enabled = true;
         breadcrumbs.enabled = false;
-        diffEditor.renderSideBySide = false;
+        diffEditor = {
+          ignoreTrimWhitespace = false;
+          renderSideBySide = false;
+        };
         editor = {
           cursorBlinking = "expand";
           cursorSmoothCaretAnimation = "on";
