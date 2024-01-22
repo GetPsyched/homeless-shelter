@@ -2,7 +2,8 @@
 {
   home.packages = [ pkgs.github-cli ];
 
-  persist.dataDirs = [ ".ssh" "git" ];
+  persist.src = [ "src" ];
+  persist.secretsDirs = [ ".ssh" ];
   persist.stateFiles = [ ".config/gh/hosts.yml" ];
 
   programs.git = {
