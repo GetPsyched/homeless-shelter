@@ -54,7 +54,7 @@
       btrfsos = subvol: {
         device = "/dev/nvme0n1p4";
         fsType = "btrfs";
-        options = [ "subvol=${subvol}" ];
+        options = [ "subvol=${subvol},compress=zstd,noatime" ];
       };
       forBoot = { neededForBoot = true; };
     in
