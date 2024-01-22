@@ -18,6 +18,11 @@ in
 
     gameDirs = mkOption { type = with types; listOf str; default = [ ]; };
 
+    secretsDirs = mkOption { type = with types; listOf str; default = [ ]; };
+    secretsFiles = mkOption { type = with types; listOf str; default = [ ]; };
+
+    src = mkOption { type = with types; listOf str; default = [ ]; };
+
     stateDirs = mkOption { type = with types; listOf str; default = [ ]; };
     stateFiles = mkOption { type = with types; listOf str; default = [ ]; };
   };
@@ -29,6 +34,10 @@ in
       "/persist/data${homeDir}" = { directories = cfg.dataDirs; files = cfg.dataFiles; allowOther = true; };
 
       "/persist/bigdata${homeDir}" = { directories = cfg.gameDirs; allowOther = true; };
+
+      "/persist/secrets${homeDir}" = { directories = cfg.secretsDirs; files = cfg.secretsFiles; allowOther = true; };
+
+      "/persist/src${homeDir}" = { directories = cfg.src; allowOther = true; };
 
       "/persist/state${homeDir}" = { directories = cfg.stateDirs; files = cfg.stateFiles; allowOther = true; };
     };

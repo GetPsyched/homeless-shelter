@@ -68,6 +68,8 @@
       "/persist/bigdata" = btrfsos "bigdata" // forBoot;
       "/persist/state" = btrfsdata "state" // forBoot;
       "/persist/sysstate" = btrfsdata "sysstate" // forBoot;
+      "/persist/src" = btrfsdata "src" // forBoot;
+      "/persist/secrets" = btrfsdata "secrets" // forBoot;
     };
 
   swapDevices = [ ];
