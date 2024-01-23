@@ -43,7 +43,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = with lib; {
     description = "An unofficial open-source Pokemon cursor theme";
     homepage = "https://github.com/ful1e5/pokemon-cursor";
-    license = licenses.gpl3Only;
+    license = licenses.gpl3Plus;
     maintainers = [ maintainers.getpsyched ];
     platforms = platforms.linux;
   };
