@@ -1,28 +1,51 @@
-{ fetchurl, lib, stdenvNoCC }:
+{ fetchFromGitHub
+, lib
+, stdenvNoCC
 
-stdenvNoCC.mkDerivation rec {
+, # build deps
+  clickgen
+, python3Packages
+}:
+
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "pokemon-cursor";
   version = "2.0.0";
 
-  tar = fetchurl {
-    url = "https://github.com/ful1e5/${pname}/releases/download/v${version}/Pokemon.tar.gz";
-    sha256 = "sha256-Q8FPU9VixZ8WQgApVPFojc+6HF+RdLdDxg4lLZRLmyY=";
+  src = fetchFromGitHub {
+    owner = "ful1e5";
+    repo = "pokemon-cursor";
+    rev = "v${finalAttrs.version}";
+    sha256 = "sha256-EL6Ztbzjm1YuQP+8ZbrhbuBXn+GFiJGG0iGNWzU/rBY=";
   };
 
-  dontUnpack = true;
+  nativeBuildInputs = [
+    clickgen
+    python3Packages.cattrs
+  ];
+
+  buildPhase = ''
+    runHook preBuild
+
+    ctgen build.toml -o $out
+    rm -r $out/Pokemon-Windows
+
+    runHook postBuild
+  '';
 
   installPhase = ''
-    mkdir -p $out/share/icons
+    runHook preInstall
 
-    tar -xvf ${tar}
-    mv Pokemon $out/share/icons
+    mkdir -p $out/share/icons
+    mv $out/Pokemon $out/share/icons
+
+    runHook postInstall
   '';
 
   meta = with lib; {
-    description = "The Pokemon cursor";
+    description = "An unofficial open-source Pokemon cursor theme";
     homepage = "https://github.com/ful1e5/pokemon-cursor";
-    license = licenses.gpl3;
-    platforms = platforms.linux;
+    license = licenses.gpl3Only;
     maintainers = [ maintainers.getpsyched ];
+    platforms = platforms.linux;
   };
-}
+})
