@@ -1,31 +1,51 @@
-{ stdenvNoCC
-, fetchurl
+{ fetchFromGitHub
 , lib
+, stdenvNoCC
+
+, # build deps
+  clickgen
+, python3Packages
 }:
 
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "banana-cursor";
   version = "1.0.0";
 
-  tar = fetchurl {
-    url = "https://github.com/ful1e5/${pname}/releases/download/v${version}/Banana.tar.gz";
-    sha256 = "5gGuWUbVwrOT6JCARUWzjExIYYj4ejP9rb50nnI7GT0=";
+  src = fetchFromGitHub {
+    owner = "ful1e5";
+    repo = "banana-cursor";
+    rev = "v${finalAttrs.version}";
+    sha256 = "sha256-PI7381xf/GctQTnfcE0W3M3z2kqbX4VexMf17C61hT8=";
   };
 
-  dontUnpack = true;
+  nativeBuildInputs = [
+    clickgen
+    python3Packages.cattrs
+  ];
+
+  buildPhase = ''
+    runHook preBuild
+
+    ctgen build.toml -o $out
+    rm -r $out/Banana-Windows
+
+    runHook postBuild
+  '';
 
   installPhase = ''
-    mkdir -p $out/share/icons
+    runHook preInstall
 
-    tar -xvf ${tar}
-    mv Banana $out/share/icons
+    mkdir -p $out/share/icons
+    mv $out/Banana $out/share/icons
+
+    runHook postInstall
   '';
 
   meta = with lib; {
-    description = "The banana cursor";
+    description = "The Banana Cursor";
     homepage = "https://github.com/ful1e5/banana-cursor";
-    license = licenses.gpl3;
-    platforms = platforms.linux;
+    license = licenses.gpl3Only;
     maintainers = [ maintainers.getpsyched ];
+    platforms = platforms.linux;
   };
-}
+})
