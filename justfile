@@ -6,8 +6,12 @@ default:
 list:
     @sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 
-# build the configuration, make it the default boot option, and reboot
+# build the configuration, make it the default boot option
 boot HOST:
+    @sudo nixos-rebuild boot --flake .#{{HOST}}
+
+# build the configuration, make it the default boot option, and reboot
+reboot HOST:
     #!/bin/sh -e
     sudo nixos-rebuild boot --flake .#{{HOST}}
     reboot
@@ -36,3 +40,9 @@ flash HOST DISK:
     echo "Copying the ISO to the disk..."
     sudo cp result/iso/{{HOST}}.iso {{DISK}}
     rm result
+
+nixops HOST:
+    nixops create -d {{HOST}} ./hosts/{{HOST}}/configuration.nix ./system/nixops.nix
+
+nixops-deploy HOST:
+    nixops deploy -d {{HOST}}
