@@ -18,7 +18,7 @@ switch HOST:
 
 # build the configuration and activate it, but don't add it to the boot menu
 test HOST:
-    @sudo nixos-rebuild test --flake .#{{HOST}}
+    @sudo nixos-rebuild test --flake .#{{HOST}} --option eval-cache false
 
 # epic fail, rollback to the previous generation
 rollback HOST:
