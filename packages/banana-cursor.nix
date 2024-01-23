@@ -20,7 +20,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     clickgen
-    python3Packages.cattrs
+    python3Packages.attrs
   ];
 
   buildPhase = ''
