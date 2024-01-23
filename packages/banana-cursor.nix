@@ -26,8 +26,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   buildPhase = ''
     runHook preBuild
 
-    ctgen build.toml -o $out
-    rm -r $out/Banana-Windows
+    ctgen build.toml -p x11 -o $out
 
     runHook postBuild
   '';
