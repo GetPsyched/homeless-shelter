@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   desktopItems = [
     (makeDesktopItem {
       name = finalAttrs.pname;
-      exec = finalAttrs.pname;
+      exec = "atlauncher";
       icon = finalAttrs.pname;
       desktopName = "ATLauncher";
       categories = [ "Game" ];
