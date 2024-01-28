@@ -16,7 +16,6 @@ stdenv.mkDerivation (finalAttrs: {
 
   dontUnpack = true;
 
-  buildInputs = [ ];
   nativeBuildInputs = [ copyDesktopItems makeWrapper ];
 
   installPhase = ''
@@ -39,22 +38,22 @@ stdenv.mkDerivation (finalAttrs: {
 
   desktopItems = [
     (makeDesktopItem {
-      name = finalAttrs.pname;
+      categories = [ "Game" ];
+      desktopName = "ATLauncher";
       exec = "atlauncher";
       icon = finalAttrs.pname;
-      desktopName = "ATLauncher";
-      categories = [ "Game" ];
+      name = finalAttrs.pname;
     })
   ];
 
   meta = with lib; {
     description = "A simple and easy to use Minecraft launcher which contains many different modpacks for you to choose from and play";
     downloadPage = "https://atlauncher.com/downloads";
-    homepage = "https://atlauncher.com/";
+    homepage = "https://atlauncher.com";
     license = licenses.gpl3;
+    mainProgram = "atlauncher";
     maintainers = [ maintainers.getpsyched ];
     platforms = platforms.all;
-    mainProgram = "atlauncher";
     sourceProvenance = [ sourceTypes.binaryBytecode ];
   };
 })
