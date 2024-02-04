@@ -14,18 +14,18 @@
 
 let
   pname = "atlauncher";
-  version = "3.4.35.4";
+  version = "3.4.35.5";
 
   srcs = {
     source = (fetchFromGitHub {
       owner = "ATLauncher";
       repo = "ATLauncher";
       rev = "v${version}";
-      sha256 = "sha256-SLpemE+lXwwGJqEsWVsT/N4s7GDoyF8MWaVs1r+nbv0=";
+      sha256 = "sha256-9jOvElwb3jmO18MZOFqbB/mF75SdKufZvM1oWLKZDII=";
     });
     jar = (fetchurl {
       url = "https://github.com/ATLauncher/ATLauncher/releases/download/v${version}/ATLauncher-${version}.jar";
-      hash = "sha256-M8ygN70yizJM6VEffBh/lH/DneKAzQ5UFzc3g51dja0=";
+      hash = "sha256-Y3Xe85Pte55ijIpJubOCfqIodSfpigJte2i/6eYzyO8=";
     });
   };
 
