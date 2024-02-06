@@ -4,7 +4,7 @@
 , lib
 , makeDesktopItem
 , makeWrapper
-, stdenv
+, stdenvNoCC
 
 , # dependencies
   jre
@@ -21,7 +21,7 @@ let
       owner = "ATLauncher";
       repo = "ATLauncher";
       rev = "v${version}";
-      sha256 = "sha256-9jOvElwb3jmO18MZOFqbB/mF75SdKufZvM1oWLKZDII=";
+      hash = "sha256-9jOvElwb3jmO18MZOFqbB/mF75SdKufZvM1oWLKZDII=";
     });
     jar = (fetchurl {
       url = "https://github.com/ATLauncher/ATLauncher/releases/download/v${version}/ATLauncher-${version}.jar";
@@ -29,9 +29,9 @@ let
     });
   };
 
-  src-meta-dir = "${srcs.source}/packaging/linux/_common";
+  packagingDir = "${srcs.source}/packaging/linux/_common";
 in
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   inherit pname version;
 
   src = srcs.jar;
@@ -54,10 +54,10 @@ stdenv.mkDerivation {
   '';
 
   postInstall = ''
-    install -D -m 644 ${src-meta-dir}/atlauncher.svg $out/share/icons/hicolor/scalable/apps/atlauncher.svg
+    install -D -m 644 ${packagingDir}/atlauncher.svg $out/share/icons/hicolor/scalable/apps/atlauncher.svg
   '';
 
-  desktopItems = [ "${src-meta-dir}/atlauncher.desktop" ];
+  desktopItems = [ "${packagingDir}/atlauncher.desktop" ];
 
   meta = with lib; {
     description = "A simple and easy to use Minecraft launcher which contains many different modpacks for you to choose from and play";
