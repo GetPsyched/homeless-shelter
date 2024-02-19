@@ -75,6 +75,11 @@
       definedAliases = [ "@pr" ];
     };
 
+    "React Icons" = {
+      urls = [{ template = "https://react-icons.github.io/react-icons/search/#q={searchTerms}"; }];
+      definedAliases = [ "@ri" ];
+    };
+
     "Source Graph" = {
       urls = [{
         template = "https://sourcegraph.com/search";
