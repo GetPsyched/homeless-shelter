@@ -64,7 +64,7 @@
 
     # Home Manager packages
     "obsidian"
-    "osu-lazer-bin-2024.131.0"
+    "osu-lazer-bin-2024.219.0"
     "spotify"
   ];
 
