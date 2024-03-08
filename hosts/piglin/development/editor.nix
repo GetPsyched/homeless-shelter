@@ -63,7 +63,7 @@
           startupEditor = "none";
         };
 
-        "[css]".editor.defaultFormatter = "vscode.css-language-features";
+        "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[javascript]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
