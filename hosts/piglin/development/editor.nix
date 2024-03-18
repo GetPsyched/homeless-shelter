@@ -24,6 +24,7 @@
           renderSideBySide = false;
         };
         editor = {
+          codeActionsOnSave."source.organizeImports" = "always";
           cursorBlinking = "expand";
           cursorSmoothCaretAnimation = "on";
           formatOnSave = true;
@@ -77,10 +78,16 @@
         "[typescript]".editor.defaultFormatter = "esbenp.prettier-vscode";
         "[typescriptreact]".editor.defaultFormatter = "esbenp.prettier-vscode";
 
-        javascript.updateImportsOnFileMove.enabled = "always";
+        javascript = {
+          preferGoToSourceDefinition = true;
+          updateImportsOnFileMove.enabled = "always";
+        };
         prettier.singleQuote = true;
         svelte.enable-ts-plugin = true;
-        typescript.updateImportsOnFileMove.enabled = "always";
+        typescript = {
+          preferGoToSourceDefinition = true;
+          updateImportsOnFileMove.enabled = "always";
+        };
       };
     };
   };
