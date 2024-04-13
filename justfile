@@ -40,9 +40,3 @@ flash HOST DISK:
     echo "Copying the ISO to the disk..."
     sudo cp result/iso/{{HOST}}.iso {{DISK}}
     rm result
-
-nixops HOST:
-    nixops create -d {{HOST}} ./hosts/{{HOST}}/configuration.nix ./system/nixops.nix
-
-nixops-deploy HOST:
-    nixops deploy -d {{HOST}}
