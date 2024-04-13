@@ -16,8 +16,7 @@
 
   outputs = inputs@{ home-manager, nixpkgs, ... }:
     let
-      mkHost = hostName: system: nixpkgs.lib.nixosSystem {
-        inherit system;
+      mkHost = hostName: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
 
         modules = [
@@ -40,8 +39,8 @@
     in
     {
       nixosConfigurations = {
-        goldfish = mkHost "goldfish" "x86_64-linux";
-        piglin = mkHost "piglin" "x86_64-linux";
+        goldfish = mkHost "goldfish";
+        piglin = mkHost "piglin";
       };
 
       devShell.x86_64-linux = import ./devShell.nix {
