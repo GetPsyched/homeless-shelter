@@ -16,14 +16,14 @@
 
   outputs = inputs@{ home-manager, nixpkgs, ... }:
     let
-      mkHost = hostName: nixpkgs.lib.nixosSystem {
+      mkHost = hostName: userName: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
 
         modules = [
           ./modules/persist.nix
           ./modules/unfree.nix
           ./hosts/${hostName}/configuration.nix
-        ] ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostName}/home.nix)
+        ] ++ nixpkgs.lib.optionals (builtins.pathExists ./users/${userName}/home.nix)
           [
             home-manager.nixosModules.home-manager
             {
@@ -31,7 +31,7 @@
                 extraSpecialArgs = { inherit inputs; };
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.getpsyched = import ./hosts/${hostName}/home.nix;
+                users.${userName} = import ./users/${userName}/home.nix;
               };
             }
           ];
@@ -39,8 +39,8 @@
     in
     {
       nixosConfigurations = {
-        goldfish = mkHost "goldfish";
-        piglin = mkHost "piglin";
+        goldfish = mkHost "goldfish" "getpsyched";
+        piglin = mkHost "piglin" "getpsyched";
       };
 
       devShell.x86_64-linux = import ./devShell.nix {
