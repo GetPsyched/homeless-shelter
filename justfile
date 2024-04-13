@@ -8,17 +8,17 @@ list:
 
 # build the configuration, make it the default boot option
 boot:
-    @hostname | sudo nixos-rebuild boot --flake .#$(cat)
+    @hostname | sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD#$(cat)
 
 # build the configuration, make it the default boot option, and reboot
 reboot:
     #!/bin/sh -e
-    hostname | sudo nixos-rebuild boot --flake .#$(cat)
+    hostname | sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD#$(cat)
     reboot
 
 # build the configuration, make it the default boot option, and immediately activate it
 switch:
-    @hostname | sudo nixos-rebuild switch --flake .#$(cat)
+    @hostname | sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD#$(cat)
 
 # build the configuration and activate it, but don't add it to the boot menu
 test:
