@@ -7,26 +7,26 @@ list:
     @sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 
 # build the configuration, make it the default boot option
-boot HOST:
-    @sudo nixos-rebuild boot --flake .#{{HOST}}
+boot:
+    @hostname | sudo nixos-rebuild boot --flake .#$(cat)
 
 # build the configuration, make it the default boot option, and reboot
-reboot HOST:
+reboot:
     #!/bin/sh -e
-    sudo nixos-rebuild boot --flake .#{{HOST}}
+    hostname | sudo nixos-rebuild boot --flake .#$(cat)
     reboot
 
 # build the configuration, make it the default boot option, and immediately activate it
-switch HOST:
-    @sudo nixos-rebuild switch --flake .#{{HOST}}
+switch:
+    @hostname | sudo nixos-rebuild switch --flake .#$(cat)
 
 # build the configuration and activate it, but don't add it to the boot menu
-test HOST:
-    @sudo nixos-rebuild test --flake .#{{HOST}} --option eval-cache false
+test:
+    @hostname | sudo nixos-rebuild test --flake .#$(cat) --option eval-cache false
 
 # epic fail, rollback to the previous generation
-rollback HOST:
-    @sudo nixos-rebuild boot --flake .#{{HOST}} --rollback
+rollback:
+    @hostname | sudo nixos-rebuild boot --flake .#$(cat) --rollback
 
 # say goodbye to all your older generations
 yoink:
