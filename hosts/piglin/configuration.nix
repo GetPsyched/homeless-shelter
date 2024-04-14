@@ -33,6 +33,8 @@
     hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
   };
 
+  home-manager.users.getpsyched = import ../../users/getpsyched/home.nix;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
