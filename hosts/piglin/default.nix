@@ -1,13 +1,16 @@
 { inputs, lib, config, ... }:
 {
   imports = [
-    ../../system
-
     ../common/core
     ./hardware-configuration.nix
 
+    ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
+    ../common/optional/virt.nix
+    ../common/optional/warp.nix
+    ../common/optional/xserver.nix
+    ../common/optional/zram.nix
   ];
 
   # Enable CUPS to print documents.

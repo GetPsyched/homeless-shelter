@@ -9,7 +9,7 @@ in
   imports = [
     (inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-base.nix")
 
-    ../../system/xserver.nix
+    ../common/optional/xserver.nix
   ];
 
   networking.hostName = hostName;
