@@ -22,7 +22,7 @@
         modules = [
           ./modules/persist.nix
           ./modules/unfree.nix
-          ./hosts/${hostName}/configuration.nix
+          ./hosts/${hostName}
         ];
       };
     in
