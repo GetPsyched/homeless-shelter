@@ -17,13 +17,12 @@
   outputs = inputs@{ home-manager, nixpkgs, ... }:
     let
       mkHost = hostName: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-
         modules = [
           ./modules/persist.nix
           ./modules/unfree.nix
           ./hosts/${hostName}
         ];
+        specialArgs = { inherit hostName inputs; };
       };
     in
     {

@@ -3,10 +3,10 @@
   imports = [
     ../../modules/home-manager
 
-    ./applications
-    ./desktop-environment
-    ./development
-    ./tools
+    ../common/core
+    ../common/optional/games.nix
+    ../common/optional/i3.nix
+    ../common/optional/virt-manager.nix
   ];
 
   gtk = {
@@ -16,14 +16,13 @@
 
   home = {
     username = "getpsyched";
-    homeDirectory = "/home/${config.home.username}";
-    stateVersion = "22.11";
 
     packages = with pkgs; [
       digikam
       nixpkgs-review
       obsidian
       spotify
+      sqlitebrowser
 
       # Wine
       bottles
@@ -37,24 +36,11 @@
         pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
       })
     ];
-
-    pointerCursor = {
-      name = "Banana";
-      size = 48;
-      package = pkgs.banana-cursor;
-      x11.enable = true;
-      gtk.enable = true;
-    };
   };
 
   persist.cacheDirs = [ ".cache" ];
   persist.dataDirs = [ "backgrounds" "iso" "obsidian-vault" ];
-  persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ];
-  persist.stateFiles = [ ".config/digikamrc" ];
+  persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ".rustup" ];
+  persist.stateFiles = [ ".config/digikamrc" ".railway/config.json" ];
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
-
-  programs.home-manager.enable = true;
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 }

@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, modulesPath, ... }:
+{ config, hostName, inputs, lib, pkgs, modulesPath, ... }:
 {
   imports =
     [
@@ -7,8 +7,8 @@
     ];
 
   networking = {
+    inherit hostName;
     hostId = "4bd4bef1";
-    hostName = "piglin";
     networkmanager.enable = true;
 
     useDHCP = lib.mkDefault true;
