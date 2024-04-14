@@ -8,25 +8,25 @@ list:
 
 # build the configuration, make it the default boot option
 boot:
-    @hostname | sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD#$(cat)
+    @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD
 
 # build the configuration, make it the default boot option, and reboot
 reboot:
     #!/bin/sh -e
-    hostname | sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD#$(cat)
+    sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD
     reboot
 
 # build the configuration, make it the default boot option, and immediately activate it
 switch:
-    @hostname | sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD#$(cat)
+    @sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD
 
 # build the configuration and activate it, but don't add it to the boot menu
 test:
-    @hostname | sudo nixos-rebuild test --flake .#$(cat) --option eval-cache false
+    @sudo nixos-rebuild test --flake . --option eval-cache false
 
 # epic fail, rollback to the previous generation
 rollback:
-    @hostname | sudo nixos-rebuild boot --flake .#$(cat) --rollback
+    @sudo nixos-rebuild boot --flake . --rollback
 
 # say goodbye to all your older generations
 yoink:
