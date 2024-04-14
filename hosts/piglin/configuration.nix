@@ -5,21 +5,13 @@
 
     ../common/core
     ./hardware-configuration.nix
+
+    ../common/optional/pipewire.nix
+    ../common/optional/steam.nix
   ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.mutableUsers = false;
   users.users.getpsyched = {
@@ -35,20 +27,10 @@
 
   home-manager.users.getpsyched = import ../../users/getpsyched/home.nix;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   persist.sysDataDirs = [ "/var/lib/libvirt" ];
   persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
 
   allowUnfreePackages = [
-    "steam"
-    "steam-original"
-    "steam-run"
-
     # Home Manager packages
     "obsidian"
     "osu-lazer-bin-2024.219.0"
