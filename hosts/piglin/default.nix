@@ -6,6 +6,7 @@
     ../common/core
     ./hardware-configuration.nix
 
+    ../common/optional/display-manager.nix
     ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
