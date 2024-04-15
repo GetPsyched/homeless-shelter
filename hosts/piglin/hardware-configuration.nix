@@ -36,6 +36,9 @@
 
     kernelModules = [ "kvm-intel" ];
     kernelPackages = pkgs.linuxPackages_latest;
+
+    # For unfortunate moments.
+    # supportedFilesystems = [ "ntfs" ];
   };
 
   fileSystems =
