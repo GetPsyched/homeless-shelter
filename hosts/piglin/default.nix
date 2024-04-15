@@ -19,8 +19,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  users.mutableUsers = false;
-
   persist.sysDataDirs = [ "/var/lib/libvirt" ];
   persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
 

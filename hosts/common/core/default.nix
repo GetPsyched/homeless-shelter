@@ -12,4 +12,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
   };
+
+  users.mutableUsers = false;
 }
