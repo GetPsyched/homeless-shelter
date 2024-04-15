@@ -6,6 +6,10 @@ default:
 list:
     @sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 
+# update the commit hashes in flake.lock
+update:
+    @nix flake update --commit-lock-file
+
 # build the configuration, make it the default boot option
 boot:
     @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD
