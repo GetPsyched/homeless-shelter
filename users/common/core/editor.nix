@@ -39,7 +39,7 @@
         files.trimTrailingWhitespace = true;
         git = {
           openRepositoryInParentFolders = "always";
-          inputValidation = "warn";
+          inputValidation = true;
           inputValidationLength = 80;
           mergeEditor = true;
         };
