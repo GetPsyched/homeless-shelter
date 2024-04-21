@@ -39,7 +39,7 @@
   };
 
   persist.cacheDirs = [ ".cache" ];
-  persist.dataDirs = [ "backgrounds" "iso" "obsidian-vault" ];
+  persist.dataDirs = [ "backgrounds" "dump" "iso" "obsidian-vault" ];
   persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ".rustup" ];
   persist.stateFiles = [ ".config/digikamrc" ".railway/config.json" ];
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
