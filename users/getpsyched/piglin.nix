@@ -4,6 +4,7 @@
     ../../modules/home-manager
 
     ../common/core
+    ../common/optional/activity-watch.nix
     ../common/optional/games.nix
     ../common/optional/i3.nix
     ../common/optional/virt-manager.nix
