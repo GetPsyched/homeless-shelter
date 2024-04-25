@@ -28,6 +28,13 @@
           cursorBlinking = "expand";
           cursorSmoothCaretAnimation = "on";
           formatOnSave = true;
+          gotoLocation = {
+            multipleDeclarations = "goto";
+            multipleDefinitions = "goto";
+            multipleImplementations = "goto";
+            multipleReferences = "goto";
+            multipleTypeDefinitions = "goto";
+          };
           inlineSuggest.enabled = true;
         };
         explorer.confirmDragAndDrop = false;
