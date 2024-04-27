@@ -25,6 +25,7 @@
         "application/vnd.oasis.opendocument.spreadsheet"
         "application/vnd.ms-excel"
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        "text/csv"
       ];
       terminal = false;
     };
