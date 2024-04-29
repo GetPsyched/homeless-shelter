@@ -24,6 +24,7 @@
       obsidian
       spotify
       sqlitebrowser
+      unzip
 
       # Wine
       bottles
