@@ -18,6 +18,12 @@
   boot = {
     extraModulePackages = [ ];
 
+    extraModprobeConfig = ''
+      options snd slots=snd-hda-intel model=alc295,dell-headset-multi
+    '';
+    # options snd-hda-intel model=alc295,dell-headset-multi
+    # options snd slots=snd-hda-intel
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
