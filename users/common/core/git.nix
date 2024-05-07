@@ -15,13 +15,14 @@
       amend = "commit --amend --no-edit";
       co = "checkout";
       epic-fail = "reset HEAD~1";
+      squash = "!git reset --soft HEAD~1 && git commit --amend";
 
       # delete branch
       bye = "branch -d";
       nuke = "push origin -d";
     };
 
-    ignores = [ ".direnv" ];
+    ignores = [ ".direnv" ".envrc" ];
 
     extraConfig = {
       commit.gpgsign = true;
