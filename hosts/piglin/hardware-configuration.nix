@@ -45,36 +45,39 @@
 
   fileSystems =
     let
-      tmpfs = {
+      mkDataSubvol = subvol: {
+        device = "/dev/mapper/cryptroot";
+        fsType = "btrfs";
+        options = [ "subvol=${subvol},compress=zstd,noatime" ];
+        neededForBoot = true;
+      };
+      mkGeneralSubvol = subvol: {
+        device = "/dev/nvme0n1p4";
+        fsType = "btrfs";
+        options = [ "subvol=${subvol},compress=zstd,noatime" ];
+        neededForBoot = true;
+      };
+    in
+    {
+      "/" = {
         device = "none";
         fsType = "tmpfs";
         options = [ "defaults" "size=4G" "mode=0755" ];
       };
-      esp = device: { inherit device; fsType = "vfat"; };
-      btrfsdata = subvol: {
-        device = "/dev/mapper/cryptroot";
-        fsType = "btrfs";
-        options = [ "subvol=${subvol},compress=zstd,noatime" ];
+      "/boot" = {
+        device = "/dev/disk/by-uuid/8167-168A";
+        fsType = "vfat";
+        neededForBoot = true;
       };
-      btrfsos = subvol: {
-        device = "/dev/nvme0n1p4";
-        fsType = "btrfs";
-        options = [ "subvol=${subvol},compress=zstd,noatime" ];
-      };
-      forBoot = { neededForBoot = true; };
-    in
-    {
-      "/" = tmpfs;
-      "/nix" = btrfsos "nix" // forBoot;
-      "/boot" = esp "/dev/disk/by-uuid/8167-168A" // forBoot;
-      "/var/cache" = btrfsos "cache" // forBoot;
-      "/persist/data" = btrfsdata "data" // forBoot;
-      "/persist/sysdata" = btrfsdata "sysdata" // forBoot;
-      "/persist/bigdata" = btrfsos "bigdata" // forBoot;
-      "/persist/state" = btrfsdata "state" // forBoot;
-      "/persist/sysstate" = btrfsdata "sysstate" // forBoot;
-      "/persist/src" = btrfsdata "src" // forBoot;
-      "/persist/secrets" = btrfsdata "secrets" // forBoot;
+      "/nix" = mkGeneralSubvol "nix";
+      "/var/cache" = mkGeneralSubvol "cache";
+      "/persist/data" = mkDataSubvol "data";
+      "/persist/sysdata" = mkDataSubvol "sysdata";
+      "/persist/bigdata" = mkGeneralSubvol "bigdata";
+      "/persist/state" = mkDataSubvol "state";
+      "/persist/sysstate" = mkDataSubvol "sysstate";
+      "/persist/src" = mkDataSubvol "src";
+      "/persist/secrets" = mkDataSubvol "secrets";
     };
 
   swapDevices = [ ];
