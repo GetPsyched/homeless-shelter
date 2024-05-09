@@ -15,7 +15,7 @@
 
   allowUnfreePackages = [
     "obsidian"
-    "osu-lazer-bin-2024.312.1"
+    "osu-lazer-bin"
     "spotify"
   ];
 }
