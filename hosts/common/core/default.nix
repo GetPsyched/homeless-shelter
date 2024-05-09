@@ -3,6 +3,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
 
+    ./hardware.nix
     ./locale.nix
     ./nix.nix
   ];
@@ -13,6 +14,5 @@
     useUserPackages = true;
   };
 
-  services.libinput.touchpad.naturalScrolling = true;
   users.mutableUsers = false;
 }

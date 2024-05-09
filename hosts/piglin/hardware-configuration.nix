@@ -41,10 +41,6 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelPackages = pkgs.linuxPackages_latest;
-
-    # For unfortunate moments.
-    # supportedFilesystems = [ "ntfs" ];
   };
 
   fileSystems =
@@ -85,6 +81,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  hardware.bluetooth.enable = true;
 }
