@@ -16,8 +16,6 @@
   persist.sysStateDirs = [ "/etc/NetworkManager" ];
 
   boot = {
-    extraModulePackages = [ ];
-
     extraModprobeConfig = ''
       options snd slots=snd-hda-intel model=alc295,dell-headset-multi
     '';
@@ -31,7 +29,6 @@
 
     initrd = {
       availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-      kernelModules = [ ];
       luks.devices.cryptroot = {
         header = "/dev/nvme0n1p2";
         device = "/dev/nvme0n1p3";
@@ -79,8 +76,6 @@
       "/persist/src" = mkDataSubvol "src";
       "/persist/secrets" = mkDataSubvol "secrets";
     };
-
-  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
