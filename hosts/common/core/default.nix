@@ -13,5 +13,6 @@
     useUserPackages = true;
   };
 
+  services.libinput.touchpad.naturalScrolling = true;
   users.mutableUsers = false;
 }
