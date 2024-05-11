@@ -20,6 +20,7 @@
 
     packages = with pkgs; [
       digikam
+      hoppscotch
       nixpkgs-review
       obsidian
       spotify
@@ -31,7 +32,6 @@
       winePackages.stagingFull
       winetricks
 
-      (callPackage ../../packages/hoppscotch-bin.nix { })
       (callPackage ../../packages/mgitstatus.nix { })
       (callPackage ../../packages/neuron.nix { })
     ];
