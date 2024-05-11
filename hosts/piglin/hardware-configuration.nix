@@ -54,6 +54,12 @@
         options = [ "subvol=${subvol},compress=zstd,noatime" ];
         neededForBoot = true;
       };
+      mkBindMount = location: {
+        device = location;
+        fsType = "none";
+        options = [ "bind" ];
+        noCheck = true;
+      };
     in
     {
       "/" = {
@@ -75,6 +81,9 @@
       "/persist/sysstate" = mkDataSubvol "sysstate";
       "/persist/src" = mkDataSubvol "src";
       "/persist/secrets" = mkDataSubvol "secrets";
+      "/persist/steam" = mkDataSubvol "steam";
+      # FIXME: Permissions were fixed imperatively. Find a better way
+      "/home/getpsyched/.steam" = mkBindMount "/persist/steam/.steam";
     };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
