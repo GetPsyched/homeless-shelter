@@ -16,9 +16,9 @@
 
     "HM Config" = let version = "latest"; in {
       urls = [{
-        template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
+        template = "https://home-manager-options.extranix.com/?query={searchTerms}";
       }];
-      iconUpdateURL = "https://github.com/mipmip/home-manager-option-search/blob/main/images/favicon.png";
+      iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.ico";
       updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
       definedAliases = [ "@hm" ];
     };
