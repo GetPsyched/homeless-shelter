@@ -1,4 +1,3 @@
-{ inputs, lib, config, ... }:
 {
   imports = [
     ../../users/getpsyched

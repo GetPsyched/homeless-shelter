@@ -1,4 +1,4 @@
-{ hostName, inputs, lib, pkgs, ... }:
+{ hostName, inputs, lib, ... }:
 {
   isoImage.isoName = lib.mkForce "${hostName}.iso";
   isoImage.volumeID = lib.mkForce hostName;

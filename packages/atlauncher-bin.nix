@@ -2,7 +2,6 @@
 , fetchFromGitHub
 , fetchurl
 , lib
-, makeDesktopItem
 , makeWrapper
 , stdenvNoCC
 

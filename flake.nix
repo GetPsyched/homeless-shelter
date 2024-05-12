@@ -14,7 +14,7 @@
     flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ home-manager, nixpkgs, ... }:
+  outputs = inputs@{ nixpkgs, ... }:
     let
       mkHost = hostName: nixpkgs.lib.nixosSystem {
         modules = [
