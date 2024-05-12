@@ -32,7 +32,6 @@
       winePackages.stagingFull
       winetricks
 
-      (callPackage ../../packages/mgitstatus.nix { })
       (callPackage ../../packages/neuron.nix { })
     ];
   };
