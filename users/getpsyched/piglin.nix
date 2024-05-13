@@ -33,6 +33,9 @@
       winetricks
 
       (callPackage ../../packages/neuron.nix { })
+      (python311Packages.callPackage ../../packages/nexus.nix {
+        pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
+      })
     ];
   };
 
