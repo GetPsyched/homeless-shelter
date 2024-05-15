@@ -5,6 +5,7 @@
     heroic
     mangohud
     osu-lazer-bin
+    protontricks
   ];
 
   persist.gameDirs = [
@@ -13,7 +14,11 @@
     ".steam-games"
     "My Games"
   ];
-  persist.stateDirs = [ ".config/heroic" ".local/share/applications" ];
+  persist.stateDirs = [
+    ".config/heroic"
+    ".local/share/applications"
+    ".local/share/wineprefixes"
+  ];
 
   programs.atlauncher = {
     enable = true;
