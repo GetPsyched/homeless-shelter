@@ -29,6 +29,7 @@
       enableTrayMenu = false;
       firstTimeRun = false;
       keepLauncherOpen = false;
+      useJavaProvidedByMinecraft = false;
     };
   };
 
