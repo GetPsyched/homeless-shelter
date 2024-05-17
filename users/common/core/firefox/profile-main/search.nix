@@ -4,7 +4,65 @@
     "Bing".metaData.hidden = true;
     "Google".metaData.alias = "@g";
     "DuckDuckGo".metaData.alias = "@ddg";
+  }
+  # Nix stuff
+  // {
+    "Home Manager Options" = {
+      urls = [{
+        template = "https://home-manager-options.extranix.com/?query={searchTerms}";
+      }];
+      iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.ico";
+      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
+      definedAliases = [ "@hmo" ];
+    };
 
+    "NixOS Options" = {
+      urls = [{
+        template = "https://search.nixos.org/options";
+        params = [
+          { name = "channel"; value = "unstable"; }
+          { name = "query"; value = "{searchTerms}"; }
+        ];
+      }];
+      iconUpdateURL = "https://nixos.org/favicon.ico";
+      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
+      definedAliases = [ "@no" ];
+    };
+
+    "Nix Packages" = {
+      urls = [{
+        template = "https://search.nixos.org/packages";
+        params = [
+          { name = "channel"; value = "unstable"; }
+          { name = "query"; value = "{searchTerms}"; }
+          { name = "type"; value = "packages"; }
+        ];
+      }];
+      iconUpdateURL = "https://nixos.org/favicon.ico";
+      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
+      definedAliases = [ "@np" ];
+    };
+
+    "Nix PR Tracker" = {
+      urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
+      definedAliases = [ "@pr" ];
+    };
+
+    "Source Graph" = {
+      urls = [{
+        template = "https://sourcegraph.com/search";
+        params = [
+          { name = "q"; value = "context:@maan2003/nix {searchTerms}"; }
+          { name = "groupBy"; value = "repo"; }
+        ];
+      }];
+      iconUpdateURL = "https://sourcegraph.com/favicon.ico";
+      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
+      definedAliases = [ "@sg" ];
+    };
+  }
+  # Miscellaneous
+  // {
     "discord.py" = let version = "latest"; in {
       urls = [{
         template = "https://discordpy.readthedocs.io/en/${version}/search.html?q={searchTerms}";
@@ -12,15 +70,6 @@
       iconUpdateURL = "https://discordpy.readthedocs.io/en/stable/_static/discord_py_logo.ico";
       updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
       definedAliases = [ "@dpy" ];
-    };
-
-    "HM Config" = let version = "latest"; in {
-      urls = [{
-        template = "https://home-manager-options.extranix.com/?query={searchTerms}";
-      }];
-      iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.ico";
-      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
-      definedAliases = [ "@hm" ];
     };
 
     "Library Genesis" = {
@@ -42,55 +91,14 @@
       definedAliases = [ "@mdn" ];
     };
 
-    "Nix" = {
-      urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
-      iconUpdateURL = "https://mynixos.com/favicon.ico";
-      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
-      definedAliases = [ "@nix" ];
-    };
-
-    "Nix Packages" = {
-      urls = [{
-        template = "https://search.nixos.org/packages";
-        params = [
-          { name = "channel"; value = "unstable"; }
-          { name = "query"; value = "{searchTerms}"; }
-          { name = "type"; value = "packages"; }
-        ];
-      }];
-      iconUpdateURL = "https://nixos.org/favicon.ico";
-      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
-      definedAliases = [ "@np" ];
-    };
-
-    "NixOS Wiki" = {
-      urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
-      iconUpdateURL = "https://nixos.wiki/favicon.png";
-      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
-      definedAliases = [ "@nw" ];
-    };
-
-    "Nix PR Tracker" = {
-      urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
-      definedAliases = [ "@pr" ];
+    "Proton DB" = {
+      urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
+      definedAliases = [ "@pdb" ];
     };
 
     "React Icons" = {
       urls = [{ template = "https://react-icons.github.io/react-icons/search/#q={searchTerms}"; }];
       definedAliases = [ "@ri" ];
-    };
-
-    "Source Graph" = {
-      urls = [{
-        template = "https://sourcegraph.com/search";
-        params = [
-          { name = "q"; value = "context:@maan2003/nix {searchTerms}"; }
-          { name = "groupBy"; value = "repo"; }
-        ];
-      }];
-      iconUpdateURL = "https://sourcegraph.com/favicon.ico";
-      updateInterval = 56 * 24 * 60 * 60 * 1000; # every 8 weeks
-      definedAliases = [ "@sg" ];
     };
 
     "Steam DB" = {
