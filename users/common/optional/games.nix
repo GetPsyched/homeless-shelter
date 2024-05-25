@@ -10,6 +10,7 @@
 
   persist.gameDirs = [
     ".local/share/ATLauncher"
+    ".local/share/Terraria"
     ".heroic"
     ".steam-games"
     "My Games"
