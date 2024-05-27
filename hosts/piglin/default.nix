@@ -28,5 +28,6 @@
     (import ../../overlays/i3.nix)
   ];
 
+  time.timeZone = "Asia/Dubai";
   system.stateVersion = "22.11";
 }
