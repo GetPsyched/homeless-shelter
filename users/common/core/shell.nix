@@ -1,6 +1,10 @@
 { lib, ... }:
 {
-  persist.stateDirs = [ ".local/share/direnv/allow" ".local/share/zoxide" ];
+  persist.stateDirs = [
+    ".bash_history"
+    ".local/share/direnv/allow"
+    ".local/share/zoxide"
+  ];
 
   programs = {
     bash.enable = true;
