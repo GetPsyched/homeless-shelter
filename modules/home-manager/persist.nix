@@ -10,6 +10,8 @@ in
   imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
 
   options.persist = {
+    enable = mkEnableOption "persistence";
+
     cacheDirs = mkOption { type = with types; listOf str; default = [ ]; };
     cacheFiles = mkOption { type = with types; listOf str; default = [ ]; };
 
@@ -27,7 +29,7 @@ in
     stateFiles = mkOption { type = with types; listOf str; default = [ ]; };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     home.persistence = {
       "/var/cache${homeDir}" = { directories = cfg.cacheDirs; files = cfg.cacheFiles; allowOther = true; };
 

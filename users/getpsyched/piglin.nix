@@ -39,6 +39,7 @@
     ];
   };
 
+  persist.enable = true;
   persist.cacheDirs = [ ".cache" ];
   persist.dataDirs = [ "backgrounds" "dump" "iso" "obsidian-vault" ];
   persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ".rustup" ];
