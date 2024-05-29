@@ -6,15 +6,6 @@
       inputs.hardware.nixosModules.common-gpu-intel
     ];
 
-  networking = {
-    inherit hostName;
-    hostId = "4bd4bef1";
-    networkmanager.enable = true;
-
-    useDHCP = lib.mkDefault true;
-  };
-  persist.sysStateDirs = [ "/etc/NetworkManager" ];
-
   boot = {
     extraModprobeConfig = ''
       options snd slots=snd-hda-intel model=alc295,dell-headset-multi
