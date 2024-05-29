@@ -29,6 +29,7 @@
       nixosConfigurations = {
         goldfish = mkHost "goldfish";
         piglin = mkHost "piglin";
+        potato = mkHost "potato";
       };
 
       devShell.x86_64-linux = import ./devShell.nix {
