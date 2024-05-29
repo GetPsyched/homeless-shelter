@@ -10,4 +10,5 @@
   hardware.bluetooth.enable = true;
 
   services.libinput.touchpad.naturalScrolling = true;
+  services.xserver.xkb.layout = "us";
 }

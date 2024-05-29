@@ -9,8 +9,7 @@
     ../../users/getpsyched
 
     ../common/core
-    ../common/optional/display-manager.nix
-    ../common/optional/xserver.nix
+    ../common/optional/i3.nix
   ];
 
   networking.hostName = hostName;

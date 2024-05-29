@@ -5,13 +5,12 @@
     ../common/core
     ./hardware-configuration.nix
 
-    ../common/optional/display-manager.nix
+    ../common/optional/i3.nix
     ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
     ../common/optional/virtualisation.nix
     ../common/optional/warp.nix
-    ../common/optional/xserver.nix
     ../common/optional/zram.nix
   ];
 
