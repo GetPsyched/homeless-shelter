@@ -9,6 +9,7 @@
     ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
+    ../common/optional/tailscale.nix
     ../common/optional/virtualisation.nix
     ../common/optional/warp.nix
     ../common/optional/zram.nix

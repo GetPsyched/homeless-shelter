@@ -8,6 +8,7 @@
     ../common/optional/pipewire.nix
     ../common/optional/warp.nix
     ../common/optional/plasma.nix
+    ../common/optional/tailscale.nix
     ../common/optional/zram.nix
   ];
 
