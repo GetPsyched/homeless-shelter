@@ -12,6 +12,8 @@
     ../common/optional/zram.nix
   ];
 
+  services.openssh.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
