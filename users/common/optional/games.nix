@@ -34,15 +34,4 @@
       useJavaProvidedByMinecraft = false;
     };
   };
-
-  xdg.desktopEntries = {
-    rocket-league = {
-      categories = [ "Game" ];
-      exec = "xdg-open heroic://launch/legendary/Sugar";
-      icon = "/home/getpsyched/.config/heroic/icons/Sugar.jpg";
-      name = "Rocket League";
-      terminal = false;
-      type = "Application";
-    };
-  };
 }
