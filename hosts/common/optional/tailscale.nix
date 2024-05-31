@@ -7,6 +7,8 @@
     useRoutingFeatures = "client";
   };
 
+  persist.sysStateDirs = [ "/var/lib/tailscale" ];
+
   users.extraUsers.tailscaled = {
     isNormalUser = false;
     isSystemUser = true;
