@@ -14,6 +14,7 @@
     ".local/share/icons"
     ".heroic"
     ".steam-games"
+    "bottles"
     "My Games"
   ];
   persist.stateDirs = [
