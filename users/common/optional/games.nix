@@ -1,11 +1,14 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    bottles
     gamemode
     heroic
     mangohud
     osu-lazer-bin
     protontricks
+    winePackages.stagingFull
+    winetricks
   ];
 
   persist.gameDirs = [
