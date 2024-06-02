@@ -7,6 +7,7 @@
     mangohud
     osu-lazer-bin
     protontricks
+    qbittorrent
     winePackages.stagingFull
     winetricks
   ];
