@@ -21,6 +21,7 @@
     packages = with pkgs; [
       digikam
       hoppscotch
+      mgitstatus
       nixpkgs-review
       obsidian
       spotify
