@@ -23,6 +23,7 @@
   persist.stateDirs = [
     ".config/heroic"
     ".local/share/applications"
+    ".local/share/bottles"
     ".local/share/wineprefixes"
   ];
 
