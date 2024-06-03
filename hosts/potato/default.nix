@@ -5,10 +5,11 @@
     ../common/core
     ./hardware-configuration.nix
 
+    ../common/optional/tailscale
     ../common/optional/pipewire.nix
     ../common/optional/warp.nix
     ../common/optional/plasma.nix
-    ../common/optional/tailscale.nix
+    ../common/optional/tailscale/minecraft.nix
     ../common/optional/zram.nix
   ];
 
