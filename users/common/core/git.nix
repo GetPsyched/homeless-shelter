@@ -31,6 +31,7 @@
 
       core.whitespace = "trailing-space,space-before-tab";
       init.defaultBranch = "master";
+      merge.conflictstyle = "diff3";
       pull.rebase = true;
       push.autoSetupRemote = true;
     };
