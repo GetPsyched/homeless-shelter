@@ -3,6 +3,7 @@
 with pkgs; mkShell {
   nativeBuildInputs = [
     just
+    nil
 
     flakey-devShell-pkgs.default
     (flakey-devShell-pkgs.vscodium.override {

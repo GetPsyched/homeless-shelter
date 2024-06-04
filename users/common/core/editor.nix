@@ -92,6 +92,8 @@
           preferGoToSourceDefinition = true;
           updateImportsOnFileMove.enabled = "always";
         };
+        nix.enableLanguageServer = true;
+        nix.serverPath = "nil";
         prettier.singleQuote = true;
         svelte.enable-ts-plugin = true;
         typescript = {
