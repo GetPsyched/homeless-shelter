@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.zed-editor ];
-
   programs = {
     helix = {
       enable = true;
