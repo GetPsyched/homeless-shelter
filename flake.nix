@@ -10,6 +10,9 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    gradle2nix.url = "github:tadfisher/gradle2nix/v2";
+    gradle2nix.inputs.nixpkgs.follows = "nixpkgs";
+
     flakey-devShells.url = "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz";
     flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };

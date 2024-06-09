@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     bottles
@@ -30,7 +30,9 @@
 
   programs.atlauncher = {
     enable = true;
-    package = (pkgs.callPackage ../../../packages/atlauncher.nix { });
+    package = (pkgs.callPackage ../../../packages/atlauncher.nix {
+      buildGradlePackage = inputs.gradle2nix.builders.x86_64-linux.buildGradlePackage;
+    });
 
     theme = "One Dark";
 
