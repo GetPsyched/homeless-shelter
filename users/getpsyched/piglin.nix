@@ -25,6 +25,7 @@
       mgitstatus
       nixpkgs-review
       obsidian
+      pavucontrol
       spotify
       sqlitebrowser
       unzip
