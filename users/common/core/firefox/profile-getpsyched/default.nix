@@ -1,7 +1,5 @@
 { ff-addons, ... }:
 {
-  isDefault = true;
-
   bookmarks = import ./bookmarks.nix;
   extensions = with ff-addons; [
     darkreader

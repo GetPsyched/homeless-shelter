@@ -7,9 +7,12 @@
     profiles.main =
       let
         ff-addons = import ./addons.nix { inherit pkgs; };
+        profile = ./profile-${config.home.username};
       in
       lib.recursiveUpdate
         {
+          isDefault = true;
+
           settings = {
             "browser.startup.page" = 3; # restore
             "distribution.searchplugins.defaultLocale" = "en-GB";
@@ -17,7 +20,7 @@
             "general.useragent.locale" = "en-GB";
           };
         }
-        (import ./profile-${config.home.username} { inherit ff-addons pkgs; });
+        (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit ff-addons pkgs; }));
   };
 
   xdg.desktopEntries.chromium = {
