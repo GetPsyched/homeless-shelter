@@ -5,7 +5,7 @@
     ../common/core
   ];
 
-  home.username = "getpsyched";
+  home.username = "guest";
 
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 }
