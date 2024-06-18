@@ -12,8 +12,5 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
 
-  home = {
-    username = "getpsyched";
-    packages = [ pkgs.gparted ];
-  };
+  home.packages = [ pkgs.gparted ];
 }

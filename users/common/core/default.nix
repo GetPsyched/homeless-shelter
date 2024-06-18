@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 {
   imports = [
     ./firefox
@@ -14,13 +14,6 @@
 
   home = {
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    pointerCursor = {
-      name = "Banana";
-      size = 48;
-      package = pkgs.banana-cursor;
-      x11.enable = true;
-      gtk.enable = true;
-    };
     stateVersion = "22.11";
   };
 

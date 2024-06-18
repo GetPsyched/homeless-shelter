@@ -16,26 +16,22 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
 
-  home = {
-    username = "getpsyched";
+  home.packages = with pkgs; [
+    digikam
+    hoppscotch
+    mgitstatus
+    nixpkgs-review
+    obsidian
+    pavucontrol
+    spotify
+    sqlitebrowser
+    unzip
 
-    packages = with pkgs; [
-      digikam
-      hoppscotch
-      mgitstatus
-      nixpkgs-review
-      obsidian
-      pavucontrol
-      spotify
-      sqlitebrowser
-      unzip
-
-      (callPackage ../../packages/neuron.nix { })
-      (python311Packages.callPackage ../../packages/nexus.nix {
-        pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
-      })
-    ];
-  };
+    (callPackage ../../packages/neuron.nix { })
+    (python311Packages.callPackage ../../packages/nexus.nix {
+      pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
+    })
+  ];
 
   persist.enable = true;
   persist.cacheDirs = [ ".cache" ];
