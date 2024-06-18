@@ -59,7 +59,6 @@
           cursorBlinking = true;
           cursorStyle = "line";
           enableMultiLinePasteWarning = false;
-          enablePersistentSessions = false;
           showExitAlert = false;
         };
         window = {
