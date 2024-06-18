@@ -1,14 +1,23 @@
-{ pkgs, ... }:
-let
-  ff-addons = import ./addons.nix { inherit pkgs; };
-  profiles.main = import ./profile-main { inherit ff-addons pkgs; };
-in
+{ config, lib, pkgs, ... }:
 {
   persist.stateDirs = [ ".mozilla/firefox/main" ];
 
   programs.firefox = {
     enable = true;
-    profiles = profiles;
+    profiles.main =
+      let
+        ff-addons = import ./addons.nix { inherit pkgs; };
+      in
+      lib.recursiveUpdate
+        {
+          settings = {
+            "browser.startup.page" = 3; # restore
+            "distribution.searchplugins.defaultLocale" = "en-GB";
+            "drm" = true;
+            "general.useragent.locale" = "en-GB";
+          };
+        }
+        (import ./profile-${config.home.username} { inherit ff-addons pkgs; });
   };
 
   xdg.desktopEntries.chromium = {

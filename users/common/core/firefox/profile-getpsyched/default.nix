@@ -24,10 +24,6 @@
     "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
     "layout.css.prefers-color-scheme.content-override" = 0;
 
-    "browser.startup.page" = 3; # restore
-    "distribution.searchplugins.defaultLocale" = "en-GB";
-    "drm" = true;
-    "general.useragent.locale" = "en-GB";
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
     "browser.uidensity" = 1;
