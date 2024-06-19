@@ -9,6 +9,7 @@
     ../../users/getpsyched
 
     ../common/core
+    ../common/optional/dconf.nix
     ../common/optional/i3.nix
   ];
 
