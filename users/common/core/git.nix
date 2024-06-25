@@ -11,6 +11,9 @@
     userName = "GetPsyched";
     userEmail = "priyanshu@getpsyched.dev";
 
+    difftastic.enable = true;
+    difftastic.background = "dark";
+
     aliases = {
       amend = "commit --amend --no-edit";
       co = "checkout";
