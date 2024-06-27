@@ -19,8 +19,8 @@ buildPythonPackage rec {
   format = "wheel";
 
   src = fetchurl {
-    url = "https://files.pythonhosted.org/packages/d8/f7/7a8a0c3a87fc9a898a521ae34aea5806f71f7bef1a0e032a6d954550fcea/PySide6_Essentials-${version}-cp39-abi3-manylinux_2_28_x86_64.whl";
-    sha256 = "sha256-4BMjj+QFlrgEBo40rBc1FJQ6Qb+OX7tO38fDCwBDG9U=";
+    url = "https://files.pythonhosted.org/packages/75/be/527e41a7744142d931e46685dd9c2bdfff39432962abf8a5263be319c2cb/PySide6_Essentials-${version}-cp39-abi3-manylinux_2_28_x86_64.whl";
+    sha256 = "sha256-oaTAnx6Ra5z+UxUf5KUDpqyx9mIbooIE0b/mNvgNZ4A=";
   };
 
   propagatedBuildInputs = [
@@ -40,7 +40,7 @@ buildPythonPackage rec {
     unixODBC # libodbc.so.2
   ];
 
-  autoPatchelfIgnoreMissingDeps = [ "libmimerapi.so" ]; # not in nixpkgs yet
+  autoPatchelfIgnoreMissingDeps = [ "libmimerapi.so" "libQt6EglFsKmsGbmSupport.so.6" ]; # not in nixpkgs yet
 
   meta = with lib; {
     description = "A minimal wheel for PySide6, it includes only the essentials Qt modules";

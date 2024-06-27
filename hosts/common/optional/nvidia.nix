@@ -29,7 +29,7 @@
         nvidiaBusId = "PCI:1:0:0";
       };
     };
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
