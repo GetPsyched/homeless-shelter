@@ -4,8 +4,8 @@
     ./firefox
     ./tools
 
-    ./editor.nix
     ./git.nix
+    ./helix.nix
     ./libreoffice.nix
     ./shell.nix
     ./terminal.nix

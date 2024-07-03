@@ -8,6 +8,7 @@
     ../common/optional/games.nix
     ../common/optional/i3.nix
     ../common/optional/virt-manager.nix
+    ../common/optional/vscodium.nix
     ../common/optional/zed.nix
   ];
 
