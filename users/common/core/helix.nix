@@ -9,6 +9,12 @@
         rulers = [ 80 ];
       }
       {
+        name = "markdown";
+        soft-wrap.enable = true;
+        soft-wrap.wrap-indicator = "";
+        soft-wrap.wrap-at-text-width = true;
+      }
+      {
         name = "nix";
         auto-format = true;
         formatter.command = "nixfmt";
