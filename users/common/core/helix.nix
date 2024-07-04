@@ -3,6 +3,19 @@
     enable = true;
     defaultEditor = true;
 
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "nixfmt";
+      }
+      {
+        name = "typescript";
+        auto-format = true;
+        formatter.command = "prettier --parser typescript";
+      }
+    ];
+
     settings = {
       theme = "tokyonight";
 

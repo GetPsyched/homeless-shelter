@@ -4,6 +4,7 @@ with pkgs; mkShell {
   nativeBuildInputs = [
     just
     nil
+    nixfmt-rfc-style
 
     flakey-devShell-pkgs.default
     (flakey-devShell-pkgs.vscodium.override {
