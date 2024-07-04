@@ -26,6 +26,11 @@
       editor.lsp.display-inlay-hints = true;
       editor.cursor-shape.insert = "bar";
       editor.file-picker.hidden = false;
+
+      keys.normal.y = [
+        "yank"
+        ":clipboard-yank"
+      ];
     };
   };
 }
