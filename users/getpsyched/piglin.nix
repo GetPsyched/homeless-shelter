@@ -28,7 +28,7 @@
     sqlitebrowser
     unzip
 
-    (callPackage ../../packages/neuron.nix { })
+    (callPackage ../../packages/mindmap.nix { })
     (python311Packages.callPackage ../../packages/nexus.nix {
       pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
     })
@@ -36,8 +36,22 @@
 
   persist.enable = true;
   persist.cacheDirs = [ ".cache" ];
-  persist.dataDirs = [ "backgrounds" "dump" "iso" "obsidian-vault" ];
-  persist.stateDirs = [ ".config/obsidian" ".config/spotify" ".local/share/digikam" ".rustup" ];
-  persist.stateFiles = [ ".config/digikamrc" ".railway/config.json" ];
+  persist.dataDirs = [
+    "backgrounds"
+    "dump"
+    "iso"
+    "obsidian-vault"
+  ];
+  persist.stateDirs = [
+    ".config/mindmap"
+    ".config/obsidian"
+    ".config/spotify"
+    ".local/share/digikam"
+    ".rustup"
+  ];
+  persist.stateFiles = [
+    ".config/digikamrc"
+    ".railway/config.json"
+  ];
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 }
