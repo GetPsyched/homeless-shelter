@@ -9,21 +9,23 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:nixos/nixos-hardware";
-
-    flakey-devShells.url = "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz";
-    flakey-devShells.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, ... }:
+  outputs =
+    inputs@{ nixpkgs, ... }:
     let
-      mkHost = hostName: nixpkgs.lib.nixosSystem {
-        modules = [
-          ./modules/persist.nix
-          ./modules/unfree.nix
-          ./hosts/${hostName}
-        ];
-        specialArgs = { inherit hostName inputs; };
-      };
+      mkHost =
+        hostName:
+        nixpkgs.lib.nixosSystem {
+          modules = [
+            ./modules/persist.nix
+            ./modules/unfree.nix
+            ./hosts/${hostName}
+          ];
+          specialArgs = {
+            inherit hostName inputs;
+          };
+        };
     in
     {
       nixosConfigurations = {
@@ -32,9 +34,10 @@
         potato = mkHost "potato";
       };
 
-      devShell.x86_64-linux = import ./devShell.nix {
-        flakey-devShell-pkgs = inputs.flakey-devShells.outputs.packages.x86_64-linux;
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      };
+      devShells.x86_64-linux.default =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        pkgs.mkShell { nativeBuildInputs = [ pkgs.just ]; };
     };
 }

@@ -1,24 +1,5 @@
 {
   "nodes": {
-    "flakey-devShells": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719050102,
-        "narHash": "sha256-W6+RM6wh8HJ128gp+JNltKbs60U6GHS9qjvdlfRDjeo=",
-        "rev": "8fef63255bc91b15d31181697574a57afd67eae7",
-        "revCount": 123,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/GetPsyched/not-so-flakey-devshells/0.2.10/01903f60-07ad-7033-946d-27acbed71a71/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/GetPsyched/not-so-flakey-devshells/0.x.x.tar.gz"
-      }
-    },
     "hardware": {
       "locked": {
         "lastModified": 1719895800,
@@ -102,7 +83,6 @@
     },
     "root": {
       "inputs": {
-        "flakey-devShells": "flakey-devShells",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
