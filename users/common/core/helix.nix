@@ -1,3 +1,4 @@
+{ lib, pkgs, ... }:
 {
   programs.helix = {
     enable = true;
@@ -17,7 +18,8 @@
       {
         name = "nix";
         auto-format = true;
-        formatter.command = "nixfmt";
+        formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
+        language-servers = [ "nixd" ];
       }
       {
         name = "typescript";
@@ -25,6 +27,10 @@
         formatter.command = "prettier --parser typescript";
       }
     ];
+
+    languages.language-server = {
+      nixd.command = lib.getExe pkgs.nixd;
+    };
 
     settings = {
       theme = "tokyonight";
