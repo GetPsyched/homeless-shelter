@@ -1,5 +1,7 @@
 { lib, pkgs, ... }:
-let mod = "Mod4"; in
+let
+  mod = "Mod4";
+in
 {
   xsession.windowManager.i3 = {
     enable = true;
@@ -8,20 +10,16 @@ let mod = "Mod4"; in
 
       keybindings =
         let
-          pactl = "${pkgs.pulseaudio}/bin/pactl";
-          brctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-          eww = "exec ${pkgs.eww}/bin/eww";
-
-          # rofi
-          shutdown = "";
-          reboot = "";
-          rofi = ''exec ${pkgs.rofi}/bin/rofi -show'';
-          uptime = "`uptime -p | sed -e 's/up //g'`";
+          pactl = lib.getExe' pkgs.pulseaudio "pactl";
+          brctl = lib.getExe pkgs.brightnessctl;
+          eww = "exec ${lib.getExe pkgs.eww}";
+          flameshot = "exec ${lib.getExe pkgs.flameshot}";
+          rofi = "exec ${lib.getExe pkgs.rofi}";
         in
         lib.mkOptionDefault {
-          "${mod}+d" = "${rofi} drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
+          "${mod}+d" = "${rofi} -show drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
           "${mod}+e" = "${eww} open bar --toggle --config ~/.config/eww/bar";
-          "${mod}+q" = ''${rofi} power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
+          "${mod}+q" = ''${rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 
           # Audio
           "XF86AudioRaiseVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ +10%";
@@ -30,14 +28,12 @@ let mod = "Mod4"; in
           "XF86AudioMicMute" = "exec ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle";
 
           # Display
-          "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+          "Print" = "${flameshot} gui";
           "XF86MonBrightnessDown" = "exec ${brctl} --min-value=2 -e set 5%-";
           "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
         };
 
-      startup = [
-        { command = "firefox"; }
-      ];
+      startup = [ { command = "firefox"; } ];
 
       terminal = "kitty";
 
