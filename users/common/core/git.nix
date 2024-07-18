@@ -17,7 +17,7 @@
     aliases = {
       amend = "commit --amend --no-edit --date=now";
       co = "checkout";
-      epic-fail = "reset HEAD~1";
+      epic-fail = "reset --soft HEAD~1";
       squash = "!git reset --soft HEAD~1 && git commit --amend";
 
       # delete branch
@@ -25,7 +25,10 @@
       nuke = "push origin -d";
     };
 
-    ignores = [ ".direnv" ".envrc" ];
+    ignores = [
+      ".direnv"
+      ".envrc"
+    ];
 
     extraConfig = {
       commit.gpgsign = true;
