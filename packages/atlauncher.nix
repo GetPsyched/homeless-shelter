@@ -1,7 +1,23 @@
 {
+  buildGradlePackage,
   fetchFromGitHub,
+  gradle,
+  jre,
   lib,
+  makeWrapper,
   stdenvNoCC,
+
+  gamemodeSupport ? stdenvNoCC.isLinux,
+  textToSpeechSupport ? stdenvNoCC.isLinux,
+  additionalLibs ? [ ],
+
+  # dependencies
+  flite,
+  gamemode,
+  libglvnd,
+  libpulseaudio,
+  udev,
+  xorg,
 }:
 
 let
@@ -15,8 +31,50 @@ let
     hash = "sha256-cm1+JK+gFlZfnfdUOK8GH98C9CMWmIlTwfiO4L8dpbc=";
   };
 in
-stdenvNoCC.mkDerivation {
+buildGradlePackage {
   inherit pname version src;
+  lockFile = ./gradle.lock;
+
+  gradleFlags = [
+    "build"
+    "--exclude-task"
+    "test"
+    "--exclude-task"
+    "createExe"
+  ];
+
+  nativeBuildInputs = [
+    gradle
+    makeWrapper
+  ];
+
+  installPhase =
+    let
+      runtimeLibraries =
+        [
+          libglvnd
+          libpulseaudio
+          udev
+          xorg.libXxf86vm
+        ]
+        ++ lib.optional gamemodeSupport gamemode.lib
+        ++ lib.optional textToSpeechSupport flite
+        ++ additionalLibs;
+    in
+    ''
+      runHook preInstall
+
+      mkdir -p $out/bin $out/share/java
+      cp dist/ATLauncher-${version}.jar $out/share/java/ATLauncher.jar
+
+      makeWrapper ${jre}/bin/java $out/bin/atlauncher \
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath runtimeLibraries}" \
+        --add-flags "-jar $out/share/java/ATLauncher.jar" \
+        --add-flags "--working-dir \"\''${XDG_DATA_HOME:-\$HOME/.local/share}/ATLauncher\"" \
+        --add-flags "--no-launcher-update"
+
+      runHook postInstall
+    '';
 
   postInstall =
     let

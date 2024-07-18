@@ -9,6 +9,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:nixos/nixos-hardware";
+
+    gradle2nix.url = "github:tadfisher/gradle2nix/v2";
+    gradle2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
