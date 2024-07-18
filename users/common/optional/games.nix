@@ -30,6 +30,8 @@
 
   programs.atlauncher = {
     enable = true;
+    package = (pkgs.callPackage ../../../packages/atlauncher.nix { });
+
     theme = "One Dark";
 
     settings = {
