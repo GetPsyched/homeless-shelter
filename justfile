@@ -34,7 +34,7 @@ rollback:
 
 # say goodbye to all your older generations
 yoink:
-    @sudo nix-collect-garbage -d
+    @sudo nix-collect-garbage --delete-old
 
 # build and flash a configuration ISO into a storage media
 flash HOST DISK:
