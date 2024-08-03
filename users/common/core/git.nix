@@ -35,6 +35,7 @@
       gpg.format = "ssh";
       user.signingKey = "~/.ssh/id_ed25519.pub";
 
+      advice.mergeConflict = false;
       core.whitespace = "trailing-space,space-before-tab";
       init.defaultBranch = "master";
       merge.conflictstyle = "diff3";
