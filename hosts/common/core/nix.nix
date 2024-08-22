@@ -1,4 +1,9 @@
-{ config, inputs, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 {
   nix = {
     gc = {
@@ -16,8 +21,13 @@
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "flakes" "nix-command" ];
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
       warn-dirty = false;
     };
   };
+
+  persist.sysStateDirs = [ "/var/lib/nixos" ];
 }
