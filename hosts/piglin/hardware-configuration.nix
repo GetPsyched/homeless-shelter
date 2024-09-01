@@ -1,25 +1,34 @@
-{ config, hostName, inputs, lib, modulesPath, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-      inputs.hardware.nixosModules.common-gpu-intel
-    ];
+  config,
+  hostName,
+  inputs,
+  lib,
+  modulesPath,
+  ...
+}:
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.hardware.nixosModules.common-gpu-intel
+  ];
 
   boot = {
-    extraModprobeConfig = ''
-      options snd slots=snd-hda-intel model=alc295,dell-headset-multi
-    '';
-    # options snd-hda-intel model=alc295,dell-headset-multi
-    # options snd slots=snd-hda-intel
-
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
 
     initrd = {
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "vmd"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       luks.devices.cryptroot = {
         header = "/dev/nvme0n1p2";
         device = "/dev/nvme0n1p3";
@@ -56,7 +65,11 @@
       "/" = {
         device = "none";
         fsType = "tmpfs";
-        options = [ "defaults" "size=4G" "mode=0755" ];
+        options = [
+          "defaults"
+          "size=4G"
+          "mode=0755"
+        ];
       };
       "/boot" = {
         device = "/dev/disk/by-uuid/8167-168A";
