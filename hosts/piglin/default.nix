@@ -23,9 +23,7 @@
   persist.sysDataDirs = [ "/var/lib/libvirt" ];
   persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
 
-  # Overlay broken?
-  # see https://discourse.nixos.org/t/nixos-rebuild-fails-on-a-weird-error-after-bumping-nixpkgs
-  # nixpkgs.overlays = [ (import ../../overlays/i3.nix) ];
+  nixpkgs.overlays = [ (import ../../overlays/i3.nix) ];
 
   system.stateVersion = "22.11";
 }
