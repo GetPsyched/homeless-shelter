@@ -23,7 +23,5 @@
   persist.sysDataDirs = [ "/var/lib/libvirt" ];
   persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
 
-  nixpkgs.overlays = [ (import ../../overlays/i3.nix) ];
-
   system.stateVersion = "22.11";
 }
