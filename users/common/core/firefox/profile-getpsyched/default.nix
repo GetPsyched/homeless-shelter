@@ -28,6 +28,9 @@
 
     # sidebery
     "sidebar.position_start" = false; # sidebar on right side
+
+    # they added overscroll :(
+    "apz.overscroll.enabled" = false;
   };
   userChrome = builtins.readFile ./userChrome.css;
 }
