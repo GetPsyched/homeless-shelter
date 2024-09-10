@@ -4,7 +4,10 @@
     ./rofi
   ];
 
-  home.packages = with pkgs; [ feh peek ];
+  home.packages = with pkgs; [
+    feh
+    peek
+  ];
 
   services = {
     dunst = {
@@ -40,7 +43,6 @@
 
       settings = {
         General = {
-          checkForUpdates = false;
           disabledTrayIcon = true;
           saveLastRegion = true;
           showDesktopNotification = false;
