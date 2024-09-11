@@ -33,7 +33,7 @@ rollback:
     @sudo nixos-rebuild boot --flake . --rollback
 
 # say goodbye to all your older generations
-yoink:
+yeet:
     @sudo nix-collect-garbage --delete-old
 
 # build and flash a configuration ISO into a storage media
