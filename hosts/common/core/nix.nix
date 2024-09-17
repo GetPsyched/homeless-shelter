@@ -25,6 +25,14 @@
         "flakes"
         "nix-command"
       ];
+      substituters = [
+        "https://cache.nixos.org?priority=10"
+        "https://nca.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nca.cachix.org-1:c8uthjrwGpyXBTBar6GWm8edgD6bErzugvlDyjNTfRc="
+      ];
       warn-dirty = false;
     };
   };
