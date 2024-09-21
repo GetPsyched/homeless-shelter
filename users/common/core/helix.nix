@@ -35,13 +35,17 @@
 
     settings = {
       theme = "tokyonight";
-
-      editor.completion-timeout = 5;
-      editor.preview-completion-insert = false;
-      editor.completion-replace = true;
-      editor.lsp.display-inlay-hints = true;
-      editor.cursor-shape.insert = "bar";
-      editor.file-picker.hidden = false;
+      editor = {
+        color-modes = true;
+        completion-replace = true;
+        completion-timeout = 5;
+        completion-trigger-len = 1;
+        cursorline = true;
+        cursor-shape.insert = "bar";
+        file-picker.hidden = false;
+        lsp.display-inlay-hints = true;
+        preview-completion-insert = false;
+      };
 
       keys.normal.y = [
         "yank"
