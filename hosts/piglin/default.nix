@@ -6,8 +6,8 @@
     ./hardware-configuration.nix
 
     ../common/optional/tailscale
+    ../common/optional/cosmic.nix
     ../common/optional/dconf.nix
-    ../common/optional/i3.nix
     ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
