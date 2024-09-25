@@ -1,0 +1,3 @@
+{
+  persist.stateDirs = [ ".config/cosmic" ];
+}

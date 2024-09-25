@@ -5,8 +5,8 @@
     ../common/core
     ./hardware-configuration.nix
 
+    ../common/optional/cosmic.nix
     ../common/optional/dconf.nix
-    ../common/optional/i3.nix
     ../common/optional/locale.nix
     ../common/optional/networking.nix
     ../common/optional/nvidia.nix
