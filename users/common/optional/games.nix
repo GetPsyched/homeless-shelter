@@ -6,6 +6,7 @@
     heroic
     mangohud
     osu-lazer-bin
+    pcsx2
     protontricks
     qbittorrent
     winePackages.stagingFull
@@ -14,6 +15,7 @@
 
   persist.gameDirs = [
     ".local/share/ATLauncher"
+    ".local/share/PCSX2"
     ".local/share/Terraria"
     ".local/share/icons"
     ".heroic"
@@ -23,6 +25,7 @@
   ];
   persist.stateDirs = [
     ".config/heroic"
+    ".config/PCSX2"
     ".local/share/applications"
     ".local/share/bottles"
     ".local/share/wineprefixes"
