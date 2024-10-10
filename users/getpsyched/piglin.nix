@@ -47,11 +47,9 @@
     ".config/obsidian"
     ".config/spotify"
     ".local/share/digikam"
+    ".railway"
     ".rustup"
   ];
-  persist.stateFiles = [
-    ".config/digikamrc"
-    ".railway/config.json"
-  ];
+  persist.stateFiles = [ ".config/digikamrc" ];
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 }
