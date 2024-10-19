@@ -5,7 +5,6 @@
 
     ./hardware.nix
     ./locale.nix
-    ./networking.nix
     ./nix.nix
     ./tailscale.nix
   ];

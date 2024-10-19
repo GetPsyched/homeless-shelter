@@ -1,4 +1,9 @@
-{ hostName, inputs, lib, ... }:
+{
+  hostName,
+  inputs,
+  lib,
+  ...
+}:
 {
   isoImage.isoName = lib.mkForce "${hostName}.iso";
   isoImage.volumeID = lib.mkForce hostName;
@@ -11,15 +16,23 @@
     ../common/core
     ../common/optional/dconf.nix
     ../common/optional/i3.nix
+    ../common/optional/networking.nix
   ];
 
-  networking.hostName = hostName;
-  networking.networkmanager.enable = true;
   networking.wireless.enable = lib.mkForce false;
 
   # Remove broken zfs backage from the base ISO config
   # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/profiles/base.nix#L52-L54
-  boot.supportedFilesystems = lib.mkForce [ "btrfs" "cifs" "f2fs" "jfs" "ntfs" "reiserfs" "vfat" "xfs" ];
+  boot.supportedFilesystems = lib.mkForce [
+    "btrfs"
+    "cifs"
+    "f2fs"
+    "jfs"
+    "ntfs"
+    "reiserfs"
+    "vfat"
+    "xfs"
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = "23.11";

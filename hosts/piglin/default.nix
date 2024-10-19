@@ -7,6 +7,7 @@
 
     ../common/optional/dconf.nix
     ../common/optional/i3.nix
+    ../common/optional/networking.nix
     ../common/optional/nvidia.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
