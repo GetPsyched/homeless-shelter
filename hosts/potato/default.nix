@@ -6,7 +6,6 @@
     ../common/core
     ./hardware-configuration.nix
 
-    ../common/optional/tailscale
     ../common/optional/pipewire.nix
     ../common/optional/warp.nix
     ../common/optional/plasma.nix

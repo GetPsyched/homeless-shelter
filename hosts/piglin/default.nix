@@ -5,7 +5,6 @@
     ../common/core
     ./hardware-configuration.nix
 
-    ../common/optional/tailscale
     ../common/optional/dconf.nix
     ../common/optional/i3.nix
     ../common/optional/nvidia.nix

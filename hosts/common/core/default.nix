@@ -7,10 +7,13 @@
     ./locale.nix
     ./networking.nix
     ./nix.nix
+    ./tailscale.nix
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
   };

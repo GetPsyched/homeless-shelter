@@ -1,11 +1,10 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.tailscale ];
-
   services.tailscale = {
     enable = true;
-    useRoutingFeatures = "client";
+    openFirewall = true;
   };
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   persist.sysStateDirs = [ "/var/lib/tailscale" ];
 }
