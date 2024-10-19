@@ -30,6 +30,7 @@
     in
     {
       nixosConfigurations = {
+        fledgeling = mkHost "fledgeling";
         goldfish = mkHost "goldfish";
         piglin = mkHost "piglin";
         potato = mkHost "potato";
