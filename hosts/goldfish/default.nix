@@ -16,6 +16,7 @@
     ../common/core
     ../common/optional/dconf.nix
     ../common/optional/i3.nix
+    ../common/optional/locale.nix
     ../common/optional/networking.nix
   ];
 

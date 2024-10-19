@@ -6,6 +6,7 @@
     ../common/core
     ./hardware-configuration.nix
 
+    ../common/optional/locale.nix
     ../common/optional/networking.nix
     ../common/optional/pipewire.nix
     ../common/optional/warp.nix
