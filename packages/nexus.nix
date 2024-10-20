@@ -1,29 +1,33 @@
-{ buildPythonApplication
-, copyDesktopItems
-, fetchFromGitHub
-, lib
-, makeDesktopItem
-, python
-, pythonOlder
+{
+  buildPythonApplication,
+  copyDesktopItems,
+  fetchFromGitHub,
+  lib,
+  makeDesktopItem,
+  python,
+  pythonOlder,
 
   # dependencies
-, cryptography
-, pynput
-, pyside6-essentials
-, pyserial
-, requests
-, setuptools
+  cryptography,
+  pynput,
+  pyside6-essentials,
+  pyserial,
+  requests,
+  setuptools,
 
   # tests
-, flake8
-, pytest
-, pytest-cov
-, xvfb-run
+  flake8,
+  pytest,
+  pytest-cov,
+  xvfb-run,
 }:
 
-buildPythonApplication rec {
+let
   pname = "nexus";
   version = "0.5.1";
+in
+buildPythonApplication {
+  inherit pname version;
   format = "pyproject";
 
   src = fetchFromGitHub {
@@ -37,7 +41,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ copyDesktopItems ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     cryptography
     pynput
     pyside6-essentials
@@ -55,10 +59,10 @@ buildPythonApplication rec {
 
   preBuild =
     let
-      pyside6-uic = "${pyside6-essentials}/bin/pyside6-uic";
-      pyside6-rcc = "${pyside6-essentials}/bin/pyside6-rcc";
-      pyside6-lupdate = "${pyside6-essentials}/bin/pyside6-lupdate";
-      pyside6-lrelease = "${pyside6-essentials}/bin/pyside6-lrelease";
+      pyside6-uic = lib.getExe' pyside6-essentials "pyside6-uic";
+      pyside6-rcc = lib.getExe' pyside6-essentials "pyside6-rcc";
+      pyside6-lupdate = lib.getExe' pyside6-essentials "pyside6-lupdate";
+      pyside6-lrelease = lib.getExe' pyside6-essentials "pyside6-lrelease";
 
       sitePackages = "$out/${python.sitePackages}";
       packageDir = "${sitePackages}/${pname}";
@@ -82,8 +86,7 @@ buildPythonApplication rec {
     '';
 
   postInstall = ''
-    mkdir -p $out/share/icons/hicolor/scalable/apps
-    cp ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
+    install -D -m444 ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
   '';
 
   checkPhase = ''
@@ -102,9 +105,9 @@ buildPythonApplication rec {
 
   desktopItems = [
     (makeDesktopItem {
-      comment = "CharaChorder's all-in-one desktop app";
+      comment = "CharaChorder's logging and analysis desktop app";
       desktopName = "Nexus";
-      exec = pname;
+      exec = "nexus";
       icon = pname;
       name = pname;
       startupNotify = true;
@@ -114,14 +117,14 @@ buildPythonApplication rec {
     })
   ];
 
-  meta = with lib; {
+  meta = {
     description = "CharaChorder's all-in-one desktop app";
     downloadPage = "https://github.com/CharaChorder/nexus/releases/tag/v${version}";
     homepage = "https://github.com/CharaChorder/nexus/";
-    license = licenses.agpl3Only;
-    maintainers = [ maintainers.getpsyched ];
-    mainProgram = pname;
-    platforms = platforms.linux;
-    sourceProvenance = [ sourceTypes.fromSource ];
+    license = lib.licenses.agpl3Only;
+    maintainers = with lib.maintainers; [ getpsyched ];
+    mainProgram = "nexus";
+    platforms = lib.platforms.linux;
+    sourceProvenance = [ lib.sourceTypes.fromSource ];
   };
 }
