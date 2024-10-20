@@ -39,12 +39,14 @@ buildPythonApplication {
 
   disabled = pythonOlder "3.11";
 
-  nativeBuildInputs = [ copyDesktopItems ];
+  nativeBuildInputs = [
+    copyDesktopItems
+    pyside6-essentials
+  ];
 
   dependencies = [
     cryptography
     pynput
-    pyside6-essentials
     pyserial
     requests
     setuptools
@@ -59,11 +61,6 @@ buildPythonApplication {
 
   preBuild =
     let
-      pyside6-uic = lib.getExe' pyside6-essentials "pyside6-uic";
-      pyside6-rcc = lib.getExe' pyside6-essentials "pyside6-rcc";
-      pyside6-lupdate = lib.getExe' pyside6-essentials "pyside6-lupdate";
-      pyside6-lrelease = lib.getExe' pyside6-essentials "pyside6-lrelease";
-
       sitePackages = "$out/${python.sitePackages}";
       packageDir = "${sitePackages}/${pname}";
     in
@@ -72,16 +69,16 @@ buildPythonApplication {
 
       for file in ui/*.ui; do
         NEW_NAME=$(echo $file | cut --delimiter="." --fields=1).py
-        ${pyside6-uic} $file -o ${packageDir}/$NEW_NAME
+        pyside6-uic $file -o ${packageDir}/$NEW_NAME
       done
 
       mkdir ${sitePackages}/resources_rc
-      ${pyside6-rcc} ui/resources.qrc -o ${sitePackages}/resources_rc/__init__.py
+      pyside6-rcc ui/resources.qrc -o ${sitePackages}/resources_rc/__init__.py
 
-      ${pyside6-lupdate} ui/*.ui nexus/GUI.py -ts translations/i18n_en.ts
+      pyside6-lupdate ui/*.ui nexus/GUI.py -ts translations/i18n_en.ts
       for file in translations/*.ts; do
         NEW_NAME=$(echo $file | cut --delimiter="." --fields=1).qm
-        ${pyside6-lrelease} $file -qm ${packageDir}/$NEW_NAME
+        pyside6-lrelease $file -qm ${packageDir}/$NEW_NAME
       done
     '';
 
