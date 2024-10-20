@@ -7,7 +7,6 @@
 
   allowUnfreePackages = [
     "steam"
-    "steam-original"
-    "steam-run"
+    "steam-unwrapped"
   ];
 }

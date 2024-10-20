@@ -19,8 +19,8 @@ buildPythonPackage rec {
   format = "wheel";
 
   src = fetchurl {
-    url = "https://files.pythonhosted.org/packages/75/be/527e41a7744142d931e46685dd9c2bdfff39432962abf8a5263be319c2cb/PySide6_Essentials-${version}-cp39-abi3-manylinux_2_28_x86_64.whl";
-    sha256 = "sha256-oaTAnx6Ra5z+UxUf5KUDpqyx9mIbooIE0b/mNvgNZ4A=";
+    url = "https://files.pythonhosted.org/packages/9d/fd/17510a0abd503a904ce3b9f1af87385435cf9340fb79c020a53d3a8385a5/PySide6_Essentials-${version}.0-cp39-abi3-manylinux_2_28_x86_64.whl";
+    sha256 = "sha256-2pmpSAZBbsHjhkJqR059HlFMHN+K0XHABTdvT2M+chY=";
   };
 
   propagatedBuildInputs = [
