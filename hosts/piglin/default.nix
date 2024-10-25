@@ -26,6 +26,6 @@
 
   nixpkgs.overlays = [ (import ../../overlays/i3.nix) ];
 
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = "Asia/Dubai";
   system.stateVersion = "22.11";
 }
