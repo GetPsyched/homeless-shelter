@@ -9,7 +9,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than +5"; # Keep the last 5 generations
+      options = "--delete-older-than 30d";
     };
 
     # This will additionally add your inputs to the system's legacy channels
