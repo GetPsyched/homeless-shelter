@@ -1,6 +1,8 @@
 { config, ... }:
 {
   imports = [
+    ../../users/getpsyched
+
     ../common/core
     ./hardware-configuration.nix
 
