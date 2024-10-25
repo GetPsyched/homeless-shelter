@@ -9,8 +9,6 @@
     ../common/optional/immich.nix
   ];
 
-  users.users.root.hashedPassword = "$y$j9T$xg0X2wgh7cke3y.42NiDw0$VQoyREzlRwxySHRSW1Sfi.cDUhjoPNVLS76MDes01o6";
-
   documentation.nixos.enable = false;
 
   networking.firewall.allowedTCPPorts = [
