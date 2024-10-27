@@ -11,9 +11,6 @@
     userName = "GetPsyched";
     userEmail = "priyanshu@getpsyched.dev";
 
-    difftastic.enable = true;
-    difftastic.background = "dark";
-
     aliases = {
       amend = "commit --amend --no-edit --date=now";
       co = "checkout";
@@ -24,6 +21,10 @@
       bye = "branch -d";
       nuke = "push origin -d";
     };
+
+    difftastic.enable = true;
+    difftastic.background = "dark";
+    aliases.dshow = "show --ext-diff";
 
     ignores = [
       ".direnv"
