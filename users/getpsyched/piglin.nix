@@ -18,7 +18,6 @@
   };
 
   home.packages = with pkgs; [
-    digikam
     hoppscotch
     mgitstatus
     nixpkgs-review
@@ -46,10 +45,8 @@
     ".config/mindmap"
     ".config/obsidian"
     ".config/spotify"
-    ".local/share/digikam"
     ".railway"
     ".rustup"
   ];
-  persist.stateFiles = [ ".config/digikamrc" ];
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 }
