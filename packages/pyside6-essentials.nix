@@ -20,8 +20,8 @@ buildPythonPackage {
   format = "wheel";
 
   src = fetchurl {
-    url = "https://files.pythonhosted.org/packages/9d/fd/17510a0abd503a904ce3b9f1af87385435cf9340fb79c020a53d3a8385a5/PySide6_Essentials-${shiboken6.version}.0-cp39-abi3-manylinux_2_28_x86_64.whl";
-    sha256 = "sha256-2pmpSAZBbsHjhkJqR059HlFMHN+K0XHABTdvT2M+chY=";
+    url = "https://files.pythonhosted.org/packages/34/72/6ef2f32e5ae5681cdd10cc7e627c453fcd389889fbc6a76d4e400a27af87/PySide6_Essentials-${shiboken6.version}-cp39-abi3-manylinux_2_28_x86_64.whl";
+    sha256 = "sha256-ffbWwdpIWNvep3x01ycNnGjo0bvjNiiSq9GlreOBWlA=";
   };
 
   nativeBuildInputs = [
