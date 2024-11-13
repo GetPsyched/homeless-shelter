@@ -10,8 +10,9 @@
   # dependencies
   cryptography,
   pynput,
-  pyside6-essentials,
   pyserial,
+  pyside6,
+  pyside6-essentials,
   requests,
   setuptools,
 
@@ -48,6 +49,7 @@ buildPythonApplication {
     cryptography
     pynput
     pyserial
+    pyside6
     requests
     setuptools
   ];
