@@ -1,10 +1,5 @@
-{ ... }:
 {
-  imports = [
-    ../../modules/home-manager
-
-    ../common/core
-  ];
+  imports = [ ../common/core ];
 
   xdg.dataFile."warp/accepted-tos.txt".text = "yes";
 }

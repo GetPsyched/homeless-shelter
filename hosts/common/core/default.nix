@@ -17,6 +17,7 @@
     extraSpecialArgs = {
       inherit inputs outputs;
     };
+    sharedModules = [ (import ../../../modules/home-manager) ];
     useGlobalPkgs = true;
     useUserPackages = true;
   };

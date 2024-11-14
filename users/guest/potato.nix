@@ -1,9 +1,5 @@
 {
-  imports = [
-    ../../modules/home-manager
-
-    ../common/core
-  ];
+  imports = [ ../common/core ];
 
   home.username = "guest";
 

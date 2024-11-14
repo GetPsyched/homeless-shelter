@@ -1,7 +1,5 @@
 { config, lib, ... }:
 {
-  imports = [ ../../modules/home-manager ];
-
   home = {
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = "24.11";

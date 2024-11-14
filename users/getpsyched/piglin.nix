@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/home-manager
-
     ../common/core
     ../common/optional/activity-watch.nix
     ../common/optional/games.nix

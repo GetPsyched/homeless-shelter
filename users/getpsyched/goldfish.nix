@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/home-manager
-
     ../common/core
     ../common/optional/i3.nix
   ];
