@@ -12,7 +12,9 @@ update:
 
 # build the configuration
 build:
-    @sudo nixos-rebuild build --flake . --option eval-cache false
+    #!/bin/sh -e
+    sudo nixos-rebuild build --flake . --option eval-cache false
+    rm result
 
 # build the configuration and activate it, but don't add it to the boot menu
 test:
