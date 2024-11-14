@@ -18,8 +18,7 @@
         hostName: system:
         nixpkgs.lib.nixosSystem {
           modules = [
-            ./modules/persist.nix
-            ./modules/unfree.nix
+            ./modules/nixos
             ./hosts/${hostName}
           ];
           specialArgs = {
