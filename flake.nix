@@ -34,11 +34,5 @@
         piglin = mkHost "piglin" "x86_64-linux";
         potato = mkHost "potato" "x86_64-linux";
       };
-
-      devShells.x86_64-linux.default =
-        let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in
-        pkgs.mkShell { nativeBuildInputs = [ pkgs.just ]; };
     };
 }
