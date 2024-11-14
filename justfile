@@ -10,6 +10,10 @@ list:
 update:
     @nix flake update --commit-lock-file
 
+# build the configuration
+build:
+    @sudo nixos-rebuild build --flake . --option eval-cache false
+
 # build the configuration, make it the default boot option
 boot:
     @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD

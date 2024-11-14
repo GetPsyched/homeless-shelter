@@ -15,7 +15,7 @@
     inputs@{ nixpkgs, ... }:
     let
       mkHost =
-        hostName:
+        hostName: system:
         nixpkgs.lib.nixosSystem {
           modules = [
             ./modules/persist.nix
@@ -23,16 +23,16 @@
             ./hosts/${hostName}
           ];
           specialArgs = {
-            inherit hostName inputs;
+            inherit hostName inputs system;
           };
         };
     in
     {
       nixosConfigurations = {
-        fledgeling = mkHost "fledgeling";
-        goldfish = mkHost "goldfish";
-        piglin = mkHost "piglin";
-        potato = mkHost "potato";
+        fledgeling = mkHost "fledgeling" "x86_64-linux";
+        goldfish = mkHost "goldfish" "x86_64-linux";
+        piglin = mkHost "piglin" "x86_64-linux";
+        potato = mkHost "potato" "x86_64-linux";
       };
 
       devShells.x86_64-linux.default =
