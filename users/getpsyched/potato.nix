@@ -1,5 +1,10 @@
+{ config, lib, ... }:
 {
-  imports = [ ../common/core ];
+  home = {
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = "24.11";
+  };
 
-  xdg.dataFile."warp/accepted-tos.txt".text = "yes";
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 }
