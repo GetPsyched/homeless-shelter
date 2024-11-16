@@ -26,4 +26,6 @@
   networking.hostId = builtins.substring 0 8 (builtins.hashString "md5" hostName);
 
   users.mutableUsers = false;
+
+  persist.sysDataDirs = [ "/etc/ssh" ];
 }
