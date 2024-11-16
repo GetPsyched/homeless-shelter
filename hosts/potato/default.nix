@@ -8,7 +8,7 @@
     ../common/optional/zram.nix
   ];
 
-  services.openssh.enable = true;
+  services.tailscale.extraSetFlags = [ "--advertise-exit-node" ];
 
   time.timeZone = "Asia/Dubai";
   system.stateVersion = "24.11";
