@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  mainuser,
   ...
 }:
 
@@ -68,8 +69,8 @@ in
       environment.persistence.${cfg.root} = {
         directories = allDirectories;
         files = allFiles;
-        users.${config.mainuser} = {
-          home = "/home/${config.mainuser}";
+        users.${mainuser} = {
+          home = "/home/${mainuser}";
           directories = allHomeDirectories;
           files = allHomeFiles;
         };

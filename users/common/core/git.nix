@@ -2,9 +2,7 @@
 {
   home.packages = [ pkgs.github-cli ];
 
-  persist.src = [ "src" ];
-  persist.secretsDirs = [ ".ssh" ];
-  persist.stateFiles = [ ".config/gh/hosts.yml" ];
+  # persist.state.homeFiles = [ ".config/gh/hosts.yml" ];
 
   programs.git = {
     enable = true;

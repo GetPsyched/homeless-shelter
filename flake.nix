@@ -20,10 +20,10 @@
           modules = [
             ./hosts/${hostName}
             ./modules/nixos
-            { mainuser = "getpsyched"; }
           ];
           specialArgs = {
             inherit hostName inputs system;
+            mainuser = "getpsyched";
           };
         };
     in

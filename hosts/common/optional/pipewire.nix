@@ -9,4 +9,5 @@
     wireplumber.enable = true;
     jack.enable = true;
   };
+  # persist.state.homeDirectories = [ ".local/state/wireplumber" ];
 }

@@ -10,6 +10,7 @@
 
     ./hardware.nix
     ./nix.nix
+    ./ssh.nix
     ./tailscale.nix
   ];
 

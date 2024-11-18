@@ -32,5 +32,5 @@
 
   allowUnfreePackages = [ "cloudflare-warp" ];
   persist.state.directories = [ "/var/lib/cloudflare-warp" ];
-  persist.state.homeFiles = [ ".local/share/warp/accepted-tos.txt" ];
+  # persist.state.homeFiles = [ ".local/share/warp/accepted-tos.txt" ];
 }

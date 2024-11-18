@@ -9,5 +9,5 @@
       global.warn_timeout = "69h";
     };
   };
-  persist.state.homeDirectories = [ ".local/share/direnv/allow" ];
+  # persist.state.homeDirectories = [ ".local/share/direnv/allow" ];
 }

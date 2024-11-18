@@ -30,19 +30,18 @@
     })
   ];
 
-  persist.enable = true;
-  persist.data.homeDirectories = [
-    "backgrounds"
-    "dump"
-    "obsidian-vault"
-  ];
-  persist.state.homeDirectories = [
-    "src"
-    ".config/mindmap"
-    ".config/obsidian"
-    ".config/spotify"
-    ".railway"
-    ".rustup"
-  ];
-  xdg.dataFile."warp/accepted-tos.txt".text = "yes";
+  # persist.enable = true;
+  # persist.data.homeDirectories = [
+  #   "backgrounds"
+  #   "dump"
+  #   "obsidian-vault"
+  # ];
+  # persist.state.homeDirectories = [
+  #   "src"
+  #   ".config/mindmap"
+  #   ".config/obsidian"
+  #   ".config/spotify"
+  #   ".railway"
+  #   ".rustup"
+  # ];
 }

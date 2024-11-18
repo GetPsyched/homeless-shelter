@@ -4,5 +4,5 @@
     networkmanager.enable = true;
     useDHCP = lib.mkDefault true;
   };
-  persist.sysStateDirs = [ "/etc/NetworkManager" ];
+  persist.state.directories = [ "/etc/NetworkManager/system-connections" ];
 }

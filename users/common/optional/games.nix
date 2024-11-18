@@ -12,23 +12,23 @@
     winetricks
   ];
 
-  persist.misc.homeDirectories = [
-    ".local/share/ATLauncher"
-    ".local/share/Terraria"
-    ".local/share/icons"
-    ".heroic"
-    ".steam-games"
-    "bottles"
-    "My Games"
-  ];
-  persist.state.homeDirectories = [
-    ".config/heroic"
-    ".local/share/applications"
-    ".local/share/bottles"
-    ".local/share/icons/hicolor"
-    ".local/share/Terraria"
-    ".local/share/wineprefixes"
-  ];
+  # persist.misc.homeDirectories = [
+  #   ".local/share/ATLauncher"
+  #   ".local/share/Terraria"
+  #   ".local/share/icons"
+  #   ".heroic"
+  #   ".steam-games"
+  #   "bottles"
+  #   "My Games"
+  # ];
+  # persist.state.homeDirectories = [
+  #   ".config/heroic"
+  #   ".local/share/applications"
+  #   ".local/share/bottles"
+  #   ".local/share/icons/hicolor"
+  #   ".local/share/Terraria"
+  #   ".local/share/wineprefixes"
+  # ];
 
   programs.atlauncher = {
     enable = true;

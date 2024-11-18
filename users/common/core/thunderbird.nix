@@ -6,5 +6,5 @@
       isDefault = true;
     };
   };
-  persist.state.directories = [ ".thunderbird/main" ];
+  # persist.state.homeDirectories = [ ".thunderbird/main" ];
 }
