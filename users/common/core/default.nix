@@ -4,12 +4,16 @@
     ./firefox
     ./tools
 
+    ./bash.nix
+    ./direnv.nix
     ./git.nix
     ./helix.nix
     ./libreoffice.nix
-    ./shell.nix
+    ./starship.nix
     ./terminal.nix
     ./thunderbird.nix
+    ./tldr.nix
+    ./zoxide.nix
   ];
 
   home = {

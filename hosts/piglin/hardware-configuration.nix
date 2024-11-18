@@ -1,6 +1,5 @@
 {
   config,
-  hostName,
   inputs,
   lib,
   modulesPath,

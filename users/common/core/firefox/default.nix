@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
 {
-  persist.stateDirs = [ ".mozilla/firefox/main" ];
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   programs.firefox = {
     enable = true;
     profiles.main =
@@ -9,19 +12,18 @@
         ff-addons = import ./addons.nix { inherit pkgs; };
         profile = ./profile-${config.home.username};
       in
-      lib.recursiveUpdate
-        {
-          isDefault = true;
+      lib.recursiveUpdate {
+        isDefault = true;
 
-          settings = {
-            "browser.startup.page" = 3; # restore
-            "distribution.searchplugins.defaultLocale" = "en-GB";
-            "drm" = true;
-            "general.useragent.locale" = "en-GB";
-          };
-        }
-        (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit ff-addons pkgs; }));
+        settings = {
+          "browser.startup.page" = 3; # restore
+          "distribution.searchplugins.defaultLocale" = "en-GB";
+          "drm" = true;
+          "general.useragent.locale" = "en-GB";
+        };
+      } (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit ff-addons pkgs; }));
   };
+  persist.state.homeDirectories = [ ".mozilla/firefox/main" ];
 
   xdg.desktopEntries.chromium = {
     categories = [ "Application" ];

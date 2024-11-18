@@ -12,7 +12,7 @@
     winetricks
   ];
 
-  persist.gameDirs = [
+  persist.misc.homeDirectories = [
     ".local/share/ATLauncher"
     ".local/share/Terraria"
     ".local/share/icons"
@@ -21,10 +21,12 @@
     "bottles"
     "My Games"
   ];
-  persist.stateDirs = [
+  persist.state.homeDirectories = [
     ".config/heroic"
     ".local/share/applications"
     ".local/share/bottles"
+    ".local/share/icons/hicolor"
+    ".local/share/Terraria"
     ".local/share/wineprefixes"
   ];
 

@@ -27,5 +27,5 @@
 
   users.mutableUsers = false;
 
-  persist.sysDataDirs = [ "/etc/ssh" ];
+  persist.cache.directories = [ "/var/cache" ];
 }

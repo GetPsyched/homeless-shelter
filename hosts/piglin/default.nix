@@ -21,8 +21,8 @@
   services.printing.enable = true;
 
   persist.enable = true;
-  persist.sysDataDirs = [ "/var/lib/libvirt" ];
-  persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
+  persist.data.directories = [ "/var/lib/libvirt" ];
+  persist.data.files = [ "/var/lib/prince/license.dat" ];
 
   time.timeZone = "Asia/Dubai";
   system.stateVersion = "22.11";

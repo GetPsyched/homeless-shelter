@@ -1,6 +1,4 @@
 {
-  persist.stateDirs = [ ".thunderbird/main" ];
-
   programs.thunderbird = {
     enable = true;
 
@@ -8,4 +6,5 @@
       isDefault = true;
     };
   };
+  persist.state.directories = [ ".thunderbird/main" ];
 }

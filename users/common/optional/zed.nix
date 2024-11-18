@@ -1,6 +1,4 @@
 {
-  persist.stateDirs = [ ".local/share/zed" ];
-
   programs.zed = {
     enable = true;
 
@@ -17,4 +15,5 @@
       theme = "Ayu Dark";
     };
   };
+  persist.state.homeDirectories = [ ".local/share/zed" ];
 }

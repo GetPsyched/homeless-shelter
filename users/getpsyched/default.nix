@@ -28,6 +28,7 @@
         gtk.enable = true;
       };
     };
+    persist.cache.homeDirectories = [ ".cache" ];
   } (import ./${hostName}.nix { inherit config lib pkgs; });
 
   allowUnfreePackages = [

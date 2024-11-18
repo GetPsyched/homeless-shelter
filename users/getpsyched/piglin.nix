@@ -31,13 +31,13 @@
   ];
 
   persist.enable = true;
-  persist.cacheDirs = [ ".cache" ];
-  persist.dataDirs = [
+  persist.data.homeDirectories = [
     "backgrounds"
     "dump"
     "obsidian-vault"
   ];
-  persist.stateDirs = [
+  persist.state.homeDirectories = [
+    "src"
     ".config/mindmap"
     ".config/obsidian"
     ".config/spotify"
