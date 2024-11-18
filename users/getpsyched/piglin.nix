@@ -35,7 +35,6 @@
   persist.dataDirs = [
     "backgrounds"
     "dump"
-    "iso"
     "obsidian-vault"
   ];
   persist.stateDirs = [
