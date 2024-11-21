@@ -54,6 +54,12 @@
       fsType = "vfat";
       neededForBoot = true;
     };
+    "/nix" = {
+      device = "/dev/nvme0n1p4";
+      fsType = "btrfs";
+      options = [ "subvol=nix,compress=zstd,noatime" ];
+      neededForBoot = true;
+    };
     "/persist" = {
       device = "/dev/nvme0n1p4";
       fsType = "btrfs";

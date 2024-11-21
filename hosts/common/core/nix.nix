@@ -31,6 +31,5 @@
     };
   };
 
-  persist.misc.directories = [ "/nix" ];
   persist.state.directories = [ "/var/lib/nixos" ];
 }
