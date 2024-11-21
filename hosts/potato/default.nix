@@ -1,11 +1,12 @@
 {
   imports = [
-    ../../users/getpsyched
-
-    ../common/core
     ./hardware-configuration.nix
 
-    ../common/optional/zram.nix
+    ../../system/user.nix
+    ../../system/hardware.nix
+    ../../system/nix.nix
+    ../../system/tailscale.nix
+    ../../system/zram.nix
   ];
 
   services.tailscale.extraSetFlags = [ "--advertise-exit-node" ];

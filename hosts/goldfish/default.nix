@@ -11,13 +11,17 @@
   imports = [
     (inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-base.nix")
 
-    ../../users/getpsyched
-
-    ../common/core
-    ../common/optional/dconf.nix
-    ../common/optional/i3.nix
-    ../common/optional/locale.nix
-    ../common/optional/networking.nix
+    ../../system/user.nix
+    ../../system/firefox
+    ../../system/helix.nix
+    ../../system/kitty.nix
+    ../../system/i3.nix
+    ../../system/hardware.nix
+    ../../system/nix.nix
+    ../../system/tailscale.nix
+    ../../system/dconf.nix
+    ../../system/locale.nix
+    ../../system/networking.nix
   ];
 
   networking.wireless.enable = lib.mkForce false;

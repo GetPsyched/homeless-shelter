@@ -1,10 +1,8 @@
+{ config, ... }:
 {
-  persist.stateDirs = [ ".local/share/zed" ];
-
-  programs.zed = {
-    enable = true;
-
-    settings = {
+  home-manager.users.${config.mainuser} = {
+    programs.zed.enable = true;
+    programs.zed.settings = {
       assistant = {
         version = "1";
         provider = {
@@ -16,5 +14,6 @@
 
       theme = "Ayu Dark";
     };
+    persist.stateDirs = [ ".local/share/zed" ];
   };
 }
