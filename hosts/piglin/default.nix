@@ -3,24 +3,25 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../config/user.nix
     ../../config/activity-watch.nix
-    ../../config/games.nix
-    ../../config/steam.nix
-    ../../config/i3.nix
-    ../../config/virt-manager.nix
-    ../../config/zed.nix
-    ../../config/boot.nix
     ../../config/bluetooth.nix
-    ../../config/nix.nix
-    ../../config/tailscale.nix
+    ../../config/boot.nix
     ../../config/dconf.nix
+    ../../config/firefox
+    ../../config/games.nix
+    ../../config/i3.nix
     ../../config/locale.nix
     ../../config/networking.nix
+    ../../config/nix.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
+    ../../config/steam.nix
+    ../../config/tailscale.nix
+    ../../config/user.nix
+    ../../config/virt-manager.nix
     ../../config/virtualisation.nix
     ../../config/warp.nix
+    ../../config/zed.nix
     ../../config/zram.nix
   ];
 

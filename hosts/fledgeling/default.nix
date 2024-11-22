@@ -3,11 +3,11 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../config/user.nix
     ../../config/boot.nix
+    ../../config/immich.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
-    ../../config/immich.nix
+    ../../config/user.nix
   ];
 
   documentation.nixos.enable = false;

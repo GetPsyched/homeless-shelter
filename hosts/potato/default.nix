@@ -2,10 +2,11 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../config/user.nix
     ../../config/boot.nix
+    ../../config/firefox
     ../../config/nix.nix
     ../../config/tailscale.nix
+    ../../config/user.nix
     ../../config/zram.nix
   ];
 
