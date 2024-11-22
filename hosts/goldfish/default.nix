@@ -20,6 +20,7 @@
     ../../config/locale.nix
     ../../config/nix.nix
     ../../config/networking.nix
+    ../../config/rofi.nix
     ../../config/tailscale.nix
     ../../config/user.nix
   ];
