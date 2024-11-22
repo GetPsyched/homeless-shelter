@@ -45,6 +45,9 @@
       };
     };
 
+    # FIXME: https://github.com/nix-community/home-manager/issues/6110
+    manual.html.enable = false;
+
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
   };
