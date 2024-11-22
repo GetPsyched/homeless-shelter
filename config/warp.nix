@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   environment.systemPackages = [ pkgs.cloudflare-warp ];
   systemd.packages = [ pkgs.cloudflare-warp ];
   systemd.services.warp-svc = {
@@ -31,4 +32,5 @@
 
   allowUnfreePackages = [ "cloudflare-warp" ];
   persist.sysStateDirs = [ "/var/lib/cloudflare-warp" ];
+  home-manager.users.${config.mainuser}.persist.stateFiles = [ ".local/share/warp/accepted-tos.txt" ];
 }

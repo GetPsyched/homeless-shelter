@@ -69,7 +69,6 @@
       ".railway"
       ".rustup"
     ];
-    xdg.dataFile."warp/accepted-tos.txt".text = "yes";
   };
 
   allowUnfreePackages = [
