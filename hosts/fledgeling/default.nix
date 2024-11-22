@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
 
+    ../../config/bash.nix
     ../../config/boot.nix
     ../../config/immich.nix
     ../../config/nix.nix

@@ -4,24 +4,37 @@
     ./hardware-configuration.nix
 
     ../../config/activity-watch.nix
+    ../../config/bash.nix
     ../../config/bluetooth.nix
     ../../config/boot.nix
     ../../config/dconf.nix
+    ../../config/direnv.nix
     ../../config/firefox
+    ../../config/flameshot.nix
     ../../config/games.nix
+    ../../config/git.nix
+    ../../config/helix.nix
     ../../config/i3.nix
+    ../../config/kitty.nix
+    ../../config/libreoffice.nix
     ../../config/locale.nix
     ../../config/networking.nix
     ../../config/nix.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
+    ../../config/rofi.nix
     ../../config/steam.nix
+    ../../config/ssh.nix
+    ../../config/starship.nix
     ../../config/tailscale.nix
+    ../../config/thunderbird.nix
+    ../../config/tldr.nix
     ../../config/user.nix
     ../../config/virt-manager.nix
     ../../config/virtualisation.nix
     ../../config/warp.nix
     ../../config/zed.nix
+    ../../config/zoxide.nix
     ../../config/zram.nix
   ];
 

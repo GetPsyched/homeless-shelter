@@ -11,9 +11,12 @@
   imports = [
     (inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-base.nix")
 
+    ../../config/bash.nix
     ../../config/boot.nix
     ../../config/dconf.nix
+    ../../config/direnv.nix
     ../../config/firefox
+    ../../config/git.nix
     ../../config/helix.nix
     ../../config/i3.nix
     ../../config/kitty.nix
@@ -21,6 +24,7 @@
     ../../config/nix.nix
     ../../config/networking.nix
     ../../config/rofi.nix
+    ../../config/starship.nix
     ../../config/tailscale.nix
     ../../config/user.nix
   ];

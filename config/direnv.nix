@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   home-manager.users.${config.mainuser} = {
     programs.direnv = {
@@ -11,7 +11,7 @@
     };
     persist.stateDirs = [ ".local/share/direnv/allow" ];
 
-    programs.git.ignores = [
+    programs.git.ignores = lib.mkIf config.programs.git.enable [
       ".direnv"
       ".envrc"
     ];
