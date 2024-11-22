@@ -16,7 +16,7 @@
     ../../config/helix.nix
     ../../config/kitty.nix
     ../../config/i3.nix
-    ../../config/hardware.nix
+    ../../config/boot.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
     ../../config/dconf.nix

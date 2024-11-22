@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
 
     ../../config/user.nix
-    ../../config/hardware.nix
+    ../../config/boot.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
     ../../config/zram.nix

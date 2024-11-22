@@ -15,10 +15,13 @@ in
     defaultSession = "none+i3";
   };
 
+  services.libinput.touchpad.naturalScrolling = true;
+
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
+    xkb.layout = "us";
   };
 
   home-manager.users.${config.mainuser} = {

@@ -10,7 +10,8 @@
     ../../config/i3.nix
     ../../config/virt-manager.nix
     ../../config/zed.nix
-    ../../config/hardware.nix
+    ../../config/boot.nix
+    ../../config/bluetooth.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
     ../../config/dconf.nix
