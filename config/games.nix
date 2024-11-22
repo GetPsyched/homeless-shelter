@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./steam.nix ];
-
   home-manager.users.${config.mainuser} = {
     home.packages = with pkgs; [
       bottles
