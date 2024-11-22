@@ -2,11 +2,11 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../system/user.nix
-    ../../system/hardware.nix
-    ../../system/nix.nix
-    ../../system/tailscale.nix
-    ../../system/zram.nix
+    ../../config/user.nix
+    ../../config/hardware.nix
+    ../../config/nix.nix
+    ../../config/tailscale.nix
+    ../../config/zram.nix
   ];
 
   services.tailscale.extraSetFlags = [ "--advertise-exit-node" ];

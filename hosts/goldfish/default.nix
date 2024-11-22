@@ -11,17 +11,17 @@
   imports = [
     (inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-base.nix")
 
-    ../../system/user.nix
-    ../../system/firefox
-    ../../system/helix.nix
-    ../../system/kitty.nix
-    ../../system/i3.nix
-    ../../system/hardware.nix
-    ../../system/nix.nix
-    ../../system/tailscale.nix
-    ../../system/dconf.nix
-    ../../system/locale.nix
-    ../../system/networking.nix
+    ../../config/user.nix
+    ../../config/firefox
+    ../../config/helix.nix
+    ../../config/kitty.nix
+    ../../config/i3.nix
+    ../../config/hardware.nix
+    ../../config/nix.nix
+    ../../config/tailscale.nix
+    ../../config/dconf.nix
+    ../../config/locale.nix
+    ../../config/networking.nix
   ];
 
   networking.wireless.enable = lib.mkForce false;

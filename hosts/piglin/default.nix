@@ -3,23 +3,24 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../system/user.nix
-    ../../system/activity-watch.nix
-    ../../system/games
-    ../../system/i3.nix
-    ../../system/virt-manager.nix
-    ../../system/zed.nix
-    ../../system/hardware.nix
-    ../../system/nix.nix
-    ../../system/tailscale.nix
-    ../../system/dconf.nix
-    ../../system/locale.nix
-    ../../system/networking.nix
-    ../../system/nvidia.nix
-    ../../system/pipewire.nix
-    ../../system/virtualisation.nix
-    ../../system/warp.nix
-    ../../system/zram.nix
+    ../../config/user.nix
+    ../../config/activity-watch.nix
+    ../../config/games.nix
+    ../../config/steam.nix
+    ../../config/i3.nix
+    ../../config/virt-manager.nix
+    ../../config/zed.nix
+    ../../config/hardware.nix
+    ../../config/nix.nix
+    ../../config/tailscale.nix
+    ../../config/dconf.nix
+    ../../config/locale.nix
+    ../../config/networking.nix
+    ../../config/nvidia.nix
+    ../../config/pipewire.nix
+    ../../config/virtualisation.nix
+    ../../config/warp.nix
+    ../../config/zram.nix
   ];
 
   # Enable CUPS to print documents.
