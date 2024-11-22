@@ -1,12 +1,14 @@
 { config, ... }:
 {
   imports = [
-    ../../users/getpsyched
-
-    ../common/core
     ./hardware-configuration.nix
 
-    ../common/optional/immich.nix
+    ../../config/bash.nix
+    ../../config/boot.nix
+    ../../config/immich.nix
+    ../../config/nix.nix
+    ../../config/tailscale.nix
+    ../../config/user.nix
   ];
 
   documentation.nixos.enable = false;

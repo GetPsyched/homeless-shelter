@@ -1,0 +1,61 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home-manager.users.${config.mainuser}.programs.helix = {
+    enable = true;
+    defaultEditor = true;
+
+    languages.language = [
+      {
+        name = "git-commit";
+        rulers = [ 80 ];
+      }
+      {
+        name = "markdown";
+        soft-wrap.enable = true;
+        soft-wrap.wrap-indicator = "";
+        soft-wrap.wrap-at-text-width = true;
+      }
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
+        language-servers = [ "nixd" ];
+      }
+      {
+        name = "typescript";
+        auto-format = true;
+        formatter.command = "prettier --parser typescript";
+      }
+    ];
+
+    languages.language-server = {
+      nixd.command = lib.getExe pkgs.nixd;
+      typescript-language-server.command = lib.getExe pkgs.nodePackages.typescript-language-server;
+    };
+
+    settings = {
+      theme = "tokyonight";
+      editor = {
+        color-modes = true;
+        completion-replace = true;
+        completion-timeout = 5;
+        completion-trigger-len = 1;
+        cursorline = true;
+        cursor-shape.insert = "bar";
+        file-picker.hidden = false;
+        lsp.display-inlay-hints = true;
+        preview-completion-insert = false;
+      };
+
+      keys.normal.y = [
+        "yank"
+        ":clipboard-yank"
+      ];
+    };
+  };
+}
