@@ -1,6 +1,5 @@
 {
   config,
-  hostName,
   inputs,
   lib,
   modulesPath,
@@ -40,55 +39,34 @@
     kernelModules = [ "kvm-intel" ];
   };
 
-  fileSystems =
-    let
-      mkDataSubvol = subvol: {
-        device = "/dev/mapper/cryptroot";
-        fsType = "btrfs";
-        options = [ "subvol=${subvol},compress=zstd,noatime" ];
-        neededForBoot = true;
-      };
-      mkGeneralSubvol = subvol: {
-        device = "/dev/nvme0n1p4";
-        fsType = "btrfs";
-        options = [ "subvol=${subvol},compress=zstd,noatime" ];
-        neededForBoot = true;
-      };
-      mkBindMount = location: {
-        device = location;
-        fsType = "none";
-        options = [ "bind" ];
-        noCheck = true;
-      };
-    in
-    {
-      "/" = {
-        device = "none";
-        fsType = "tmpfs";
-        options = [
-          "defaults"
-          "size=4G"
-          "mode=0755"
-        ];
-      };
-      "/boot" = {
-        device = "/dev/disk/by-uuid/8167-168A";
-        fsType = "vfat";
-        neededForBoot = true;
-      };
-      "/nix" = mkGeneralSubvol "nix";
-      "/var/cache" = mkGeneralSubvol "cache";
-      "/persist/data" = mkDataSubvol "data";
-      "/persist/sysdata" = mkDataSubvol "sysdata";
-      "/persist/bigdata" = mkGeneralSubvol "bigdata";
-      "/persist/state" = mkDataSubvol "state";
-      "/persist/sysstate" = mkDataSubvol "sysstate";
-      "/persist/src" = mkDataSubvol "src";
-      "/persist/secrets" = mkDataSubvol "secrets";
-      "/persist/steam" = mkDataSubvol "steam";
-      # FIXME: Permissions were fixed imperatively. Find a better way
-      "/home/getpsyched/.steam" = mkBindMount "/persist/steam/.steam";
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [
+        "defaults"
+        "size=4G"
+        "mode=0755"
+      ];
     };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/8167-168A";
+      fsType = "vfat";
+      neededForBoot = true;
+    };
+    "/nix" = {
+      device = "/dev/nvme0n1p4";
+      fsType = "btrfs";
+      options = [ "subvol=nix,compress=zstd,noatime" ];
+      neededForBoot = true;
+    };
+    "/persist" = {
+      device = "/dev/nvme0n1p4";
+      fsType = "btrfs";
+      options = [ "compress=zstd,noatime" ];
+      neededForBoot = true;
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

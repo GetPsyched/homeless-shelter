@@ -24,7 +24,6 @@
           };
         } (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit ff-addons pkgs; }));
     };
-    persist.stateDirs = [ ".mozilla/firefox/main" ];
 
     xdg.desktopEntries.chromium = {
       categories = [ "Application" ];
@@ -35,4 +34,5 @@
       terminal = false;
     };
   };
+  persist.state.homeDirectories = [ ".mozilla/firefox/main" ];
 }

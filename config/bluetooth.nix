@@ -9,5 +9,5 @@
     };
   };
 
-  persist.sysStateDirs = [ "/var/lib/bluetooth" ];
+  persist.state.directories = [ "/var/lib/bluetooth" ];
 }

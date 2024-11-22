@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -10,5 +9,5 @@
     wireplumber.enable = true;
     jack.enable = true;
   };
-  home-manager.users.${config.mainuser}.persist.stateDirs = [ ".local/state/wireplumber" ];
+  persist.state.homeDirectories = [ ".local/state/wireplumber" ];
 }

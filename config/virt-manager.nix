@@ -10,5 +10,5 @@
       };
     };
   };
-  persist.sysDataDirs = [ "/var/lib/libvirt" ];
+  persist.data.directories = [ "/var/lib/libvirt" ];
 }

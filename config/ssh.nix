@@ -1,5 +1,4 @@
-{ config, ... }:
 {
-  persist.sysDataDirs = [ "/etc/ssh" ];
-  home-manager.users.${config.mainuser}.persist.secretsDirs = [ ".ssh" ];
+  persist.data.directories = [ "/etc/ssh" ];
+  persist.data.homeDirectories = [ ".ssh" ];
 }

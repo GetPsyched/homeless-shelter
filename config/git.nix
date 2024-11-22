@@ -3,9 +3,6 @@
   home-manager.users.${config.mainuser} = {
     home.packages = [ pkgs.github-cli ];
 
-    persist.src = [ "src" ];
-    persist.stateFiles = [ ".config/gh/hosts.yml" ];
-
     programs.git = {
       enable = true;
       userName = "GetPsyched";
@@ -42,4 +39,5 @@
       };
     };
   };
+  persist.state.homeFiles = [ ".config/gh/hosts.yml" ];
 }

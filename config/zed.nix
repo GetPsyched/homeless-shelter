@@ -14,6 +14,6 @@
 
       theme = "Ayu Dark";
     };
-    persist.stateDirs = [ ".local/share/zed" ];
   };
+  persist.state.homeDirectories = [ ".local/share/zed" ];
 }

@@ -9,11 +9,11 @@
       # See https://github.com/direnv/direnv/issues/1188
       config.global.warn_timeout = "69h";
     };
-    persist.stateDirs = [ ".local/share/direnv/allow" ];
 
     programs.git.ignores = lib.mkIf config.programs.git.enable [
       ".direnv"
       ".envrc"
     ];
   };
+  persist.state.homeDirectories = [ ".local/share/direnv/allow" ];
 }

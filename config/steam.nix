@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   programs.steam = {
     enable = true;
@@ -11,18 +10,16 @@
     "steam-unwrapped"
   ];
 
-  home-manager.users.${config.mainuser} = {
-    persist.stateDirs =
-      [
-        ".local/share/applications"
-        ".local/share/icons"
-        ".local/share/Steam"
-        ".steam"
-      ]
-      # Games config
-      ++ [
-        ".local/share/Terraria"
-      ];
-    persist.gameDirs = [ ".steam-games" ];
-  };
+  persist.state.homeDirectories =
+    [
+      ".local/share/applications"
+      ".local/share/icons/hicolor"
+      ".local/share/Steam"
+      ".steam"
+    ]
+    # Games config
+    ++ [
+      ".local/share/Terraria"
+    ];
+  persist.misc.homeDirectories = [ ".steam-games" ];
 }

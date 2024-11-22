@@ -41,9 +41,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  persist.enable = true;
-  persist.sysDataFiles = [ "/var/lib/prince/license.dat" ];
-
   home-manager.users.${config.mainuser} = {
     gtk = {
       enable = true;
@@ -67,22 +64,24 @@
         pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
       })
     ];
-
-    persist.enable = true;
-    persist.cacheDirs = [ ".cache" ];
-    persist.dataDirs = [
-      "backgrounds"
-      "dump"
-      "obsidian-vault"
-    ];
-    persist.stateDirs = [
-      ".config/mindmap"
-      ".config/obsidian"
-      ".config/spotify"
-      ".railway"
-      ".rustup"
-    ];
   };
+
+  persist.enable = true;
+  persist.cache.directories = [ "/var/cache" ];
+  persist.data.files = [ "/var/lib/prince/license.dat" ];
+  persist.data.homeDirectories = [
+    "backgrounds"
+    "dump"
+    "obsidian-vault"
+  ];
+  persist.state.homeDirectories = [
+    "src"
+    ".config/mindmap"
+    ".config/obsidian"
+    ".config/spotify"
+    ".railway"
+    ".rustup"
+  ];
 
   allowUnfreePackages = [
     "obsidian"

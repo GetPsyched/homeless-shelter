@@ -4,6 +4,5 @@
     enable = true;
     host = "0.0.0.0";
   };
-
-  persist.sysDataDirs = [ config.services.immich.mediaLocation ];
+  persist.data.directories = [ config.services.immich.mediaLocation ];
 }
