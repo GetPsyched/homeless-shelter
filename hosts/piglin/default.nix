@@ -22,7 +22,7 @@
     ../../config/nix.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
-    ../../config/rofi.nix
+    ../../config/rofi
     ../../config/steam.nix
     ../../config/ssh.nix
     ../../config/starship.nix

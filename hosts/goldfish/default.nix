@@ -23,7 +23,7 @@
     ../../config/locale.nix
     ../../config/nix.nix
     ../../config/networking.nix
-    ../../config/rofi.nix
+    ../../config/rofi
     ../../config/starship.nix
     ../../config/tailscale.nix
     ../../config/user.nix
