@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
   home-manager.users.${config.mainuser} = {
     programs.direnv = {
@@ -10,7 +10,7 @@
       config.global.warn_timeout = "69h";
     };
 
-    programs.git.ignores = lib.mkIf config.programs.git.enable [
+    programs.git.ignores = [
       ".direnv"
       ".envrc"
     ];
