@@ -7,6 +7,7 @@
     ../../config/bash.nix
     ../../config/bluetooth.nix
     ../../config/boot.nix
+    ../../config/charachorder.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
     ../../config/firefox
@@ -60,9 +61,6 @@
       unzip
 
       (callPackage ../../packages/mindmap.nix { })
-      (python311Packages.callPackage ../../packages/nexus.nix {
-        pyside6-essentials = (python311Packages.callPackage ../../packages/pyside6-essentials.nix { });
-      })
     ];
   };
 

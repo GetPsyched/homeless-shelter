@@ -12,7 +12,6 @@
     isNormalUser = true;
     description = "Priyanshu Tripathi";
     extraGroups = [
-      "dialout"
       "networkmanager"
       "wheel"
     ];
