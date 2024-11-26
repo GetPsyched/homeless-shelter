@@ -86,6 +86,6 @@
     "spotify"
   ];
 
-  time.timeZone = "Asia/Dubai";
+  time.timeZone = "Asia/Kolkata";
   system.stateVersion = "22.11";
 }
