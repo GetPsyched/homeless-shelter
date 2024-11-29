@@ -12,7 +12,10 @@
     defaultSession = "none+i3";
   };
 
-  services.libinput.touchpad.naturalScrolling = true;
+  services.libinput.touchpad = {
+    disableWhileTyping = true;
+    naturalScrolling = true;
+  };
 
   services.xserver = {
     enable = true;
