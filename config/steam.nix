@@ -14,12 +14,11 @@
     [
       ".local/share/applications"
       ".local/share/icons/hicolor"
-      ".local/share/Steam"
       ".steam"
     ]
     # Games config
     ++ [
       ".local/share/Terraria"
     ];
-  persist.misc.homeDirectories = [ ".steam-games" ];
+  persist.misc.homeDirectories = [ ".local/share/Steam" ];
 }
