@@ -15,6 +15,7 @@
     ../../config/boot.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
+    ../../config/core.nix
     ../../config/firefox
     ../../config/git.nix
     ../../config/helix.nix

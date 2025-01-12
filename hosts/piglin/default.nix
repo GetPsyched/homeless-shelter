@@ -9,6 +9,7 @@
     ../../config/bluetooth.nix
     ../../config/boot.nix
     ../../config/charachorder.nix
+    ../../config/core.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
     ../../config/firefox
@@ -66,7 +67,6 @@
   };
 
   persist.enable = true;
-  persist.cache.directories = [ "/var/cache" ];
   persist.data.files = [ "/var/lib/prince/license.dat" ];
   persist.data.homeDirectories = [
     "backgrounds"

@@ -15,6 +15,7 @@
 
     settings = {
       auto-optimise-store = true;
+      build-dir = "/var/tmp";
       experimental-features = [
         "flakes"
         "nix-command"

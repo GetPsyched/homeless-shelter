@@ -4,6 +4,7 @@
 
     ../../config/bash.nix
     ../../config/boot.nix
+    ../../config/core.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
     ../../config/user.nix
