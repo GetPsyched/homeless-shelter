@@ -1,5 +1,4 @@
 {
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -9,5 +8,6 @@
     wireplumber.enable = true;
     jack.enable = true;
   };
+  services.pulseaudio.enable = false;
   persist.state.homeDirectories = [ ".local/state/wireplumber" ];
 }
