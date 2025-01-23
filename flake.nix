@@ -3,6 +3,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
+    hjem-rum.url = "github:snugnug/hjem-rum";
+    hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
+    hjem-rum.inputs.hjem.follows = "hjem";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
