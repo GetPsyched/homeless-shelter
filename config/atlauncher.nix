@@ -1,6 +1,5 @@
-{ config, ... }:
 {
-  home-manager.users.${config.mainuser}.programs.atlauncher = {
+  programs.atlauncher = {
     enable = true;
     theme = "One Dark";
 
@@ -12,5 +11,6 @@
       useJavaProvidedByMinecraft = false;
     };
   };
+
   persist.misc.homeDirectories = [ ".local/share/ATLauncher" ];
 }

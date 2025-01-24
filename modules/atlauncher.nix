@@ -1,8 +1,17 @@
-{ config, lib, options, pkgs, ... }:
-
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
+  inherit (builtins) toJSON;
+  inherit (lib.attrsets) mapAttrsToList optionalAttrs;
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption mkOption mkPackageOption;
+  inherit (lib.types) enum;
+
   cfg = config.programs.atlauncher;
   jsonFormat = pkgs.formats.json { };
 
@@ -21,10 +30,8 @@ let
   };
 in
 {
-  meta.maintainers = [ maintainers.getpsyched ];
-
   options.programs.atlauncher = {
-    enable = mkEnableOption "atlauncher";
+    enable = mkEnableOption "ATLauncher";
 
     package = mkPackageOption pkgs "atlauncher" { };
 
@@ -49,7 +56,7 @@ in
     };
 
     theme = mkOption {
-      type = types.enum (attrsets.mapAttrsToList (name: value: name) themeOptions);
+      type = enum (mapAttrsToList (name: value: name) themeOptions);
       default = "ATLauncher Dark";
       example = "One Dark";
       description = "The ATLauncher theme to use.";
@@ -58,13 +65,21 @@ in
 
   config =
     let
-      mergedSettings = cfg.settings
-        // optionalAttrs (cfg.theme != "ATLauncher Dark") { "theme" = "com.atlauncher.themes.${themeOptions.${cfg.theme}}"; };
+      mergedSettings =
+        cfg.settings
+        // optionalAttrs (cfg.theme != "ATLauncher Dark") {
+          "theme" = "com.atlauncher.themes.${themeOptions.${cfg.theme}}";
+        };
     in
     mkIf cfg.enable {
-      home.packages = [ cfg.package ];
-      xdg.dataFile = mkIf (mergedSettings != { }) {
-        "ATLauncher/configs/ATLauncher.json".source = jsonFormat.generate "atlauncher-config.json" mergedSettings;
+      home-manager.users.${config.mainuser} = {
+        home.packages = [ cfg.package ];
+
+        xdg.dataFile = mkIf (mergedSettings != { }) {
+          "ATLauncher/configs/ATLauncher.json".text = toJSON mergedSettings;
+        };
       };
     };
+
+  meta.maintainers = with lib.maintainers; [ getpsyched ];
 }
