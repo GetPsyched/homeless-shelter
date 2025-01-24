@@ -41,11 +41,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.primary = {
-      home.packages = [ cfg.package ];
+    hjem.users.primary = {
+      packages = [ cfg.package ];
 
-      xdg.configFile."zed/settings.json".text = toJSON cfg.settings;
-      xdg.configFile."zed/keymap.json".text = toJSON cfg.keymap;
+      files = {
+        ".config/zed/settings.json".text = toJSON cfg.settings;
+        ".config/zed/keymap.json".text = toJSON cfg.keymap;
+      };
     };
   };
 
