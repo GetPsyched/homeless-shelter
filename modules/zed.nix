@@ -1,13 +1,20 @@
-{ config, lib, options, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  cfg = config.programs.zed;
+  inherit (builtins) toJSON;
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption mkOption mkPackageOption;
 
-  inherit (lib) mkEnableOption mkPackageOption mkOption mkIf;
+  cfg = config.programs.zed;
 in
 {
   options.programs.zed = {
-    enable = mkEnableOption "zed";
+    enable = mkEnableOption "Zed";
 
     package = mkPackageOption pkgs "zed-editor" { };
 
@@ -34,10 +41,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ cfg.package ];
+    home-manager.users.${config.mainuser} = {
+      home.packages = [ cfg.package ];
 
-    xdg.configFile."zed/settings.json".text = builtins.toJSON cfg.settings;
-    xdg.configFile."zed/keymap.json".text = builtins.toJSON cfg.keymap;
+      xdg.configFile."zed/settings.json".text = toJSON cfg.settings;
+      xdg.configFile."zed/keymap.json".text = toJSON cfg.keymap;
+    };
   };
 
   meta.maintainers = with lib.maintainers; [ getpsyched ];
