@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  imports = [ ./home.nix ];
+  imports = [ ./hjem.nix ];
 
   persist.cache.homeDirectories = [ ".cache" ];
 
