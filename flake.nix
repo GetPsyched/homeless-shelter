@@ -19,7 +19,7 @@
         nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/${hostName}
-            ./modules/nixos
+            ./modules
           ];
           specialArgs = {
             inherit hostName inputs system;
