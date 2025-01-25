@@ -42,10 +42,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.primary = {
-      home.packages = [ cfg.package ];
+    hjem.users.primary = {
+      packages = [ cfg.package ];
 
-      xdg.dataFile."ATLauncher/configs/ATLauncher.json".text = toJSON cfg.settings;
+      files = {
+        ".local/share/ATLauncher/configs/ATLauncher.json".text = toJSON cfg.settings;
+      };
     };
   };
 
