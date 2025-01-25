@@ -7,27 +7,11 @@
 
 let
   inherit (builtins) toJSON;
-  inherit (lib.attrsets) mapAttrsToList optionalAttrs;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption mkOption mkPackageOption;
-  inherit (lib.types) enum;
 
   cfg = config.programs.atlauncher;
   jsonFormat = pkgs.formats.json { };
-
-  themeOptions = {
-    "ATLauncher Dark" = "Dark";
-    "ATLauncher Light" = "Light";
-    "Monokai Pro" = "MonokaiPro";
-    "Dracula Contrast" = "DraculaContrast";
-    "Hiberbee Dark" = "HiberbeeDark";
-    "Vuesion" = "Vuesion";
-    "Material Palenight Contrast" = "MaterialPalenightContrast";
-    "Arc Orange" = "ArcOrange";
-    "Cyan Light" = "CyanLight";
-    "High Tech Darkness" = "HighTechDarkness";
-    "One Dark" = "OneDark";
-  };
 in
 {
   options.programs.atlauncher = {
@@ -44,6 +28,7 @@ in
         enableTrayMenu = false;
         firstTimeRun = false;
         keepLauncherOpen = false;
+        theme = "com.atlauncher.themes.Dark";
       };
       description = ''
         Configuration written to
@@ -54,32 +39,15 @@ in
         for supported values.
       '';
     };
-
-    theme = mkOption {
-      type = enum (mapAttrsToList (name: value: name) themeOptions);
-      default = "ATLauncher Dark";
-      example = "One Dark";
-      description = "The ATLauncher theme to use.";
-    };
   };
 
-  config =
-    let
-      mergedSettings =
-        cfg.settings
-        // optionalAttrs (cfg.theme != "ATLauncher Dark") {
-          "theme" = "com.atlauncher.themes.${themeOptions.${cfg.theme}}";
-        };
-    in
-    mkIf cfg.enable {
-      home-manager.users.${config.mainuser} = {
-        home.packages = [ cfg.package ];
+  config = mkIf cfg.enable {
+    home-manager.users.${config.mainuser} = {
+      home.packages = [ cfg.package ];
 
-        xdg.dataFile = mkIf (mergedSettings != { }) {
-          "ATLauncher/configs/ATLauncher.json".text = toJSON mergedSettings;
-        };
-      };
+      xdg.dataFile."ATLauncher/configs/ATLauncher.json".text = toJSON cfg.settings;
     };
+  };
 
   meta.maintainers = with lib.maintainers; [ getpsyched ];
 }
