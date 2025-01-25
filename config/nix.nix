@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  outputs,
   ...
 }:
 {
@@ -31,6 +32,11 @@
       warn-dirty = false;
     };
   };
+
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+  ];
 
   persist.state.directories = [ "/var/lib/nixos" ];
 }

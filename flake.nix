@@ -12,8 +12,10 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, ... }:
+    inputs@{ self, nixpkgs, ... }:
     let
+      inherit (self) outputs;
+
       mkHost =
         hostName: system:
         nixpkgs.lib.nixosSystem {
@@ -22,7 +24,12 @@
             ./modules
           ];
           specialArgs = {
-            inherit hostName inputs system;
+            inherit
+              hostName
+              inputs
+              outputs
+              system
+              ;
           };
         };
     in
@@ -33,5 +40,7 @@
         piglin = mkHost "piglin" "x86_64-linux";
         potato = mkHost "potato" "x86_64-linux";
       };
+
+      overlays = import ./overlays { inherit inputs; };
     };
 }

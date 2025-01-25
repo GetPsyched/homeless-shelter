@@ -54,6 +54,7 @@
       feh
       hoppscotch
       mgitstatus
+      mindmap
       nixpkgs-review
       obsidian
       pavucontrol
@@ -61,8 +62,6 @@
       spotify
       sqlitebrowser
       unzip
-
-      (callPackage ../../packages/mindmap.nix { })
     ];
   };
 
