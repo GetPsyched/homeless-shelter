@@ -18,6 +18,7 @@
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/i3.nix
+    ../../config/keepassxc.nix
     ../../config/kitty.nix
     ../../config/libreoffice.nix
     ../../config/locale.nix
