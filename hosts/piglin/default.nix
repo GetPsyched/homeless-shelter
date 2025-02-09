@@ -14,6 +14,7 @@
     ../../config/direnv.nix
     ../../config/firefox
     ../../config/flameshot.nix
+    ../../config/fzf.nix
     ../../config/games.nix
     ../../config/git.nix
     ../../config/helix.nix
