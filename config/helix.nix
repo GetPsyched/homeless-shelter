@@ -41,6 +41,10 @@
     settings = {
       theme = "tokyonight";
       editor = {
+        # diagnostics
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics.cursor-line = "error";
+
         color-modes = true;
         completion-replace = true;
         completion-timeout = 5;
