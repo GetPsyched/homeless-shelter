@@ -8,6 +8,7 @@
     ../../config/bash.nix
     ../../config/bluetooth.nix
     ../../config/boot.nix
+    ../../config/builders.nix
     ../../config/charachorder.nix
     ../../config/core.nix
     ../../config/dconf.nix
