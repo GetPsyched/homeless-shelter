@@ -41,5 +41,22 @@
         "x86_64-v3-linux"
       ];
     }
+    {
+      hostName = "makemake.ngi.nixos.org";
+      maxJobs = 16;
+      sshKey = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519";
+      sshUser = "remotebuild";
+      supportedFeatures = [
+        "nixos-test"
+        "benchmark"
+        "big-parallel"
+        "kvm"
+        "ca-derivations"
+      ];
+      systems = [
+        "x86_64-linux"
+        "i686-linux"
+      ];
+    }
   ];
 }
