@@ -24,10 +24,14 @@
       substituters = [
         "https://cache.nixos.org?priority=10"
         "https://nca.cachix.org"
+        "https://cache.nichi.co"
+        "https://cache.ztier.in"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nca.cachix.org-1:c8uthjrwGpyXBTBar6GWm8edgD6bErzugvlDyjNTfRc="
+        "hydra.nichi.co-0:P3nkYHhmcLR3eNJgOAnHDjmQLkfqheGyhZ6GLrUVHwk="
+        "cache.ztier.link-1:3P5j2ZB9dNgFFFVkCQWT3mh0E+S3rIWtZvoql64UaXM="
       ];
       warn-dirty = false;
     };
