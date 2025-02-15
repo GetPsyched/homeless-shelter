@@ -8,6 +8,12 @@
       userName = "GetPsyched";
       userEmail = "priyanshu@getpsyched.dev";
 
+      signing = {
+        format = "ssh";
+        key = "~/.ssh/id_ed25519.pub";
+        signByDefault = true;
+      };
+
       aliases = {
         amend = "commit --amend --no-edit --date=now";
         co = "checkout";
@@ -24,10 +30,6 @@
       aliases.dshow = "show --ext-diff";
 
       extraConfig = {
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        user.signingKey = "~/.ssh/id_ed25519.pub";
-
         advice.mergeConflict = false;
         core.fsmonitor = true;
         core.untrackedCache = true;
