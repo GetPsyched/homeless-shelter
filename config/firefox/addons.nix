@@ -35,14 +35,6 @@ in
     sha256 = "sha256-M+3ZjQ/H1H+jEPIU+JfOTf4miw+GjJ1/MrTKUFc9+Fw=";
   };
 
-  sidebery = buildFirefoxXpiAddon rec {
-    pname = "sidebery";
-    version = "5.0.0";
-    addonId = "{3c078156-979c-498b-8990-85f7987dd929}";
-    url = "https://addons.mozilla.org/firefox/downloads/file/4170134/${pname}-${version}.xpi";
-    sha256 = "sha256-9ZJCehxo0+Ua7iCNBViPOXAklpV3cf2Et2qT42QTi/U=";
-  };
-
   sponsorblock = buildFirefoxXpiAddon rec {
     pname = "sponsorblock";
     version = "5.4.28";

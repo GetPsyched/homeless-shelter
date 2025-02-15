@@ -6,7 +6,6 @@
     hoppscotch
     keepa
     multi-account-containers
-    sidebery
     sponsorblock
     stylus
     tampermonkey
@@ -26,8 +25,10 @@
 
     "browser.uidensity" = 1;
 
-    # sidebery
+    # sidebar
     "sidebar.position_start" = false; # sidebar on right side
+    "sidebar.revamp" = true;
+    "sidebar.verticalTabs" = true;
 
     # they added overscroll :(
     "apz.overscroll.enabled" = false;
