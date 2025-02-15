@@ -10,7 +10,7 @@
 
       signing = {
         format = "ssh";
-        key = "~/.ssh/id_ed25519.pub";
+        key = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519.pub";
         signByDefault = true;
       };
 
