@@ -58,5 +58,19 @@
         "i686-linux"
       ];
     }
+    {
+      hostName = "192.168.8.146";
+      maxJobs = 4;
+      sshKey = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519";
+      sshUser = "nixos";
+      systems = [ "riscv64-linux" ];
+    }
+    {
+      hostName = "192.168.8.151";
+      maxJobs = 4;
+      sshKey = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519";
+      sshUser = "nixos";
+      systems = [ "riscv64-linux" ];
+    }
   ];
 }
