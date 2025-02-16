@@ -3,6 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -39,6 +41,7 @@
         goldfish = mkHost "goldfish" "x86_64-linux";
         piglin = mkHost "piglin" "x86_64-linux";
         potato = mkHost "potato" "x86_64-linux";
+        visionfive2 = mkHost "visionfive2" "riscv64-linux";
       };
 
       overlays = import ./overlays { inherit inputs; };
