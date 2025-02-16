@@ -22,6 +22,7 @@
           modules = [
             ./hosts/${hostName}
             ./modules
+            inputs.home-manager.nixosModules.default
           ];
           specialArgs = {
             inherit
