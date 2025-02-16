@@ -29,6 +29,10 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nca.cachix.org-1:c8uthjrwGpyXBTBar6GWm8edgD6bErzugvlDyjNTfRc="
       ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
       warn-dirty = false;
     };
   };
