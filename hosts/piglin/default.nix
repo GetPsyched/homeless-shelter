@@ -19,6 +19,7 @@
     ../../config/games.nix
     ../../config/git.nix
     ../../config/helix.nix
+    ../../config/home.nix
     ../../config/i3.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix

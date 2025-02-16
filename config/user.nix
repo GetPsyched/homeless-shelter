@@ -1,7 +1,5 @@
 { config, ... }:
 {
-  imports = [ ./home.nix ];
-
   persist.cache.homeDirectories = [ ".cache" ];
 
   users.mutableUsers = false;
