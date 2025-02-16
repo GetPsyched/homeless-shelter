@@ -8,7 +8,7 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs =
