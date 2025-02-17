@@ -1,11 +1,6 @@
+{ lib, pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  home-manager.users.${config.mainuser}.programs.helix = {
+  programs.helix = {
     enable = true;
     defaultEditor = true;
 
