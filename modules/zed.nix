@@ -41,7 +41,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.${config.mainuser} = {
+    home-manager.users.primary = {
       home.packages = [ cfg.package ];
 
       xdg.configFile."zed/settings.json".text = toJSON cfg.settings;

@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  home-manager.users.${config.mainuser}.services.flameshot = {
+  home-manager.users.primary.services.flameshot = {
     enable = true;
 
     settings = {

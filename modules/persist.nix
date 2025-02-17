@@ -68,8 +68,8 @@ in
       environment.persistence.${cfg.root} = {
         directories = allDirectories;
         files = allFiles;
-        users.${config.mainuser} = {
-          home = "/home/${config.mainuser}";
+        users.primary = {
+          home = "/home/getpsyched";
           directories = allHomeDirectories;
           files = allHomeFiles;
         };

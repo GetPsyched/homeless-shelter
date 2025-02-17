@@ -16,10 +16,10 @@
     useUserPackages = true;
   };
 
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     home = {
-      username = config.mainuser;
-      homeDirectory = config.users.users.${config.mainuser}.home;
+      username = config.users.users.primary.name;
+      homeDirectory = config.users.users.primary.home;
       stateVersion = "22.11";
 
       pointerCursor = {

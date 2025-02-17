@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     services.activitywatch = {
       enable = true;
     };

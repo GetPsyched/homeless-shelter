@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  home-manager.users.${config.mainuser}.programs.bash = {
+  home-manager.users.primary.programs.bash = {
     enable = true;
   };
   persist.state.homeFiles = [ ".bash_history" ];

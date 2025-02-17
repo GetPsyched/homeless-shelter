@@ -48,7 +48,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     gtk = {
       enable = true;
       gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;

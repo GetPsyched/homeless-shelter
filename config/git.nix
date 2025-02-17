@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     home.packages = [ pkgs.github-cli ];
 
     programs.git = {
@@ -10,7 +10,7 @@
 
       signing = {
         format = "ssh";
-        key = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519.pub";
+        key = "${config.users.users.primary.home}/.ssh/id_ed25519.pub";
         signByDefault = true;
       };
 

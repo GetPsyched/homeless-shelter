@@ -8,7 +8,7 @@
   services.displayManager = {
     enable = true;
     autoLogin.enable = true;
-    autoLogin.user = config.mainuser;
+    autoLogin.user = config.users.users.primary.name;
     defaultSession = "none+i3";
   };
 
@@ -24,7 +24,7 @@
     xkb.layout = "us";
   };
 
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     xsession.windowManager.i3 = {
       enable = true;
       config = {
@@ -33,7 +33,7 @@
 
         keybindings =
           let
-            modifier = config.home-manager.users.${config.mainuser}.xsession.windowManager.i3.config.modifier;
+            modifier = config.home-manager.users.primary.xsession.windowManager.i3.config.modifier;
 
             pactl = lib.getExe' pkgs.pulseaudio "pactl";
             brctl = lib.getExe pkgs.brightnessctl;
@@ -42,7 +42,8 @@
             rofi = "exec ${lib.getExe pkgs.rofi}";
           in
           lib.mkOptionDefault {
-            "${modifier}+d" = "${rofi} -show drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
+            "${modifier}+d" =
+              "${rofi} -show drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
             "${modifier}+e" = "${eww} open bar --toggle --config ~/.config/eww/bar";
             "${modifier}+q" = ''${rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 

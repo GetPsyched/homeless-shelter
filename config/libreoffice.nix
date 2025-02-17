@@ -5,7 +5,7 @@
   ...
 }:
 {
-  home-manager.users.${config.mainuser}.xdg.desktopEntries =
+  home-manager.users.primary.xdg.desktopEntries =
     let
       common = {
         categories = [ "Application" ];

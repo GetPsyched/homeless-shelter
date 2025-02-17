@@ -9,8 +9,8 @@
       maxJobs = 12;
       protocol = "ssh-ng";
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEg=";
-      sshKey = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519";
-      sshUser = config.mainuser;
+      sshKey = "${config.users.users.primary.home}/.ssh/id_ed25519";
+      sshUser = config.users.users.primary.name;
       supportedFeatures = [
         "benchmark"
         "big-parallel"
@@ -44,7 +44,7 @@
     {
       hostName = "makemake.ngi.nixos.org";
       maxJobs = 16;
-      sshKey = "${config.users.users.${config.mainuser}.home}/.ssh/id_ed25519";
+      sshKey = "${config.users.users.primary.home}/.ssh/id_ed25519";
       sshUser = "remotebuild";
       supportedFeatures = [
         "nixos-test"

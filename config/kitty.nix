@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home-manager.users.${config.mainuser}.programs.kitty = {
+  home-manager.users.primary.programs.kitty = {
     enable = true;
 
     extraConfig = ''

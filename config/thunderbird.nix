@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  home-manager.users.${config.mainuser}.programs.thunderbird = {
+  home-manager.users.primary.programs.thunderbird = {
     enable = true;
 
     profiles.main = {

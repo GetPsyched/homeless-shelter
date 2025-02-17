@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  home-manager.users.${config.mainuser}.programs.starship = {
+  home-manager.users.primary.programs.starship = {
     enable = true;
     settings = {
       format = "$directory$git_branch$character";

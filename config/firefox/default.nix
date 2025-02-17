@@ -5,13 +5,13 @@
   ...
 }:
 {
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     programs.firefox = {
       enable = true;
       profiles.main =
         let
           ff-addons = import ./addons.nix { inherit pkgs; };
-          profile = ./profile-${config.mainuser};
+          profile = ./profile-primary;
         in
         lib.recursiveUpdate {
           isDefault = true;

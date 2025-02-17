@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home-manager.users.${config.mainuser} = {
+  home-manager.users.primary = {
     home.packages = [ pkgs.virt-manager ];
 
     dconf.settings = {

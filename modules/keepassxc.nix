@@ -30,7 +30,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.${config.mainuser} = {
+    home-manager.users.primary = {
       home.packages = [ cfg.package ];
 
       xdg.configFile."keepassxc/keepassxc.ini".text = toINI { } cfg.settings;
