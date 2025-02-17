@@ -15,6 +15,15 @@
     inputs@{ self, nixpkgs, ... }:
     let
       inherit (self) outputs;
+      inherit (nixpkgs) lib;
+
+      hosts = {
+        fledgeling = "x86_64-linux";
+        goldfish = "x86_64-linux";
+        piglin = "x86_64-linux";
+        potato = "x86_64-linux";
+      };
+      forAllHosts = func: lib.mapAttrs' func hosts;
 
       mkHost =
         hostName: system:
@@ -35,12 +44,13 @@
         };
     in
     {
-      nixosConfigurations = {
-        fledgeling = mkHost "fledgeling" "x86_64-linux";
-        goldfish = mkHost "goldfish" "x86_64-linux";
-        piglin = mkHost "piglin" "x86_64-linux";
-        potato = mkHost "potato" "x86_64-linux";
-      };
+      checks = forAllHosts (
+        name: value:
+        lib.nameValuePair value {
+          ${name} = outputs.nixosConfigurations.${name}.config.system.build.toplevel;
+        }
+      );
+      nixosConfigurations = forAllHosts (name: value: lib.nameValuePair name (mkHost name value));
 
       overlays = import ./overlays { inherit inputs; };
     };
