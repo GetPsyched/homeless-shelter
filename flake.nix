@@ -3,8 +3,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
+    hjem-rum.url = "github:snugnug/hjem-rum";
+    hjem-rum.inputs.hjem.follows = "hjem";
+    hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -44,7 +47,6 @@
               modules = [
                 ./hosts/${hostName}
                 ./modules
-                inputs.home-manager.nixosModules.default
               ] ++ modules;
               specialArgs = {
                 inherit hostName inputs outputs;
