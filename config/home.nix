@@ -6,7 +6,15 @@
   ...
 }:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [
+    inputs.hjem.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  hjem = {
+    clobberByDefault = true;
+    extraModules = [ inputs.hjem-rum.hjemModules.default ];
+  };
 
   home-manager = {
     extraSpecialArgs = {

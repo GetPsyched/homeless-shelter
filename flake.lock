@@ -1,5 +1,45 @@
 {
   "nodes": {
+    "hjem": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746251417,
+        "narHash": "sha256-u6snZSfmjgHmdyr57mDcGZ+h9mEQhl1rcagC+PQSEuQ=",
+        "owner": "feel-co",
+        "repo": "hjem",
+        "rev": "b034b70f8850729b828a7327e29bbecd287e09c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feel-co",
+        "repo": "hjem",
+        "type": "github"
+      }
+    },
+    "hjem-rum": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746160248,
+        "narHash": "sha256-IGYDY1TtHNEY5snzzWr0J+LhIa7Gk9Y6efwnl7hQsN8=",
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "rev": "5519659f967bf6c8910c59fada57bb9b2aa50251",
+        "type": "github"
+      },
+      "original": {
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -83,6 +123,8 @@
     },
     "root": {
       "inputs": {
+        "hjem": "hjem",
+        "hjem-rum": "hjem-rum",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
