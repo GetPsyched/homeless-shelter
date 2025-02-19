@@ -18,6 +18,7 @@
       inherit (nixpkgs) lib;
 
       hosts = {
+        drone = "riscv64-linux";
         fledgeling = "x86_64-linux";
         goldfish = "x86_64-linux";
         piglin = "x86_64-linux";
