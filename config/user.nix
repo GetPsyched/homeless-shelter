@@ -13,8 +13,8 @@
     home = "/home/${config.users.users.primary.name}";
     isNormalUser = true;
     name = "getpsyched";
-    openssh.authorizedKeys.keyFiles = [
-      "${config.users.users.primary.home}/.ssh/id_ed25519.pub"
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINWRWNijAXQx8sfBWCjqaSb79TPBoDD72YVIFnghP3+d"
     ];
   };
 }
