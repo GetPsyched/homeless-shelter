@@ -1,16 +1,10 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 {
   home-manager.users.primary = {
     programs.firefox = {
       enable = true;
       profiles.main =
         let
-          ff-addons = import ./addons.nix { inherit pkgs; };
           profile = ./profile-primary;
         in
         lib.recursiveUpdate {
@@ -22,7 +16,7 @@
             "drm" = true;
             "general.useragent.locale" = "en-GB";
           };
-        } (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit ff-addons pkgs; }));
+        } (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit lib pkgs; }));
     };
 
     xdg.desktopEntries.chromium = {

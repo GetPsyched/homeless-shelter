@@ -1,20 +1,9 @@
-{ ff-addons, ... }:
-{
+{ lib, pkgs, ... }:
+
+lib.recursiveUpdate (import ./extensions.nix { inherit pkgs; }) {
   bookmarks = import ./bookmarks.nix;
-  extensions = with ff-addons; [
-    darkreader
-    hoppscotch
-    keepa
-    multi-account-containers
-    sponsorblock
-    stylus
-    tampermonkey
-    ublock-origin
-  ];
   search = import ./search.nix;
   settings = {
-    "extensions.update.autoUpdateDefault" = false;
-
     # Dark mode
     "browser.theme.content-theme" = 0;
     "browser.theme.toolbar-theme" = 0;
