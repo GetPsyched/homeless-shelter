@@ -2,7 +2,7 @@
 {
   home-manager.users.primary.programs.firefox = {
     enable = true;
-    profiles.main =
+    profiles.primary =
       let
         profile = ./profile-primary;
       in
@@ -18,7 +18,7 @@
       } (lib.optionalAttrs (builtins.pathExists profile) (import profile { inherit lib pkgs; }));
   };
 
-  persist.state.homeDirectories = [ ".mozilla/firefox/main" ];
+  persist.state.homeDirectories = [ ".mozilla/firefox/primary" ];
 
   # just in case
   users.users.primary.packages = [ pkgs.ungoogled-chromium ];
