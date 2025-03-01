@@ -86,7 +86,6 @@
           (mkExtension "addon@darkreader.org" { default_area = "navbar"; })
           (mkExtension "amptra@keepa.com" { })
           (mkExtension "firefox@tampermonkey.net" { })
-          (mkExtension "postwoman-firefox@postwoman.io" { })
           (mkExtension "sponsorBlocker@ajay.app" { })
           (mkExtension "uBlock0@raymondhill.net" { })
         ];

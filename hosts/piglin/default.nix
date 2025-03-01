@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -20,6 +20,7 @@
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/home.nix
+    ../../config/hoppscotch.nix
     ../../config/i3.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
@@ -56,7 +57,6 @@
 
     home.packages = with pkgs; [
       feh
-      hoppscotch
       mgitstatus
       mindmap
       nixpkgs-review
