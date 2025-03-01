@@ -13,7 +13,7 @@
     ../../config/core.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
-    ../../config/firefox
+    ../../config/firefox.nix
     ../../config/flameshot.nix
     ../../config/fzf.nix
     ../../config/games.nix

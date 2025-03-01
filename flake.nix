@@ -53,6 +53,6 @@
       );
       nixosConfigurations = forAllHosts (name: value: lib.nameValuePair name (mkHost name value));
 
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { inherit lib; };
     };
 }
