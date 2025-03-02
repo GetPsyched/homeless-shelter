@@ -5,8 +5,6 @@
     fsType = "ext4";
   };
 
-  hardware.enableAllHardware = true;
-
   nixpkgs.buildPlatform = lib.mkDefault "x86_64-linux";
   nixpkgs.hostPlatform = lib.mkDefault "riscv64-linux";
 }
