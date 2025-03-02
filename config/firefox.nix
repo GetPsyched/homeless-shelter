@@ -127,6 +127,12 @@
 
           # Games
           {
+            Name = "How Long To Beat";
+            URLTemplate = "https://howlongtobeat.com/?q={searchTerms}";
+            IconURL = "https://www.howlongtobeat.com/favicon.ico";
+            Alias = "@hltb";
+          }
+          {
             Name = "ProtonDB";
             URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
             IconURL = "https://www.protondb.com/favicon.ico";
