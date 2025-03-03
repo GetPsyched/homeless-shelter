@@ -59,7 +59,7 @@
             "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
           };
 
-        startup = [ { command = "firefox"; } ];
+        startup = [ { command = "firefox --profile primary"; } ];
 
         terminal = "kitty";
 
