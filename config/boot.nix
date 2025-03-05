@@ -4,6 +4,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     # For unfortunate moments.
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems.ntfs = true;
   };
 }
