@@ -3,6 +3,8 @@
   persist.cache.homeDirectories = [ ".cache" ];
 
   users.mutableUsers = false;
+  users.users.root.openssh.authorizedKeys.keys =
+    config.users.users.primary.openssh.authorizedKeys.keys;
   users.users.primary = {
     description = "Priyanshu Tripathi";
     extraGroups = [
