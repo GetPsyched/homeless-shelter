@@ -29,5 +29,4 @@
   };
 
   time.timeZone = "Europe/Berlin";
-  system.stateVersion = "24.05";
 }

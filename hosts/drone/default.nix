@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
 
     ../../config/builders.nix
+    ../../config/core.nix
     ../../config/nix.nix
     ../../config/tailscale.nix
     ../../config/user.nix
@@ -18,5 +19,4 @@
   services.openssh.enable = true;
 
   time.timeZone = "Asia/Bangkok";
-  system.stateVersion = "25.05";
 }

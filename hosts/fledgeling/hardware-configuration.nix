@@ -32,6 +32,4 @@
   services.qemuGuest.enable = lib.mkDefault true;
   # https://discourse.nixos.org/t/qemu-guest-agent-on-hetzner-cloud-doesnt-work/8864/2
   systemd.services.qemu-guest-agent.path = [ pkgs.shadow ];
-
-  nixpkgs.hostPlatform = "x86_64-linux";
 }
