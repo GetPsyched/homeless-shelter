@@ -18,13 +18,14 @@
       inherit (nixpkgs) lib;
 
       hosts = {
-        drone = "riscv64-linux";
-        fledgeling = "x86_64-linux";
-        goldfish = "x86_64-linux";
-        piglin = "x86_64-linux";
-        potato = "x86_64-linux";
+        riscv64-linux = [ "drone" ];
+        x86_64-linux = [
+          "fledgeling"
+          "goldfish"
+          "piglin"
+          "potato"
+        ];
       };
-      forAllHosts = func: lib.mapAttrs' func hosts;
 
       mkHost =
         hostName: system:
@@ -45,13 +46,18 @@
         };
     in
     {
-      checks = forAllHosts (
-        name: value:
-        lib.nameValuePair value {
-          ${name} = outputs.nixosConfigurations.${name}.config.system.build.toplevel;
-        }
-      );
-      nixosConfigurations = forAllHosts (name: value: lib.nameValuePair name (mkHost name value));
+      checks = lib.mapAttrs (
+        _: hostNames:
+        lib.listToAttrs (
+          map (
+            name: lib.nameValuePair name outputs.nixosConfigurations.${name}.config.system.build.toplevel
+          ) hostNames
+        )
+      ) hosts;
+      nixosConfigurations = lib.foldl' (
+        accumulator: current:
+        accumulator // lib.genAttrs hosts.${current} (hostName: mkHost hostName current)
+      ) { } (lib.attrNames hosts);
 
       overlays = import ./overlays { inherit lib; };
     };
