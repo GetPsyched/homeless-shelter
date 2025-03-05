@@ -91,5 +91,4 @@
   ];
 
   time.timeZone = "Asia/Kolkata";
-  system.stateVersion = "22.11";
 }

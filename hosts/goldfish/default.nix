@@ -45,7 +45,4 @@
     "vfat"
     "xfs"
   ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  system.stateVersion = "23.11";
 }
