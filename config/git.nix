@@ -27,7 +27,8 @@
 
       difftastic.enable = true;
       difftastic.background = "dark";
-      aliases.dshow = "show --ext-diff";
+      aliases.dl = "log -p --ext-diff";
+      aliases.ds = "show --ext-diff";
 
       extraConfig = {
         advice.mergeConflict = false;
