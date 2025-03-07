@@ -1,13 +1,10 @@
-{ config, lib, ... }:
 {
-  home-manager.users.primary.programs.starship = {
+  programs.starship = {
     enable = true;
     settings = {
       format = "$directory$git_branch$character";
-      right_format = lib.strings.concatStrings [
-        "$cmd_duration"
-        "$nix_shell"
-      ];
+      right_format = "$cmd_duration$time$nix_shell";
+      cmd_duration.min_time = 0;
       git_branch = {
         format = "\\([$branch](purple)\\) ";
       };
