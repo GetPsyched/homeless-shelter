@@ -1,5 +1,13 @@
 { system, ... }:
 {
+  imports = [
+    ./builders.nix
+    ./nix.nix
+    ./ssh.nix
+    ./tailscale.nix
+    ./user.nix
+  ];
+
   persist.cache.directories = [
     "/var/cache"
     "/var/tmp"

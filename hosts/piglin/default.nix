@@ -8,7 +8,6 @@
     ../../config/bash.nix
     ../../config/bluetooth.nix
     ../../config/boot.nix
-    ../../config/builders.nix
     ../../config/charachorder.nix
     ../../config/core.nix
     ../../config/dconf.nix
@@ -27,17 +26,13 @@
     ../../config/libreoffice.nix
     ../../config/locale.nix
     ../../config/networking.nix
-    ../../config/nix.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
     ../../config/rofi
     ../../config/steam.nix
-    ../../config/ssh.nix
     ../../config/starship.nix
-    ../../config/tailscale.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix
-    ../../config/user.nix
     ../../config/virt-manager.nix
     ../../config/virtualisation.nix
     ../../config/warp.nix

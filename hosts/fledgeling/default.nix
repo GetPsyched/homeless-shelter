@@ -8,9 +8,6 @@
     ../../config/core.nix
     ../../config/home.nix
     ../../config/immich.nix
-    ../../config/nix.nix
-    ../../config/tailscale.nix
-    ../../config/user.nix
   ];
 
   documentation.nixos.enable = false;
