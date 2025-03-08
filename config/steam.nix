@@ -1,8 +1,10 @@
+{ pkgs, ... }:
 {
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
     dedicatedServer.openFirewall = true;
+    remotePlay.openFirewall = true;
   };
 
   allowUnfreePackages = [
