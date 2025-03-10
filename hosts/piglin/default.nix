@@ -30,7 +30,6 @@
     ../../config/pipewire.nix
     ../../config/rofi
     ../../config/steam.nix
-    ../../config/starship.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix
     ../../config/virt-manager.nix

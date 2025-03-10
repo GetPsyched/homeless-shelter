@@ -4,6 +4,7 @@
     ./builders.nix
     ./nix.nix
     ./ssh.nix
+    ./starship.nix
     ./tailscale.nix
     ./user.nix
   ];

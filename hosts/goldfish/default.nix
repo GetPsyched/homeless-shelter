@@ -25,7 +25,6 @@
     ../../config/locale.nix
     ../../config/networking.nix
     ../../config/rofi
-    ../../config/starship.nix
   ];
 
   networking.wireless.enable = lib.mkForce false;
