@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   home-manager.users.primary = {
     home.packages = [ pkgs.github-cli ];
@@ -7,12 +12,6 @@
       enable = true;
       userName = "GetPsyched";
       userEmail = "priyanshu@getpsyched.dev";
-
-      signing = {
-        format = "ssh";
-        key = "${config.users.users.primary.home}/.ssh/id_ed25519.pub";
-        signByDefault = true;
-      };
 
       aliases = {
         amend = "commit --amend --no-edit --date=now";
@@ -31,6 +30,12 @@
       aliases.ds = "show --ext-diff";
 
       extraConfig = {
+        commit.gpgsign = true;
+        tag.gpgsign = true;
+        gpg.format = "ssh";
+        gpg.ssh.progam = lib.getExe' pkgs.openssh "ssh-keygen";
+        user.signingKey = "${config.users.users.primary.home}/.ssh/id_ed25519.pub";
+
         advice.mergeConflict = false;
         core.fsmonitor = true;
         core.untrackedCache = true;
