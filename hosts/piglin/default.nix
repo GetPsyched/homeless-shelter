@@ -11,6 +11,7 @@
     ../../config/charachorder.nix
     ../../config/core.nix
     ../../config/dconf.nix
+    ../../config/deshaw.nix
     ../../config/direnv.nix
     ../../config/firefox.nix
     ../../config/flameshot.nix
