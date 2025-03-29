@@ -44,25 +44,23 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  home-manager.users.primary = {
-    gtk = {
-      enable = true;
-      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-    };
-
-    home.packages = with pkgs; [
-      feh
-      mgitstatus
-      mindmap
-      nixpkgs-review
-      obsidian
-      pavucontrol
-      peek
-      spotify
-      sqlitebrowser
-      unzip
-    ];
+  home-manager.users.primary.gtk = {
+    enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
+
+  users.users.primary.packages = with pkgs; [
+    feh
+    mgitstatus
+    mindmap
+    nixpkgs-review
+    obsidian
+    pavucontrol
+    peek
+    spotify
+    sqlitebrowser
+    unzip
+  ];
 
   persist.enable = true;
   persist.data.files = [ "/var/lib/prince/license.dat" ];
