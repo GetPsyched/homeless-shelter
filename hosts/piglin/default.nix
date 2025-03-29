@@ -57,7 +57,6 @@
     obsidian
     pavucontrol
     peek
-    spotify
     sqlitebrowser
     unzip
   ];
@@ -73,15 +72,11 @@
     "src"
     ".config/mindmap"
     ".config/obsidian"
-    ".config/spotify"
     ".railway"
     ".rustup"
   ];
 
-  allowUnfreePackages = [
-    "obsidian"
-    "spotify"
-  ];
+  allowUnfreePackages = [ "obsidian" ];
 
   time.timeZone = "Asia/Kolkata";
 }
