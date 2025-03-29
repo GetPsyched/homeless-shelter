@@ -57,7 +57,9 @@
     obsidian
     pavucontrol
     peek
+    ripgrep
     sqlitebrowser
+    tree
     unzip
   ];
 
