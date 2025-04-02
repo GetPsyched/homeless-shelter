@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
   additions = final: _prev: import ../packages { pkgs = final; };
 
@@ -23,5 +23,7 @@
           popd
         '';
     });
+
+    logseq = inputs.nixpkgs-master.legacyPackages.${final.system}.logseq;
   };
 }

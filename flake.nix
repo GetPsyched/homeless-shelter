@@ -59,6 +59,6 @@
         accumulator // lib.genAttrs hosts.${current} (hostName: mkHost hostName current)
       ) { } (lib.attrNames hosts);
 
-      overlays = import ./overlays { inherit lib; };
+      overlays = import ./overlays { inherit inputs lib; };
     };
 }

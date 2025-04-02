@@ -26,6 +26,7 @@
     ../../config/kitty.nix
     ../../config/libreoffice.nix
     ../../config/locale.nix
+    ../../config/logseq.nix
     ../../config/networking.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
@@ -54,7 +55,6 @@
     mgitstatus
     mindmap
     nixpkgs-review
-    obsidian
     pavucontrol
     peek
     ripgrep
@@ -68,17 +68,13 @@
   persist.data.homeDirectories = [
     "backgrounds"
     "dump"
-    "obsidian-vault"
   ];
   persist.state.homeDirectories = [
     "src"
     ".config/mindmap"
-    ".config/obsidian"
     ".railway"
     ".rustup"
   ];
-
-  allowUnfreePackages = [ "obsidian" ];
 
   time.timeZone = "Asia/Kolkata";
 }
