@@ -3,7 +3,7 @@
   users.users.primary.packages = with pkgs; [
     bottles
     gamemode
-    heroic
+    legendary-heroic
     osu-lazer-bin
     protontricks
     qbittorrent
@@ -11,15 +11,11 @@
     winetricks
   ];
   persist.state.homeDirectories = [
-    ".config/heroic"
+    ".config/legendary"
     ".local/share/bottles"
     ".local/share/wineprefixes"
   ];
-  persist.misc.homeDirectories = [
-    ".heroic"
-    "bottles"
-    "My Games"
-  ];
+  persist.misc.homeDirectories = [ "bottles" ];
 
   allowUnfreePackages = [ "osu-lazer-bin" ];
 }
