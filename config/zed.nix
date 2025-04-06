@@ -9,7 +9,8 @@
         low_speed_timeout_in_seconds = 60;
       };
     };
-
+    # Explicitly setting this stops the auto-install of LSPs
+    language_servers = [ ];
     theme = "Ayu Dark";
   };
 
