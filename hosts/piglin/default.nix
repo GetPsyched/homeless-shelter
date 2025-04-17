@@ -54,7 +54,6 @@
     feh
     mgitstatus
     mindmap
-    nixpkgs-review
     pavucontrol
     peek
     ripgrep
