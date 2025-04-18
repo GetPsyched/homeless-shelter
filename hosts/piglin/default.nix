@@ -63,7 +63,6 @@
   ];
 
   persist.enable = true;
-  persist.data.files = [ "/var/lib/prince/license.dat" ];
   persist.data.homeDirectories = [
     "backgrounds"
     "dump"
