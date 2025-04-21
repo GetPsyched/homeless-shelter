@@ -30,6 +30,7 @@
     ../../config/networking.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
+    ../../config/radicle.nix
     ../../config/rofi
     ../../config/steam.nix
     ../../config/thunderbird.nix
