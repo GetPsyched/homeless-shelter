@@ -27,6 +27,7 @@
     ../../config/networking.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
+    ../../config/radicle.nix
     ../../config/syncthing.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix
