@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./radicle.nix
 
     ../../config/core.nix
     ../../config/immich.nix
