@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./radicle.nix
 
     ../../config/bash.nix
     ../../config/boot.nix
