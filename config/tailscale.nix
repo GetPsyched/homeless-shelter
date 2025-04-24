@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   services.tailscale = {
     enable = true;
@@ -5,5 +6,5 @@
   };
   persist.state.directories = [ "/var/lib/tailscale" ];
 
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
 }
