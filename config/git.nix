@@ -32,6 +32,7 @@
         bye = "branch -d";
         nuke = "push origin -d";
       };
+      advice.detachedHead = false;
       advice.mergeConflict = false;
       core.fsmonitor = true;
       core.untrackedCache = true;
