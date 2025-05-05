@@ -1,7 +1,7 @@
 {
   hostName,
-  inputs,
   lib,
+  modulesPath,
   ...
 }:
 {
@@ -9,7 +9,7 @@
   isoImage.volumeID = lib.mkForce hostName;
 
   imports = [
-    (inputs.nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-base.nix")
+    "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
 
     ../../config/bash.nix
     ../../config/boot.nix
