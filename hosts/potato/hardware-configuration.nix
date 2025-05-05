@@ -29,7 +29,7 @@
     fsType = "btrfs";
   };
 
-  fileSystems."/boot" = {
+  fileSystems.${config.boot.loader.efi.efiSysMountPoint} = {
     device = "/dev/disk/by-uuid/7D3C-75DA";
     fsType = "vfat";
     options = [

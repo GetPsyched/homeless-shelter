@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   modulesPath,
   pkgs,
@@ -21,7 +22,7 @@
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
   };
-  fileSystems."/boot" = {
+  fileSystems.${config.boot.loader.efi.efiSysMountPoint} = {
     device = "/dev/disk/by-label/boot";
     fsType = "ext4";
   };
