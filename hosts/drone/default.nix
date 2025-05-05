@@ -11,5 +11,5 @@
   networking.hostName = hostName;
   networking.hostId = builtins.substring 0 8 (builtins.hashString "md5" hostName);
 
-  time.timeZone = "Asia/Bangkok";
+  time.timeZone = "Asia/Kolkata";
 }
