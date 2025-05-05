@@ -49,7 +49,7 @@
         "mode=0755"
       ];
     };
-    "/boot" = {
+    ${config.boot.loader.efi.efiSysMountPoint} = {
       device = "/dev/disk/by-uuid/8167-168A";
       fsType = "vfat";
       neededForBoot = true;
