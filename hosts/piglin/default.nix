@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../config/activity-watch.nix
     ../../config/atlauncher.nix
     ../../config/bash.nix
     ../../config/bluetooth.nix
