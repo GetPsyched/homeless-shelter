@@ -24,7 +24,6 @@
     ../../config/i3.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
-    ../../config/libreoffice.nix
     ../../config/locale.nix
     ../../config/logseq.nix
     ../../config/networking.nix
@@ -49,6 +48,7 @@
 
   users.users.primary.packages = with pkgs; [
     feh
+    libreoffice
     mgitstatus
     mindmap
     pavucontrol
