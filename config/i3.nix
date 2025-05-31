@@ -37,14 +37,12 @@
 
             pactl = lib.getExe' pkgs.pulseaudio "pactl";
             brctl = lib.getExe pkgs.brightnessctl;
-            eww = "exec ${lib.getExe pkgs.eww}";
             flameshot = "exec ${lib.getExe pkgs.flameshot}";
             rofi = "exec ${lib.getExe pkgs.rofi}";
           in
           lib.mkOptionDefault {
             "${modifier}+d" =
               "${rofi} -show drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
-            "${modifier}+e" = "${eww} open bar --toggle --config ~/.config/eww/bar";
             "${modifier}+q" = ''${rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
 
             # Audio
