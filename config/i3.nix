@@ -39,6 +39,7 @@
             brctl = lib.getExe pkgs.brightnessctl;
             flameshot = "exec ${lib.getExe pkgs.flameshot}";
             rofi = "exec ${lib.getExe pkgs.rofi}";
+            playerctl = "exec ${lib.getExe pkgs.playerctl}";
           in
           lib.mkOptionDefault {
             "${modifier}+d" =
@@ -55,6 +56,11 @@
             "Print" = "${flameshot} gui";
             "XF86MonBrightnessDown" = "exec ${brctl} --min-value=2 -e set 5%-";
             "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
+
+            # Media
+            "XF86AudioPlay" = "${playerctl} play-pause";
+            "XF86AudioNext" = "${playerctl} next";
+            "XF86AudioPrev" = "${playerctl} previous";
           };
 
         startup = [ { command = "firefox"; } ];
