@@ -26,6 +26,7 @@
         amend = "commit --amend --no-edit --date=now";
         co = "checkout";
         epic-fail = "reset --soft HEAD~1";
+        fixup = "commit --fixup";
         squash = "!git reset --soft HEAD~1 && git commit --amend";
 
         # delete branch
