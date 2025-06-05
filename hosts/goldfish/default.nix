@@ -6,8 +6,12 @@
   ...
 }:
 {
-  isoImage.isoName = lib.mkForce "${hostName}.iso";
-  isoImage.volumeID = lib.mkForce hostName;
+  isoImage = {
+    configurationName = hostName;
+    edition = "custom";
+    isoName = "${hostName}.iso";
+    volumeID = hostName;
+  };
 
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
