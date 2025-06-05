@@ -2,6 +2,7 @@
   hostName,
   lib,
   modulesPath,
+  pkgs,
   ...
 }:
 {
@@ -26,6 +27,8 @@
     ../../config/networking.nix
     ../../config/rofi
   ];
+
+  users.users.primary.packages = [ pkgs.wifi-qr ];
 
   networking.wireless.enable = lib.mkForce false;
 
