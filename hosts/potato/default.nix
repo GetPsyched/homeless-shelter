@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
 
     ../../config/bash.nix
-    ../../config/boot.nix
     ../../config/core.nix
     ../../config/home.nix
     ../../config/zram.nix

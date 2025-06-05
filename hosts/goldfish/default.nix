@@ -12,10 +12,9 @@
     "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
 
     ../../config/bash.nix
-    ../../config/boot.nix
+    ../../config/core.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
-    ../../config/core.nix
     ../../config/firefox.nix
     ../../config/git.nix
     ../../config/helix.nix

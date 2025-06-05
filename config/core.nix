@@ -1,6 +1,7 @@
 { system, ... }:
 {
   imports = [
+    ./boot.nix
     ./builders.nix
     ./nix.nix
     ./ssh.nix

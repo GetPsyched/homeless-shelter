@@ -6,7 +6,6 @@
     ../../config/atlauncher.nix
     ../../config/bash.nix
     ../../config/bluetooth.nix
-    ../../config/boot.nix
     ../../config/charachorder.nix
     ../../config/core.nix
     ../../config/dconf.nix
