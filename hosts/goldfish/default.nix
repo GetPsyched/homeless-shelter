@@ -28,6 +28,7 @@
     ../../config/rofi
   ];
 
+  environment.systemPackages = [ pkgs.gparted ];
   users.users.primary.packages = [ pkgs.wifi-qr ];
 
   networking.wireless.enable = lib.mkForce false;
