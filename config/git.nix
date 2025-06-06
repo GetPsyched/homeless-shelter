@@ -5,23 +5,27 @@
   ...
 }:
 {
+  home-manager.users.primary.home.packages = [ pkgs.difftastic ];
   home-manager.users.primary.programs.git = {
     enable = true;
-    userName = "GetPsyched";
-    userEmail = "priyanshu@getpsyched.dev";
-
-    difftastic.enable = true;
-    difftastic.background = "dark";
-    aliases.dl = "log -p --ext-diff";
-    aliases.ds = "show --ext-diff";
-
     extraConfig = {
+      user.name = "GetPsyched";
+      user.email = "priyanshu@getpsyched.dev";
+
+      # difftastic
+      diff.external = lib.getExe pkgs.difftastic;
+      alias.dl = "log -p --ext-diff";
+      alias.ds = "show --ext-diff";
+
+      # signing
       commit.gpgsign = true;
       tag.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.progam = lib.getExe' pkgs.openssh "ssh-keygen";
       user.signingKey = "${config.users.users.primary.home}/.ssh/id_ed25519.pub";
 
+      advice.detachedHead = false;
+      advice.mergeConflict = false;
       alias = {
         amend = "commit --amend --no-edit --date=now";
         co = "checkout";
@@ -33,8 +37,6 @@
         bye = "branch -d";
         nuke = "push origin -d";
       };
-      advice.detachedHead = false;
-      advice.mergeConflict = false;
       core.fsmonitor = true;
       core.untrackedCache = true;
       core.whitespace = "trailing-space,space-before-tab";
