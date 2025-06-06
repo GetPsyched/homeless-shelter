@@ -5,9 +5,7 @@
       enable = true;
       nix-direnv.enable = true;
 
-      # Should be `0s` to disable timeout
-      # See https://github.com/direnv/direnv/issues/1188
-      config.global.warn_timeout = "69h";
+      config.global.warn_timeout = "0s";
     };
 
     programs.git.ignores = [
