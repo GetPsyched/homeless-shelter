@@ -5,7 +5,7 @@
 
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
-    hjem-rum.url = "github:snugnug/hjem-rum";
+    hjem-rum.url = "git+file:///home/getpsyched/src/hjr-wrapped";
     hjem-rum.inputs.hjem.follows = "hjem";
     hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
 
