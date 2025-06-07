@@ -66,17 +66,17 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1750298944,
-        "narHash": "sha256-+Rrn/b+qDDe7ANtZ21IagItYJapzc8A5xT1ritUk3k0=",
-        "owner": "snugnug",
-        "repo": "hjem-rum",
-        "rev": "41704c982abc9a02fa63ae78996b0f82039ca7ad",
-        "type": "github"
+        "lastModified": 1750331809,
+        "narHash": "sha256-c3jWhPWGDSIXEiX8nxWRtIUA4BzMOmiq2BZCA05TMTc=",
+        "ref": "refs/heads/all",
+        "rev": "ce820f4436b6279d94855fbcd774ca2a07f36ff5",
+        "revCount": 251,
+        "type": "git",
+        "url": "file:///home/getpsyched/src/hjr-wrapped"
       },
       "original": {
-        "owner": "snugnug",
-        "repo": "hjem-rum",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/getpsyched/src/hjr-wrapped"
       }
     },
     "impermanence": {
