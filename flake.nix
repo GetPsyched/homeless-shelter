@@ -60,5 +60,16 @@
       ) { } (lib.attrNames hosts);
 
       overlays = import ./overlays { inherit inputs lib; };
+
+      nixConfig = {
+        extra-substituters = [
+          "https://cache.nichi.co"
+          "https://cache.ztier.in"
+        ];
+        extra-trusted-public-keys = [
+          "hydra.nichi.co-0:P3nkYHhmcLR3eNJgOAnHDjmQLkfqheGyhZ6GLrUVHwk="
+          "cache.ztier.link-1:3P5j2ZB9dNgFFFVkCQWT3mh0E+S3rIWtZvoql64UaXM="
+        ];
+      };
     };
 }
