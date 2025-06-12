@@ -44,6 +44,7 @@
       merge.conflictstyle = "diff3";
       pull.rebase = true;
       push.autoSetupRemote = true;
+      rebase.autoStash = true;
     };
   };
 }
