@@ -7,7 +7,6 @@
     ../../config/core.nix
     ../../config/home.nix
     ../../config/immich.nix
-    ../../config/starship.nix
   ];
 
   documentation.nixos.enable = false;
