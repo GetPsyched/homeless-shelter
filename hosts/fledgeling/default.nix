@@ -21,6 +21,10 @@
   services.caddy.virtualHosts = {
     "immich.getpsyched.dev".extraConfig = ''
       encode zstd gzip
+      reverse_proxy localhost:${toString config.services.immich-public-proxy.port}
+    '';
+    "immich.internal.getpsyched.dev".extraConfig = ''
+      encode zstd gzip
       reverse_proxy localhost:${toString config.services.immich.port}
     '';
   };
