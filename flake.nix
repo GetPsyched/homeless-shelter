@@ -3,6 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -12,7 +15,12 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      nix-darwin,
+      ...
+    }:
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib;
@@ -58,6 +66,16 @@
         accumulator: current:
         accumulator // lib.genAttrs hosts.${current} (hostName: mkHost hostName current)
       ) { } (lib.attrNames hosts);
+
+      darwinConfigurations.mitsuko = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/mitsuko
+          {
+            # Set Git commit hash for darwin-version.
+            system.configurationRevision = self.rev or self.dirtyRev or null;
+          }
+        ];
+      };
 
       overlays = import ./overlays { inherit inputs lib; };
     };
