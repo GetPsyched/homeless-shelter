@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, hostName, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -27,6 +27,9 @@
       reverse_proxy localhost:${toString config.services.immich.port}
     '';
   };
+
+  networking.hostName = hostName;
+  networking.hostId = builtins.substring 0 8 (builtins.hashString "md5" hostName);
 
   time.timeZone = "Europe/Berlin";
 }
