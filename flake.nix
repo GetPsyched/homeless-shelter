@@ -3,6 +3,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
+    hjr-wrapped.url = "github:getpsyched/hjr-wrapped";
+    hjr-wrapped.inputs.hjem.follows = "hjem";
+    hjr-wrapped.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -33,7 +39,6 @@
           modules = [
             ./hosts/${hostName}
             ./modules
-            inputs.home-manager.nixosModules.default
           ];
           specialArgs = {
             inherit
