@@ -5,10 +5,12 @@
   ...
 }:
 {
-  home-manager.users.primary.home.packages = [ pkgs.difftastic ];
-  home-manager.users.primary.programs.git = {
+  hjem.users.primary.packages = [ pkgs.difftastic ];
+  hjem.users.primary.rum.programs.git = {
     enable = true;
-    extraConfig = {
+    destination = ".config/git/config";
+
+    settings = {
       user.name = "GetPsyched";
       user.email = "priyanshu@getpsyched.dev";
 
