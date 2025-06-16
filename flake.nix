@@ -64,6 +64,13 @@
         accumulator // lib.genAttrs hosts.${current} (hostName: mkHost hostName current)
       ) { } (lib.attrNames hosts);
 
+      packages.x86_64-linux = builtins.listToAttrs (
+        map (pkg: {
+          name = pkg.pname or pkg.name;
+          value = pkg;
+        }) outputs.nixosConfigurations.piglin.config.hjem.users.primary.packages
+      );
+
       overlays = import ./overlays { inherit inputs lib; };
     };
 }
