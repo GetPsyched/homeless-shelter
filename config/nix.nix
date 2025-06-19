@@ -1,8 +1,8 @@
 { outputs, ... }:
 {
   nix.channel.enable = false;
+  nix.optimise.automatic = true;
   nix.settings = {
-    auto-optimise-store = true;
     build-dir = "/var/tmp";
     experimental-features = [
       "flakes"
@@ -28,5 +28,5 @@
     outputs.overlays.modifications
   ];
 
-  persist.state.directories = [ "/var/lib/nixos" ];
+  # persist.state.directories = [ "/var/lib/nixos" ];
 }
