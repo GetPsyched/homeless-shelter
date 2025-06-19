@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
 
     ../../config/atlauncher.nix
-    ../../config/bash.nix
     ../../config/bluetooth.nix
     ../../config/charachorder.nix
     ../../config/core.nix
@@ -37,12 +36,11 @@
     ../../config/zed.nix
     ../../config/zoxide.nix
     ../../config/zram.nix
+    ../../config/zsh.nix
   ];
 
-  home-manager.users.primary.gtk = {
-    enable = true;
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-  };
+  hjem.users.primary.rum.misc.gtk.enable = true;
+  hjem.users.primary.rum.misc.gtk.settings.application-prefer-dark-theme = true;
 
   users.users.primary.packages = with pkgs; [
     feh

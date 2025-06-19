@@ -1,8 +1,8 @@
-{ config, ... }:
 {
-  home-manager.users.primary.programs.zoxide = {
+  hjem.users.primary.rum.programs.zoxide = {
     enable = true;
-    options = [ "--cmd cd" ];
+    flags = [ "--cmd cd" ];
+    integrations.zsh.enable = true;
   };
   persist.state.homeDirectories = [ ".local/share/zoxide" ];
 }

@@ -1,18 +1,19 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  home-manager.users.primary.programs.kitty = {
+  hjem.users.primary.rum.programs.kitty = {
     enable = true;
 
-    extraConfig = ''
-      cursor_trail 5
-      map ctrl+backspace send_text all \x17
-      map ctrl+shift+t new_tab_with_cwd
-    '';
+    theme.no-preference = "${pkgs.kitty-themes}/share/kitty-themes/themes/moonlight.conf";
 
-    font = {
-      name = "RobotoMono";
-      package = pkgs.roboto-mono;
+    settings = {
+      cursor_trail = 5;
+      font_family = "RobotoMono";
+      map = [
+        "ctrl+backspace send_text all \\x17"
+        "ctrl+shift+t new_tab_with_cwd"
+      ];
     };
-    themeFile = "moonlight";
+
+    integrations.zsh.enable = true;
   };
 }
