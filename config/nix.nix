@@ -27,5 +27,5 @@
     outputs.overlays.modifications
   ];
 
-  persist.state.directories = [ "/var/lib/nixos" ];
+  # persist.state.directories = [ "/var/lib/nixos" ];
 }
