@@ -17,7 +17,7 @@
       inherit (self) outputs;
       inherit (nixpkgs) lib;
 
-      hosts = {
+      systems = {
         riscv64-linux = [ "drone" ];
         x86_64-linux = [
           "fledgeling"
@@ -27,23 +27,32 @@
         ];
       };
 
-      mkHost =
-        hostName: system:
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/${hostName}
-            ./modules
-            inputs.home-manager.nixosModules.default
-          ];
-          specialArgs = {
-            inherit
-              hostName
-              inputs
-              outputs
-              system
-              ;
+      mkConfigurations =
+        os: modules:
+        let
+          filteredSystems = lib.filterAttrs (system: _: lib.hasSuffix "-${os}" system) systems;
+          systemBuilders = {
+            linux = nixpkgs.lib.nixosSystem;
           };
-        };
+        in
+        lib.foldl' (
+          accumulator: current:
+          accumulator
+          // lib.genAttrs filteredSystems.${current} (
+            hostName:
+            systemBuilders.${os} {
+              modules = [
+                ./hosts/${hostName}
+                ./modules
+                inputs.home-manager.nixosModules.default
+              ] ++ modules;
+              specialArgs = {
+                inherit hostName inputs outputs;
+                system = current;
+              };
+            }
+          )
+        ) { } (lib.attrNames filteredSystems);
     in
     {
       checks = lib.mapAttrs (
@@ -53,11 +62,9 @@
             name: lib.nameValuePair name outputs.nixosConfigurations.${name}.config.system.build.toplevel
           ) hostNames
         )
-      ) hosts;
-      nixosConfigurations = lib.foldl' (
-        accumulator: current:
-        accumulator // lib.genAttrs hosts.${current} (hostName: mkHost hostName current)
-      ) { } (lib.attrNames hosts);
+      ) systems;
+
+      nixosConfigurations = mkConfigurations "linux" [ ];
 
       overlays = import ./overlays { inherit inputs lib; };
     };
