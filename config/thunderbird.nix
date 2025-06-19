@@ -1,10 +1,12 @@
-{ config, ... }:
 {
-  home-manager.users.primary.programs.thunderbird = {
+  programs.thunderbird = {
     enable = true;
-
-    profiles.main = {
-      isDefault = true;
+    policies = {
+      DefaultDownloadDirectory = "\${home}";
+      DisableBuiltinPDFViewer = true;
+      ManualAppUpdateOnly = true;
+      OfferToSaveLoginsDefault = false;
+      PromptForDownloadLocation = false;
     };
   };
   persist.state.homeDirectories = [ ".thunderbird/main" ];
