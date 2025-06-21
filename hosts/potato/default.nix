@@ -2,10 +2,10 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../config/bash.nix
     ../../config/core.nix
     ../../config/home.nix
     ../../config/zram.nix
+    ../../config/zsh.nix
   ];
 
   services.tailscale.extraSetFlags = [ "--advertise-exit-node" ];

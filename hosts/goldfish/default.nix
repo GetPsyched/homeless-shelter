@@ -16,7 +16,6 @@
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
 
-    ../../config/bash.nix
     ../../config/core.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
@@ -30,6 +29,7 @@
     ../../config/locale.nix
     ../../config/networking.nix
     ../../config/rofi
+    ../../config/zsh.nix
   ];
 
   environment.systemPackages = [ pkgs.gparted ];
