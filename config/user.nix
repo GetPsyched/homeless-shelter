@@ -2,6 +2,14 @@
 {
   persist.cache.homeDirectories = [ ".cache" ];
 
+  # users.users.nixosvmtest = {
+  #   description = "Test User";
+  #   group = "nixosvmtest";
+  #   initialPassword = "test";
+  #   isNormalUser = true;
+  # };
+  users.groups.nixosvmtest = { };
+
   users.mutableUsers = false;
   users.users.root.openssh.authorizedKeys.keys =
     config.users.users.primary.openssh.authorizedKeys.keys;
@@ -11,7 +19,8 @@
       "networkmanager"
       "wheel"
     ];
-    hashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
+    group = "nixosvmtest";
+    initialHashedPassword = "$y$j9T$KIZivxYTTPjQKqXxXhGRR/$ATU7co5bqgYl2rzHk9xPf5sgflqhGykTEClGx2jAiM2";
     home = "/home/${config.users.users.primary.name}";
     isNormalUser = true;
     name = "getpsyched";

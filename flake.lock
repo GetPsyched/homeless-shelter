@@ -66,11 +66,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1750331809,
-        "narHash": "sha256-c3jWhPWGDSIXEiX8nxWRtIUA4BzMOmiq2BZCA05TMTc=",
+        "lastModified": 1750576288,
+        "narHash": "sha256-B+QyoVNjTVuVKH5f4KTq5YrZJSe/D/Lw+0dqIyCNaAo=",
         "ref": "refs/heads/all",
-        "rev": "ce820f4436b6279d94855fbcd774ca2a07f36ff5",
-        "revCount": 251,
+        "rev": "264ee41b379c27ee9f525d534b60aa4abc0854ed",
+        "revCount": 262,
         "type": "git",
         "url": "file:///home/getpsyched/src/hjr-wrapped"
       },
