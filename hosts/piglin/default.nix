@@ -18,6 +18,7 @@
     ../../config/helix.nix
     ../../config/home.nix
     ../../config/hoppscotch.nix
+    ../../config/hydralauncher.nix
     ../../config/i3.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
