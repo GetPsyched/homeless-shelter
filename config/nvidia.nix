@@ -2,7 +2,6 @@
 {
   allowUnfreePackages = [
     "nvidia-settings"
-    "nvidia-settings-535.113.01"
     "nvidia-x11"
   ];
 
