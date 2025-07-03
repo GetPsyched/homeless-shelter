@@ -50,6 +50,14 @@
         file-picker.hidden = false;
         lsp.display-inlay-hints = true;
         preview-completion-insert = false;
+        statusline.left = [
+          "mode"
+          "spinner"
+          "version-control"
+          "file-name"
+          "read-only-indicator"
+          "file-modification-indicator"
+        ];
       };
 
       keys.normal.y = [
