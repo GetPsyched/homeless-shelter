@@ -46,5 +46,6 @@
       push.autoSetupRemote = true;
       rebase.autoStash = true;
     };
+    ignores = [ "result/" ];
   };
 }
