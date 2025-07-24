@@ -14,5 +14,8 @@
     enable = true;
     immichUrl = "https://immich.internal.getpsyched.dev";
     port = 2284;
+    settings.ipp = {
+      allowDownloadAll = 1;
+    };
   };
 }
