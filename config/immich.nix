@@ -16,6 +16,7 @@
     port = 2284;
     settings = {
       allowDownloadAll = 1;
+      showGalleryTitle = true;
     };
   };
 }
