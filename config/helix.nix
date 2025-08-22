@@ -58,6 +58,7 @@
           "read-only-indicator"
           "file-modification-indicator"
         ];
+        true-color = true;
       };
 
       keys.normal.y = [
