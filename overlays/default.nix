@@ -1,8 +1,14 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
   additions = final: _prev: import ../packages { pkgs = final; };
 
   modifications = final: prev: {
+    citrix_workspace =
+      (import inputs.nixpkgs-citrix {
+        inherit (final) config;
+        inherit (final.stdenv.hostPlatform) system;
+      }).citrix_workspace;
+
     firefox = prev.firefox.overrideAttrs (old: {
       buildCommand = ''
         export buildRoot="$(pwd)"

@@ -1,7 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
+    # citrix_workspace was marked broken
+    # see: https://github.com/NixOS/nixpkgs/pull/450065
+    nixpkgs-citrix.url = "github:nixos/nixpkgs/87894d3b7116a8e1c4827d66e17b89099d218c50";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +47,8 @@
                 ./hosts/${hostName}
                 ./modules
                 inputs.home-manager.nixosModules.default
-              ] ++ modules;
+              ]
+              ++ modules;
               specialArgs = {
                 inherit hostName inputs outputs;
                 system = current;

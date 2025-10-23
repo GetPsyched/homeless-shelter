@@ -8,7 +8,7 @@
   home-manager.users.primary.home.packages = [ pkgs.difftastic ];
   home-manager.users.primary.programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       user.name = "GetPsyched";
       user.email = "priyanshu@getpsyched.dev";
 
