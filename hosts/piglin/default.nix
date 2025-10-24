@@ -34,6 +34,7 @@
     ../../config/virt-manager.nix
     ../../config/virtualisation.nix
     ../../config/warp.nix
+    ../../config/winboat.nix
     ../../config/zed.nix
     ../../config/zoxide.nix
     ../../config/zram.nix
