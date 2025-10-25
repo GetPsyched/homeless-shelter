@@ -50,7 +50,6 @@
     feh
     libreoffice
     mgitstatus
-    mindmap
     pavucontrol
     peek
     ripgrep
@@ -66,7 +65,6 @@
   ];
   persist.state.homeDirectories = [
     "src"
-    ".config/mindmap"
     ".railway"
     ".rustup"
   ];
