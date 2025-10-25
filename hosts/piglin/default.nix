@@ -47,7 +47,9 @@
   };
 
   users.users.primary.packages = with pkgs; [
+    bat
     feh
+    jq
     libreoffice
     mgitstatus
     pavucontrol
