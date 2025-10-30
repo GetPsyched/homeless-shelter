@@ -5,6 +5,6 @@
   hjem = {
     clobberByDefault = true;
     extraModules = [ inputs.hjem-rum.hjemModules.default ];
-    linker = inputs.hjem.packages.smfh;
+    # linker = inputs.hjem.packages.smfh;
   };
 }
