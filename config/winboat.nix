@@ -1,6 +1,5 @@
-{ pkgs, ... }:
 {
-  users.users.primary.packages = with pkgs; [ winboat ];
+  hjem.users.primary.rum.programs.winboat.enable = true;
 
   virtualisation.docker.enable = true;
   users.users.primary.extraGroups = [ "docker" ];

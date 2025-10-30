@@ -1,8 +1,14 @@
-{ lib, pkgs, ... }:
 {
-  programs.helix = {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  environment.sessionVariables.EDITOR = lib.getExe config.hjem.users.primary.rum.programs.helix.package;
+
+  hjem.users.primary.rum.programs.helix = {
     enable = true;
-    defaultEditor = true;
 
     languages.language = [
       {
