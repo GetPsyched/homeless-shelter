@@ -113,10 +113,15 @@
             Alias = "@no";
           }
           {
-            Name = "Home Manager Options";
-            URLTemplate = "https://home-manager-options.extranix.com?release=master&query={searchTerms}";
-            IconURL = "https://home-manager-options.extranix.com/images/favicon.ico";
-            Alias = "@hmo";
+            Name = "Hjem Options";
+            URLTemplate = "https://hjem.feel-co.org/search.html?q={searchTerms}";
+            Alias = "@hj";
+          }
+          {
+            Name = "Hjem Rum Options";
+            URLTemplate = "https://snugnug.github.io/hjem-rum";
+            IconURL = "https://snugnug.github.io/hjem-rum/favicon.ico";
+            Alias = "@hjr";
           }
           {
             Name = "Nixpkgs PR Tracker";
