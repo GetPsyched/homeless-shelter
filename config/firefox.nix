@@ -70,7 +70,8 @@
             value = {
               installation_mode = "force_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
-            } // attrs;
+            }
+            // attrs;
           };
         in
         {
@@ -99,6 +100,11 @@
             URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
             IconURL = "https://nixos.org/favicon.ico";
             Alias = "@np";
+          }
+          {
+            Name = "Nix Package Versions";
+            URLTemplate = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}";
+            Alias = "@nixver";
           }
           {
             Name = "NixOS Options";
