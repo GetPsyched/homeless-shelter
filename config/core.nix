@@ -1,4 +1,9 @@
-{ system, ... }:
+{
+  inputs,
+  lib,
+  system,
+  ...
+}:
 {
   imports = [
     ./boot.nix
@@ -14,6 +19,8 @@
     "/var/cache"
     "/var/tmp"
   ];
+
+  system.configurationRevision = lib.mkIf (inputs.self ? rev) inputs.self.rev;
 
   nixpkgs.hostPlatform = system;
   system.stateVersion = "25.05";
