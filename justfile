@@ -4,7 +4,7 @@ default:
 
 # list all existing generations
 list:
-    @sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+    @nixos-rebuild list-generations
 
 # update the commit hashes in flake.lock
 update:
