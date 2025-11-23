@@ -28,7 +28,6 @@
     ../../config/kitty.nix
     ../../config/locale.nix
     ../../config/networking.nix
-    ../../config/rofi
     ../../config/zsh.nix
   ];
 

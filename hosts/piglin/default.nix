@@ -27,7 +27,6 @@
     ../../config/networking.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
-    ../../config/rofi
     ../../config/steam.nix
     ../../config/syncthing.nix
     ../../config/thunderbird.nix

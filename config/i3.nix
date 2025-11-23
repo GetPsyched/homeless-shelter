@@ -105,8 +105,8 @@
         bindsym Mod1+Tab workspace back_and_forth
 
         # Key bindings - Rofi
-        bindsym $mod+d exec ${lib.getExe pkgs.rofi} -show drun -hover-select -me-select-entry ''' -me-accept-entry MousePrimary
-        bindsym $mod+q exec ${lib.getExe pkgs.rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh
+        bindsym $mod+d exec ${lib.getExe pkgs.rofi} -show drun -hover-select -me-select-entry ''' -me-accept-entry MousePrimary -config ${./rofi/config.rasi}
+        bindsym $mod+q exec ${lib.getExe pkgs.rofi} -show power-menu -modi power-menu:${./rofi/power-menu.sh} -config ${./rofi/power-menu.rasi}
 
         # Key bindings - Workspaces
         ${lib.concatStrings (
