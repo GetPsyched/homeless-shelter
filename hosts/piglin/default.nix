@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -29,6 +29,7 @@
     ../../config/pipewire.nix
     ../../config/rofi
     ../../config/steam.nix
+    ../../config/syncthing.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix
     ../../config/virt-manager.nix
@@ -59,6 +60,36 @@
     tree
     unzip
   ];
+
+  services.syncthing.settings.folders = {
+    "aegis" = {
+      path = "${config.users.users.primary.home}/dump/aegis";
+      type = "receiveonly";
+      versioning.type = "trashcan";
+    };
+    "documents" = {
+      path = "${config.users.users.primary.home}/src/documents";
+      type = "sendonly";
+      versioning = {
+        type = "staggered";
+        params = {
+          cleanInterval = "3600";
+          maxAge = "31536000"; # 365d
+        };
+      };
+    };
+    "notes" = {
+      path = "${config.users.users.primary.home}/logseq";
+      type = "sendreceive";
+      versioning = {
+        type = "staggered";
+        params = {
+          cleanInterval = "3600";
+          maxAge = "31536000"; # 365d
+        };
+      };
+    };
+  };
 
   persist.enable = true;
   persist.data.homeDirectories = [
