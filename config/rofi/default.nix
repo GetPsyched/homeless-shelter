@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   home-manager.users.primary = {
     home.file.".config/rofi/config.rasi".source = ./config.rasi;

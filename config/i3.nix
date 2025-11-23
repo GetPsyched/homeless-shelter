@@ -27,51 +27,116 @@
   home-manager.users.primary = {
     xsession.windowManager.i3 = {
       enable = true;
-      config = {
-        defaultWorkspace = "1";
-        modifier = "Mod4";
+      config = null;
+      extraConfig = ''
+        set $mod mod4
 
-        keybindings =
-          let
-            modifier = config.home-manager.users.primary.xsession.windowManager.i3.config.modifier;
+        font pango:monospace 8.000000
+        workspace_layout tabbed
+        focus_on_window_activation focus
 
-            pactl = lib.getExe' pkgs.pulseaudio "pactl";
-            brctl = lib.getExe pkgs.brightnessctl;
-            flameshot = "exec ${lib.getExe pkgs.flameshot}";
-            rofi = "exec ${lib.getExe pkgs.rofi}";
-            playerctl = "exec ${lib.getExe pkgs.playerctl}";
-          in
-          lib.mkOptionDefault {
-            "${modifier}+d" =
-              "${rofi} -show drun -hover-select -me-select-entry '' -me-accept-entry MousePrimary";
-            "${modifier}+q" = ''${rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh'';
+        # Borders
+        default_border none
+        hide_edge_borders both
 
-            # Audio
-            "XF86AudioRaiseVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ +10%";
-            "XF86AudioLowerVolume" = "exec ${pactl} set-sink-volume @DEFAULT_SINK@ -10%";
-            "XF86AudioMute" = "exec ${pactl} set-sink-mute @DEFAULT_SINK@ toggle";
-            "XF86AudioMicMute" = "exec ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle";
+        # Binding modes - Resizing windows
+        bindsym $mod+r mode "resize"
+        mode "resize" {
+          bindsym Down resize grow height 10 px or 10 ppt
+          bindsym Left resize shrink width 10 px or 10 ppt
+          bindsym Right resize grow width 10 px or 10 ppt
+          bindsym Up resize shrink height 10 px or 10 ppt
 
-            # Display
-            "Print" = "${flameshot} gui";
-            "XF86MonBrightnessDown" = "exec ${brctl} --min-value=2 -e set 5%-";
-            "XF86MonBrightnessUp" = "exec ${brctl} --min-value=2 -e set +5%";
+          bindsym Escape mode "default"
+          bindsym Return mode "default"
+        }
 
-            # Media
-            "XF86AudioPlay" = "${playerctl} play-pause";
-            "XF86AudioNext" = "${playerctl} next";
-            "XF86AudioPrev" = "${playerctl} previous";
-          };
+        # Floating windows
+        bindsym $mod+Shift+space floating toggle
+        floating_modifier $mod
+        default_floating_border normal 2
 
-        startup = [ { command = "firefox"; } ];
+        # Launch on startup
+        exec --no-startup-id i3-msg 'workspace 1; exec firefox' # its module doesn't expose the overridden package
 
-        terminal = "kitty";
+        # Key bindings - Applications
+        bindsym $mod+Return exec ${lib.getExe config.home-manager.users.primary.programs.kitty.package}
+        bindsym Print exec ${lib.getExe config.home-manager.users.primary.services.flameshot.package} gui
 
-        window.hideEdgeBorders = "both";
-        window.titlebar = false;
+        # Key bindings - Brightness
+        bindsym XF86MonBrightnessDown exec ${lib.getExe pkgs.brightnessctl} --min-value=2 -e set 5%-
+        bindsym XF86MonBrightnessUp exec ${lib.getExe pkgs.brightnessctl} -e set +5%
 
-        workspaceLayout = "tabbed";
-      };
+        # Key bindings - Focus
+        bindsym $mod+space focus mode_toggle
+        bindsym $mod+Down focus down
+        bindsym $mod+Left focus left
+        bindsym $mod+Right focus right
+        bindsym $mod+Up focus up
+        bindsym $mod+a focus parent
+
+        # Key bindings - i3 session
+        bindsym $mod+Shift+r restart
+        bindsym $mod+Shift+c reload
+
+        # Key bindings - Layout
+        bindsym $mod+h split h
+        bindsym $mod+v split v
+        bindsym $mod+s layout stacking
+        bindsym $mod+e layout toggle split
+        bindsym $mod+w layout tabbed
+        bindsym $mod+Shift+Down move down
+        bindsym $mod+Shift+Left move left
+        bindsym $mod+Shift+Right move right
+        bindsym $mod+Shift+Up move up
+
+        # Key bindings - Media
+        bindsym XF86AudioLowerVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ -10%
+        bindsym XF86AudioMicMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-source-mute @DEFAULT_SOURCE@ toggle
+        bindsym XF86AudioMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-mute @DEFAULT_SINK@ toggle
+        bindsym XF86AudioNext exec ${lib.getExe pkgs.playerctl} next
+        bindsym XF86AudioPlay exec ${lib.getExe pkgs.playerctl} play-pause
+        bindsym XF86AudioPrev exec ${lib.getExe pkgs.playerctl} previous
+        bindsym XF86AudioRaiseVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ +10%
+
+        # Key bindings - Misc. Shortcuts
+        bindsym $mod+Shift+q kill
+        bindsym $mod+f fullscreen toggle
+        bindsym Mod1+Tab workspace back_and_forth
+
+        # Key bindings - Rofi
+        bindsym $mod+d exec ${lib.getExe pkgs.rofi} -show drun -hover-select -me-select-entry ''' -me-accept-entry MousePrimary
+        bindsym $mod+q exec ${lib.getExe pkgs.rofi} -show power-menu -modi power-menu:~/.config/rofi/power-menu.sh
+
+        # Key bindings - Workspaces
+        ${lib.concatStrings (
+          map (n: ''
+            bindsym $mod+${toString n} workspace number ${if n == 0 then "10" else toString n}
+            bindsym $mod+Shift+${toString n} move container to workspace number ${
+              if n == 0 then "10" else toString n
+            }
+          '') (builtins.genList (i: i) 10)
+        )}
+
+        # Status bars
+        bar {
+          colors {
+            background #000000
+            statusline #ffffff
+            separator #666666
+            focused_workspace #4c7899 #285577 #ffffff
+            active_workspace #333333 #5f676a #ffffff
+            inactive_workspace #333333 #222222 #888888
+            urgent_workspace #2f343a #900000 #ffffff
+            binding_mode #2f343a #900000 #ffffff
+          }
+          font pango:monospace 8.000000
+          i3bar_command ${lib.getExe' config.home-manager.users.primary.xsession.windowManager.i3.package "i3bar"}
+          mode hide
+          status_command ${lib.getExe pkgs.i3status}
+          tray_output primary
+        }
+      '';
     };
 
     # Needed by apps like Flameshot
