@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
 
     ../../config/atlauncher.nix
+    ../../config/beeper.nix
     ../../config/bluetooth.nix
     ../../config/charachorder.nix
     ../../config/core.nix
