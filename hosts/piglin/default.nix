@@ -3,6 +3,8 @@
   imports = [
     ./hardware-configuration.nix
 
+    ../../specialisations/gaming
+
     ../../config/atlauncher.nix
     ../../config/beeper.nix
     ../../config/bluetooth.nix
@@ -14,7 +16,6 @@
     ../../config/firefox.nix
     ../../config/flameshot.nix
     ../../config/fzf.nix
-    ../../config/games.nix
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/home.nix
@@ -28,7 +29,6 @@
     ../../config/networking.nix
     ../../config/nvidia.nix
     ../../config/pipewire.nix
-    ../../config/steam.nix
     ../../config/syncthing.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix

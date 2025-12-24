@@ -56,9 +56,6 @@
         floating_modifier $mod
         default_floating_border normal 2
 
-        # Launch on startup
-        exec --no-startup-id i3-msg 'workspace 1; exec firefox' # its module doesn't expose the overridden package
-
         # Key bindings - Applications
         bindsym $mod+Return exec ${lib.getExe config.home-manager.users.primary.programs.kitty.package}
         bindsym Print exec ${lib.getExe config.home-manager.users.primary.services.flameshot.package} gui
@@ -136,6 +133,9 @@
           status_command ${lib.getExe pkgs.i3status}
           tray_output primary
         }
+      ''
+      + lib.optionalString (config.specialisation != { }) ''
+        exec --no-startup-id i3-msg 'workspace 1; exec firefox' # its module doesn't expose the overridden package
       '';
     };
 
