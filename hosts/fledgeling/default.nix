@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
 
     ../../config/core.nix
-    ../../config/home.nix
     ../../config/immich.nix
     ../../config/zsh.nix
   ];

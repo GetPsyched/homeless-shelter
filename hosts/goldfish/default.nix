@@ -23,7 +23,6 @@
     ../../config/flameshot.nix
     ../../config/git.nix
     ../../config/helix.nix
-    ../../config/home.nix
     ../../config/i3.nix
     ../../config/kitty.nix
     ../../config/locale.nix
