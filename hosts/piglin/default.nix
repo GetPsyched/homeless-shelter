@@ -31,8 +31,6 @@
     ../../config/syncthing.nix
     ../../config/thunderbird.nix
     ../../config/tldr.nix
-    ../../config/virt-manager.nix
-    ../../config/virtualisation.nix
     ../../config/warp.nix
     ../../config/winboat.nix
     ../../config/zed.nix
