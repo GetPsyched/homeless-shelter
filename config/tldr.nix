@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   home-manager.users.primary.programs.tealdeer = {
     enable = true;

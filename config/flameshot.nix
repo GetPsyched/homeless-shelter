@@ -1,8 +1,6 @@
-{ config, ... }:
 {
   home-manager.users.primary.services.flameshot = {
     enable = true;
-
     settings = {
       General = {
         disabledTrayIcon = true;

@@ -1,11 +1,13 @@
 {
-  programs.keepassxc.enable = true;
-  programs.keepassxc.settings = {
-    Browser = {
-      Enabled = true;
-      SearchInAllDatabases = true;
+  programs.keepassxc = {
+    enable = true;
+    settings = {
+      Browser = {
+        Enabled = true;
+        SearchInAllDatabases = true;
+      };
+      GUI.ApplicationTheme = "dark";
+      Security.LockDatabaseIdleSeconds = 60;
     };
-    GUI.ApplicationTheme = "dark";
-    Security.LockDatabaseIdleSeconds = 60;
   };
 }
