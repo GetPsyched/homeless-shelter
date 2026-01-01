@@ -1,6 +1,10 @@
+{ lib, pkgs, ... }:
 {
-  home-manager.users.primary.programs.fzf = {
+  hjem.users.primary.rum.programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
+    env = {
+      DEFAULT_COMMAND = "${lib.getExe pkgs.fd} --type f";
+      DEFAULT_OPTS = "--height 40% --layout reverse --border";
+    };
   };
 }

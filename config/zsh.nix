@@ -3,9 +3,9 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  home-manager.users.primary.programs.zsh = {
+  hjem.users.primary.rum.programs.zsh = {
     enable = true;
-    initContent = ''
+    initConfig = ''
       HISTFILE="${config.users.users.primary.home}/.local/state/zsh/history"
       HISTSIZE=10000
       SAVEHIST=10000

@@ -24,10 +24,9 @@
     xkb.layout = "us";
   };
 
-  home-manager.users.primary.xsession.windowManager.i3 = {
+  hjem.users.primary.rum.desktops.i3 = {
     enable = true;
-    config = null;
-    extraConfig = ''
+    commands = ''
       set $mod mod4
 
       font pango:monospace 8.000000
@@ -56,8 +55,8 @@
       default_floating_border normal 2
 
       # Key bindings - Applications
-      bindsym $mod+Return exec ${lib.getExe config.home-manager.users.primary.programs.kitty.package}
-      bindsym Print exec ${lib.getExe config.home-manager.users.primary.services.flameshot.package} gui
+      bindsym $mod+Return exec ${lib.getExe config.hjem.users.primary.rum.programs.kitty.package}
+      bindsym Print exec ${lib.getExe config.hjem.users.primary.rum.programs.flameshot.package} gui
 
       # Key bindings - Brightness
       bindsym XF86MonBrightnessDown exec ${lib.getExe pkgs.brightnessctl} --min-value=2 -e set 5%-
@@ -127,7 +126,7 @@
           binding_mode #2f343a #900000 #ffffff
         }
         font pango:monospace 8.000000
-        i3bar_command ${lib.getExe' config.home-manager.users.primary.xsession.windowManager.i3.package "i3bar"}
+        i3bar_command ${lib.getExe' config.hjem.users.primary.rum.desktops.i3.package "i3bar"}
         mode hide
         status_command ${lib.getExe pkgs.i3status}
         tray_output primary
@@ -138,7 +137,7 @@
     '';
   };
 
-  home-manager.users.primary.services = {
+  hjem.users.primary.rum.programs = {
     dunst = {
       enable = true;
       settings = {
@@ -174,24 +173,10 @@
           dawn-time = "6:00-7:45";
           dusk-time = "18:35-20:15";
           location-provider = "manual";
-          temp-day = lib.mkForce 4500;
-          temp-night = lib.mkForce 4500;
+          temp-day = 4500;
+          temp-night = 4500;
         };
       };
-    };
-
-    random-background = {
-      enable = true;
-      imageDirectory = "%h/backgrounds";
-      interval = "1h";
-    };
-  };
-
-  # Needed by apps like Flameshot
-  systemd.user.targets.tray = {
-    unitConfig = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
     };
   };
 }

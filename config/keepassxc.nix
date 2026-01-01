@@ -1,5 +1,5 @@
 {
-  programs.keepassxc = {
+  hjem.users.primary.rum.programs.keepassxc = {
     enable = true;
     settings = {
       Browser = {

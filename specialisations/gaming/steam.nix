@@ -12,7 +12,7 @@
     remotePlay.openFirewall = true;
   };
 
-  home-manager.users.primary.xsession.windowManager.i3.extraConfig = ''
+  hjem.users.primary.rum.desktops.i3.commands = ''
     exec --no-startup-id i3-msg 'workspace 1; exec ${lib.getExe config.programs.steam.package}'
   '';
 

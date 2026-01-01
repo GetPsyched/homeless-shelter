@@ -1,5 +1,5 @@
 {
-  programs.zed = {
+  hjem.users.primary.rum.programs.zed = {
     enable = true;
     settings = {
       assistant = {
