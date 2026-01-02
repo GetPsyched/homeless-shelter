@@ -1,5 +1,5 @@
 {
-  programs.atlauncher = {
+  hjem.users.primary.rum.programs.atlauncher = {
     enable = true;
     settings = {
       enableConsole = false;

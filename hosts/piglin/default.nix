@@ -39,9 +39,9 @@
     ../../config/zsh.nix
   ];
 
-  home-manager.users.primary.gtk = {
+  hjem.users.primary.rum.misc.gtk = {
     enable = true;
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    settings.application-prefer-dark-theme = true;
   };
 
   users.users.primary.packages = with pkgs; [

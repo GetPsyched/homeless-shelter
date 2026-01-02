@@ -1,5 +1,5 @@
 {
-  home-manager.users.primary.services.flameshot = {
+  hjem.users.primary.rum.programs.flameshot = {
     enable = true;
     settings = {
       General = {

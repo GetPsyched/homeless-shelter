@@ -5,22 +5,19 @@
   ...
 }:
 {
-  home-manager.users.primary.home.packages = [ pkgs.difftastic ];
-  home-manager.users.primary.programs.git = {
+  hjem.users.primary.packages = [ pkgs.difftastic ];
+  hjem.users.primary.rum.programs.git = {
     enable = true;
 
-    ignores = [
-      "result/"
-    ];
+    integrations.difftastic.enable = true;
+
+    ignore = ''
+      result/
+    '';
 
     settings = {
       user.name = "GetPsyched";
       user.email = "priyanshu@getpsyched.dev";
-
-      # difftastic
-      diff.external = lib.getExe pkgs.difftastic;
-      alias.dl = "log -p --ext-diff";
-      alias.ds = "show --ext-diff";
 
       # signing
       commit.gpgsign = true;
@@ -41,6 +38,10 @@
         # delete branch
         bye = "branch -d";
         nuke = "push origin -d";
+
+        # difftastic
+        dl = "log -p --ext-diff";
+        ds = "show --ext-diff";
       };
       core.fsmonitor = true;
       core.untrackedCache = true;
