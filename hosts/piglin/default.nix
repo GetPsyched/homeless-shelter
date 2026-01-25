@@ -5,7 +5,6 @@
 
     ../../specialisations/gaming
 
-    ../../config/atlauncher.nix
     ../../config/beeper.nix
     ../../config/bluetooth.nix
     ../../config/charachorder.nix

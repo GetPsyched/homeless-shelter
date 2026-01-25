@@ -2,6 +2,7 @@
 {
   specialisation.gaming.configuration = {
     imports = [
+      ./atlauncher.nix
       ./hydra.nix
       ./hytale.nix
       ./steam.nix
