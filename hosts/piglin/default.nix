@@ -53,6 +53,7 @@
     pavucontrol
     peek
     ripgrep
+    sqlite
     sqlitebrowser
     tree
     unzip
