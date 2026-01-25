@@ -2,6 +2,7 @@
 {
   specialisation.gaming.configuration = {
     imports = [
+      ./hydra.nix
       ./hytale.nix
       ./steam.nix
     ];
