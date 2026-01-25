@@ -13,25 +13,25 @@ update:
 # build the configuration
 build:
     #!/bin/sh -e
-    sudo nixos-rebuild build --flake . --option eval-cache false
+    sudo nixos-rebuild build --flake . --option eval-cache false --option builders ''
     rm result
 
 # build the configuration and activate it, but don't add it to the boot menu
 test:
-    @sudo nixos-rebuild test --flake . --option eval-cache false
+    @sudo nixos-rebuild test --flake . --option eval-cache false --option builders ''
 
 # build the configuration, make it the default boot option, and immediately activate it
 switch:
-    @sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD
+    @sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD --option builders ''
 
 # build the configuration, make it the default boot option
 boot:
-    @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD
+    @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD --option builders ''
 
 # build the configuration, make it the default boot option, and reboot
 reboot:
     #!/bin/sh -e
-    sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD
+    sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD --option builders ''
     reboot
 
 # epic fail, rollback to the previous generation
