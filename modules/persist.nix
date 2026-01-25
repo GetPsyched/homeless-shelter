@@ -69,7 +69,6 @@ in
         directories = allDirectories;
         files = allFiles;
         users.primary = {
-          home = "/home/getpsyched";
           directories = allHomeDirectories;
           files = allHomeFiles;
         };

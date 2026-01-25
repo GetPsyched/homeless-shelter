@@ -1,15 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # citrix_workspace was marked broken
-    # see: https://github.com/NixOS/nixpkgs/pull/450065
-    nixpkgs-citrix.url = "github:nixos/nixpkgs/87894d3b7116a8e1c4827d66e17b89099d218c50";
 
     hjem.follows = "hjem-rum/hjem";
     hjem-rum.url = "github:getpsyched/hjr-wrapped/queued";
     hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
+    impermanence.inputs.nixpkgs.follows = "";
+    impermanence.inputs.home-manager.follows = "";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
