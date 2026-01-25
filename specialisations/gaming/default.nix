@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   specialisation.gaming.configuration = {
-    imports = [ ./steam.nix ];
+    imports = [
+      ./hytale.nix
+      ./steam.nix
+    ];
 
     users.users.primary.packages = with pkgs; [
       bottles

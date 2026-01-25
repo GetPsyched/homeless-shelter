@@ -138,6 +138,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-hytale": {
+      "locked": {
+        "lastModified": 1769336962,
+        "narHash": "sha256-i2JEpwAXlAK7hT53owC7gTT77vAeBXkd3JELeuJGuuA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e17a12a70010e445456fb2715f0a5dce98597d00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "refs/pull/479368/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1769018530,
@@ -163,7 +179,8 @@
         "hjem-rum": "hjem-rum",
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-hytale": "nixpkgs-hytale"
       }
     },
     "rust-overlay": {

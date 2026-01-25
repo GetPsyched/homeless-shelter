@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-hytale.url = "github:nixos/nixpkgs/refs/pull/479368/head";
 
     hjem.follows = "hjem-rum/hjem";
     hjem-rum.url = "github:getpsyched/hjr-wrapped/queued";
