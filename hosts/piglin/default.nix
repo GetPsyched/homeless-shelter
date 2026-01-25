@@ -19,6 +19,7 @@
     ../../config/helix.nix
     ../../config/hoppscotch.nix
     ../../config/i3.nix
+    ../../config/jetbrains.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
     ../../config/locale.nix
