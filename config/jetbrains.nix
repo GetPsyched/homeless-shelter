@@ -8,5 +8,5 @@
     ".java"
   ];
 
-  allowUnfreePackages = [ "datagrip" ];
+  nixpkgs.config.allowUnfreePackages = [ "datagrip" ];
 }

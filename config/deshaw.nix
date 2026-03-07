@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  allowUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "citrix-workspace"
     "webex"
   ];

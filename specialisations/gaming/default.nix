@@ -30,5 +30,5 @@
     ];
   };
 
-  allowUnfreePackages = [ "osu-lazer-bin" ];
+  nixpkgs.config.allowUnfreePackages = [ "osu-lazer-bin" ];
 }

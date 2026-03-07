@@ -16,7 +16,7 @@
     exec --no-startup-id i3-msg 'workspace 1; exec ${lib.getExe config.programs.steam.package}'
   '';
 
-  allowUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "steam"
     "steam-unwrapped"
   ];

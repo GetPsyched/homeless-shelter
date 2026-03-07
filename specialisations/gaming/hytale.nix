@@ -7,5 +7,5 @@
     ".local/share/hytale-launcher"
   ];
 
-  allowUnfreePackages = [ "hytale-launcher" ];
+  nixpkgs.config.allowUnfreePackages = [ "hytale-launcher" ];
 }
