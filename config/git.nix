@@ -33,6 +33,7 @@
         co = "checkout";
         epic-fail = "reset --soft HEAD~1";
         fixup = "commit --fixup";
+        ls = "log --oneline";
         squash = "!git reset --soft HEAD~1 && git commit --amend";
 
         # delete branch
