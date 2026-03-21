@@ -16,4 +16,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
   ];
+
+  hjem.users.primary.files.".ICAClient/.eula_accepted".text = "";
 }
