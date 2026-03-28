@@ -11,18 +11,32 @@ update:
     @nix flake update --commit-lock-file
 
 # build the configuration
-build:
+build specialisation="":
     #!/bin/sh -e
-    sudo nixos-rebuild build --flake . --option eval-cache false --option builders ''
+    if [ -z "{{specialisation}}" ]; then
+        sudo nixos-rebuild build --option builders '' --option eval-cache false --flake .
+    else
+        sudo nixos-rebuild build --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
+    fi
     rm result
 
 # build the configuration and activate it, but don't add it to the boot menu
-test:
-    @sudo nixos-rebuild test --flake . --option eval-cache false --option builders ''
+test specialisation="":
+    #!/bin/sh -e
+    if [ -z "{{specialisation}}" ]; then
+        sudo nixos-rebuild switch --option builders '' --option eval-cache false --flake .
+    else
+        sudo nixos-rebuild switch --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
+    fi
 
 # build the configuration, make it the default boot option, and immediately activate it
-switch:
-    @sudo nixos-rebuild switch --flake git+file:$PWD?ref=HEAD --option builders ''
+switch specialisation="":
+    #!/bin/sh -e
+    if [ -z "{{specialisation}}" ]; then
+        sudo nixos-rebuild switch --option builders '' --flake git+file:$PWD?ref=HEAD
+    else
+        sudo nixos-rebuild switch --option builders '' --specialisation {{specialisation}} --flake git+file:$PWD?ref=HEAD
+    fi
 
 # build the configuration, make it the default boot option
 boot:
