@@ -37,7 +37,7 @@
 
     languages.language-server = {
       nixd.command = lib.getExe pkgs.nixd;
-      typescript-language-server.command = lib.getExe pkgs.nodePackages.typescript-language-server;
+      typescript-language-server.command = lib.getExe pkgs.typescript-language-server;
     };
 
     settings = {
