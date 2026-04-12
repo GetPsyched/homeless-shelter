@@ -89,6 +89,7 @@
         }
         // lib.listToAttrs [
           (mkExtension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" { }) # Stylus
+          (mkExtension "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" { }) # Hide shorts
           (mkExtension "@testpilot-containers" { })
           (mkExtension "addon@darkreader.org" { default_area = "navbar"; })
           (mkExtension "amptra@keepa.com" { })
