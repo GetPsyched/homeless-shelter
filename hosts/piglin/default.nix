@@ -65,7 +65,7 @@
       versioning.type = "trashcan";
     };
     "documents" = {
-      path = "${config.users.users.primary.home}/src/documents";
+      path = "${config.users.users.primary.home}/dump/documents";
       type = "sendonly";
       versioning = {
         type = "staggered";
