@@ -9,7 +9,7 @@
     ];
 
     users.users.primary.packages = with pkgs; [
-      bottles
+      # bottles
       gamemode
       heroic
       osu-lazer-bin

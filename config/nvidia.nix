@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfreePackages = [
+    "nvidia-kernel-modules"
     "nvidia-settings"
     "nvidia-x11"
   ];
