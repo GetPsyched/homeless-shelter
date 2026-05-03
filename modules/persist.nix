@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 
@@ -65,6 +66,31 @@ in
       allHomeFiles = takeAll "homeFiles" allBuckets;
     in
     lib.mkIf cfg.enable {
+      systemd.services.cleanupOnBoot = {
+        enable = false;
+        description = "Cleanup directory at boot, excluding whitelisted paths";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "local-fs.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = pkgs.writeShellScript "cleanup-on-boot" ''
+            #!/bin/sh
+
+            WHITELIST=(${lib.concatStringsSep " " (allDirectories ++ allFiles ++ [ "/home" ])})
+            echo $WHITELIST
+            echo BBBBBB
+
+            # Convert array to grep pattern
+            PATTERN=$(printf "|%s" "''${WHITELIST[@]}")
+            PATTERN="''${PATTERN:1}"
+
+            # Run deletion
+            echo "echoing non-whitelisted paths"
+            find "${cfg.root}" | grep -vE "$PATTERN" | xargs echo
+          '';
+        };
+      };
+
       environment.persistence.${cfg.root} = {
         directories = allDirectories;
         files = allFiles;
