@@ -9,6 +9,7 @@
     ../../config/bluetooth.nix
     ../../config/charachorder.nix
     ../../config/core.nix
+    ../../config/cosmic.nix
     ../../config/dconf.nix
     ../../config/deshaw.nix
     ../../config/direnv.nix
@@ -18,7 +19,6 @@
     ../../config/git.nix
     ../../config/helix.nix
     ../../config/hoppscotch.nix
-    ../../config/i3.nix
     ../../config/jetbrains.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
