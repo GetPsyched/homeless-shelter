@@ -1,17 +1,19 @@
+{ lib, pkgs, ... }:
 {
   hjem.users.primary.rum.programs.zed = {
     enable = true;
     settings = {
-      assistant = {
-        version = "1";
-        provider = {
-          default_model = "claude-3-5-sonnet";
-          name = "anthropic";
-          low_speed_timeout_in_seconds = 60;
-        };
+      auto_install_extensions = lib.genAttrs [ "nix" "toml" ] (_: true);
+      disable_ai = true; # I'm broke
+
+      load_direnv = "shell_hook";
+
+      node = {
+        path = lib.getExe pkgs.nodejs;
+        npm_path = lib.getExe' pkgs.nodejs "npm";
       };
-      # Explicitly setting this stops the auto-install of LSPs
-      language_servers = [ ];
+
+      terminal.button = false;
       theme = "Ayu Dark";
     };
   };
