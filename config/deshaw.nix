@@ -15,6 +15,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
+    "qtwebengine-5.15.19"
   ];
 
   hjem.users.primary.files.".ICAClient/.eula_accepted".text = "";
