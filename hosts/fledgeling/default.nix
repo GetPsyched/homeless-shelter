@@ -5,6 +5,7 @@
 
     ../../config/core.nix
     ../../config/immich.nix
+    ../../config/outline.nix
     ../../config/zsh.nix
   ];
 
@@ -24,6 +25,10 @@
     "immich.internal.getpsyched.dev".extraConfig = ''
       encode zstd gzip
       reverse_proxy localhost:${toString config.services.immich.port}
+    '';
+    "pad.getpsyched.dev".extraConfig = ''
+        encode zstd gzip
+      reverse_proxy localhost:${toString config.services.outline.port}
     '';
   };
 
