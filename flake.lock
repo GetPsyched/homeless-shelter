@@ -2,19 +2,21 @@
   "nodes": {
     "hjem": {
       "inputs": {
-        "nix-darwin": "nix-darwin",
+        "nix-darwin": [
+          "hjem-rum",
+          "nix-darwin"
+        ],
         "nixpkgs": [
           "hjem-rum",
           "nixpkgs"
-        ],
-        "smfh": "smfh"
+        ]
       },
       "locked": {
-        "lastModified": 1767318528,
-        "narHash": "sha256-I2zxtEafZbFbqXe71rjqwVeTDv8SIVLaSzQd39SwfwM=",
+        "lastModified": 1777732535,
+        "narHash": "sha256-gaHRkPaGAAjc6D4sZ+/haEKMJGO79tu4ROBlyOjXuco=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "8539013044624a257e8da370069107aea148e985",
+        "rev": "ab977051adce0bf9f7c1032327e72f0febda6f7b",
         "type": "github"
       },
       "original": {
@@ -27,17 +29,18 @@
       "inputs": {
         "hjem": "hjem",
         "ndg": "ndg",
+        "nix-darwin": "nix-darwin",
         "nixpkgs": [
           "nixpkgs"
         ],
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1773115291,
-        "narHash": "sha256-oIuWuqDGVJeA6CpVJAyQ3qEhMzOEBwuVrIlfzhw7DF0=",
+        "lastModified": 1778253372,
+        "narHash": "sha256-IoSmu9kxXiRecab7iYvdHlSXno+s+hPAqJPldktHt+0=",
         "owner": "getpsyched",
         "repo": "hjr-wrapped",
-        "rev": "e75a37bcb75e14a59cb9a75274b0cf306ad3c1c2",
+        "rev": "c7f2861c4a9bdb7879c5261f76e803fd8753b8dd",
         "type": "github"
       },
       "original": {
@@ -89,16 +92,15 @@
       "inputs": {
         "nixpkgs": [
           "hjem-rum",
-          "hjem",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1765065051,
-        "narHash": "sha256-b7W9WsvyMOkUScNxbzS45KEJp0iiqRPyJ1I3JBE+oEE=",
+        "lastModified": 1777780666,
+        "narHash": "sha256-8wURyQMdDkGUarSTKOGdCuFfYiwa3HbzwscUfn3STDE=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "7e22bf538aa3e0937effcb1cee73d5f1bcc26f79",
+        "rev": "8c62fba0854ba15c8917aed18894dbccb48a3777",
         "type": "github"
       },
       "original": {
@@ -181,68 +183,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-hytale": "nixpkgs-hytale"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "hjem-rum",
-          "hjem",
-          "smfh",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1763347184,
-        "narHash": "sha256-6QH8hpCYJxifvyHEYg+Da0BotUn03BwLIvYo3JAxuqQ=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "08895cce80433978d5bfd668efa41c5e24578cbd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "smfh": {
-      "inputs": {
-        "nixpkgs": [
-          "hjem-rum",
-          "hjem",
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay",
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1763430012,
-        "narHash": "sha256-06G7pXUdpMnUqR0JWWvV7sA8oNGOZU1cSLqQS1GMf7Y=",
-        "owner": "feel-co",
-        "repo": "smfh",
-        "rev": "eddda76e3dd4c6deaea5f819f174fc16dbe70f90",
-        "type": "github"
-      },
-      "original": {
-        "owner": "feel-co",
-        "repo": "smfh",
-        "type": "github"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
       }
     },
     "treefmt-nix": {
