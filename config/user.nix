@@ -31,7 +31,6 @@
   hjem = {
     clobberByDefault = true;
     extraModules = [ inputs.hjem-rum.hjemModules.default ];
-    linker = null; # FIXME: hjem thinks my username is `primary`
   };
 
   hjem.users.primary.xdg.data.files."icons/Banana".source =
