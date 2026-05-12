@@ -132,7 +132,7 @@
           }
           {
             Name = "Nixpkgs PR Tracker";
-            URLTemplate = "https://nixpkgs-tracker.ocfox.me?pr={searchTerms}";
+            URLTemplate = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}";
             IconURL = "https://ocfox.me/favicon.ico";
             Alias = "@pr";
           }
