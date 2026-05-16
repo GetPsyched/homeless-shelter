@@ -17,6 +17,7 @@
     ../../config/kitty.nix
     ../../config/locale.nix
     ../../config/networking.nix
+    ../../config/yubikey.nix
     ../../config/zsh.nix
   ];
 

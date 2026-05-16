@@ -32,6 +32,7 @@
     ../../config/tldr.nix
     ../../config/warp.nix
     ../../config/winboat.nix
+    ../../config/yubikey.nix
     ../../config/zed.nix
     ../../config/zoxide.nix
     ../../config/zram.nix

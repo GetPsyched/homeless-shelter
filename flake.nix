@@ -12,6 +12,10 @@
     impermanence.inputs.nixpkgs.follows = "";
     impermanence.inputs.home-manager.follows = "";
 
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.home-manager.follows = "";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -69,7 +73,9 @@
         )
       ) systems;
 
-      nixosConfigurations = mkConfigurations "linux" [ ];
+      nixosConfigurations = mkConfigurations "linux" [
+        inputs.agenix.nixosModules.default
+      ];
 
       overlays = import ./overlays { inherit inputs lib; };
     };
