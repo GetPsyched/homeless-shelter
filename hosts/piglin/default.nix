@@ -33,6 +33,7 @@
     ../../config/thunderbird.nix
     ../../config/tldr.nix
     ../../config/warp.nix
+    ../../config/yubikey.nix
     ../../config/zed.nix
     ../../config/zoxide.nix
     ../../config/zram.nix

@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./agenix.nix
     ./boot.nix
     ./builders.nix
     ./journald.nix
