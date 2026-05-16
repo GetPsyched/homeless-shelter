@@ -5,6 +5,8 @@
   ...
 }: let
   cfg = config.persist;
+
+  hostname = config.networking.hostName;
 in {
   options.persist = let
     inherit (lib) mkEnableOption mkOption;
@@ -57,6 +59,9 @@ in {
     allFiles = takeAll "files" allBuckets;
     allHomeDirectories = takeAll "homeDirectories" allBuckets;
     allHomeFiles = takeAll "homeFiles" allBuckets;
+
+    prefix = paths: map (path: config.users.users.primary.home + "/" + path) paths;
+    concatPaths = bucket: with bucket; directories ++ files ++ prefix homeDirectories ++ prefix homeFiles;
   in
     lib.mkIf cfg.enable {
       environment.persistence.${cfg.root} = {
@@ -66,6 +71,25 @@ in {
           directories = allHomeDirectories;
           files = allHomeFiles;
         };
+      };
+
+      services.restic.backups."${hostname}-archive" = {
+        initialize = true;
+        environmentFile = config.age.secrets.restic-env.path;
+        repository = "s3:https://s3.eu-west-par.io.cloud.ovh.net/young-de-broglie/backups/hosts/${hostname}";
+        passwordFile = config.age.secrets.restic-pass.path;
+        paths = concatPaths cfg.data ++ concatPaths cfg.state;
+        exclude = ["${config.users.users.primary.home}/src"];
+        timerConfig = {
+          OnCalendar = "05:00";
+          RandomizedDelaySec = "1h";
+        };
+      };
+
+      age.secrets.restic-env.file = "${inputs.self}/secrets/restic/env.age";
+      age.secrets.restic-pass = {
+        file = "${inputs.self}/secrets/restic/pass.age";
+        owner = config.services.restic.backups."${hostname}-archive".user;
       };
     };
 }
