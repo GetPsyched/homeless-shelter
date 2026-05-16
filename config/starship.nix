@@ -1,5 +1,5 @@
 {
-  programs.starship = {
+  hjem.users.primary.rum.programs.starship = {
     enable = true;
     settings = {
       format = "$directory$git_branch$character";
