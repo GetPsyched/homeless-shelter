@@ -28,22 +28,24 @@
     "hjem-rum": {
       "inputs": {
         "hjem": "hjem",
-        "nix-darwin": "nix-darwin",
+        "nix-darwin": [
+          "nix-darwin"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1779605555,
-        "narHash": "sha256-vAkxydvwtthcaDuQtyZR80dRhiVcGuO7DF4gZreDbhQ=",
+        "lastModified": 1780916627,
+        "narHash": "sha256-4OMHI2AjzrEfsCmy31TlltcoGQLcyaqO/+BqezzvDZE=",
         "owner": "getpsyched",
         "repo": "hjr-wrapped",
-        "rev": "0cd4ba331283bc999f691b7cae6aceaf39a214ff",
+        "rev": "affe26787064c4a8d472237c76d1b07d27c120d4",
         "type": "github"
       },
       "original": {
         "owner": "getpsyched",
-        "ref": "queued",
+        "ref": "darwin",
         "repo": "hjr-wrapped",
         "type": "github"
       }
@@ -70,16 +72,15 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "hjem-rum",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1779036909,
-        "narHash": "sha256-zXcwYQGCT6pzinK+1dBB2ekTVtfxGZAapb3Evdcu4fY=",
+        "lastModified": 1780795403,
+        "narHash": "sha256-AkWx4Zt9pQbD/f82Z8N57+d0HGLN/rV3gdMKJTpBPKs=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "56c666e108467d87d13508936aade6d567f2a501",
+        "rev": "6a771120d607dcccb279a27d227650e324815c35",
         "type": "github"
       },
       "original": {
@@ -148,6 +149,7 @@
         ],
         "hjem-rum": "hjem-rum",
         "impermanence": "impermanence",
+        "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hytale": "nixpkgs-hytale"

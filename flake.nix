@@ -3,9 +3,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-hytale.url = "github:nixos/nixpkgs/refs/pull/479368/head";
 
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     hjem.follows = "hjem-rum/hjem";
-    hjem-rum.url = "github:getpsyched/hjr-wrapped/queued";
+    hjem-rum.url = "github:getpsyched/hjr-wrapped/darwin";
     hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
+    hjem-rum.inputs.nix-darwin.follows = "nix-darwin";
 
     impermanence.url = "github:nix-community/impermanence";
     impermanence.inputs.nixpkgs.follows = "";
@@ -16,12 +20,18 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      nix-darwin,
+      ...
+    }:
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib;
 
       systems = {
+        aarch64-darwin = [ "mitsuko" ];
         riscv64-linux = [ "drone" ];
         x86_64-linux = [
           "fledgeling"
@@ -36,6 +46,7 @@
         let
           filteredSystems = lib.filterAttrs (system: _: lib.hasSuffix "-${os}" system) systems;
           systemBuilders = {
+            darwin = nix-darwin.lib.darwinSystem;
             linux = nixpkgs.lib.nixosSystem;
           };
         in
@@ -47,7 +58,6 @@
             systemBuilders.${os} {
               modules = [
                 ./hosts/${hostName}
-                ./modules
               ]
               ++ modules;
               specialArgs = {
@@ -68,7 +78,18 @@
         )
       ) systems;
 
-      nixosConfigurations = mkConfigurations "linux" [ ];
+      nixosConfigurations = mkConfigurations "linux" [
+        inputs.hjem.nixosModules.default
+        ./modules/steward/nixos.nix
+      ];
+      darwinConfigurations = mkConfigurations "darwin" [
+        inputs.hjem.darwinModules.default
+        {
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+        }
+        ./modules/steward/darwin.nix
+      ];
 
       overlays = import ./overlays { inherit inputs lib; };
     };

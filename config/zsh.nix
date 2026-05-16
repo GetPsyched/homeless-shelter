@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   hjem.users.primary.rum.programs.zsh = {
     enable = true;
