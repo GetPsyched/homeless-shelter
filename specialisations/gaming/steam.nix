@@ -25,9 +25,8 @@
     ".local/share/applications"
     ".local/share/icons/hicolor"
     ".steam"
-  ]
-  # Games config
-  ++ [
+  ];
+  persist.cache.homeDirectories = [
     ".local/share/Terraria"
   ];
   persist.misc.homeDirectories = [ ".local/share/Steam" ];
