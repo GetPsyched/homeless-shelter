@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
@@ -52,5 +53,23 @@
       ];
       ExecStop = "${config.services.tailscale.package}/bin/tailscale serve clear svc:immich";
     };
+  };
+
+  services.restic.backups.immich = {
+    initialize = true;
+    environmentFile = config.age.secrets.restic-env.path;
+    repository = "s3:https://s3.eu-west-par.io.cloud.ovh.net/young-de-broglie/backups/services/immich";
+    passwordFile = config.age.secrets.restic-pass.path;
+    paths = [config.services.immich.mediaLocation];
+    exclude = [
+      "${config.services.immich.mediaLocation}/encoded-video"
+      "${config.services.immich.mediaLocation}/thumbs"
+    ];
+  };
+
+  age.secrets.restic-env.file = "${inputs.self}/secrets/restic/env.age";
+  age.secrets.restic-pass = {
+    file = "${inputs.self}/secrets/restic/pass.age";
+    owner = config.services.restic.backups.immich.user;
   };
 }
