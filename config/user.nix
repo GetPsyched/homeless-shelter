@@ -32,6 +32,7 @@
     clobberByDefault = true;
     extraModules = [ inputs.hjem-rum.hjemModules.default ];
   };
+  persist.state.directories = [ "/var/lib/hjem" ];
 
   hjem.users.primary.xdg.data.files."icons/Banana".source =
     "${pkgs.banana-cursor}/share/icons/Banana";

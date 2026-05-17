@@ -8,6 +8,7 @@
   imports = [
     ./boot.nix
     ./builders.nix
+    ./journald.nix
     ./nix.nix
     ./ssh.nix
     ./starship.nix
@@ -16,6 +17,7 @@
   ];
 
   persist.cache.directories = [
+    "/root/.cache"
     "/var/cache"
     "/var/tmp"
   ];

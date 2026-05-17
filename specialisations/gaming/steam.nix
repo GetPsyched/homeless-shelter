@@ -27,7 +27,10 @@
     ".steam"
   ];
   persist.cache.homeDirectories = [
+    ".config/StardewValley"
+    ".config/unity3d/Monomi Park/Slime Rancher"
     ".local/share/Terraria"
+    "The Escapists"
   ];
   persist.misc.homeDirectories = [ ".local/share/Steam" ];
 }

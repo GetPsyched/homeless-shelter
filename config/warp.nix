@@ -31,6 +31,9 @@
   };
 
   nixpkgs.config.allowUnfreePackages = [ "cloudflare-warp" ];
-  persist.state.directories = [ "/var/lib/cloudflare-warp" ];
+  persist.state.directories = [
+    "/var/lib/cloudflare-warp"
+    "/var/log/cloudflare-warp"
+  ];
   persist.state.homeFiles = [ ".local/share/warp/accepted-tos.txt" ];
 }

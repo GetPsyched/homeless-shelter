@@ -24,6 +24,8 @@
     xkb.layout = "us";
   };
 
+  persist.state.directories = [ "/var/log/lightdm" ];
+
   hjem.users.primary.rum.desktops.i3 = {
     enable = true;
     commands = ''
