@@ -5,4 +5,5 @@ let
 in
 {
   "tailscale.age".publicKeys = keys;
+  "tailscale-ephemeral.age".publicKeys = keys;
 }
