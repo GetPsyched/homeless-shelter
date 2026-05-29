@@ -1,5 +1,6 @@
 {
   hostName,
+  inputs,
   lib,
   pkgs,
   ...
@@ -26,6 +27,8 @@
       configurationName = hostName;
       volumeID = hostName;
     };
+
+    age.secrets.tailscale.file = lib.mkForce "${inputs.self}/secrets/tailscale-ephemeral.age";
 
     environment.systemPackages = [ pkgs.gparted ];
     users.users.primary.packages = [ pkgs.wifi-qr ];
