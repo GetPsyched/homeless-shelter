@@ -4,6 +4,8 @@ let
   keys = concatLists (attrValues (import ../keys.nix).users) ++ attrValues (import ../keys.nix).hosts;
 in
 {
+  "cloudflare-caddy.age".publicKeys = keys;
+
   "restic/env.age".publicKeys = keys;
   "restic/pass.age".publicKeys = keys;
 
