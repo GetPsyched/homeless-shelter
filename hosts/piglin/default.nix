@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -89,6 +95,12 @@
       };
     };
   };
+
+  services.tailscale = {
+    authKeyFile = config.age.secrets.tailscale.path;
+    extraUpFlags = [ "--advertise-tags=server" ];
+  };
+  age.secrets.tailscale.file = lib.mkForce "${inputs.self}/secrets/tailscale-server.age";
 
   persist.enable = true;
   persist.data.homeDirectories = [
