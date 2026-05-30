@@ -1,4 +1,4 @@
-{ config, hostName, ... }:
+{ hostName, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,16 +16,6 @@
   ];
 
   services.caddy.enable = true;
-  services.caddy.virtualHosts = {
-    "immich.getpsyched.dev".extraConfig = ''
-      encode zstd gzip
-      reverse_proxy localhost:${toString config.services.immich-public-proxy.port}
-    '';
-    "immich.internal.getpsyched.dev".extraConfig = ''
-      encode zstd gzip
-      reverse_proxy localhost:${toString config.services.immich.port}
-    '';
-  };
 
   networking.hostName = hostName;
   networking.hostId = builtins.substring 0 8 (builtins.hashString "md5" hostName);
