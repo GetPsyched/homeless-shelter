@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
 
+    ../../config/caddy.nix
     ../../config/core.nix
     ../../config/immich.nix
     ../../config/zsh.nix
@@ -20,8 +21,6 @@
     80
     443
   ];
-
-  services.caddy.enable = true;
 
   services.tailscale = {
     authKeyFile = config.age.secrets.tailscale.path;
