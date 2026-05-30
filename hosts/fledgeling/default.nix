@@ -1,4 +1,10 @@
-{ hostName, ... }:
+{
+  config,
+  hostName,
+  inputs,
+  lib,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,6 +22,12 @@
   ];
 
   services.caddy.enable = true;
+
+  services.tailscale = {
+    authKeyFile = config.age.secrets.tailscale.path;
+    extraUpFlags = [ "--advertise-tags=server" ];
+  };
+  age.secrets.tailscale.file = lib.mkForce "${inputs.self}/secrets/tailscale-server.age";
 
   networking.hostName = hostName;
   networking.hostId = builtins.substring 0 8 (builtins.hashString "md5" hostName);
