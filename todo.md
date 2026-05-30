@@ -1,0 +1,2 @@
+- Remove mixing of XDG classification and knobs for backup
+  - e.g. not classifying re-generatable state as state to avoid backing it up
