@@ -9,4 +9,5 @@ in
 
   "tailscale.age".publicKeys = keys;
   "tailscale-ephemeral.age".publicKeys = keys;
+  "tailscale-server.age".publicKeys = keys;
 }
