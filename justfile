@@ -64,3 +64,15 @@ flash HOST DISK:
     echo "Copying the ISO to the disk..."
     sudo cp result/iso/{{HOST}}.iso {{DISK}}
     rm result
+
+# spin up the ephemeral phoenix VM that restores Immich from the OVH backup
+restore-immich:
+    #!/bin/sh -e
+    nix build .#nixosConfigurations.phoenix.config.system.build.vm
+    echo "Starting phoenix. Tail the journal with 'journalctl -u immich-restore -f'."
+    echo "Tear down: Ctrl-A x, then 'just teardown-immich'."
+    ./result/bin/run-phoenix-vm
+
+# delete the ephemeral phoenix VM disk so the next 'just restore-immich' starts clean
+teardown-immich:
+    rm -f phoenix.qcow2 result
