@@ -1,5 +1,7 @@
 {
   config,
+  inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -92,6 +94,12 @@
       };
     };
   };
+
+  services.tailscale = {
+    authKeyFile = config.age.secrets.tailscale.path;
+    extraUpFlags = ["--advertise-tags=server"];
+  };
+  age.secrets.tailscale.file = lib.mkForce "${inputs.self}/secrets/tailscale-server.age";
 
   persist.enable = true;
   persist.data.homeDirectories = [
