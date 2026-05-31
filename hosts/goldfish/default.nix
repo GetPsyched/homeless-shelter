@@ -6,10 +6,10 @@
   ...
 }:
 {
+  image.fileName = "${hostName}.iso";
   isoImage = {
     configurationName = hostName;
     edition = "custom";
-    isoName = "${hostName}.iso";
     volumeID = hostName;
   };
 
