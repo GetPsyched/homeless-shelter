@@ -1,21 +1,11 @@
 {
   hostName,
   lib,
-  modulesPath,
   pkgs,
   ...
 }:
 {
-  image.fileName = "${hostName}.iso";
-  isoImage = {
-    configurationName = hostName;
-    edition = "custom";
-    volumeID = hostName;
-  };
-
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
-
     ../../config/core.nix
     ../../config/dconf.nix
     ../../config/direnv.nix
@@ -30,11 +20,19 @@
     ../../config/zsh.nix
   ];
 
-  environment.systemPackages = [ pkgs.gparted ];
-  users.users.primary.packages = [ pkgs.wifi-qr ];
+  image.modules.iso-installer = {
+    image.baseName = lib.mkForce hostName;
+    isoImage = {
+      configurationName = hostName;
+      volumeID = hostName;
+    };
 
-  networking.wireless.enable = lib.mkForce false;
+    environment.systemPackages = [ pkgs.gparted ];
+    users.users.primary.packages = [ pkgs.wifi-qr ];
 
-  # Remove broken zfs backage from the base ISO config
-  boot.supportedFilesystems.zfs = lib.mkForce false;
+    networking.wireless.enable = lib.mkForce false;
+
+    # Remove broken zfs backage from the base ISO config
+    boot.zfs.forceImportRoot = false;
+  };
 }

@@ -59,7 +59,7 @@ yeet:
 # build and flash a configuration ISO into a storage media
 flash HOST DISK:
     #!/bin/sh -e
-    nix build .#nixosConfigurations.{{HOST}}.config.system.build.isoImage
+    nixos-rebuild --option builders '' build-image --image-variant iso-installer --flake .#{{HOST}}
 
     echo "Copying the ISO to the disk..."
     sudo cp result/iso/{{HOST}}.iso {{DISK}}
