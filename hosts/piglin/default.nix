@@ -22,6 +22,7 @@
     ../../config/jetbrains.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
+    ../../config/lanzaboote.nix
     ../../config/locale.nix
     ../../config/logseq.nix
     ../../config/networking.nix

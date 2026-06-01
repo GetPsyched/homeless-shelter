@@ -3,6 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-hytale.url = "github:nixos/nixpkgs/refs/pull/479368/head";
 
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+
     hjem.follows = "hjem-rum/hjem";
     hjem-rum.url = "github:getpsyched/hjr-wrapped/queued";
     hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
