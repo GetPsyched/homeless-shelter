@@ -12,6 +12,7 @@
     impermanence.inputs.home-manager.follows = "";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
