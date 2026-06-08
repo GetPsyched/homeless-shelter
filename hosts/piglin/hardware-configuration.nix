@@ -21,16 +21,14 @@
       availableKernelModules = [
         "xhci_pci"
         "thunderbolt"
-        "vmd"
         "ahci"
         "nvme"
         "usb_storage"
         "usbhid"
         "sd_mod"
       ];
-      luks.devices.cryptroot = {
-        header = "/dev/nvme0n1p2";
-        device = "/dev/nvme0n1p3";
+      luks.devices.encrypted = {
+        device = "/dev/disk/by-partlabel/nixos";
         bypassWorkqueues = true;
       };
       systemd.enable = true;
@@ -50,20 +48,20 @@
       ];
     };
     ${config.boot.loader.efi.efiSysMountPoint} = {
-      device = "/dev/disk/by-uuid/8167-168A";
+      device = "/dev/disk/by-partlabel/boot";
       fsType = "vfat";
       neededForBoot = true;
     };
     "/nix" = {
-      device = "/dev/nvme0n1p4";
+      device = "/dev/mapper/encrypted";
       fsType = "btrfs";
       options = [ "subvol=nix,compress=zstd,noatime" ];
       neededForBoot = true;
     };
     "/persist" = {
-      device = "/dev/nvme0n1p4";
+      device = "/dev/mapper/encrypted";
       fsType = "btrfs";
-      options = [ "compress=zstd,noatime" ];
+      options = [ "subvol=persist,compress=zstd,noatime" ];
       neededForBoot = true;
     };
   };
