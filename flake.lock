@@ -54,15 +54,16 @@
         "nixpkgs": []
       },
       "locked": {
-        "lastModified": 1769548169,
-        "narHash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y=",
+        "lastModified": 1782060642,
+        "narHash": "sha256-t1M9x50jCwdNkNlEjiIDyZNmYuM0f5GD8zMXUz4K+/o=",
         "owner": "nix-community",
         "repo": "impermanence",
-        "rev": "7b1d382faf603b6d264f58627330f9faa5cba149",
+        "rev": "2de9ba65de75b54f30949b426040ccff884981ea",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "refs/pull/329/head",
         "repo": "impermanence",
         "type": "github"
       }

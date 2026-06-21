@@ -8,7 +8,7 @@
     hjem-rum.url = "github:getpsyched/hjr-wrapped/queued";
     hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
 
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence.url = "github:nix-community/impermanence/refs/pull/329/head";
     impermanence.inputs.nixpkgs.follows = "";
     impermanence.inputs.home-manager.follows = "";
 
