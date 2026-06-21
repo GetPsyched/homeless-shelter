@@ -8,9 +8,9 @@
     ../../config/beeper.nix
     ../../config/bluetooth.nix
     ../../config/charachorder.nix
+    ../../config/citrix.nix
     ../../config/core.nix
     ../../config/dconf.nix
-    ../../config/deshaw.nix
     ../../config/direnv.nix
     ../../config/firefox.nix
     ../../config/flameshot.nix
