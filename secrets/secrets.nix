@@ -1,7 +1,13 @@
 let
   inherit (builtins) attrValues concatLists;
 
-  keys = concatLists (attrValues (import ../keys.nix).users) ++ attrValues (import ../keys.nix).hosts;
+  hardware-keys = {
+    yubisneeze-1 = [ "age1yubikey1q0xspu5ujdkutrff6mg0p2z50haye6exh6txqa03jc90l953dzqejx735qx" ];
+  };
+  keys =
+    concatLists (attrValues hardware-keys)
+    ++ (attrValues (import ../keys.nix).users)
+    ++ attrValues (import ../keys.nix).hosts;
 in
 {
   "cloudflare-caddy.age".publicKeys = keys;
