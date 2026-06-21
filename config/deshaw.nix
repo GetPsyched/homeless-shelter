@@ -2,6 +2,7 @@
 {
   nixpkgs.config.allowUnfreePackages = [
     "citrix-workspace"
+    "linuxx64"
     "webex"
   ];
   persist.state.homeDirectories = [
@@ -9,12 +10,8 @@
     ".local/share/Webex"
   ];
   users.users.primary.packages = with pkgs; [
-    citrix_workspace
+    citrix-workspace
     webex
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
   ];
 
   hjem.users.primary.files.".ICAClient/.eula_accepted".text = "";

@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-hytale.url = "github:nixos/nixpkgs/refs/pull/479368/head";
 
     hjem.follows = "hjem-rum/hjem";
@@ -12,6 +13,7 @@
     impermanence.inputs.home-manager.follows = "";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
