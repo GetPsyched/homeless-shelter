@@ -209,8 +209,8 @@
     };
   };
 
-  persist.state.homeDirectories = [ ".mozilla/firefox/primary" ];
-  persist.state.homeFiles = [ ".mozilla/firefox/profiles.ini" ];
+  persist.state.homeDirectories = [ ".config/mozilla/firefox/primary" ];
+  persist.state.homeFiles = [ ".config/mozilla/firefox/profiles.ini" ];
 
   # just in case
   users.users.primary.packages = [ pkgs.ungoogled-chromium ];
