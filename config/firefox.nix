@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   hjem.users.primary.xdg.mime-apps.default-applications = {
     "text/html" = "firefox.desktop";
@@ -209,8 +214,15 @@
     };
   };
 
-  persist.state.homeDirectories = [ ".config/mozilla/firefox/primary" ];
-  persist.state.homeFiles = [ ".config/mozilla/firefox/profiles.ini" ];
+  hjem.users.primary.rum.programs.firefox = {
+    enable = true;
+    package = null;
+    profiles.primary = { };
+  };
+
+  persist.state.homeDirectories = map (p: ".config/mozilla/firefox/${p.path}") (
+    builtins.attrValues config.hjem.users.primary.rum.programs.firefox.profiles
+  );
 
   # just in case
   users.users.primary.packages = [ pkgs.ungoogled-chromium ];

@@ -34,11 +34,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779605555,
-        "narHash": "sha256-vAkxydvwtthcaDuQtyZR80dRhiVcGuO7DF4gZreDbhQ=",
+        "lastModified": 1782242285,
+        "narHash": "sha256-YPHKUa1oC2klRQRV9gNYiwzY7ZNAEObRcoDrnJCj4Uo=",
         "owner": "getpsyched",
         "repo": "hjr-wrapped",
-        "rev": "0cd4ba331283bc999f691b7cae6aceaf39a214ff",
+        "rev": "067c7e8a389aab2df0947695feb3bb490109f63c",
         "type": "github"
       },
       "original": {
