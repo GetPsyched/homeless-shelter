@@ -8,7 +8,6 @@
     ];
 
     users.users.primary.packages = with pkgs; [
-      # bottles
       gamemode
       heroic
       osu-lazer-bin
@@ -19,12 +18,10 @@
     ];
     persist.state.homeDirectories = [
       ".config/heroic"
-      ".local/share/bottles"
       ".local/share/wineprefixes"
     ];
     persist.misc.homeDirectories = [
       ".heroic"
-      "bottles"
       "games"
     ];
   };
