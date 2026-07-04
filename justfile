@@ -4,49 +4,25 @@ default:
 
 # list all existing generations
 list:
-    @nixos-rebuild list-generations
+    @sudo darwin-rebuild --list-generations
 
 # update the commit hashes in flake.lock
 update:
     @nix flake update --commit-lock-file
 
 # build the configuration
-build specialisation="":
+build:
     #!/bin/sh -e
-    if [ -z "{{specialisation}}" ]; then
-        sudo nixos-rebuild build --option builders '' --option eval-cache false --flake .
-    else
-        sudo nixos-rebuild build --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
-    fi
+    sudo darwin-rebuild build --option builders '' --option eval-cache false --flake .
     rm result
 
 # build the configuration and activate it, but don't add it to the boot menu
-test specialisation="":
-    #!/bin/sh -e
-    if [ -z "{{specialisation}}" ]; then
-        sudo nixos-rebuild switch --option builders '' --option eval-cache false --flake .
-    else
-        sudo nixos-rebuild switch --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
-    fi
+test:
+    @sudo darwin-rebuild check --option builders '' --option eval-cache false --flake .
 
 # build the configuration, make it the default boot option, and immediately activate it
-switch specialisation="":
-    #!/bin/sh -e
-    if [ -z "{{specialisation}}" ]; then
-        sudo nixos-rebuild switch --option builders '' --flake git+file:$PWD?ref=HEAD
-    else
-        sudo nixos-rebuild switch --option builders '' --specialisation {{specialisation}} --flake git+file:$PWD?ref=HEAD
-    fi
-
-# build the configuration, make it the default boot option
-boot:
-    @sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD --option builders ''
-
-# build the configuration, make it the default boot option, and reboot
-reboot:
-    #!/bin/sh -e
-    sudo nixos-rebuild boot --flake git+file:$PWD?ref=HEAD --option builders ''
-    reboot
+switch:
+    @sudo darwin-rebuild switch --option builders '' --flake git+file:$PWD?ref=HEAD
 
 # epic fail, rollback to the previous generation
 rollback:
