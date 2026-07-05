@@ -5,6 +5,7 @@
 
     ../../specialisations/gaming
 
+    ../../config/actualbudget.nix
     ../../config/beeper.nix
     ../../config/bluetooth.nix
     ../../config/charachorder.nix
