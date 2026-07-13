@@ -34,7 +34,7 @@ in
         "notes" = {
           id = "hkce6-tvhkf";
           label = "notes";
-          devices = builtins.attrNames devices;
+          devices = [ "offset" ];
         };
       };
     };
