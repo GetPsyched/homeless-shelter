@@ -8,6 +8,7 @@
         showDesktopNotification = false;
         showStartupLaunchMessage = false;
         uploadWithoutConfirmation = true;
+        useX11LegacyScreenshot = true;
       };
     };
   };
