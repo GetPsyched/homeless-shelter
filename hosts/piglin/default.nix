@@ -32,7 +32,6 @@
     ../../config/thunderbird.nix
     ../../config/tldr.nix
     ../../config/warp.nix
-    ../../config/winboat.nix
     ../../config/zed.nix
     ../../config/zoxide.nix
     ../../config/zram.nix
