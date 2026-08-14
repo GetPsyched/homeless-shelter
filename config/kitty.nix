@@ -10,6 +10,7 @@
       font_family = "RobotoMono";
       map = [
         "ctrl+backspace send_text all \\x17"
+        "ctrl+l clear_terminal to_cursor_scroll active"
         "ctrl+shift+t new_tab_with_cwd"
       ];
     };
