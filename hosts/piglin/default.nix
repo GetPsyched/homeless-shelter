@@ -20,6 +20,7 @@
     ../../config/helix.nix
     ../../config/hoppscotch.nix
     ../../config/i3.nix
+    ../../config/immich.nix
     ../../config/jetbrains.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix

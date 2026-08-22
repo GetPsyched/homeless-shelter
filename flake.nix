@@ -25,7 +25,6 @@
       systems = {
         riscv64-linux = [ "drone" ];
         x86_64-linux = [
-          "fledgeling"
           "goldfish"
           "piglin"
           "potato"
