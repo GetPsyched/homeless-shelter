@@ -5,6 +5,11 @@
   #   pyside6-essentials = (pkgs.python311Packages.callPackage ../packages/pyside6-essentials.nix { });
   # };
 
+  gpgme_1 = pkgs.callPackage ./gpgme.nix { };
+  citrix-secure-access = pkgs.callPackage ./citrix-secure-access.nix { };
+  citrix-endpoint-analysis-unwrapped = pkgs.callPackage ./citrix-endpoint-analysis-unwrapped.nix { };
+  citrix-endpoint-analysis = pkgs.callPackage ./citrix-endpoint-analysis.nix { };
+
   wifi-qr = pkgs.writeShellApplication {
     name = "wifi-qr";
     runtimeInputs = with pkgs; [
