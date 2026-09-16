@@ -17,6 +17,9 @@
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       ZSH_AUTOSUGGEST_STRATEGY=(history)
 
+      bindkey '\e[1;5D' backward-word
+      bindkey '\e[1;5C' forward-word
+
       autoload -Uz zmv
     '';
   };
