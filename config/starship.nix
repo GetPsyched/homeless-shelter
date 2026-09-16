@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       format = "$directory$git_branch$character";
-      right_format = "$cmd_duration$time$nix_shell";
+      right_format = "$cmd_duration$time";
       cmd_duration.min_time = 0;
       git_branch = {
         format = "\\([$branch](purple)\\) ";
