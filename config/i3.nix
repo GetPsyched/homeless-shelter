@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.displayManager = {
     enable = true;
     autoLogin.enable = true;
@@ -24,119 +23,126 @@
     xkb.layout = "us";
   };
 
-  persist.state.directories = [ "/var/log/lightdm" ];
+  persist.state.directories = ["/var/log/lightdm"];
 
   hjem.users.primary.rum.desktops.i3 = {
     enable = true;
-    commands = ''
-      set $mod mod4
+    commands =
+      ''
+        set $mod mod4
 
-      font pango:monospace 8.000000
-      workspace_layout tabbed
-      focus_on_window_activation focus
-
-      # Borders
-      default_border none
-      hide_edge_borders both
-
-      # Binding modes - Resizing windows
-      bindsym $mod+r mode "resize"
-      mode "resize" {
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-
-        bindsym Escape mode "default"
-        bindsym Return mode "default"
-      }
-
-      # Floating windows
-      bindsym $mod+Shift+space floating toggle
-      floating_modifier $mod
-      default_floating_border normal 2
-
-      # Key bindings - Applications
-      bindsym $mod+Return exec ${lib.getExe config.hjem.users.primary.rum.programs.kitty.package}
-      bindsym Print exec ${lib.getExe config.hjem.users.primary.rum.programs.flameshot.package} gui
-
-      # Key bindings - Brightness
-      bindsym XF86MonBrightnessDown exec ${lib.getExe pkgs.brightnessctl} --min-value=2 -e set 5%-
-      bindsym XF86MonBrightnessUp exec ${lib.getExe pkgs.brightnessctl} -e set +5%
-
-      # Key bindings - Focus
-      bindsym $mod+space focus mode_toggle
-      bindsym $mod+Down focus down
-      bindsym $mod+Left focus left
-      bindsym $mod+Right focus right
-      bindsym $mod+Up focus up
-      bindsym $mod+a focus parent
-
-      # Key bindings - i3 session
-      bindsym $mod+Shift+r restart
-      bindsym $mod+Shift+c reload
-
-      # Key bindings - Layout
-      bindsym $mod+h split h
-      bindsym $mod+v split v
-      bindsym $mod+s layout stacking
-      bindsym $mod+e layout toggle split
-      bindsym $mod+w layout tabbed
-      bindsym $mod+Shift+Down move down
-      bindsym $mod+Shift+Left move left
-      bindsym $mod+Shift+Right move right
-      bindsym $mod+Shift+Up move up
-
-      # Key bindings - Media
-      bindsym XF86AudioLowerVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ -10%
-      bindsym XF86AudioMicMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-source-mute @DEFAULT_SOURCE@ toggle
-      bindsym XF86AudioMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-mute @DEFAULT_SINK@ toggle
-      bindsym XF86AudioNext exec ${lib.getExe pkgs.playerctl} next
-      bindsym XF86AudioPlay exec ${lib.getExe pkgs.playerctl} play-pause
-      bindsym XF86AudioPrev exec ${lib.getExe pkgs.playerctl} previous
-      bindsym XF86AudioRaiseVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ +10%
-
-      # Key bindings - Misc. Shortcuts
-      bindsym $mod+Shift+q kill
-      bindsym $mod+f fullscreen toggle
-      bindsym Mod1+Tab workspace back_and_forth
-
-      # Key bindings - Rofi
-      bindsym $mod+d exec ${lib.getExe pkgs.rofi} -show drun -hover-select -me-select-entry ''' -me-accept-entry MousePrimary -config ${./rofi/config.rasi}
-      bindsym $mod+q exec ${lib.getExe pkgs.rofi} -show power-menu -modi power-menu:${./rofi/power-menu.sh} -config ${./rofi/power-menu.rasi}
-
-      # Key bindings - Workspaces
-      ${lib.concatStrings (
-        map (n: ''
-          bindsym $mod+${toString n} workspace number ${if n == 0 then "10" else toString n}
-          bindsym $mod+Shift+${toString n} move container to workspace number ${
-            if n == 0 then "10" else toString n
-          }
-        '') (builtins.genList (i: i) 10)
-      )}
-
-      # Status bars
-      bar {
-        colors {
-          background #000000
-          statusline #ffffff
-          separator #666666
-          focused_workspace #4c7899 #285577 #ffffff
-          active_workspace #333333 #5f676a #ffffff
-          inactive_workspace #333333 #222222 #888888
-          urgent_workspace #2f343a #900000 #ffffff
-          binding_mode #2f343a #900000 #ffffff
-        }
         font pango:monospace 8.000000
-        i3bar_command ${lib.getExe' config.hjem.users.primary.rum.desktops.i3.package "i3bar"}
-        mode hide
-        status_command ${lib.getExe pkgs.i3status}
-        tray_output primary
-      }
-    ''
-    + lib.optionalString (config.specialisation != { }) ''
-      exec --no-startup-id i3-msg 'workspace 1; exec firefox' # its module doesn't expose the overridden package
-    '';
+        workspace_layout tabbed
+        focus_on_window_activation focus
+
+        # Borders
+        default_border none
+        hide_edge_borders both
+
+        # Binding modes - Resizing windows
+        bindsym $mod+r mode "resize"
+        mode "resize" {
+          bindsym Down resize grow height 10 px or 10 ppt
+          bindsym Left resize shrink width 10 px or 10 ppt
+          bindsym Right resize grow width 10 px or 10 ppt
+          bindsym Up resize shrink height 10 px or 10 ppt
+
+          bindsym Escape mode "default"
+          bindsym Return mode "default"
+        }
+
+        # Floating windows
+        bindsym $mod+Shift+space floating toggle
+        floating_modifier $mod
+        default_floating_border normal 2
+
+        # Key bindings - Applications
+        bindsym $mod+Return exec ${lib.getExe config.hjem.users.primary.rum.programs.kitty.package}
+        bindsym Print exec ${lib.getExe config.hjem.users.primary.rum.programs.flameshot.package} gui
+
+        # Key bindings - Brightness
+        bindsym XF86MonBrightnessDown exec ${lib.getExe pkgs.brightnessctl} --min-value=2 -e set 5%-
+        bindsym XF86MonBrightnessUp exec ${lib.getExe pkgs.brightnessctl} -e set +5%
+
+        # Key bindings - Focus
+        bindsym $mod+space focus mode_toggle
+        bindsym $mod+Down focus down
+        bindsym $mod+Left focus left
+        bindsym $mod+Right focus right
+        bindsym $mod+Up focus up
+        bindsym $mod+a focus parent
+
+        # Key bindings - i3 session
+        bindsym $mod+Shift+r restart
+        bindsym $mod+Shift+c reload
+
+        # Key bindings - Layout
+        bindsym $mod+h split h
+        bindsym $mod+v split v
+        bindsym $mod+s layout stacking
+        bindsym $mod+e layout toggle split
+        bindsym $mod+w layout tabbed
+        bindsym $mod+Shift+Down move down
+        bindsym $mod+Shift+Left move left
+        bindsym $mod+Shift+Right move right
+        bindsym $mod+Shift+Up move up
+
+        # Key bindings - Media
+        bindsym XF86AudioLowerVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ -10%
+        bindsym XF86AudioMicMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-source-mute @DEFAULT_SOURCE@ toggle
+        bindsym XF86AudioMute exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-mute @DEFAULT_SINK@ toggle
+        bindsym XF86AudioNext exec ${lib.getExe pkgs.playerctl} next
+        bindsym XF86AudioPlay exec ${lib.getExe pkgs.playerctl} play-pause
+        bindsym XF86AudioPrev exec ${lib.getExe pkgs.playerctl} previous
+        bindsym XF86AudioRaiseVolume exec ${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-volume @DEFAULT_SINK@ +10%
+
+        # Key bindings - Misc. Shortcuts
+        bindsym $mod+Shift+q kill
+        bindsym $mod+f fullscreen toggle
+        bindsym Mod1+Tab workspace back_and_forth
+
+        # Key bindings - Rofi
+        bindsym $mod+d exec ${lib.getExe pkgs.rofi} -show drun -hover-select -me-select-entry ''' -me-accept-entry MousePrimary -config ${./rofi/config.rasi}
+        bindsym $mod+q exec ${lib.getExe pkgs.rofi} -show power-menu -modi power-menu:${./rofi/power-menu.sh} -config ${./rofi/power-menu.rasi}
+
+        # Key bindings - Workspaces
+        ${lib.concatStrings (
+          map (n: ''
+            bindsym $mod+${toString n} workspace number ${
+              if n == 0
+              then "10"
+              else toString n
+            }
+            bindsym $mod+Shift+${toString n} move container to workspace number ${
+              if n == 0
+              then "10"
+              else toString n
+            }
+          '') (builtins.genList (i: i) 10)
+        )}
+
+        # Status bars
+        bar {
+          colors {
+            background #000000
+            statusline #ffffff
+            separator #666666
+            focused_workspace #4c7899 #285577 #ffffff
+            active_workspace #333333 #5f676a #ffffff
+            inactive_workspace #333333 #222222 #888888
+            urgent_workspace #2f343a #900000 #ffffff
+            binding_mode #2f343a #900000 #ffffff
+          }
+          font pango:monospace 8.000000
+          i3bar_command ${lib.getExe' config.hjem.users.primary.rum.desktops.i3.package "i3bar"}
+          mode hide
+          status_command ${lib.getExe pkgs.i3status}
+          tray_output primary
+        }
+      ''
+      + lib.optionalString (config.specialisation != {}) ''
+        exec --no-startup-id i3-msg 'workspace 1; exec firefox' # its module doesn't expose the overridden package
+      '';
   };
 
   hjem.users.primary.rum.programs = {

@@ -3,9 +3,8 @@
   inputs,
   pkgs,
   ...
-}:
-{
-  imports = [ inputs.hjem.nixosModules.default ];
+}: {
+  imports = [inputs.hjem.nixosModules.default];
 
   users.mutableUsers = false;
   users.users.root.openssh.authorizedKeys.keys =
@@ -30,16 +29,15 @@
 
   hjem = {
     clobberByDefault = true;
-    extraModules = [ inputs.hjem-rum.hjemModules.default ];
+    extraModules = [inputs.hjem-rum.hjemModules.default];
   };
-  persist.state.directories = [ "/var/lib/hjem" ];
+  persist.state.directories = ["/var/lib/hjem"];
 
-  hjem.users.primary.xdg.data.files."icons/Banana".source =
-    "${pkgs.banana-cursor}/share/icons/Banana";
+  hjem.users.primary.xdg.data.files."icons/Banana".source = "${pkgs.banana-cursor}/share/icons/Banana";
   hjem.users.primary.files.".Xresources".text = ''
     Xcursor.theme: Banana
     Xcursor.size: 48
   '';
 
-  persist.cache.homeDirectories = [ ".cache" ];
+  persist.cache.homeDirectories = [".cache"];
 }

@@ -3,67 +3,61 @@
   inputs,
   lib,
   ...
-}:
-
-let
+}: let
   cfg = config.persist;
-in
-{
-  options.persist =
-    let
-      inherit (lib) mkEnableOption mkOption;
-      inherit (lib.types) listOf path str;
+in {
+  options.persist = let
+    inherit (lib) mkEnableOption mkOption;
+    inherit (lib.types) listOf path str;
 
-      common = {
-        directories = mkOption {
-          type = listOf str;
-          default = [ ];
-        };
-        files = mkOption {
-          type = listOf str;
-          default = [ ];
-        };
-        homeDirectories = mkOption {
-          type = listOf str;
-          default = [ ];
-        };
-        homeFiles = mkOption {
-          type = listOf str;
-          default = [ ];
-        };
+    common = {
+      directories = mkOption {
+        type = listOf str;
+        default = [];
       };
-    in
-    {
-      enable = mkEnableOption "persistence";
-
-      root = mkOption {
-        type = path;
-        default = "/persist";
+      files = mkOption {
+        type = listOf str;
+        default = [];
       };
+      homeDirectories = mkOption {
+        type = listOf str;
+        default = [];
+      };
+      homeFiles = mkOption {
+        type = listOf str;
+        default = [];
+      };
+    };
+  in {
+    enable = mkEnableOption "persistence";
 
-      data = common;
-      state = common;
-      cache = common;
-      misc = common;
+    root = mkOption {
+      type = path;
+      default = "/persist";
     };
 
-  imports = [ inputs.impermanence.nixosModules.impermanence ];
+    data = common;
+    state = common;
+    cache = common;
+    misc = common;
+  };
 
-  config =
-    let
-      takeAll = attr: lib.concatMap (attrSet: attrSet.${attr});
+  imports = [inputs.impermanence.nixosModules.impermanence];
 
-      allBuckets = with cfg; [
-        data
-        state
-        cache
-        misc
-      ];
-      allDirectories = takeAll "directories" allBuckets;
-      allFiles = takeAll "files" allBuckets;
-      allHomeDirectories = takeAll "homeDirectories" allBuckets;
-      allHomeFiles = takeAll "homeFiles" allBuckets;
-    in
+  config = let
+    takeAll = attr: lib.concatMap (attrSet: attrSet.${attr});
+
+    allBuckets = with cfg; [
+      data
+      state
+      cache
+      misc
+    ];
+    allDirectories = takeAll "directories" allBuckets;
+    allFiles = takeAll "files" allBuckets;
+    allHomeDirectories = takeAll "homeDirectories" allBuckets;
+    allHomeFiles = takeAll "homeFiles" allBuckets;
+  in
     lib.mkIf cfg.enable {
       environment.persistence.${cfg.root} = {
         directories = allDirectories;

@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  users.users.primary.packages = [ pkgs.hoppscotch ];
+{pkgs, ...}: {
+  users.users.primary.packages = [pkgs.hoppscotch];
 
   programs.firefox.policies.ExtensionSettings."postwoman-firefox@postwoman.io" = {
     installation_mode = "force_installed";

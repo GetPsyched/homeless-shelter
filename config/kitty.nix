@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   hjem.users.primary.rum.programs.kitty = {
     enable = true;
 

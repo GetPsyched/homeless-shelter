@@ -1,3 +1,3 @@
 {
-  persist.state.directories = [ "/var/log/journal" ];
+  persist.state.directories = ["/var/log/journal"];
 }

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.immich = {
     enable = true;
     host = "0.0.0.0";
@@ -8,7 +7,7 @@
       server.externalDomain = "https://immich.getpsyched.dev";
     };
   };
-  persist.data.directories = [ config.services.immich.mediaLocation ];
+  persist.data.directories = [config.services.immich.mediaLocation];
 
   # FIXME https://github.com/tailscale/tailscale/issues/18381
   # services.tailscale.serve.enable = true;
@@ -18,12 +17,12 @@
 
   systemd.services.immich-tailscale-serve = {
     description = "Tailscale Service proxy for Immich";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     after = [
       "immich-server.service"
       "tailscaled.service"
     ];
-    requires = [ "tailscaled.service" ];
+    requires = ["tailscaled.service"];
 
     serviceConfig = {
       Type = "oneshot";

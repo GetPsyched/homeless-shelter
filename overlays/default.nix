@@ -1,6 +1,5 @@
-{ inputs, ... }:
-{
-  additions = final: _prev: import ../packages { pkgs = final; };
+{inputs, ...}: {
+  additions = final: _prev: import ../packages {pkgs = final;};
 
   modifications = final: prev: {
     hytale-launcher =

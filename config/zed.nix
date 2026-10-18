@@ -11,10 +11,10 @@
         };
       };
       # Explicitly setting this stops the auto-install of LSPs
-      language_servers = [ ];
+      language_servers = [];
       theme = "Ayu Dark";
     };
   };
 
-  persist.state.homeDirectories = [ ".local/share/zed" ];
+  persist.state.homeDirectories = [".local/share/zed"];
 }

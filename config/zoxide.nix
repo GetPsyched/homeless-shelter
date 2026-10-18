@@ -1,7 +1,7 @@
 {
   hjem.users.primary.rum.programs.zoxide = {
     enable = true;
-    flags = [ "--cmd cd" ];
+    flags = ["--cmd cd"];
   };
-  persist.state.homeDirectories = [ ".local/share/zoxide" ];
+  persist.state.homeDirectories = [".local/share/zoxide"];
 }

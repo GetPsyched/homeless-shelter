@@ -4,7 +4,7 @@
 
     settings = {
       global.warn_timeout = "0s";
-      whitelist.prefix = [ "~/src" ];
+      whitelist.prefix = ["~/src"];
     };
 
     direnvrc = ''
@@ -21,5 +21,5 @@
     '';
   };
 
-  persist.cache.homeDirectories = [ ".cache/direnv/layouts" ];
+  persist.cache.homeDirectories = [".cache/direnv/layouts"];
 }

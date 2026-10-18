@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   hjem.users.primary.rum.programs.fzf = {
     enable = true;
     env = {

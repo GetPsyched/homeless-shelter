@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   hjem.users.primary.environment.sessionVariables.EDITOR =
     lib.getExe config.hjem.users.primary.rum.programs.helix.package;
 
@@ -14,7 +13,7 @@
     languages.language = [
       {
         name = "git-commit";
-        rulers = [ 80 ];
+        rulers = [80];
       }
       {
         name = "markdown";
@@ -26,7 +25,7 @@
         name = "nix";
         auto-format = true;
         formatter.command = lib.getExe pkgs.alejandra;
-        language-servers = [ "nixd" ];
+        language-servers = ["nixd"];
       }
       {
         name = "typescript";

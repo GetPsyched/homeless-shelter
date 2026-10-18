@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   specialisation.gaming.configuration = {
     imports = [
       ./atlauncher.nix
@@ -26,5 +25,5 @@
     ];
   };
 
-  nixpkgs.config.allowUnfreePackages = [ "osu-lazer-bin" ];
+  nixpkgs.config.allowUnfreePackages = ["osu-lazer-bin"];
 }

@@ -11,5 +11,5 @@
     };
   };
 
-  persist.misc.homeDirectories = [ ".local/share/ATLauncher" ];
+  persist.misc.homeDirectories = [".local/share/ATLauncher"];
 }

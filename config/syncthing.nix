@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   devices = {
     "brick".id = "SP2DQUY-XEVHP57-TOSHPSI-7OEZQUS-KZU2JD6-6XDCB5S-RFVQJCZ-2DCGMAP";
     "offset".id = "S5ZTTSP-KCYWBKD-57JVIEY-VS3ZSTD-BPI2Z53-W7GXATT-NJJG6N5-UTO2MQ5";
@@ -8,9 +10,8 @@ let
     "s10plus".id = "N7A42Q4-GRDD3WR-4MLVLYK-2IIGL7I-Z73RJJ5-LJWVSTZ-Q2KOC4G-PSAX3AW";
     "redmi15".id = "5ZLLWMB-IBIF4AB-FKPJFF7-NW3TDDV-RMVPVGG-QQDNEW3-M6ZQ42K-J2NW6QZ";
   };
-in
-{
-  environment.systemPackages = [ pkgs.syncthing ];
+in {
+  environment.systemPackages = [pkgs.syncthing];
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
@@ -25,7 +26,7 @@ in
         "aegis" = {
           id = "vbv22-v1s0v";
           label = "aegis";
-          devices = [ "offset" ];
+          devices = ["offset"];
         };
         "documents" = {
           id = "neany-xwfew";
@@ -35,11 +36,11 @@ in
         "notes" = {
           id = "hkce6-tvhkf";
           label = "notes";
-          devices = [ "offset" ];
+          devices = ["offset"];
         };
       };
     };
   };
-  persist.data.homeDirectories = [ ".local/share/syncthing" ];
-  persist.state.homeDirectories = [ ".config/syncthing" ];
+  persist.data.homeDirectories = [".local/share/syncthing"];
+  persist.state.homeDirectories = [".config/syncthing"];
 }

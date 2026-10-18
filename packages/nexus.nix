@@ -6,7 +6,6 @@
   makeDesktopItem,
   python,
   pythonOlder,
-
   # dependencies
   cryptography,
   pynput,
@@ -15,58 +14,53 @@
   pyside6-essentials,
   requests,
   setuptools,
-
   # tests
   flake8,
   pytest,
   pytest-cov,
   xvfb-run,
-}:
-
-let
+}: let
   pname = "nexus";
   version = "0.5.1";
 in
-buildPythonApplication {
-  inherit pname version;
-  format = "pyproject";
+  buildPythonApplication {
+    inherit pname version;
+    format = "pyproject";
 
-  src = fetchFromGitHub {
-    owner = "CharaChorder";
-    repo = "nexus";
-    rev = "v${version}";
-    sha256 = "sha256-Db9XNFRlJ7HgAt57dn2Yhy4HByw9nuQW41oj+4aOPQ0=";
-  };
+    src = fetchFromGitHub {
+      owner = "CharaChorder";
+      repo = "nexus";
+      rev = "v${version}";
+      sha256 = "sha256-Db9XNFRlJ7HgAt57dn2Yhy4HByw9nuQW41oj+4aOPQ0=";
+    };
 
-  disabled = pythonOlder "3.11";
+    disabled = pythonOlder "3.11";
 
-  nativeBuildInputs = [
-    copyDesktopItems
-    pyside6-essentials
-  ];
+    nativeBuildInputs = [
+      copyDesktopItems
+      pyside6-essentials
+    ];
 
-  dependencies = [
-    cryptography
-    pynput
-    pyserial
-    pyside6
-    requests
-    setuptools
-  ];
+    dependencies = [
+      cryptography
+      pynput
+      pyserial
+      pyside6
+      requests
+      setuptools
+    ];
 
-  nativeCheckInputs = [
-    flake8
-    pytest
-    pytest-cov
-    xvfb-run
-  ];
+    nativeCheckInputs = [
+      flake8
+      pytest
+      pytest-cov
+      xvfb-run
+    ];
 
-  preBuild =
-    let
+    preBuild = let
       sitePackages = "$out/${python.sitePackages}";
       packageDir = "${sitePackages}/${pname}";
-    in
-    ''
+    in ''
       mkdir -p ${packageDir}/{translations,ui}
 
       for file in ui/*.ui; do
@@ -84,46 +78,46 @@ buildPythonApplication {
       done
     '';
 
-  postInstall = ''
-    install -D -m444 ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
-  '';
+    postInstall = ''
+      install -D -m444 ui/images/icon.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
+    '';
 
-  checkPhase = ''
-    runHook preCheck
+    checkPhase = ''
+      runHook preCheck
 
-    # The following line tries to access the filesystem:
-    # https://github.com/CharaChorder/nexus/blob/v0.5.1/nexus/Freqlog/Definitions.py#L41
-    # Imported here:
-    # https://github.com/CharaChorder/nexus/blob/v0.5.1/tests/Freqlog/backends/SQLite/test_SQLiteBackend.py#L6
-    export HOME=$TMPDIR
+      # The following line tries to access the filesystem:
+      # https://github.com/CharaChorder/nexus/blob/v0.5.1/nexus/Freqlog/Definitions.py#L41
+      # Imported here:
+      # https://github.com/CharaChorder/nexus/blob/v0.5.1/tests/Freqlog/backends/SQLite/test_SQLiteBackend.py#L6
+      export HOME=$TMPDIR
 
-    xvfb-run pytest
+      xvfb-run pytest
 
-    runHook postCheck
-  '';
+      runHook postCheck
+    '';
 
-  desktopItems = [
-    (makeDesktopItem {
-      comment = "CharaChorder's logging and analysis desktop app";
-      desktopName = "Nexus";
-      exec = "nexus";
-      icon = pname;
-      name = pname;
-      startupNotify = true;
-      startupWMClass = pname;
-      terminal = false;
-      type = "Application";
-    })
-  ];
+    desktopItems = [
+      (makeDesktopItem {
+        comment = "CharaChorder's logging and analysis desktop app";
+        desktopName = "Nexus";
+        exec = "nexus";
+        icon = pname;
+        name = pname;
+        startupNotify = true;
+        startupWMClass = pname;
+        terminal = false;
+        type = "Application";
+      })
+    ];
 
-  meta = {
-    description = "CharaChorder's all-in-one desktop app";
-    downloadPage = "https://github.com/CharaChorder/nexus/releases/tag/v${version}";
-    homepage = "https://github.com/CharaChorder/nexus/";
-    license = lib.licenses.agpl3Only;
-    maintainers = with lib.maintainers; [ getpsyched ];
-    mainProgram = "nexus";
-    platforms = lib.platforms.linux;
-    sourceProvenance = [ lib.sourceTypes.fromSource ];
-  };
-}
+    meta = {
+      description = "CharaChorder's all-in-one desktop app";
+      downloadPage = "https://github.com/CharaChorder/nexus/releases/tag/v${version}";
+      homepage = "https://github.com/CharaChorder/nexus/";
+      license = lib.licenses.agpl3Only;
+      maintainers = with lib.maintainers; [getpsyched];
+      mainProgram = "nexus";
+      platforms = lib.platforms.linux;
+      sourceProvenance = [lib.sourceTypes.fromSource];
+    };
+  }

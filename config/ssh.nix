@@ -10,6 +10,6 @@
     settings.PasswordAuthentication = false;
   };
 
-  persist.data.directories = [ "/etc/ssh" ];
-  persist.data.homeDirectories = [ ".ssh" ];
+  persist.data.directories = ["/etc/ssh"];
+  persist.data.homeDirectories = [".ssh"];
 }

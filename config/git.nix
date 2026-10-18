@@ -3,9 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-{
-  hjem.users.primary.packages = [ pkgs.difftastic ];
+}: {
+  hjem.users.primary.packages = [pkgs.difftastic];
   hjem.users.primary.rum.programs.git = {
     enable = true;
 

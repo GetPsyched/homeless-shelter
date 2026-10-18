@@ -7,7 +7,7 @@
     ../../config/zsh.nix
   ];
 
-  services.tailscale.extraSetFlags = [ "--advertise-exit-node" ];
+  services.tailscale.extraSetFlags = ["--advertise-exit-node"];
 
   time.timeZone = "Asia/Dubai";
 }

@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  users.users.primary.packages = with pkgs.jetbrains; [ datagrip ];
+{pkgs, ...}: {
+  users.users.primary.packages = with pkgs.jetbrains; [datagrip];
 
   persist.state.homeDirectories = [
     ".config/JetBrains"
@@ -8,5 +7,5 @@
     ".java"
   ];
 
-  nixpkgs.config.allowUnfreePackages = [ "datagrip" ];
+  nixpkgs.config.allowUnfreePackages = ["datagrip"];
 }

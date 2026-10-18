@@ -4,7 +4,6 @@
   fetchurl,
   lib,
   shiboken6,
-
   # libraries
   gtk3,
   libxkbcommon,
@@ -13,7 +12,6 @@
   qt6,
   unixODBC,
 }:
-
 buildPythonPackage {
   pname = "pyside6-essentials";
   inherit (shiboken6) version;
@@ -50,6 +48,6 @@ buildPythonPackage {
     description = "Minimal wheel for PySide6, it includes only the essentials Qt modules";
     homepage = "https://www.pyside.org";
     license = lib.licenses.lgpl3; # unsure which LGPL version
-    maintainers = with lib.maintainers; [ getpsyched ];
+    maintainers = with lib.maintainers; [getpsyched];
   };
 }

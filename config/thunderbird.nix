@@ -9,6 +9,6 @@
       PromptForDownloadLocation = false;
     };
   };
-  persist.state.homeDirectories = [ ".thunderbird/primary" ];
-  persist.state.homeFiles = [ ".thunderbird/profiles.ini" ];
+  persist.state.homeDirectories = [".thunderbird/primary"];
+  persist.state.homeFiles = [".thunderbird/profiles.ini"];
 }

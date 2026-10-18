@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nixpkgs.config.allowUnfreePackages = [
     "citrix-workspace"
     "linuxx64"

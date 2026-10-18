@@ -9,5 +9,5 @@
     jack.enable = true;
   };
   services.pulseaudio.enable = false;
-  persist.state.homeDirectories = [ ".local/state/wireplumber" ];
+  persist.state.homeDirectories = [".local/state/wireplumber"];
 }

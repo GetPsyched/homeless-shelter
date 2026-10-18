@@ -1,5 +1,4 @@
-{ outputs, ... }:
-{
+{outputs, ...}: {
   nix.channel.enable = false;
   nix.optimise.automatic = true;
   nix.settings = {
@@ -27,5 +26,5 @@
     outputs.overlays.modifications
   ];
 
-  persist.state.directories = [ "/var/lib/nixos" ];
+  persist.state.directories = ["/var/lib/nixos"];
 }

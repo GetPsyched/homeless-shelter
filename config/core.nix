@@ -3,8 +3,7 @@
   lib,
   system,
   ...
-}:
-{
+}: {
   imports = [
     ./boot.nix
     ./builders.nix

@@ -3,11 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   programs.steam = {
     enable = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraCompatPackages = [pkgs.proton-ge-bin];
     dedicatedServer.openFirewall = true;
     remotePlay.openFirewall = true;
   };
@@ -32,5 +31,5 @@
     ".local/share/Terraria"
     "The Escapists"
   ];
-  persist.misc.homeDirectories = [ ".local/share/Steam" ];
+  persist.misc.homeDirectories = [".local/share/Steam"];
 }

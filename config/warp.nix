@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = [ pkgs.cloudflare-warp ];
-  systemd.packages = [ pkgs.cloudflare-warp ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.cloudflare-warp];
+  systemd.packages = [pkgs.cloudflare-warp];
   systemd.services.warp-svc = {
-    after = [ ];
-    wantedBy = [ "multi-user.target" ];
+    after = [];
+    wantedBy = ["multi-user.target"];
     serviceConfig = {
       StateDirectory = "cloudflare-warp";
       # DynamicUser = true;
@@ -30,10 +29,10 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePackages = [ "cloudflare-warp" ];
+  nixpkgs.config.allowUnfreePackages = ["cloudflare-warp"];
   persist.state.directories = [
     "/var/lib/cloudflare-warp"
     "/var/log/cloudflare-warp"
   ];
-  persist.state.homeFiles = [ ".local/share/warp/accepted-tos.txt" ];
+  persist.state.homeFiles = [".local/share/warp/accepted-tos.txt"];
 }

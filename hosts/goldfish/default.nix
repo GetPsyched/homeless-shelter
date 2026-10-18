@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ../../config/core.nix
     ../../config/dconf.nix
@@ -27,8 +26,8 @@
       volumeID = hostName;
     };
 
-    environment.systemPackages = [ pkgs.gparted ];
-    users.users.primary.packages = [ pkgs.wifi-qr ];
+    environment.systemPackages = [pkgs.gparted];
+    users.users.primary.packages = [pkgs.wifi-qr];
 
     networking.wireless.enable = lib.mkForce false;
 

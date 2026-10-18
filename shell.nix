@@ -1,7 +1,4 @@
-{
-  pkgs ? import <nixpkgs> { },
-}:
-
+{pkgs ? import <nixpkgs> {}}:
 pkgs.mkShellNoCC {
-  nativeBuildInputs = with pkgs.buildPackages; [ just ];
+  nativeBuildInputs = with pkgs.buildPackages; [just];
 }

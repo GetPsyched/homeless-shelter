@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -24,6 +27,6 @@
     '';
   };
 
-  persist.state.homeDirectories = [ ".local/state/zsh" ];
-  persist.state.homeFiles = [ ".bash_history" ]; # Keeping this around for a bit
+  persist.state.homeDirectories = [".local/state/zsh"];
+  persist.state.homeFiles = [".bash_history"]; # Keeping this around for a bit
 }

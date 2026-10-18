@@ -1,9 +1,9 @@
-{ config, ... }: {
+{config, ...}: {
   users.users.actual = {
     group = config.users.groups.actual.name;
     isSystemUser = true;
   };
-  users.groups.actual = { };
+  users.groups.actual = {};
 
   services.actual = {
     enable = true;
@@ -12,7 +12,7 @@
     group = config.users.users.actual.group;
   };
 
-  persist.data.directories = [ config.services.actual.settings.dataDir ];
+  persist.data.directories = [config.services.actual.settings.dataDir];
 
   # FIXME https://github.com/tailscale/tailscale/issues/18381
   # services.tailscale.serve.enable = true;
@@ -22,12 +22,12 @@
 
   systemd.services.actual-tailscale-serve = {
     description = "Tailscale Service proxy for ActualBudget";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     after = [
       "actual.service"
       "tailscaled.service"
     ];
-    requires = [ "tailscaled.service" ];
+    requires = ["tailscaled.service"];
 
     serviceConfig = {
       Type = "oneshot";

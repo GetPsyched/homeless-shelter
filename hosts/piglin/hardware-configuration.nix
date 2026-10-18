@@ -4,8 +4,7 @@
   lib,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.common-gpu-intel
@@ -34,7 +33,7 @@
       systemd.enable = true;
     };
 
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
   };
 
   fileSystems = {
@@ -55,13 +54,13 @@
     "/nix" = {
       device = "/dev/mapper/encrypted";
       fsType = "btrfs";
-      options = [ "subvol=nix,compress=zstd,noatime" ];
+      options = ["subvol=nix,compress=zstd,noatime"];
       neededForBoot = true;
     };
     "/persist" = {
       device = "/dev/mapper/encrypted";
       fsType = "btrfs";
-      options = [ "subvol=persist,compress=zstd,noatime" ];
+      options = ["subvol=persist,compress=zstd,noatime"];
       neededForBoot = true;
     };
   };

@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   hjem.users.primary.xdg.mime-apps.default-applications = {
     "text/html" = "firefox.desktop";
     "x-scheme-handler/http" = "firefox.desktop";
@@ -14,16 +13,16 @@
   programs.firefox = {
     enable = true;
 
-    autoConfig =
-      let
-        mkUserJs = prefs: ''
-          ${lib.concatStrings (
-            lib.mapAttrsToList (name: value: ''
-              lockPref("${name}", ${builtins.toJSON value});
-            '') prefs
-          )}
-        '';
-      in
+    autoConfig = let
+      mkUserJs = prefs: ''
+        ${lib.concatStrings (
+          lib.mapAttrsToList (name: value: ''
+            lockPref("${name}", ${builtins.toJSON value});
+          '')
+          prefs
+        )}
+      '';
+    in
       mkUserJs {
         # Dark mode
         "browser.theme.content-theme" = 0;
@@ -33,8 +32,8 @@
 
         # Locales
         "general.useragent.locale" = "en-GB";
-        "intl.accept_languages" = lib.concatStringsSep "," [ "en-GB" ];
-        "intl.locale.requested" = lib.concatStringsSep "," [ "en-GB" ];
+        "intl.accept_languages" = lib.concatStringsSep "," ["en-GB"];
+        "intl.locale.requested" = lib.concatStringsSep "," ["en-GB"];
 
         "browser.tabs.groups.enabled" = true;
         "browser.uidensity" = 1;
@@ -42,68 +41,65 @@
 
         "sidebar.expandOnHover" = true;
         "sidebar.visbility" = "hide";
-        "sidebar.main.tools" = lib.concatStringsSep "," [ "bookmarks" ];
+        "sidebar.main.tools" = lib.concatStringsSep "," ["bookmarks"];
         "sidebar.position_start" = false;
         "sidebar.revamp" = true;
         "sidebar.revamp.round-content-area" = true;
         "sidebar.verticalTabs" = true;
       };
-    languagePacks = [ "en-GB" ];
+    languagePacks = ["en-GB"];
     policies = {
-      Bookmarks =
-        let
-          mkBookmarksFolder =
-            Folder: Placement: bookmarks:
-            map (bookmark: bookmark // { inherit Folder Placement; }) bookmarks;
-        in
-        (mkBookmarksFolder "image-utilities" "menu" [
-          {
-            Title = "colour-picker";
-            URL = "https://imagecolorpicker.com";
-          }
-          {
-            Title = "svg-repo";
-            URL = "https://www.svgrepo.com";
-          }
-          {
-            Title = "palette";
-            URL = "https://www.hexcolortool.com";
-          }
-        ]);
+      Bookmarks = let
+        mkBookmarksFolder = Folder: Placement: bookmarks:
+          map (bookmark: bookmark // {inherit Folder Placement;}) bookmarks;
+      in (mkBookmarksFolder "image-utilities" "menu" [
+        {
+          Title = "colour-picker";
+          URL = "https://imagecolorpicker.com";
+        }
+        {
+          Title = "svg-repo";
+          URL = "https://www.svgrepo.com";
+        }
+        {
+          Title = "palette";
+          URL = "https://www.hexcolortool.com";
+        }
+      ]);
       DisableFirefoxAccounts = true;
       DisablePocket = true;
       DisableTelemetry = true;
       DownloadDirectory = "\${home}";
-      ExtensionSettings =
-        let
-          mkExtension = id: attrs: {
-            name = id;
-            value = {
+      ExtensionSettings = let
+        mkExtension = id: attrs: {
+          name = id;
+          value =
+            {
               installation_mode = "force_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
             }
             // attrs;
-          };
-        in
+        };
+      in
         {
           "*" = {
-            allowed_types = [ "extension" ];
+            allowed_types = ["extension"];
             default_area = "menupanel";
             installation_mode = "blocked";
           };
         }
         // lib.listToAttrs [
-          (mkExtension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" { }) # Stylus
-          (mkExtension "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" { }) # Hide shorts
-          (mkExtension "@testpilot-containers" { })
-          (mkExtension "addon@darkreader.org" { default_area = "navbar"; })
-          (mkExtension "amptra@keepa.com" { })
-          (mkExtension "firefox@tampermonkey.net" { })
-          (mkExtension "sponsorBlocker@ajay.app" { })
-          (mkExtension "uBlock0@raymondhill.net" { })
+          (mkExtension "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" {}) # Stylus
+          (mkExtension "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" {}) # Hide shorts
+          (mkExtension "@testpilot-containers" {})
+          (mkExtension "addon@darkreader.org" {default_area = "navbar";})
+          (mkExtension "amptra@keepa.com" {})
+          (mkExtension "firefox@tampermonkey.net" {})
+          (mkExtension "sponsorBlocker@ajay.app" {})
+          (mkExtension "uBlock0@raymondhill.net" {})
         ];
       Homepage.StartPage = "previous-session";
-      RequestedLocales = [ "en-GB" ];
+      RequestedLocales = ["en-GB"];
       SearchEngines = {
         Add = [
           # Nix
@@ -217,7 +213,7 @@
   hjem.users.primary.rum.programs.firefox = {
     enable = true;
     package = null;
-    profiles.primary = { };
+    profiles.primary = {};
   };
 
   persist.state.homeDirectories = map (p: ".config/mozilla/firefox/${p.path}") (
@@ -225,5 +221,5 @@
   );
 
   # just in case
-  users.users.primary.packages = [ pkgs.ungoogled-chromium ];
+  users.users.primary.packages = [pkgs.ungoogled-chromium];
 }

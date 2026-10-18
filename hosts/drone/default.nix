@@ -1,5 +1,8 @@
-{ hostName, inputs, ... }:
 {
+  hostName,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nixos-hardware.nixosModules.starfive-visionfive-2
 

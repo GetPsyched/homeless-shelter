@@ -3,9 +3,8 @@
   lib,
   modulesPath,
   ...
-}:
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot = {
     initrd.availableKernelModules = [
@@ -21,7 +20,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
   };
 
   fileSystems."/" = {
