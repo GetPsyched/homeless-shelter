@@ -41,11 +41,17 @@
         // lib.genAttrs filteredSystems.${current} (
           hostName:
             systemBuilders.${os} {
-              modules = [./hosts/${hostName} ./modules] ++ modules;
-              specialArgs = {
-                inherit hostName inputs outputs;
-                system = current;
-              };
+              modules =
+                [
+                  {
+                    networking.hostName = hostName;
+                    nixpkgs.hostPlatform = current;
+                  }
+                  ./hosts/${hostName}
+                  ./modules
+                ]
+                ++ modules;
+              specialArgs = {inherit inputs;};
             }
         )) {} (lib.attrNames filteredSystems);
   in {

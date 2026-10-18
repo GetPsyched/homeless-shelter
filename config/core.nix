@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  system,
   ...
 }: {
   imports = [
@@ -23,6 +22,5 @@
 
   system.configurationRevision = lib.mkIf (inputs.self ? rev) inputs.self.rev;
 
-  nixpkgs.hostPlatform = system;
   system.stateVersion = "25.05";
 }

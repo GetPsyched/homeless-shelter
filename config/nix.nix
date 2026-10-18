@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{inputs, ...}: {
   nix.channel.enable = false;
   nix.optimise.automatic = true;
   nix.settings = {
@@ -21,9 +21,9 @@
     warn-dirty = false;
   };
 
-  nixpkgs.overlays = [
-    outputs.overlays.additions
-    outputs.overlays.modifications
+  nixpkgs.overlays = with inputs.self.outputs.overlays; [
+    additions
+    modifications
   ];
 
   persist.state.directories = ["/var/lib/nixos"];
