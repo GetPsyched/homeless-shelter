@@ -30,6 +30,7 @@
           "potato"
         ];
       };
+      forAllSystems = lib.genAttrs (builtins.attrNames systems);
 
       mkConfigurations =
         os: modules:
@@ -59,14 +60,14 @@
         ) { } (lib.attrNames filteredSystems);
     in
     {
-      checks = lib.mapAttrs (
-        _: hostNames:
+      checks = forAllSystems (
+        system:
         lib.listToAttrs (
           map (
             name: lib.nameValuePair name outputs.nixosConfigurations.${name}.config.system.build.toplevel
-          ) hostNames
+          ) systems.${system}
         )
-      ) systems;
+      );
 
       nixosConfigurations = mkConfigurations "linux" [ ];
 
