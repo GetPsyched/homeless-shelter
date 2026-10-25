@@ -30,7 +30,6 @@
         device = "/dev/disk/by-partlabel/nixos";
         bypassWorkqueues = true;
       };
-      systemd.enable = true;
     };
 
     kernelModules = ["kvm-intel"];

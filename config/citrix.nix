@@ -5,7 +5,7 @@
   ];
   persist.state.homeDirectories = [
     ".ICAClient"
-    ".local/share/selfservice"
+    ".local/share/.selfservice-wrapped"
   ];
   users.users.primary.packages = with pkgs; [
     citrix-workspace
