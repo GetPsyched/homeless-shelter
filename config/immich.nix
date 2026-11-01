@@ -7,7 +7,7 @@
       server.externalDomain = "https://immich.getpsyched.dev";
     };
   };
-  persist.data.directories = [config.services.immich.mediaLocation];
+  persist.data.directories = [config.services.immich.mediaLocation config.services.postgresql.dataDir];
 
   # FIXME https://github.com/tailscale/tailscale/issues/18381
   # services.tailscale.serve.enable = true;
