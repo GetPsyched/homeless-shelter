@@ -96,6 +96,22 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
       }
     },
+    "nixpkgs-citrix": {
+      "locked": {
+        "lastModified": 1793650223,
+        "narHash": "sha256-W9m/BSvRn1YHXhu+9QRXBUPUG6HZMN9aQB/zB4ezKyY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f2b3da7a7cc7bd023e9bcef69e9f9f6c64067d17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "refs/pull/582393/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-hytale": {
       "locked": {
         "lastModified": 1774777666,
@@ -122,6 +138,7 @@
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-citrix": "nixpkgs-citrix",
         "nixpkgs-hytale": "nixpkgs-hytale"
       }
     }

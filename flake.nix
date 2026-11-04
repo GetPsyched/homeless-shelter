@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+    nixpkgs-citrix.url = "github:nixos/nixpkgs/refs/pull/582393/head";
     nixpkgs-hytale.url = "github:nixos/nixpkgs/refs/pull/479368/head";
 
     hjem.follows = "hjem-rum/hjem";
