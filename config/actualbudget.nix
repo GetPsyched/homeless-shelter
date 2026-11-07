@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   users.users.actual = {
     group = config.users.groups.actual.name;
     isSystemUser = true;
@@ -28,6 +32,17 @@
       "tailscaled.service"
     ];
     requires = ["tailscaled.service"];
+
+    path = [config.services.tailscale.package pkgs.jq];
+    preStart = ''
+      for i in $(seq 1 30); do
+        state=$(tailscale status --json --peers=false 2>/dev/null | jq -r .BackendState || true)
+        [ "$state" = "Running" ] && exit 0
+        echo "tailscale not Running (last state: ''${state:-unreachable})" >&2
+        sleep 1
+      done
+      exit 1
+    '';
 
     serviceConfig = {
       Type = "oneshot";
