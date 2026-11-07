@@ -32,6 +32,7 @@
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
+      Restart = "on-failure";
 
       ExecStart = builtins.concatStringsSep " " [
         "${config.services.tailscale.package}/bin/tailscale serve"
