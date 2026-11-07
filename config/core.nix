@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./boot.nix
     ./builders.nix
@@ -20,7 +16,7 @@
     "/var/tmp"
   ];
 
-  system.configurationRevision = lib.mkIf (inputs.self ? rev) inputs.self.rev;
+  system.configurationRevision = inputs.self.shortRev or inputs.self.dirtyShortRev or null;
 
   system.stateVersion = "25.05";
 }
