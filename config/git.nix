@@ -22,7 +22,7 @@
       commit.gpgsign = true;
       tag.gpgsign = true;
       gpg.format = "ssh";
-      gpg.ssh.progam = lib.getExe' pkgs.openssh "ssh-keygen";
+      gpg.ssh.program = lib.getExe' pkgs.openssh "ssh-keygen";
       user.signingKey = "${config.users.users.primary.home}/.ssh/id_ed25519.pub";
 
       advice.detachedHead = false;
