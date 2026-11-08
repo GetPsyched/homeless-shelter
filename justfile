@@ -24,9 +24,9 @@ build specialisation="":
 test specialisation="":
     #!/bin/sh -e
     if [ -z "{{specialisation}}" ]; then
-        sudo nixos-rebuild switch --option builders '' --option eval-cache false --flake .
+        sudo nixos-rebuild test --option builders '' --option eval-cache false --flake .
     else
-        sudo nixos-rebuild switch --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
+        sudo nixos-rebuild test --option builders '' --option eval-cache false --specialisation {{specialisation}} --flake .
     fi
 
 # build the configuration, make it the default boot option, and immediately activate it
