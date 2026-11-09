@@ -4,7 +4,7 @@
   ...
 }: let
   devices = {
-    "brick".id = "SP2DQUY-XEVHP57-TOSHPSI-7OEZQUS-KZU2JD6-6XDCB5S-RFVQJCZ-2DCGMAP";
+    "doodle".id = "62ODK2B-B7R64PP-YUGI522-FCS3KEZ-ZUJYOJB-T6K767P-SW76ZTR-BGLT3AM";
     "offset".id = "S5ZTTSP-KCYWBKD-57JVIEY-VS3ZSTD-BPI2Z53-W7GXATT-NJJG6N5-UTO2MQ5";
     "piglin".id = "XQUCHJF-43YRSWB-Y7QWQMK-5Z47VDA-66YPV7Y-YY2M27F-UAJDXIE-SZHKYAL";
     "s10plus".id = "N7A42Q4-GRDD3WR-4MLVLYK-2IIGL7I-Z73RJJ5-LJWVSTZ-Q2KOC4G-PSAX3AW";
@@ -26,7 +26,7 @@ in {
         "aegis" = {
           id = "vbv22-v1s0v";
           label = "aegis";
-          devices = ["offset"];
+          devices = ["doodle" "offset"];
         };
         "documents" = {
           id = "neany-xwfew";
