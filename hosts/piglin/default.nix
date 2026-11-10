@@ -27,6 +27,7 @@
     ../../config/jetbrains.nix
     ../../config/keepassxc.nix
     ../../config/kitty.nix
+    ../../config/less.nix
     ../../config/locale.nix
     ../../config/logseq.nix
     ../../config/networking.nix
